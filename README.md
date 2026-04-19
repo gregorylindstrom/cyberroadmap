@@ -39,7 +39,6 @@ Live at: **[cyberroadmap.org](https://cyberroadmap.org)**
 └──────────────────────────────────────────────────────┘
 ```
 
-
 **Cost:** $0/month. Scraper runs in GitHub's free tier (2000 min/mo), hosting is Azure's always-free Static Web Apps, DNS and CDN are Cloudflare free.
 
 ## Directory Structure
