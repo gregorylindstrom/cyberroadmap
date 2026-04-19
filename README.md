@@ -163,5 +163,6 @@ Cybersecurity at Lone Star College.
 
 ## License
 
+
 All code in this repo is MIT licensed. See `LICENSE`.
 The content (job descriptions, etc.) belongs to the original job posters.
