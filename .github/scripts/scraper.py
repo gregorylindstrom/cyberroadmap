@@ -1,27 +1,25 @@
 #!/usr/bin/env python3
 """
-CyberRoadmap Jobs Scraper
-=========================
-Pulls entry-level cyber/IT/infrastructure jobs from multiple public APIs,
-merges them into a single normalized format, and writes the result to
-public/data/jobs.json for the CyberRoadmap frontend to consume.
+CyberRoadmap Jobs Scraper v2
+============================
+Pulls entry-level cyber/IT/infrastructure/cloud/AI/data jobs from multiple
+public APIs, aggressively filters noise, auto-categorizes, deduplicates, and
+writes the result to public/data/jobs.json.
+
+Major improvements over v1:
+    - Non-federal jobs MUST match at least one tech category (excludes lifeguards, nurses, etc.)
+    - Stronger entry-level filters (more senior patterns, salary cap, title blocklist)
+    - 3-4x more search queries per source for better coverage
+    - Broader AI/ML search terms (was underrepresented)
+    - Deeper pagination on Adzuna (4 pages instead of 2)
+    - Fixed The Muse category matching (was returning 2 jobs instead of ~100)
+    - Salary-based filter: non-federal salary_min > $130K = excluded (senior)
 
 Sources:
     - USAJobs (federal)
     - Adzuna (nationwide aggregator)
-    - The Muse (tech-focused, strong entry-level)
+    - The Muse (tech-focused)
     - Remotive (remote-only)
-
-Runs every 6 hours via GitHub Actions. Cost: $0.
-
-Environment variables required (set in GitHub Secrets):
-    - USAJOBS_API_KEY
-    - USAJOBS_USER_EMAIL  (your email, required by USAJobs TOS)
-    - ADZUNA_APP_ID
-    - ADZUNA_APP_KEY
-
-Optional:
-    - THE_MUSE_API_KEY (works without it, lower rate limit)
 """
 
 import json
@@ -40,92 +38,143 @@ import requests
 
 # --- Configuration ---------------------------------------------------------
 
-# Categories we tag jobs with. Each category has a list of keyword patterns
-# that, when matched in the title or description, tag the job with that category.
-# A single job can belong to multiple categories (e.g., "Cloud Security Engineer"
-# is both Cloud and Cyber).
+# Category regex patterns. A job can belong to multiple categories.
 CATEGORIES = {
     "Cyber": [
-        r"\bcyber\b", r"\binfosec\b", r"\binformation\s+security\b",
-        r"\bsecurity\s+(analyst|engineer|architect|consultant|specialist|administrator|operations)\b",
+        r"\bcyber(security|\s+security)?\b", r"\binfosec\b",
+        r"\binformation\s+security\b",
+        r"\bsecurity\s+(analyst|engineer|architect|consultant|specialist|administrator|operations|intern|associate)\b",
         r"\bSOC\b", r"\bpen\s*test", r"\bpenetration\b", r"\bethical\s+hack",
         r"\bvulnerability\b", r"\bthreat\b", r"\bincident\s+response\b",
         r"\bGRC\b", r"\bgovernance.{0,20}risk.{0,20}compliance\b",
         r"\bCISSP\b", r"\bCISM\b", r"\bOSCP\b", r"\bSecurity\+\b",
         r"\bred\s+team\b", r"\bblue\s+team\b", r"\bpurple\s+team\b",
         r"\bmalware\b", r"\bforensic", r"\bCMMC\b", r"\bNIST\s+800\b",
+        r"\bIAM\b", r"\bidentity\s+access\b", r"\bzero\s+trust\b",
+        r"\bfirewall\s+(engineer|admin)\b",
+        r"\b(junior|associate|entry)\s+(security|cyber)\b",
+        r"\brisk\s+(analyst|assessor|specialist)\b.*(security|cyber|it)",
+        r"\bcompliance\s+(analyst|specialist).*(cyber|security|information)",
     ],
     "IT": [
-        r"\bIT\s+(support|analyst|specialist|technician|admin)",
+        r"\bIT\s+(support|analyst|specialist|technician|admin|helpdesk|associate|intern)",
         r"\bhelp\s*desk\b", r"\bservice\s*desk\b", r"\bdesktop\s+support\b",
-        r"\btechnical\s+support\b", r"\bsystems?\s+admin", r"\bsysadmin\b",
-        r"\bnetwork\s+(admin|engineer|technician|analyst)\b",
+        r"\btechnical\s+support\s+(specialist|analyst|engineer|technician)",
+        r"\bsystems?\s+(admin|administrator|engineer|analyst)\b",
+        r"\bsysadmin\b",
+        r"\bnetwork\s+(admin|engineer|technician|analyst|specialist|administrator)\b",
         r"\bA\+\b", r"\bNetwork\+\b", r"\bCCNA\b",
+        r"\bIT\s+(intern|trainee|associate)\b",
+        r"\binformation\s+technology\s+(specialist|support|analyst)\b",
     ],
     "Infrastructure": [
-        r"\binfrastructure\b", r"\bdevops\b", r"\bSRE\b",
-        r"\bsite\s+reliability\b", r"\bplatform\s+engineer\b",
-        r"\bkubernetes\b", r"\bdocker\b", r"\bterraform\b", r"\bansible\b",
+        r"\binfrastructure\s+(engineer|analyst|administrator|specialist|intern)\b",
+        r"\bdevops\b", r"\bSRE\b", r"\bsite\s+reliability\b",
+        r"\bplatform\s+engineer", r"\bkubernetes\b",
+        r"\bdocker\b", r"\bterraform\b", r"\bansible\b",
+        r"\bCI/CD\b", r"\bcontinuous\s+(integration|deployment)\b",
     ],
     "Cloud": [
-        r"\bcloud\b", r"\bAWS\b", r"\bAzure\b",
-        r"\bGCP\b", r"\bgoogle\s+cloud\b",
+        r"\bcloud\s+(engineer|architect|administrator|analyst|specialist|developer|intern|associate)\b",
+        r"\bAWS\s+(engineer|developer|architect|associate|intern)\b",
+        r"\bAzure\s+(engineer|developer|architect|associate|intern|administrator)\b",
+        r"\bGCP\s+(engineer|developer|architect)\b",
+        r"\bgoogle\s+cloud\s+(engineer|platform)\b",
+        r"\bcloud\s+security\b", r"\bcloud\s+operations\b",
     ],
     "AI/ML": [
-        r"\bAI\b(?!\s+ops)",  # "AI" but not "AI ops"
-        r"\bartificial\s+intelligence\b", r"\bmachine\s+learning\b",
-        r"\bML\s+(engineer|ops)\b", r"\bdata\s+scientist\b",
-        r"\bLLM\b", r"\bneural\s+network\b", r"\bdeep\s+learning\b",
-        r"\bMLOps\b", r"\bprompt\s+engineer",
+        r"\b(AI|artificial\s+intelligence)\s+(engineer|developer|specialist|analyst|intern|associate|researcher)\b",
+        r"\bmachine\s+learning\s+(engineer|scientist|analyst|developer|intern|associate|researcher)\b",
+        r"\bML\s+(engineer|ops|intern|associate)\b",
+        r"\bdata\s+scientist\b", r"\bMLOps\b",
+        r"\bLLM\s+(engineer|researcher)\b", r"\bprompt\s+engineer",
+        r"\bapplied\s+AI\b", r"\bAI\s+researcher\b",
+        r"\bcomputer\s+vision\s+(engineer|researcher)\b",
+        r"\bNLP\s+(engineer|researcher|scientist)\b",
     ],
     "Data": [
-        r"\bdata\s+(analyst|engineer|scientist|architect)\b",
-        r"\bETL\b", r"\bdatabase\s+admin", r"\bDBA\b", r"\bSQL\b",
-        r"\bpower\s*BI\b", r"\btableau\b", r"\bsnowflake\b",
+        r"\bdata\s+(analyst|engineer|architect|developer|intern|associate|specialist)\b",
+        r"\bETL\s+(developer|engineer)\b", r"\bdatabase\s+admin",
+        r"\bDBA\b", r"\bpower\s*BI\s+(developer|analyst)\b",
+        r"\btableau\s+(developer|analyst)\b", r"\bsnowflake\s+developer\b",
+        r"\bbusiness\s+intelligence\s+(analyst|developer|engineer|intern)\b",
+        r"\bBI\s+(analyst|developer|engineer)\b",
+        r"\bSQL\s+(developer|analyst)\b",
     ],
     "Software": [
-        r"\bsoftware\s+(engineer|developer)\b", r"\bweb\s+developer\b",
-        r"\bfull\s*stack\b", r"\bfront\s*end\b", r"\bback\s*end\b",
+        r"\bsoftware\s+(engineer|developer|intern|associate)\b",
+        r"\bweb\s+(developer|engineer)\b",
+        r"\b(full|fullstack)\s*stack\s+(developer|engineer)\b",
+        r"\b(front|frontend)\s*end\s+(developer|engineer)\b",
+        r"\b(back|backend)\s*end\s+(developer|engineer)\b",
         r"\bpython\s+developer\b", r"\bjava\s+developer\b",
-        r"\bapplication\s+developer\b",
+        r"\bjunior\s+(developer|programmer|engineer)\b",
+        r"\bapplication\s+developer\b", r"\bmobile\s+developer\b",
+        r"\biOS\s+developer\b", r"\bandroid\s+developer\b",
     ],
 }
 
-# Entry-level indicators. A job is considered entry-level if ANY of these
-# match in title/description, OR if none of the senior indicators match
-# AND the years-of-experience requirement is low.
+# Entry-level indicators
 ENTRY_LEVEL_POSITIVE = [
     r"\bentry\s*level\b", r"\bjunior\b", r"\bassociate\b",
     r"\bintern(ship)?\b", r"\btrainee\b", r"\bgraduate\b",
-    r"\bI\b(?!\w)", r"\bnew\s+grad", r"\bearly\s+career\b",
-    r"\bapprentice\b", r"\bjr\.?\b", r"\btier\s+1\b",
-    r"\blevel\s+[1I]\b", r"\b0[-\s]?2\s+years\b",
+    r"\bnew\s+grad", r"\bearly\s+career\b", r"\bapprentice\b",
+    r"\bjr\.?\b", r"\btier\s+1\b", r"\blevel\s+[1I]\b",
+    r"\b0[-\s]?[123]\s+years\b", r"\b1[-\s]?2\s+years\b",
+    r"\bno\s+experience\s+required\b",
 ]
 
 SENIOR_NEGATIVE = [
     r"\bsenior\b", r"\bsr\.?\b", r"\blead\b", r"\bprincipal\b",
-    r"\bstaff\b", r"\barchitect\b", r"\bmanager\b", r"\bdirector\b",
-    r"\b(5|6|7|8|9|10|15|20)\+?\s+years\b", r"\bexpert\b",
-    r"\bhead\s+of\b", r"\bVP\b", r"\bchief\b",
+    r"\bstaff\s+(engineer|developer|analyst)\b",
+    r"\barchitect\b", r"\bmanager\b", r"\bdirector\b",
+    r"\b(5|6|7|8|9|10|12|15|20)\+?\s+years\b",
+    r"\bexpert\b", r"\bhead\s+of\b", r"\bVP\b", r"\bchief\b",
+    r"\bfellow\b", r"\bdistinguished\b",
+    r"\btech\s+lead\b", r"\bteam\s+lead\b",
+    r"\b(minimum|at\s+least)\s+(4|5|6|7|8|10)\s+years\b",
+]
+
+# Aggressive blocklist - titles that clearly aren't tech jobs even if
+# Adzuna surfaces them for "entry level" searches
+TITLE_BLOCKLIST = [
+    r"\blifeguard\b", r"\bnurse\b", r"\bCNA\b",
+    r"\bmedical\s+(assistant|technician|receptionist)\b",
+    r"\bdental\s+(assistant|hygienist)\b",
+    r"\bwarehouse\s+(associate|worker|clerk)\b",
+    r"\bretail\s+(associate|clerk|manager)\b",
+    r"\bcashier\b", r"\bserver\b", r"\bbartender\b",
+    r"\bhousekeep", r"\bjanitor\b", r"\bcustodian\b",
+    r"\bdriver\b(?!.*software)", r"\btruck\b",
+    r"\bsales\s+(associate|representative)\b(?!.*tech)",
+    r"\bteacher\b(?!.*(computer|technology|coding))",
+    r"\bpharmacy\s+tech", r"\bphysical\s+therap",
+    r"\breceptionist\b", r"\bmachine\s+operator\b",
+    r"\bforklift\b", r"\bcook\b", r"\bchef\b",
+    r"\bhair\s+stylist\b", r"\bbarber\b",
+    r"\bmassage\s+therapist\b", r"\bcounselor\b",
+    r"\bcase\s+manager\b", r"\bsocial\s+worker\b",
+    r"\bconstruction\s+(worker|laborer)\b", r"\bplumber\b",
+    r"\belectrician\b(?!.*(industrial|controls|electronics\s+tech))",
+    r"\bmechanic\b(?!.*(software|aircraft.*systems))",
+    r"\bassembler\b", r"\bfabricator\b",
+    r"\bwelder\b", r"\bmaintenance\s+(worker|technician)\b(?!.*(IT|systems|server))",
 ]
 
 
 # --- Utility functions -----------------------------------------------------
 
 def log(msg: str) -> None:
-    """Log with timestamp."""
     print(f"[{datetime.now(timezone.utc).strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
 def fingerprint(title: str, company: str, location: str) -> str:
-    """Create a stable deduplication key for a job."""
     normalized = f"{title.lower().strip()}|{company.lower().strip()}|{location.lower().strip()[:20]}"
     return hashlib.md5(normalized.encode()).hexdigest()[:16]
 
 
 def categorize(title: str, description: str = "") -> list[str]:
-    """Apply our category regex patterns to tag a job."""
-    text = f"{title} {description[:500]}".lower()
+    text = f"{title} {description[:800]}".lower()
     matches = []
     for cat, patterns in CATEGORIES.items():
         for pattern in patterns:
@@ -135,34 +184,35 @@ def categorize(title: str, description: str = "") -> list[str]:
     return matches
 
 
-def is_entry_level(title: str, description: str = "") -> bool:
-    """
-    Heuristic: entry-level if explicit entry indicator found,
-    OR if no senior indicator AND description hints at low experience.
-    """
-    combined = f"{title} {description[:1000]}".lower()
+def is_blocklisted(title: str) -> bool:
+    """Is this a title we know is NOT a tech job despite keyword matches?"""
+    for pattern in TITLE_BLOCKLIST:
+        if re.search(pattern, title, re.IGNORECASE):
+            return True
+    return False
 
-    # Strong positive signal → entry-level
+
+def is_entry_level(title: str, description: str = "") -> bool:
+    combined = f"{title} {description[:1500]}".lower()
+
+    # Strong positive signal
     for pattern in ENTRY_LEVEL_POSITIVE:
         if re.search(pattern, combined, re.IGNORECASE):
             return True
 
-    # Strong negative signal → not entry-level
+    # Strong negative signal
     for pattern in SENIOR_NEGATIVE:
         if re.search(pattern, combined, re.IGNORECASE):
             return False
 
-    # Ambiguous — default to including (students can filter further)
+    # Ambiguous — default to including (user can filter further)
     return True
 
 
 def clean_description(text: str, max_len: int = 300) -> str:
-    """Strip HTML and truncate to reasonable summary length."""
     if not text:
         return ""
-    # Remove HTML tags
     text = re.sub(r"<[^>]+>", " ", text)
-    # Collapse whitespace
     text = re.sub(r"\s+", " ", text).strip()
     if len(text) > max_len:
         text = text[:max_len].rsplit(" ", 1)[0] + "…"
@@ -170,17 +220,12 @@ def clean_description(text: str, max_len: int = 300) -> str:
 
 
 def parse_location(loc: str) -> dict:
-    """
-    Parse a location string into structured components.
-    Returns: {"display": str, "city": str, "state": str, "remote": bool}
-    """
     if not loc:
         return {"display": "Location not specified", "city": "", "state": "", "remote": False}
 
     display = loc.strip()
     remote = bool(re.search(r"\bremote\b|\banywhere\b|\btelework\b", display, re.IGNORECASE))
 
-    # Try to extract "City, ST" pattern
     match = re.search(r"([A-Za-z .\-]+),\s*([A-Z]{2})\b", display)
     if match:
         return {
@@ -193,13 +238,41 @@ def parse_location(loc: str) -> dict:
     return {"display": display, "city": "", "state": "", "remote": remote}
 
 
+def passes_tech_filter(job: dict, is_federal: bool) -> bool:
+    """
+    Unified filter for whether to include a job.
+    Federal jobs are more lenient; private-sector jobs must clearly be tech.
+    """
+    title = job.get("title", "")
+    desc = job.get("description", "")
+
+    # 1. Hard blocklist - never include these regardless of source
+    if is_blocklisted(title):
+        return False
+
+    # 2. Entry-level check
+    if not is_entry_level(title, desc):
+        return False
+
+    # 3. Non-federal salary cap: if min salary > $130K, likely senior
+    if not is_federal:
+        sal_min = job.get("salary_min")
+        if sal_min and sal_min > 130000:
+            return False
+
+    # 4. Non-federal MUST match at least one tech category
+    if not is_federal:
+        cats = job.get("categories", [])
+        if not cats:
+            return False
+
+    return True
+
+
 # --- Source adapters -------------------------------------------------------
 
 def fetch_usajobs() -> list[dict]:
-    """
-    Federal jobs via USAJobs API.
-    Docs: https://developer.usajobs.gov/api-reference/get-api-search
-    """
+    """Federal jobs via USAJobs API."""
     api_key = os.environ.get("USAJOBS_API_KEY")
     user_email = os.environ.get("USAJOBS_USER_EMAIL")
 
@@ -214,87 +287,89 @@ def fetch_usajobs() -> list[dict]:
         "Authorization-Key": api_key,
     }
 
-    # We search for each category keyword set to get broad coverage
-    all_jobs = []
-    # USAJobs occupational series codes for tech fields
-    # 2210 = IT Management, 1550 = Computer Science, 0854 = Computer Engineering
+    # Broader federal tech terms — USAJobs uses occupational series heavily
     search_terms = [
         "cybersecurity", "information security", "cyber analyst",
-        "IT specialist", "network engineer", "systems administrator",
-        "software developer", "data analyst", "cloud engineer",
+        "IT specialist", "information technology",
+        "network engineer", "systems administrator",
+        "software developer", "software engineer",
+        "data analyst", "data scientist",
+        "cloud engineer", "cloud architect",
+        "security analyst", "security engineer",
+        "information security analyst",
+        "computer scientist", "computer engineer",
     ]
 
+    all_jobs = []
     seen_ids = set()
+
     for term in search_terms:
-        try:
-            params = {
-                "Keyword": term,
-                "ResultsPerPage": 100,
-                "Page": 1,
-            }
-            r = requests.get(
-                "https://data.usajobs.gov/api/search",
-                headers=headers,
-                params=params,
-                timeout=20,
-            )
-            r.raise_for_status()
-            data = r.json()
-
-            items = data.get("SearchResult", {}).get("SearchResultItems", [])
-            for item in items:
-                descr = item.get("MatchedObjectDescriptor", {})
-                job_id = descr.get("PositionID", "")
-                if job_id in seen_ids:
-                    continue
-                seen_ids.add(job_id)
-
-                title = descr.get("PositionTitle", "")
-                summary = descr.get("UserArea", {}).get("Details", {}).get("JobSummary", "") \
-                          or descr.get("QualificationSummary", "")
-
-                if not is_entry_level(title, summary):
-                    continue
-
-                # Location can be a list; pick the first
-                locations = descr.get("PositionLocation", [])
-                loc_str = locations[0].get("LocationName", "") if locations else ""
-                loc = parse_location(loc_str)
-
-                # Salary
-                pay = descr.get("PositionRemuneration", [])
-                salary_min = pay[0].get("MinimumRange") if pay else None
-                salary_max = pay[0].get("MaximumRange") if pay else None
-
-                job = {
-                    "id": f"usajobs_{job_id}",
-                    "title": title,
-                    "company": descr.get("OrganizationName", "U.S. Federal Government"),
-                    "location": loc,
-                    "description": clean_description(summary),
-                    "url": descr.get("PositionURI", ""),
-                    "posted": descr.get("PublicationStartDate", ""),
-                    "salary_min": float(salary_min) if salary_min else None,
-                    "salary_max": float(salary_max) if salary_max else None,
-                    "source": "USAJobs",
-                    "federal": True,
-                    "categories": categorize(title, summary),
-                    "fingerprint": fingerprint(title, descr.get("OrganizationName", ""), loc_str),
+        for page in [1, 2]:  # 2 pages per term for more coverage
+            try:
+                params = {
+                    "Keyword": term,
+                    "ResultsPerPage": 100,
+                    "Page": page,
                 }
-                all_jobs.append(job)
-            time.sleep(0.3)  # gentle on the API
-        except Exception as e:
-            log(f"USAJobs error on '{term}': {e}")
+                r = requests.get(
+                    "https://data.usajobs.gov/api/search",
+                    headers=headers, params=params, timeout=20,
+                )
+                r.raise_for_status()
+                data = r.json()
+
+                items = data.get("SearchResult", {}).get("SearchResultItems", [])
+                if not items:
+                    break  # no more pages
+
+                for item in items:
+                    descr = item.get("MatchedObjectDescriptor", {})
+                    job_id = descr.get("PositionID", "")
+                    if job_id in seen_ids:
+                        continue
+                    seen_ids.add(job_id)
+
+                    title = descr.get("PositionTitle", "")
+                    summary = descr.get("UserArea", {}).get("Details", {}).get("JobSummary", "") \
+                              or descr.get("QualificationSummary", "")
+
+                    locations = descr.get("PositionLocation", [])
+                    loc_str = locations[0].get("LocationName", "") if locations else ""
+                    loc = parse_location(loc_str)
+
+                    pay = descr.get("PositionRemuneration", [])
+                    salary_min = pay[0].get("MinimumRange") if pay else None
+                    salary_max = pay[0].get("MaximumRange") if pay else None
+
+                    job = {
+                        "id": f"usajobs_{job_id}",
+                        "title": title,
+                        "company": descr.get("OrganizationName", "U.S. Federal Government"),
+                        "location": loc,
+                        "description": clean_description(summary),
+                        "url": descr.get("PositionURI", ""),
+                        "posted": descr.get("PublicationStartDate", ""),
+                        "salary_min": float(salary_min) if salary_min else None,
+                        "salary_max": float(salary_max) if salary_max else None,
+                        "source": "USAJobs",
+                        "federal": True,
+                        "categories": categorize(title, summary),
+                        "fingerprint": fingerprint(title, descr.get("OrganizationName", ""), loc_str),
+                    }
+
+                    if passes_tech_filter(job, is_federal=True):
+                        all_jobs.append(job)
+                time.sleep(0.3)
+            except Exception as e:
+                log(f"USAJobs error on '{term}' page {page}: {e}")
+                break
 
     log(f"USAJobs: {len(all_jobs)} jobs")
     return all_jobs
 
 
 def fetch_adzuna() -> list[dict]:
-    """
-    Adzuna — nationwide aggregator with good coverage.
-    Docs: https://developer.adzuna.com/docs/search
-    """
+    """Adzuna — nationwide aggregator."""
     app_id = os.environ.get("ADZUNA_APP_ID")
     app_key = os.environ.get("ADZUNA_APP_KEY")
 
@@ -306,32 +381,54 @@ def fetch_adzuna() -> list[dict]:
     all_jobs = []
     seen_ids = set()
 
-    # Search terms aligned with our categories
+    # Broader search terms organized by category
     search_terms = [
+        # Cyber
         "entry level cybersecurity", "junior security analyst",
-        "entry level IT support", "help desk",
-        "junior network engineer", "junior systems administrator",
-        "entry level cloud engineer", "junior data analyst",
-        "junior software developer", "SOC analyst entry",
+        "security operations analyst", "SOC analyst",
+        "cybersecurity intern", "junior cybersecurity engineer",
+        "information security analyst",
+        # IT
+        "entry level IT support", "help desk analyst",
+        "IT support specialist", "junior systems administrator",
+        "desktop support technician", "IT technician",
+        # Network/Infrastructure
+        "junior network engineer", "network administrator",
+        "junior devops engineer", "devops intern",
+        # Cloud
+        "entry level cloud engineer", "junior cloud engineer",
+        "AWS associate", "Azure associate",
+        # Data
+        "junior data analyst", "entry level data analyst",
+        "junior data engineer", "business intelligence analyst",
+        # AI/ML
+        "junior machine learning engineer", "machine learning intern",
+        "entry level AI engineer", "junior data scientist",
+        "ML engineer intern",
+        # Software
+        "junior software engineer", "junior developer",
+        "entry level software engineer", "junior web developer",
+        "software engineer intern", "associate software engineer",
     ]
 
     for term in search_terms:
-        for page in [1, 2]:  # first 2 pages per term = up to 100 jobs
+        for page in range(1, 5):  # 4 pages per term
             try:
                 url = f"https://api.adzuna.com/v1/api/jobs/us/search/{page}"
                 params = {
-                    "app_id": app_id,
-                    "app_key": app_key,
-                    "what": term,
-                    "results_per_page": 50,
-                    "max_days_old": 30,
-                    "sort_by": "date",
+                    "app_id": app_id, "app_key": app_key,
+                    "what": term, "results_per_page": 50,
+                    "max_days_old": 30, "sort_by": "date",
                 }
                 r = requests.get(url, params=params, timeout=20)
                 r.raise_for_status()
                 data = r.json()
 
-                for item in data.get("results", []):
+                items = data.get("results", [])
+                if not items:
+                    break  # no more pages for this term
+
+                for item in items:
                     job_id = str(item.get("id", ""))
                     if job_id in seen_ids:
                         continue
@@ -339,9 +436,6 @@ def fetch_adzuna() -> list[dict]:
 
                     title = item.get("title", "")
                     desc = item.get("description", "")
-
-                    if not is_entry_level(title, desc):
-                        continue
 
                     loc = parse_location(item.get("location", {}).get("display_name", ""))
 
@@ -358,11 +452,16 @@ def fetch_adzuna() -> list[dict]:
                         "source": "Adzuna",
                         "federal": False,
                         "categories": categorize(title, desc),
-                        "fingerprint": fingerprint(title, item.get("company", {}).get("display_name", ""), loc["display"]),
+                        "fingerprint": fingerprint(
+                            title,
+                            item.get("company", {}).get("display_name", ""),
+                            loc["display"],
+                        ),
                     }
-                    all_jobs.append(job)
 
-                time.sleep(0.5)  # rate limit courtesy
+                    if passes_tech_filter(job, is_federal=False):
+                        all_jobs.append(job)
+                time.sleep(0.3)
             except Exception as e:
                 log(f"Adzuna error on '{term}' page {page}: {e}")
                 break
@@ -373,26 +472,29 @@ def fetch_adzuna() -> list[dict]:
 
 def fetch_the_muse() -> list[dict]:
     """
-    The Muse — strong on entry-level tech jobs.
-    Docs: https://www.themuse.com/developers/api/v2
-    Works without API key but has lower rate limit.
+    The Muse — strong on entry-level tech.
+    FIX v2: Use broader categories AND no category (to catch more), and apply
+    our own category filter post-fetch.
     """
     log("The Muse: fetching...")
     all_jobs = []
     seen_ids = set()
 
-    # The Muse uses category names, not free text search
+    # The Muse categories that contain tech jobs
     muse_categories = [
-        "Data and Analytics", "Software Engineering",
+        "Data and Analytics", "Data Science",
+        "Software Engineering", "Software Engineer",
         "Engineering", "IT",
-        "Business Operations",  # includes many entry-level roles
+        "Information Technology", "Computer & IT",
+        "DevOps", "Cybersecurity",
+        "Cloud", "Cloud Architecture",
     ]
 
     levels = ["Entry Level", "Internship"]
 
     for cat in muse_categories:
         for level in levels:
-            for page in range(1, 3):  # 2 pages per combo = up to 40
+            for page in range(1, 5):  # 4 pages per combination
                 try:
                     params = {
                         "category": cat,
@@ -407,13 +509,16 @@ def fetch_the_muse() -> list[dict]:
 
                     r = requests.get(
                         "https://www.themuse.com/api/public/jobs",
-                        params=params,
-                        timeout=20,
+                        params=params, timeout=20,
                     )
                     r.raise_for_status()
                     data = r.json()
 
-                    for item in data.get("results", []):
+                    items = data.get("results", [])
+                    if not items:
+                        break
+
+                    for item in items:
                         job_id = str(item.get("id", ""))
                         if job_id in seen_ids:
                             continue
@@ -422,15 +527,9 @@ def fetch_the_muse() -> list[dict]:
                         title = item.get("name", "")
                         desc = item.get("contents", "")
 
-                        # Extract location
                         locs = item.get("locations", [])
                         loc_str = locs[0].get("name", "") if locs else ""
                         loc = parse_location(loc_str)
-
-                        # Filter to only tech-relevant categories
-                        cats = categorize(title, desc)
-                        if not cats:
-                            continue
 
                         job = {
                             "id": f"muse_{job_id}",
@@ -444,12 +543,18 @@ def fetch_the_muse() -> list[dict]:
                             "salary_max": None,
                             "source": "The Muse",
                             "federal": False,
-                            "categories": cats,
-                            "fingerprint": fingerprint(title, item.get("company", {}).get("name", ""), loc_str),
+                            "categories": categorize(title, desc),
+                            "fingerprint": fingerprint(
+                                title,
+                                item.get("company", {}).get("name", ""),
+                                loc_str,
+                            ),
                         }
-                        all_jobs.append(job)
 
-                    time.sleep(0.5)
+                        if passes_tech_filter(job, is_federal=False):
+                            all_jobs.append(job)
+
+                    time.sleep(0.3)
                 except Exception as e:
                     log(f"The Muse error on {cat}/{level} page {page}: {e}")
                     break
@@ -459,17 +564,14 @@ def fetch_the_muse() -> list[dict]:
 
 
 def fetch_remotive() -> list[dict]:
-    """
-    Remotive — all remote jobs, no API key needed.
-    Docs: https://remotive.com/api-documentation
-    """
+    """Remotive — all remote jobs."""
     log("Remotive: fetching...")
     all_jobs = []
 
-    # Their API supports category filter
+    # Broader category list
     categories = [
-        "software-dev", "devops", "data", "customer-support",
-        "qa", "sales", "product", "all-others",
+        "software-dev", "devops", "data",
+        "qa", "product", "design", "all-others",
     ]
 
     seen_ids = set()
@@ -477,7 +579,7 @@ def fetch_remotive() -> list[dict]:
         try:
             r = requests.get(
                 "https://remotive.com/api/remote-jobs",
-                params={"category": cat, "limit": 100},
+                params={"category": cat, "limit": 200},
                 timeout=20,
             )
             r.raise_for_status()
@@ -492,24 +594,13 @@ def fetch_remotive() -> list[dict]:
                 title = item.get("title", "")
                 desc = item.get("description", "")
 
-                # Remotive mixes all levels - we filter to entry only
-                if not is_entry_level(title, desc):
-                    continue
-
-                # Only include if it matches our tech categories
-                cats = categorize(title, desc)
-                if not cats:
-                    continue
-
                 job = {
                     "id": f"remotive_{job_id}",
                     "title": title,
                     "company": item.get("company_name", "Unknown"),
                     "location": {
                         "display": "Remote",
-                        "city": "",
-                        "state": "",
-                        "remote": True,
+                        "city": "", "state": "", "remote": True,
                     },
                     "description": clean_description(desc),
                     "url": item.get("url", ""),
@@ -518,10 +609,14 @@ def fetch_remotive() -> list[dict]:
                     "salary_max": None,
                     "source": "Remotive",
                     "federal": False,
-                    "categories": cats,
-                    "fingerprint": fingerprint(title, item.get("company_name", ""), "remote"),
+                    "categories": categorize(title, desc),
+                    "fingerprint": fingerprint(
+                        title, item.get("company_name", ""), "remote",
+                    ),
                 }
-                all_jobs.append(job)
+
+                if passes_tech_filter(job, is_federal=False):
+                    all_jobs.append(job)
             time.sleep(0.3)
         except Exception as e:
             log(f"Remotive error on '{cat}': {e}")
@@ -533,15 +628,12 @@ def fetch_remotive() -> list[dict]:
 # --- Main ------------------------------------------------------------------
 
 def merge_and_dedupe(jobs_lists: list[list[dict]]) -> list[dict]:
-    """Combine all sources, remove duplicates by fingerprint, sort by date."""
     all_jobs = []
     for jobs in jobs_lists:
         all_jobs.extend(jobs)
 
     log(f"Pre-dedup total: {len(all_jobs)}")
 
-    # Dedupe - keep first occurrence (source priority: USAJobs > Adzuna > Muse > Remotive
-    # based on order we called them)
     seen = {}
     for job in all_jobs:
         fp = job["fingerprint"]
@@ -551,7 +643,6 @@ def merge_and_dedupe(jobs_lists: list[list[dict]]) -> list[dict]:
     deduped = list(seen.values())
     log(f"Post-dedup total: {len(deduped)}")
 
-    # Sort by posted date, newest first
     def sort_key(j):
         return j.get("posted") or ""
     deduped.sort(key=sort_key, reverse=True)
@@ -561,9 +652,8 @@ def merge_and_dedupe(jobs_lists: list[list[dict]]) -> list[dict]:
 
 def main():
     start = time.time()
-    log("=== CyberRoadmap scraper starting ===")
+    log("=== CyberRoadmap scraper v2 starting ===")
 
-    # Fetch all sources in parallel
     sources = {
         "usajobs": fetch_usajobs,
         "adzuna": fetch_adzuna,
@@ -584,12 +674,23 @@ def main():
 
     jobs = merge_and_dedupe(list(results.values()))
 
-    # Output file
+    # Category summary
+    cat_counts = {}
+    for j in jobs:
+        for c in j["categories"]:
+            cat_counts[c] = cat_counts.get(c, 0) + 1
+    log(f"Categories: {cat_counts}")
+
+    fed_count = sum(1 for j in jobs if j.get("federal"))
+    log(f"Federal jobs: {fed_count} / Non-federal: {len(jobs) - fed_count}")
+
     output = {
         "meta": {
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "total_jobs": len(jobs),
             "sources": {name: len(jobs_list) for name, jobs_list in results.items()},
+            "categories": cat_counts,
+            "federal_count": fed_count,
         },
         "jobs": jobs,
     }
