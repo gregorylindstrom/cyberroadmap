@@ -1,40 +1,41 @@
 name: Scrape Jobs
 
 on:
-  # Run every 6 hours
   schedule:
     - cron: '0 */6 * * *'
-
-  # Allow manual triggering from the GitHub UI (useful for testing)
   workflow_dispatch:
-
-  # Also run on push when the scraper itself changes, for verification
   push:
     branches: [main]
     paths:
       - '.github/scripts/scraper.py'
       - '.github/workflows/scrape-jobs.yml'
+      - 'requirements.txt'
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # needed to commit the updated jobs.json
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install requests
+          fi
 
       - name: Run scraper
         env:
@@ -45,17 +46,29 @@ jobs:
           THE_MUSE_API_KEY: ${{ secrets.THE_MUSE_API_KEY }}
         run: python .github/scripts/scraper.py
 
-      - name: Commit updated jobs.json
+      - name: Verify output
+        run: |
+          python -c "import json; d=json.load(open('public/data/jobs.json')); print('total_jobs:', d['meta']['total_jobs'])"
+
+      - name: Commit and push jobs.json
         run: |
           git config user.name "cyberroadmap-bot"
           git config user.email "actions@github.com"
 
           git add public/data/jobs.json
 
-          # Only commit if there are actual changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             git commit -m "chore: update jobs.json [automated]"
-            git push
+
+            # Pull any remote changes made while scraper was running,
+            # then push. --rebase keeps our commit on top cleanly.
+            for i in 1 2 3; do
+              echo "Push attempt $i..."
+              git pull --rebase origin main && git push origin main && break
+              echo "Push attempt $i failed, retrying..."
+              sleep 5
+            done
+            echo "Push complete"
           fi
