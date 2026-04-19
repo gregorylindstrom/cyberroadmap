@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free and paid hands-on cybersecurity training platforms, CTF sites, and lab environments — curated and ranked for entry-level learners.">
+    <title>Training & Labs — CyberRoadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0a0e14; --paper: #f4f1ea; --accent: #ff4a1c;
+            --muted: #6b7280; --line: rgba(244,241,234,0.12);
+            --line-strong: rgba(244,241,234,0.28);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--ink); color: var(--paper);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 17px; line-height: 1.6;
+            min-height: 100vh; display: flex; flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: ''; position: fixed; inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none; z-index: 0; opacity: 0.4;
+        }
+        nav {
+            position: relative; z-index: 10;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid var(--line);
+            display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(10px); flex-wrap: wrap; gap: 1rem;
+        }
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem; font-weight: 700;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            text-decoration: none; color: var(--paper);
+        }
+        .logo .bracket { color: var(--accent); }
+        .nav-links {
+            display: flex; gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+        }
+        .nav-links a {
+            color: var(--muted); text-decoration: none;
+            border-bottom: 1px solid transparent; padding-bottom: 2px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--paper); }
+        .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+        main {
+            position: relative; z-index: 5; flex: 1;
+            max-width: 900px; margin: 0 auto;
+            padding: 6rem 3rem; text-align: center;
+        }
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem; color: var(--accent);
+            letter-spacing: 0.2em; text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: inline-flex; align-items: center; gap: 1rem;
+        }
+        .eyebrow::before, .eyebrow::after {
+            content: ''; width: 40px; height: 1px; background: var(--accent);
+        }
+        h1 {
+            font-family: 'Fraunces', serif; font-weight: 300;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1; letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+        }
+        h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+        .lede {
+            font-size: 1.2rem;
+            color: rgba(244,241,234,0.8);
+            max-width: 620px; margin: 0 auto 3rem;
+            font-weight: 300; line-height: 1.5;
+        }
+        .status-box {
+            display: inline-block; padding: 1.5rem 2rem;
+            border: 1px solid var(--line-strong);
+            background: rgba(255,74,28,0.05);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--paper); letter-spacing: 0.05em;
+            margin-top: 1rem;
+        }
+        .status-box strong {
+            display: block; color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 0.75rem; letter-spacing: 0.15em;
+            text-transform: uppercase; font-weight: 500;
+        }
+        .cta-row {
+            margin-top: 3rem;
+            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+        }
+        .cta {
+            padding: 0.9rem 1.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta.primary { background: var(--accent); color: var(--ink); }
+        .cta.primary:hover { background: #c33a15; }
+        .cta.secondary {
+            background: transparent; color: var(--paper);
+            border: 1px solid var(--line-strong);
+        }
+        .cta.secondary:hover { border-color: var(--accent); color: var(--accent); }
+        footer {
+            position: relative; z-index: 5;
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--line);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; color: var(--muted);
+            letter-spacing: 0.05em;
+            display: flex; justify-content: space-between;
+            flex-wrap: wrap; gap: 1rem;
+            max-width: 1400px; margin: 0 auto;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer .sep { color: var(--line-strong); margin: 0 0.5rem; }
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { gap: 1rem; font-size: 0.7rem; }
+            main { padding: 3rem 1.5rem; }
+            footer { padding: 2rem 1.5rem; text-align: center; justify-content: center; }
+        }
+        ::selection { background: var(--accent); color: var(--ink); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">
+            <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
+        </a>
+        <div class="nav-links">
+            <a href="/jobs.html">Jobs</a>
+            <a href="/certs.html">Certifications</a>
+            <a href="/training.html" class="active">Training</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/#about">About</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="eyebrow">Pillar 03 · Training</div>
+        <h1>Free and paid <em>hands-on labs</em>.</h1>
+        <p class="lede">A curated directory of platforms where you actually learn by doing. Every listing includes cost, difficulty level, what skills it builds, and which NICE framework role it maps to.</p>
+
+        <div class="status-box">
+            <strong>Currently in development</strong>
+            Coverage planned: TryHackMe, HackTheBox, PortSwigger Web Security Academy, OverTheWire, CyberDefenders, Blue Team Labs Online, LetsDefend, RangeForce Community, Immersive Labs Community, Pico CTF, and free university courses from MIT, Stanford, and Coursera.
+        </div>
+
+        <div class="cta-row">
+            <a href="/jobs.html" class="cta primary">Browse jobs →</a>
+            <a href="/" class="cta secondary">← Back home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            © 2026 CyberRoadmap
+            <span class="sep">/</span>
+            Curated by G. Lindstrom
+        </div>
+        <div>
+            <a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a>
+        </div>
+    </footer>
+
+</body>
+</html>

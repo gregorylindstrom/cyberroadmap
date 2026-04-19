@@ -24,15 +24,9 @@
             --line-strong: rgba(244, 241, 234, 0.28);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background: var(--ink);
@@ -44,7 +38,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Subtle grid background */
         body::before {
             content: '';
             position: fixed;
@@ -58,7 +51,6 @@
             opacity: 0.5;
         }
 
-        /* Noise texture */
         body::after {
             content: '';
             position: fixed;
@@ -70,21 +62,20 @@
             mix-blend-mode: overlay;
         }
 
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-            letter-spacing: -0.01em;
-        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* Header */
-        header {
+        /* Nav */
+        nav {
             position: relative;
             z-index: 10;
-            padding: 2rem 3rem;
+            padding: 1.5rem 3rem;
             border-bottom: 1px solid var(--line);
             display: flex;
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
@@ -93,27 +84,46 @@
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            text-decoration: none;
+            color: var(--paper);
         }
 
-        .logo .bracket {
-            color: var(--accent);
-        }
+        .logo .bracket { color: var(--accent); }
 
-        .nav-meta {
+        .nav-links {
+            display: flex;
+            gap: 2rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--paper); }
+
+        .nav-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
             color: var(--muted);
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
 
-        .nav-meta .live-dot {
+        .nav-status .dot {
             display: inline-block;
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             background: var(--accent);
             border-radius: 50%;
-            margin-right: 8px;
+            margin-right: 6px;
             animation: pulse 2s ease-in-out infinite;
             vertical-align: middle;
         }
@@ -192,24 +202,34 @@
             font-weight: 300;
         }
 
-        .hero-status {
+        .hero-cta {
             display: inline-block;
-            padding: 0.6rem 1.2rem;
-            border: 1px solid var(--line-strong);
+            padding: 1rem 1.75rem;
+            background: var(--accent);
+            color: var(--ink);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--paper);
-            letter-spacing: 0.08em;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            background: rgba(255, 74, 28, 0.06);
+            text-decoration: none;
+            transition: background 0.2s;
         }
 
-        .hero-status .arrow {
+        .hero-cta:hover { background: var(--accent-dim); }
+
+        .hero-cta.secondary {
+            background: transparent;
+            color: var(--paper);
+            border: 1px solid var(--line-strong);
+            margin-left: 1rem;
+        }
+
+        .hero-cta.secondary:hover {
+            border-color: var(--accent);
             color: var(--accent);
-            margin-right: 0.5rem;
         }
 
-        /* Coordinates grid - decorative */
         .coords {
             position: absolute;
             top: 2rem;
@@ -222,9 +242,7 @@
             letter-spacing: 0.05em;
         }
 
-        .coords span {
-            color: var(--paper);
-        }
+        .coords span { color: var(--paper); }
 
         /* Pillars section */
         .pillars {
@@ -282,11 +300,12 @@
             position: relative;
             background: rgba(10, 14, 20, 0.4);
             transition: background 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
-        .pillar:hover {
-            background: rgba(255, 74, 28, 0.04);
-        }
+        .pillar:hover { background: rgba(255, 74, 28, 0.04); }
 
         .pillar-num {
             font-family: 'JetBrains Mono', monospace;
@@ -413,88 +432,6 @@
             margin-bottom: 0.25rem;
         }
 
-        /* Email signup */
-        .signup {
-            position: relative;
-            z-index: 5;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 5rem 3rem;
-            border-top: 1px solid var(--line-strong);
-            border-bottom: 1px solid var(--line-strong);
-            text-align: center;
-        }
-
-        .signup h2 {
-            font-family: 'Fraunces', serif;
-            font-weight: 300;
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .signup h2 em {
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .signup p {
-            color: rgba(244, 241, 234, 0.7);
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-        }
-
-        .signup-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 0;
-            border: 1px solid var(--line-strong);
-        }
-
-        .signup-form input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 1rem 1.25rem;
-            color: var(--paper);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        .signup-form input::placeholder {
-            color: var(--muted);
-        }
-
-        .signup-form button {
-            background: var(--accent);
-            color: var(--ink);
-            border: none;
-            padding: 1rem 1.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .signup-form button:hover {
-            background: var(--accent-dim);
-        }
-
-        .signup-note {
-            margin-top: 1.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--muted);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
         /* Footer */
         footer {
             position: relative;
@@ -502,6 +439,7 @@
             padding: 3rem;
             max-width: 1400px;
             margin: 0 auto;
+            border-top: 1px solid var(--line);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -518,47 +456,42 @@
             margin: 0 0.75rem;
         }
 
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { border-bottom: 1px solid var(--accent); }
+
         /* Entrance animations */
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero .eyebrow { animation: fadeUp 0.8s ease-out 0.1s both; }
         .hero h1 { animation: fadeUp 0.8s ease-out 0.2s both; }
         .hero-lede { animation: fadeUp 0.8s ease-out 0.4s both; }
-        .hero-status { animation: fadeUp 0.8s ease-out 0.6s both; }
+        .hero-actions { animation: fadeUp 0.8s ease-out 0.6s both; }
         .coords { animation: fadeUp 0.8s ease-out 0.8s both; }
 
         /* Responsive */
         @media (max-width: 900px) {
-            .coords {
-                display: none;
+            .coords { display: none; }
+
+            nav { padding: 1rem 1.5rem; }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.7rem;
             }
 
-            header {
-                padding: 1.5rem;
-            }
+            .nav-status { display: none; }
 
-            .hero, .pillars, .about, .signup {
+            .hero, .pillars, .about {
                 padding-left: 1.5rem;
                 padding-right: 1.5rem;
             }
 
-            .hero {
-                padding-top: 3rem;
-                padding-bottom: 2rem;
-            }
+            .hero { padding-top: 3rem; padding-bottom: 2rem; }
 
-            .pillar-grid {
-                grid-template-columns: 1fr;
-            }
+            .pillar-grid { grid-template-columns: 1fr; }
 
             .about {
                 grid-template-columns: 1fr;
@@ -566,12 +499,11 @@
                 padding: 4rem 1.5rem;
             }
 
-            .credentials {
-                grid-template-columns: 1fr;
-            }
+            .credentials { grid-template-columns: 1fr; }
 
-            .signup-form {
-                flex-direction: column;
+            .hero-cta.secondary {
+                margin-left: 0;
+                margin-top: 0.75rem;
             }
 
             footer {
@@ -581,35 +513,26 @@
             }
         }
 
-        /* Selection color */
-        ::selection {
-            background: var(--accent);
-            color: var(--ink);
-        }
-
-        /* Subtle link styles */
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s ease;
-        }
-
-        a:hover {
-            border-bottom-color: var(--accent);
-        }
+        ::selection { background: var(--accent); color: var(--ink); }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">
+    <nav>
+        <a href="/" class="logo">
             <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
+        </a>
+        <div class="nav-links">
+            <a href="/jobs.html">Jobs</a>
+            <a href="/certs.html">Certifications</a>
+            <a href="/training.html">Training</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/#about">About</a>
         </div>
-        <div class="nav-meta">
-            <span class="live-dot"></span>BUILDING v1.0
+        <div class="nav-status">
+            <span class="dot"></span>LIVE · V1
         </div>
-    </header>
+    </nav>
 
     <section class="hero">
         <div class="coords">
@@ -633,56 +556,68 @@
             from someone who's been in the field for 35+ years.
         </p>
 
-        <div class="hero-status">
-            <span class="arrow">→</span>Launching Fall 2026. Join the waitlist below.
+        <div class="hero-actions">
+            <a href="/jobs.html" class="hero-cta">Browse jobs →</a>
+            <a href="#about" class="hero-cta secondary">Who's behind this</a>
         </div>
     </section>
 
     <section class="pillars" id="pillars">
         <div class="section-header">
-            <div class="section-label">// Three pillars</div>
+            <div class="section-label">// Four pillars</div>
             <h2 class="section-title">Built around what actually <em>gets you hired</em>.</h2>
         </div>
 
         <div class="pillar-grid">
-            <div class="pillar">
+            <a href="/jobs.html" class="pillar">
                 <span class="pillar-num">01 / JOBS</span>
-                <h3>Entry-level openings, <em>aggregated daily</em>.</h3>
+                <h3>Entry-level openings, <em>updated daily</em>.</h3>
                 <p class="pillar-desc">
-                    Thousands of jobs pulled hourly from USAJobs, CareerOneStop,
-                    Texas Workforce Commission, company career pages, and niche
-                    cyber boards — filtered for entry-level and Houston/remote.
+                    Thousands of jobs pulled every 6 hours from USAJobs, Adzuna, The Muse,
+                    and Remotive. Filter by ZIP code, radius, category, and keyword.
+                    Federal positions included.
                 </p>
                 <div class="pillar-meta">
-                    <span class="status-chip">Priority 1</span>v1 at launch
+                    <span class="status-chip">Live</span>Browse now →
                 </div>
-            </div>
+            </a>
 
-            <div class="pillar">
-                <span class="pillar-num">02 / LABS</span>
-                <h3>Hands-on scenarios, <em>zero cost</em>.</h3>
-                <p class="pillar-desc">
-                    A curated map of free cyber labs and CTF platforms, organized by
-                    skill level and NICE framework role. Know exactly what to practice
-                    to land the job you want.
-                </p>
-                <div class="pillar-meta">
-                    <span class="status-chip soon">In build</span>Fall 2026
-                </div>
-            </div>
-
-            <div class="pillar">
-                <span class="pillar-num">03 / CERTS</span>
+            <a href="/certs.html" class="pillar">
+                <span class="pillar-num">02 / CERTS</span>
                 <h3>Certification paths, <em>demystified</em>.</h3>
                 <p class="pillar-desc">
                     Which certs matter for which roles, what they actually cost, the
-                    realistic study time, and which ones employers in Houston and
-                    remote-first shops actually filter résumés by.
+                    realistic study time, and which ones employers actually filter résumés
+                    by in 2026.
                 </p>
                 <div class="pillar-meta">
-                    <span class="status-chip soon">In build</span>Fall 2026
+                    <span class="status-chip soon">In build</span>Coming soon
                 </div>
-            </div>
+            </a>
+
+            <a href="/training.html" class="pillar">
+                <span class="pillar-num">03 / TRAINING</span>
+                <h3>Free and paid <em>hands-on labs</em>.</h3>
+                <p class="pillar-desc">
+                    A curated directory of TryHackMe, HackTheBox, PortSwigger Academy,
+                    and dozens of other platforms — organized by skill and NICE framework role.
+                </p>
+                <div class="pillar-meta">
+                    <span class="status-chip soon">In build</span>Coming soon
+                </div>
+            </a>
+
+            <a href="/resources.html" class="pillar">
+                <span class="pillar-num">04 / RESOURCES</span>
+                <h3>Résumés, interviews, <em>and more</em>.</h3>
+                <p class="pillar-desc">
+                    Résumé templates, interview prep, scholarships, conferences,
+                    and communities — all the other things a student starting out actually needs.
+                </p>
+                <div class="pillar-meta">
+                    <span class="status-chip soon">In build</span>Coming soon
+                </div>
+            </a>
         </div>
     </section>
 
@@ -731,16 +666,6 @@
         </div>
     </section>
 
-    <section class="signup">
-        <h2>Be the first to know <em>when we launch</em>.</h2>
-        <p>No spam. No resale. Just one email when the site goes live, and occasional high-signal career tips.</p>
-        <form class="signup-form" action="#" method="POST" id="waitlist-form">
-            <input type="email" name="email" placeholder="your.email@domain.com" required aria-label="Email address">
-            <button type="submit">Join waitlist →</button>
-        </form>
-        <div class="signup-note" id="signup-note">Est. waitlist: 0. You could be #1.</div>
-    </section>
-
     <footer>
         <div>
             © 2026 CyberRoadmap
@@ -750,42 +675,9 @@
             Houston, TX
         </div>
         <div>
-            v1.0-alpha
-            <span class="separator">/</span>
             <a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a>
         </div>
     </footer>
-
-    <script>
-        // Simple waitlist form handler (v1 placeholder - we'll wire this to Azure Functions later)
-        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = e.target.email.value;
-            const note = document.getElementById('signup-note');
-
-            // For now, just store locally and show confirmation
-            // In v1.1 we'll POST to an Azure Function that writes to the database
-            try {
-                const existing = JSON.parse(localStorage.getItem('cyberroadmap_waitlist') || '[]');
-                if (!existing.includes(email)) {
-                    existing.push(email);
-                    localStorage.setItem('cyberroadmap_waitlist', JSON.stringify(existing));
-                }
-                note.innerHTML = '✓ You\'re on the list. We\'ll email you at launch.';
-                note.style.color = 'var(--accent)';
-                e.target.reset();
-            } catch (err) {
-                note.innerHTML = 'Something went wrong. Try again or email hello@cyberroadmap.org';
-            }
-        });
-
-        // Subtle parallax on grid
-        document.addEventListener('mousemove', function(e) {
-            const x = (e.clientX / window.innerWidth - 0.5) * 10;
-            const y = (e.clientY / window.innerHeight - 0.5) * 10;
-            document.body.style.setProperty('background-position', `${x}px ${y}px`);
-        });
-    </script>
 
 </body>
 </html>

@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "generated_at": "2026-04-19T00:00:00Z",
+    "total_jobs": 0,
+    "sources": {},
+    "note": "This is a placeholder. Real jobs will appear once the scraper runs (every 6 hours via GitHub Actions)."
+  },
+  "jobs": []
+}

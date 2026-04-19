@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search thousands of entry-level cybersecurity, IT, and infrastructure jobs across the US. Federal positions included. Filter by location, radius, keywords, and category.">
+    <title>Jobs — CyberRoadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+            --card-hover: rgba(255, 74, 28, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Nav */
+        nav {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--paper);
+        }
+
+        .logo .bracket { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--paper); }
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Layout */
+        .container {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3rem;
+        }
+
+        /* Header above filters and results */
+        .page-header {
+            grid-column: 1 / -1;
+            margin-bottom: 1rem;
+        }
+
+        .page-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .page-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .page-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .page-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        .page-meta .dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin: 0 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* Filter sidebar */
+        .filters {
+            position: sticky;
+            top: 2rem;
+            align-self: start;
+            border: 1px solid var(--line);
+            padding: 1.75rem;
+            background: rgba(10, 14, 20, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .filter-input,
+        .filter-select {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--line-strong);
+            color: var(--paper);
+            padding: 0.6rem 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .filter-input:focus,
+        .filter-select:focus {
+            border-color: var(--accent);
+        }
+
+        .filter-input::placeholder { color: var(--muted); }
+
+        .filter-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23ff4a1c' d='M6 8L0 0h12z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            padding-right: 2rem;
+        }
+
+        .filter-select option {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .location-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.5rem;
+            align-items: stretch;
+        }
+
+        .location-btn {
+            background: transparent;
+            border: 1px solid var(--line-strong);
+            color: var(--accent);
+            padding: 0 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            white-space: nowrap;
+        }
+
+        .location-btn:hover {
+            border-color: var(--accent);
+            background: rgba(255, 74, 28, 0.08);
+        }
+
+        /* Checkboxes */
+        .checkbox-list {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--paper);
+            user-select: none;
+            padding: 0.3rem 0;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--line-strong);
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .checkbox-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 700;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+        }
+
+        .checkbox-item .count {
+            margin-left: auto;
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+        /* Action buttons */
+        .filter-actions {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: var(--ink);
+            border: none;
+            padding: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover { background: var(--accent-dim); }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--paper);
+            border: 1px solid var(--line-strong);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: transparent;
+        }
+
+        /* Results panel */
+        .results {
+            min-width: 0; /* allow shrinking inside grid */
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .results-count {
+            color: var(--paper);
+        }
+
+        .results-count strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .results-sort {
+            color: var(--muted);
+        }
+
+        /* Job card */
+        .job-card {
+            border: 1px solid var(--line);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--card);
+            transition: border-color 0.2s, background 0.2s;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .job-card:hover {
+            border-color: var(--line-strong);
+            background: var(--card-hover);
+        }
+
+        .job-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+            font-size: 1.25rem;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--paper);
+        }
+
+        .job-source {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border: 1px solid var(--line-strong);
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .job-source.federal {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .job-company {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--paper);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+        }
+
+        .job-meta .sep {
+            color: var(--line-strong);
+        }
+
+        .job-description {
+            font-size: 0.9rem;
+            color: rgba(244, 241, 234, 0.7);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+            font-weight: 300;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .job-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            background: rgba(255, 74, 28, 0.1);
+            color: var(--accent);
+            letter-spacing: 0.05em;
+        }
+
+        /* States */
+        .state-msg {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px dashed var(--line-strong);
+        }
+
+        .state-msg strong {
+            display: block;
+            color: var(--paper);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+        }
+
+        .state-msg p {
+            margin-top: 0.75rem;
+        }
+
+        /* Load more */
+        .load-more {
+            margin: 2rem auto 0;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 5;
+            padding: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--line);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { border-bottom: 1px solid var(--accent); }
+        footer .sep { color: var(--line-strong); margin: 0 0.75rem; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.7rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .filters {
+                position: static;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        ::selection { background: var(--accent); color: var(--ink); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">
+            <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
+        </a>
+        <div class="nav-links">
+            <a href="/jobs.html" class="active">Jobs</a>
+            <a href="/certs.html">Certifications</a>
+            <a href="/training.html">Training</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/#about">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <header class="page-header">
+            <div class="page-label">// Jobs search</div>
+            <h1 class="page-title">Entry-level <em>openings</em>, updated daily.</h1>
+            <div class="page-meta">
+                <span id="stats-count">Loading...</span>
+                <span class="dot"></span>
+                <span id="stats-updated">refreshed every 6 hours</span>
+                <span class="dot"></span>
+                <span id="stats-sources"></span>
+            </div>
+        </header>
+
+        <aside class="filters">
+            <div class="filter-group">
+                <label class="filter-label">Keywords</label>
+                <input type="text" class="filter-input" id="f-keyword" placeholder="e.g., SOC, analyst, AWS">
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Location (ZIP or city)</label>
+                <div class="location-row">
+                    <input type="text" class="filter-input" id="f-location" placeholder="77339 or Houston, TX" maxlength="40">
+                    <button class="location-btn" id="btn-geolocate" title="Detect my location">◉ Me</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Radius</label>
+                <select class="filter-select" id="f-radius">
+                    <option value="25">25 miles</option>
+                    <option value="50" selected>50 miles</option>
+                    <option value="100">100 miles</option>
+                    <option value="250">250 miles</option>
+                    <option value="0">Any US</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Categories</label>
+                <div class="checkbox-list" id="f-categories">
+                    <label class="checkbox-item"><input type="checkbox" value="Cyber"> Cyber / Infosec <span class="count" data-cat="Cyber">0</span></label>
+                    <label class="checkbox-item"><input type="checkbox" value="IT"> IT & Help Desk <span class="count" data-cat="IT">0</span></label>
+                    <label class="checkbox-item"><input type="checkbox" value="Infrastructure"> Infrastructure / DevOps <span class="count" data-cat="Infrastructure">0</span></label>
+                    <label class="checkbox-item"><input type="checkbox" value="Cloud"> Cloud <span class="count" data-cat="Cloud">0</span></label>
+                    <label class="checkbox-item"><input type="checkbox" value="AI/ML"> AI / ML <span class="count" data-cat="AI/ML">0</span></label>
+                    <label class="checkbox-item"><input type="checkbox" value="Data"> Data <span class="count" data-cat="Data">0</span></label>
+                    <label class="checkbox-item"><input type="checkbox" value="Software"> Software <span class="count" data-cat="Software">0</span></label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Options</label>
+                <div class="checkbox-list">
+                    <label class="checkbox-item"><input type="checkbox" id="f-federal"> Federal jobs only</label>
+                    <label class="checkbox-item"><input type="checkbox" id="f-remote"> Include remote</label>
+                </div>
+            </div>
+
+            <div class="filter-actions">
+                <button class="btn" id="btn-search">Search</button>
+                <button class="btn btn-secondary" id="btn-clear">Clear filters</button>
+            </div>
+        </aside>
+
+        <main class="results">
+            <div class="results-header">
+                <div class="results-count">
+                    Showing <strong id="result-count">—</strong> jobs
+                </div>
+                <div class="results-sort">sorted by: newest first</div>
+            </div>
+
+            <div id="results-body">
+                <div class="state-msg">
+                    <strong>Loading jobs...</strong>
+                    Pulling the latest data from federal and commercial sources.
+                </div>
+            </div>
+
+            <button class="btn btn-secondary load-more" id="btn-more" style="display:none">Load more</button>
+        </main>
+
+    </div>
+
+    <footer>
+        <div>
+            © 2026 CyberRoadmap
+            <span class="sep">/</span>
+            Curated by G. Lindstrom
+            <span class="sep">/</span>
+            Houston, TX
+        </div>
+        <div>
+            <a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a>
+        </div>
+    </footer>
+
+<script>
+/*
+ * CyberRoadmap Jobs Page
+ * ======================
+ * Loads pre-scraped jobs.json from the same origin, then does all filtering
+ * in the browser. No backend needed.
+ *
+ * Location handling:
+ *   - User types a ZIP (e.g., "77339") → geocode to lat/lng via zippopotam.us
+ *     (free, CORS-enabled, no API key)
+ *   - User types city → we do substring matching on job locations
+ *   - User clicks ◉ Me → browser geolocation, reverse-lookup handled via
+ *     comparing distance to each job's location (if geocoded)
+ *
+ * For radius filtering: when user has lat/lng and a job has lat/lng,
+ * we use the haversine formula. If a job has no geocoded location, it's
+ * only shown when radius = "Any US" OR the city matches loosely.
+ *
+ * PERFORMANCE: If jobs.json gets big, consider:
+ *   - Pagination server-side (requires DB)
+ *   - Web Worker for filtering (>10k jobs)
+ *   - Progressive rendering (done here via PAGE_SIZE)
+ */
+
+const PAGE_SIZE = 20;
+let state = {
+    allJobs: [],
+    filtered: [],
+    visible: PAGE_SIZE,
+    userLocation: null, // {lat, lng} when set
+};
+
+// --- Utilities ---
+
+function haversineMiles(lat1, lng1, lat2, lng2) {
+    const R = 3959; // miles
+    const toRad = (d) => d * Math.PI / 180;
+    const dLat = toRad(lat2 - lat1);
+    const dLng = toRad(lng2 - lng1);
+    const a = Math.sin(dLat / 2) ** 2 +
+              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
+
+function formatPosted(dateStr) {
+    if (!dateStr) return "recently";
+    const d = new Date(dateStr);
+    if (isNaN(d)) return "recently";
+    const diffMs = Date.now() - d.getTime();
+    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    if (days < 1) return "today";
+    if (days === 1) return "1 day ago";
+    if (days < 30) return `${days} days ago`;
+    const months = Math.floor(days / 30);
+    return months === 1 ? "1 month ago" : `${months} months ago`;
+}
+
+function formatSalary(min, max) {
+    if (!min && !max) return null;
+    const fmt = (n) => "$" + Math.round(n).toLocaleString();
+    if (min && max) return `${fmt(min)} – ${fmt(max)}`;
+    if (min) return `${fmt(min)}+`;
+    return `up to ${fmt(max)}`;
+}
+
+// --- ZIP geocoding via zippopotam.us ---
+async function geocodeZip(zip) {
+    try {
+        const r = await fetch(`https://api.zippopotam.us/us/${zip}`);
+        if (!r.ok) return null;
+        const d = await r.json();
+        const place = d.places && d.places[0];
+        if (!place) return null;
+        return {
+            lat: parseFloat(place.latitude),
+            lng: parseFloat(place.longitude),
+            city: place["place name"],
+            state: place["state abbreviation"],
+        };
+    } catch {
+        return null;
+    }
+}
+
+// Approx US state-capital lat/lng for coarse city matching fallback
+// (Used only when user enters a city we can't geocode.)
+const STATE_CENTROIDS = {
+    "AL":[32.7, -86.8],"AK":[63.6, -152.4],"AZ":[34.2, -111.7],
+    "AR":[34.9, -92.4],"CA":[37.2, -119.5],"CO":[39.0, -105.5],
+    "CT":[41.6, -72.7],"DE":[38.9, -75.5],"FL":[28.6, -81.8],
+    "GA":[32.7, -83.4],"HI":[20.3, -156.4],"ID":[44.4, -114.6],
+    "IL":[40.0, -89.2],"IN":[39.9, -86.3],"IA":[42.1, -93.5],
+    "KS":[38.5, -98.3],"KY":[37.5, -85.3],"LA":[30.9, -92.0],
+    "ME":[45.4, -69.2],"MD":[39.0, -76.8],"MA":[42.2, -71.5],
+    "MI":[44.3, -85.4],"MN":[46.3, -94.3],"MS":[32.7, -89.7],
+    "MO":[38.4, -92.5],"MT":[47.0, -109.6],"NE":[41.5, -99.8],
+    "NV":[38.5, -117.1],"NH":[43.7, -71.6],"NJ":[40.3, -74.5],
+    "NM":[34.4, -106.1],"NY":[42.9, -75.5],"NC":[35.6, -79.8],
+    "ND":[47.5, -99.8],"OH":[40.3, -82.8],"OK":[35.5, -97.5],
+    "OR":[43.9, -120.6],"PA":[40.6, -77.2],"RI":[41.7, -71.4],
+    "SC":[33.9, -80.9],"SD":[44.4, -100.3],"TN":[35.7, -86.7],
+    "TX":[31.1, -97.6],"UT":[40.2, -111.9],"VT":[44.0, -72.7],
+    "VA":[37.8, -78.2],"WA":[47.4, -121.5],"WV":[38.5, -80.9],
+    "WI":[44.3, -89.6],"WY":[42.8, -107.3],"DC":[38.9, -77.0],
+};
+
+function approximateLocationLatLng(loc) {
+    if (!loc || typeof loc !== 'object') return null;
+    if (loc.remote) return null;
+    if (loc.state && STATE_CENTROIDS[loc.state]) {
+        return { lat: STATE_CENTROIDS[loc.state][0], lng: STATE_CENTROIDS[loc.state][1] };
+    }
+    return null;
+}
+
+// --- Filter logic ---
+
+function applyFilters() {
+    const kw = document.getElementById('f-keyword').value.trim().toLowerCase();
+    const radius = parseInt(document.getElementById('f-radius').value, 10);
+    const federalOnly = document.getElementById('f-federal').checked;
+    const includeRemote = document.getElementById('f-remote').checked;
+
+    const checkedCats = [...document.querySelectorAll('#f-categories input:checked')]
+        .map(el => el.value);
+
+    let out = state.allJobs;
+
+    // Keyword
+    if (kw) {
+        const terms = kw.split(/\s+/).filter(Boolean);
+        out = out.filter(j => {
+            const hay = (j.title + " " + j.description + " " + j.company).toLowerCase();
+            return terms.every(t => hay.includes(t));
+        });
+    }
+
+    // Federal
+    if (federalOnly) {
+        out = out.filter(j => j.federal);
+    }
+
+    // Categories (OR within categories)
+    if (checkedCats.length > 0) {
+        out = out.filter(j => {
+            return j.categories.some(c => checkedCats.includes(c));
+        });
+    }
+
+    // Location radius
+    if (radius > 0 && state.userLocation) {
+        out = out.filter(j => {
+            if (j.location.remote) {
+                return includeRemote; // remote only passes if user checked "include remote"
+            }
+            const jobLoc = approximateLocationLatLng(j.location);
+            if (!jobLoc) {
+                return false; // no location data → exclude when radius is set
+            }
+            const d = haversineMiles(state.userLocation.lat, state.userLocation.lng, jobLoc.lat, jobLoc.lng);
+            return d <= radius;
+        });
+    } else if (!includeRemote) {
+        // No location set but user wants to exclude remote
+        out = out.filter(j => !j.location.remote);
+    }
+
+    state.filtered = out;
+    state.visible = PAGE_SIZE;
+    render();
+}
+
+// --- Rendering ---
+
+function renderJobCard(job) {
+    const card = document.createElement('a');
+    card.className = 'job-card';
+    card.href = job.url;
+    card.target = '_blank';
+    card.rel = 'noopener noreferrer';
+
+    const salary = formatSalary(job.salary_min, job.salary_max);
+
+    card.innerHTML = `
+        <div class="job-card-header">
+            <h3 class="job-title"></h3>
+            <span class="job-source ${job.federal ? 'federal' : ''}"></span>
+        </div>
+        <div class="job-company"></div>
+        <div class="job-meta">
+            <span class="job-location"></span>
+            <span class="sep">·</span>
+            <span class="job-posted"></span>
+            ${salary ? `<span class="sep">·</span><span class="job-salary"></span>` : ''}
+        </div>
+        <div class="job-description"></div>
+        <div class="job-tags"></div>
+    `;
+
+    // textContent assignments (safe from HTML injection)
+    card.querySelector('.job-title').textContent = job.title;
+    card.querySelector('.job-source').textContent = job.federal ? 'FEDERAL · ' + job.source : job.source;
+    card.querySelector('.job-company').textContent = job.company;
+    card.querySelector('.job-location').textContent = job.location.display || 'Location not specified';
+    card.querySelector('.job-posted').textContent = formatPosted(job.posted);
+    if (salary) {
+        card.querySelector('.job-salary').textContent = salary;
+    }
+    card.querySelector('.job-description').textContent = job.description || '';
+
+    const tagsEl = card.querySelector('.job-tags');
+    (job.categories || []).forEach(cat => {
+        const t = document.createElement('span');
+        t.className = 'job-tag';
+        t.textContent = cat;
+        tagsEl.appendChild(t);
+    });
+
+    return card;
+}
+
+function render() {
+    const body = document.getElementById('results-body');
+    const more = document.getElementById('btn-more');
+
+    document.getElementById('result-count').textContent = state.filtered.length.toLocaleString();
+
+    if (state.filtered.length === 0) {
+        body.innerHTML = `
+            <div class="state-msg">
+                <strong>No matches yet.</strong>
+                Try widening your radius, removing keywords, or clearing category filters.
+                <p>New jobs are pulled every 6 hours from federal and commercial sources.</p>
+            </div>
+        `;
+        more.style.display = 'none';
+        return;
+    }
+
+    body.innerHTML = '';
+    const slice = state.filtered.slice(0, state.visible);
+    slice.forEach(job => body.appendChild(renderJobCard(job)));
+
+    more.style.display = state.visible < state.filtered.length ? 'block' : 'none';
+}
+
+// --- Category counts (for the filter sidebar) ---
+function updateCategoryCounts() {
+    document.querySelectorAll('[data-cat]').forEach(el => {
+        const cat = el.dataset.cat;
+        const n = state.allJobs.filter(j => j.categories.includes(cat)).length;
+        el.textContent = n.toLocaleString();
+    });
+}
+
+// --- Meta info ---
+function updateMeta(meta) {
+    if (!meta) return;
+
+    const updated = meta.generated_at ? new Date(meta.generated_at) : null;
+    if (updated) {
+        const hours = Math.floor((Date.now() - updated.getTime()) / (1000 * 60 * 60));
+        const stamp = hours < 1 ? 'updated just now' :
+                      hours === 1 ? 'updated 1 hour ago' :
+                      hours < 24 ? `updated ${hours} hours ago` :
+                      `updated ${Math.floor(hours / 24)} days ago`;
+        document.getElementById('stats-updated').textContent = stamp;
+    }
+
+    document.getElementById('stats-count').textContent =
+        `${(meta.total_jobs || 0).toLocaleString()} active listings`;
+
+    if (meta.sources) {
+        const parts = Object.entries(meta.sources).map(([k, v]) => `${v} from ${k}`);
+        document.getElementById('stats-sources').textContent = parts.join(' + ');
+    }
+}
+
+// --- Data load ---
+async function loadJobs() {
+    try {
+        const r = await fetch('/data/jobs.json', { cache: 'no-cache' });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const data = await r.json();
+
+        state.allJobs = data.jobs || [];
+        state.filtered = [...state.allJobs];
+
+        updateMeta(data.meta || {});
+        updateCategoryCounts();
+
+        if (state.allJobs.length === 0) {
+            document.getElementById('results-body').innerHTML = `
+                <div class="state-msg">
+                    <strong>No jobs loaded yet.</strong>
+                    The scraper hasn't run for the first time.
+                    <p>If you're the site admin, trigger the <code>Scrape Jobs</code> workflow manually
+                    in GitHub Actions. Otherwise, check back in a few hours.</p>
+                </div>
+            `;
+            return;
+        }
+
+        render();
+    } catch (e) {
+        document.getElementById('results-body').innerHTML = `
+            <div class="state-msg">
+                <strong>Couldn't load jobs.</strong>
+                ${e.message}
+                <p>Try refreshing the page. If this keeps happening, email
+                <a href="mailto:hello@cyberroadmap.org" style="color: var(--accent);">hello@cyberroadmap.org</a>.</p>
+            </div>
+        `;
+    }
+}
+
+// --- Event handlers ---
+
+document.getElementById('btn-search').addEventListener('click', async () => {
+    const loc = document.getElementById('f-location').value.trim();
+    if (loc) {
+        // Try ZIP first
+        if (/^\d{5}$/.test(loc)) {
+            const g = await geocodeZip(loc);
+            if (g) {
+                state.userLocation = { lat: g.lat, lng: g.lng };
+            } else {
+                alert("Couldn't find that ZIP. Try another or use city name.");
+                return;
+            }
+        } else {
+            // City name — try to match "City, ST" or just ST
+            const stateMatch = loc.match(/\b([A-Z]{2})\b/);
+            if (stateMatch && STATE_CENTROIDS[stateMatch[1]]) {
+                const c = STATE_CENTROIDS[stateMatch[1]];
+                state.userLocation = { lat: c[0], lng: c[1] };
+            } else {
+                // Unrecognized — fall back to keyword matching on location field
+                state.userLocation = null;
+                // Add to keywords so we still try to match
+                const kw = document.getElementById('f-keyword');
+                if (!kw.value.toLowerCase().includes(loc.toLowerCase())) {
+                    kw.value = (kw.value + " " + loc).trim();
+                }
+            }
+        }
+    } else {
+        state.userLocation = null;
+    }
+    applyFilters();
+});
+
+document.getElementById('btn-clear').addEventListener('click', () => {
+    document.getElementById('f-keyword').value = '';
+    document.getElementById('f-location').value = '';
+    document.getElementById('f-radius').value = '50';
+    document.getElementById('f-federal').checked = false;
+    document.getElementById('f-remote').checked = false;
+    document.querySelectorAll('#f-categories input').forEach(el => el.checked = false);
+    state.userLocation = null;
+    applyFilters();
+});
+
+document.getElementById('btn-geolocate').addEventListener('click', () => {
+    if (!navigator.geolocation) {
+        alert("Your browser doesn't support geolocation. Please type a ZIP code.");
+        return;
+    }
+    const btn = document.getElementById('btn-geolocate');
+    btn.textContent = '…';
+    navigator.geolocation.getCurrentPosition(
+        pos => {
+            state.userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+            document.getElementById('f-location').value = 'My location';
+            btn.textContent = '◉ Me';
+            applyFilters();
+        },
+        err => {
+            btn.textContent = '◉ Me';
+            alert("Couldn't get your location. You can type a ZIP code instead.");
+        },
+        { timeout: 10000 }
+    );
+});
+
+document.getElementById('btn-more').addEventListener('click', () => {
+    state.visible += PAGE_SIZE;
+    render();
+});
+
+// Enter key in any input triggers search
+['f-keyword', 'f-location'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => {
+        if (e.key === 'Enter') document.getElementById('btn-search').click();
+    });
+});
+
+// Checkbox changes trigger filter immediately (no need to click Search)
+document.querySelectorAll('#f-categories input, #f-federal, #f-remote').forEach(el => {
+    el.addEventListener('change', applyFilters);
+});
+
+// Kickoff
+loadJobs();
+</script>
+
+</body>
+</html>
