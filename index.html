@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A free roadmap for entry-level cybersecurity, IT, and infrastructure careers. Jobs, hands-on labs, and certification guidance — curated by Professor Gregory Lindstrom.">
+    <meta name="author" content="Gregory A. Lindstrom, D.Eng.">
+    <meta property="og:title" content="CyberRoadmap — Your Path Into Cybersecurity">
+    <meta property="og:description" content="Free jobs aggregator, hands-on labs, and certification guidance for aspiring cyber and IT professionals.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cyberroadmap.org">
+    <title>CyberRoadmap — Your Path Into Cybersecurity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 17px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* Noise texture */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.08;
+            mix-blend-mode: overlay;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -0.01em;
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 3rem;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .logo .bracket {
+            color: var(--accent);
+        }
+
+        .nav-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-meta .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            z-index: 5;
+            padding: 6rem 3rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(3rem, 9vw, 8rem);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            max-width: 1100px;
+        }
+
+        h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        h1 .underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        h1 .underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0.1em;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            opacity: 0.4;
+        }
+
+        .hero-lede {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: rgba(244, 241, 234, 0.8);
+            max-width: 620px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-status {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--line-strong);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--paper);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: rgba(255, 74, 28, 0.06);
+        }
+
+        .hero-status .arrow {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        /* Coordinates grid - decorative */
+        .coords {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            text-align: right;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+
+        .coords span {
+            color: var(--paper);
+        }
+
+        /* Pillars section */
+        .pillars {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            padding: 4rem 3rem;
+            border-top: 1px solid var(--line-strong);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            max-width: 600px;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+        }
+
+        .pillar {
+            padding: 3rem 2.5rem;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            position: relative;
+            background: rgba(10, 14, 20, 0.4);
+            transition: background 0.3s ease;
+        }
+
+        .pillar:hover {
+            background: rgba(255, 74, 28, 0.04);
+        }
+
+        .pillar-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .pillar h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+            font-size: 1.8rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .pillar h3 em {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .pillar-desc {
+            color: rgba(244, 241, 234, 0.7);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .pillar-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-top: 1px solid var(--line);
+            padding-top: 1.5rem;
+        }
+
+        .pillar-meta .status-chip {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            background: var(--accent);
+            color: var(--ink);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .pillar-meta .status-chip.soon {
+            background: transparent;
+            border: 1px solid var(--line-strong);
+            color: var(--muted);
+        }
+
+        /* About section */
+        .about {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 3rem;
+            border-top: 1px solid var(--line-strong);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+
+        .about-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .about-body h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+        }
+
+        .about-body h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .about-body p {
+            font-size: 1.1rem;
+            color: rgba(244, 241, 234, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .credentials {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem 3rem;
+            border-top: 1px solid var(--line);
+            padding-top: 2rem;
+        }
+
+        .cred {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: rgba(244, 241, 234, 0.7);
+            letter-spacing: 0.02em;
+        }
+
+        .cred strong {
+            color: var(--accent);
+            font-weight: 500;
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Email signup */
+        .signup {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+            border-top: 1px solid var(--line-strong);
+            border-bottom: 1px solid var(--line-strong);
+            text-align: center;
+        }
+
+        .signup h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .signup h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .signup p {
+            color: rgba(244, 241, 234, 0.7);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .signup-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0;
+            border: 1px solid var(--line-strong);
+        }
+
+        .signup-form input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 1rem 1.25rem;
+            color: var(--paper);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .signup-form input::placeholder {
+            color: var(--muted);
+        }
+
+        .signup-form button {
+            background: var(--accent);
+            color: var(--ink);
+            border: none;
+            padding: 1rem 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .signup-form button:hover {
+            background: var(--accent-dim);
+        }
+
+        .signup-note {
+            margin-top: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 5;
+            padding: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        footer .separator {
+            color: var(--line-strong);
+            margin: 0 0.75rem;
+        }
+
+        /* Entrance animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero .eyebrow { animation: fadeUp 0.8s ease-out 0.1s both; }
+        .hero h1 { animation: fadeUp 0.8s ease-out 0.2s both; }
+        .hero-lede { animation: fadeUp 0.8s ease-out 0.4s both; }
+        .hero-status { animation: fadeUp 0.8s ease-out 0.6s both; }
+        .coords { animation: fadeUp 0.8s ease-out 0.8s both; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .coords {
+                display: none;
+            }
+
+            header {
+                padding: 1.5rem;
+            }
+
+            .hero, .pillars, .about, .signup {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .hero {
+                padding-top: 3rem;
+                padding-bottom: 2rem;
+            }
+
+            .pillar-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 4rem 1.5rem;
+            }
+
+            .credentials {
+                grid-template-columns: 1fr;
+            }
+
+            .signup-form {
+                flex-direction: column;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        /* Selection color */
+        ::selection {
+            background: var(--accent);
+            color: var(--ink);
+        }
+
+        /* Subtle link styles */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
+        </div>
+        <div class="nav-meta">
+            <span class="live-dot"></span>BUILDING v1.0
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="coords">
+            <div>LAT <span>29.7604°N</span></div>
+            <div>LNG <span>95.3698°W</span></div>
+            <div>NODE <span>HOUSTON / TX</span></div>
+            <div>EST <span>2026</span></div>
+        </div>
+
+        <div class="eyebrow">Signal acquired</div>
+
+        <h1>
+            Your path into <em>cyber</em>,<br>
+            without the <span class="underline">guesswork</span>.
+        </h1>
+
+        <p class="hero-lede">
+            A free, curated roadmap for anyone trying to break into cybersecurity, IT,
+            or infrastructure. Real entry-level jobs pulled from dozens of sources,
+            hands-on labs that actually teach something, and certification guidance
+            from someone who's been in the field for 35+ years.
+        </p>
+
+        <div class="hero-status">
+            <span class="arrow">→</span>Launching Fall 2026. Join the waitlist below.
+        </div>
+    </section>
+
+    <section class="pillars" id="pillars">
+        <div class="section-header">
+            <div class="section-label">// Three pillars</div>
+            <h2 class="section-title">Built around what actually <em>gets you hired</em>.</h2>
+        </div>
+
+        <div class="pillar-grid">
+            <div class="pillar">
+                <span class="pillar-num">01 / JOBS</span>
+                <h3>Entry-level openings, <em>aggregated daily</em>.</h3>
+                <p class="pillar-desc">
+                    Thousands of jobs pulled hourly from USAJobs, CareerOneStop,
+                    Texas Workforce Commission, company career pages, and niche
+                    cyber boards — filtered for entry-level and Houston/remote.
+                </p>
+                <div class="pillar-meta">
+                    <span class="status-chip">Priority 1</span>v1 at launch
+                </div>
+            </div>
+
+            <div class="pillar">
+                <span class="pillar-num">02 / LABS</span>
+                <h3>Hands-on scenarios, <em>zero cost</em>.</h3>
+                <p class="pillar-desc">
+                    A curated map of free cyber labs and CTF platforms, organized by
+                    skill level and NICE framework role. Know exactly what to practice
+                    to land the job you want.
+                </p>
+                <div class="pillar-meta">
+                    <span class="status-chip soon">In build</span>Fall 2026
+                </div>
+            </div>
+
+            <div class="pillar">
+                <span class="pillar-num">03 / CERTS</span>
+                <h3>Certification paths, <em>demystified</em>.</h3>
+                <p class="pillar-desc">
+                    Which certs matter for which roles, what they actually cost, the
+                    realistic study time, and which ones employers in Houston and
+                    remote-first shops actually filter résumés by.
+                </p>
+                <div class="pillar-meta">
+                    <span class="status-chip soon">In build</span>Fall 2026
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div>
+            <div class="about-label">// Who's behind this</div>
+        </div>
+        <div class="about-body">
+            <h2>Not another bootcamp. Not another <em>content farm</em>.</h2>
+            <p>
+                CyberRoadmap is built and curated by Dr. Gregory A. Lindstrom — Professor
+                and Department Chair of Cybersecurity at Lone Star College, Professorial
+                Lecturer at George Washington University, and a 35+ year veteran of
+                cybersecurity work spanning military, NASA contracting, and the defense
+                industrial base.
+            </p>
+            <p>
+                Everything on this site is free, ad-free, and built with the same standards
+                used in real curriculum design — because that's what your career deserves.
+                No affiliate traps, no recycled listicles. Just the roadmap I wish my
+                students had ten years ago.
+            </p>
+
+            <div class="credentials">
+                <div class="cred">
+                    <strong>Academic</strong>
+                    D.Eng. Cybersecurity Analytics<br>
+                    George Washington University
+                </div>
+                <div class="cred">
+                    <strong>Teaching</strong>
+                    Professor & Dept. Chair<br>
+                    Lone Star College
+                </div>
+                <div class="cred">
+                    <strong>Industry</strong>
+                    35+ years cybersecurity,<br>
+                    military, NASA, DIB
+                </div>
+                <div class="cred">
+                    <strong>Consulting</strong>
+                    CMMC-track via<br>
+                    Secur.org
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="signup">
+        <h2>Be the first to know <em>when we launch</em>.</h2>
+        <p>No spam. No resale. Just one email when the site goes live, and occasional high-signal career tips.</p>
+        <form class="signup-form" action="#" method="POST" id="waitlist-form">
+            <input type="email" name="email" placeholder="your.email@domain.com" required aria-label="Email address">
+            <button type="submit">Join waitlist →</button>
+        </form>
+        <div class="signup-note" id="signup-note">Est. waitlist: 0. You could be #1.</div>
+    </section>
+
+    <footer>
+        <div>
+            © 2026 CyberRoadmap
+            <span class="separator">/</span>
+            Curated by G. Lindstrom
+            <span class="separator">/</span>
+            Houston, TX
+        </div>
+        <div>
+            v1.0-alpha
+            <span class="separator">/</span>
+            <a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple waitlist form handler (v1 placeholder - we'll wire this to Azure Functions later)
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = e.target.email.value;
+            const note = document.getElementById('signup-note');
+
+            // For now, just store locally and show confirmation
+            // In v1.1 we'll POST to an Azure Function that writes to the database
+            try {
+                const existing = JSON.parse(localStorage.getItem('cyberroadmap_waitlist') || '[]');
+                if (!existing.includes(email)) {
+                    existing.push(email);
+                    localStorage.setItem('cyberroadmap_waitlist', JSON.stringify(existing));
+                }
+                note.innerHTML = '✓ You\'re on the list. We\'ll email you at launch.';
+                note.style.color = 'var(--accent)';
+                e.target.reset();
+            } catch (err) {
+                note.innerHTML = 'Something went wrong. Try again or email hello@cyberroadmap.org';
+            }
+        });
+
+        // Subtle parallax on grid
+        document.addEventListener('mousemove', function(e) {
+            const x = (e.clientX / window.innerWidth - 0.5) * 10;
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+            document.body.style.setProperty('background-position', `${x}px ${y}px`);
+        });
+    </script>
+
+</body>
+</html>
