@@ -10,18 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #FAF7F0;
-            --paper: #1A1A1A;
-            --accent: #D94420;
-            --accent-dim: #B03515;
-            --green: #2D6930;
-            --yellow: #996515;
-            --red: #A62828;
-            --muted: #6B6760;
-            --line: rgba(26, 26, 26, 0.12);
-            --line-strong: rgba(26, 26, 26, 0.28);
-            --card: rgba(255, 255, 255, 0.6);
-            --card-hover: rgba(217, 68, 32, 0.05);
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --green: #5fb24f;
+            --yellow: #e6b04f;
+            --red: #d14343;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+            --card-hover: rgba(255, 74, 28, 0.06);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -161,7 +161,7 @@
             align-self: start;
             border: 1px solid var(--line);
             padding: 1.75rem;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(10, 14, 20, 0.6);
             backdrop-filter: blur(10px);
         }
 
@@ -429,7 +429,7 @@
 
         .job-description {
             font-size: 0.9rem;
-            color: rgba(26, 26, 26, 0.72);
+            color: rgba(244, 241, 234, 0.7);
             line-height: 1.5;
             margin-bottom: 0.75rem;
             font-weight: 300;
@@ -525,6 +525,145 @@
                 text-align: center;
                 justify-content: center;
             }
+
+            .more-sources {
+                padding: 3rem 1.5rem 2rem;
+            }
+        }
+
+        /* More job sources section */
+        .more-sources {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 3rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        .more-sources-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .more-sources-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .more-sources-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .more-sources-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .more-sources-intro {
+            font-size: 1rem;
+            color: rgba(244, 241, 234, 0.75);
+            max-width: 780px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .more-sources-intro strong {
+            color: var(--paper);
+            font-weight: 400;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .source-card {
+            border: 1px solid var(--line);
+            padding: 1.5rem;
+            background: var(--card);
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .source-card:hover {
+            border-color: var(--line-strong);
+            background: var(--card-hover);
+        }
+
+        .source-card-name {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            line-height: 1.2;
+            color: var(--paper);
+            margin-bottom: 0.5rem;
+        }
+
+        .source-card-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .source-card-desc {
+            font-size: 0.9rem;
+            color: rgba(244, 241, 234, 0.78);
+            line-height: 1.5;
+            font-weight: 300;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .source-card-desc strong {
+            color: var(--paper);
+            font-weight: 500;
+        }
+
+        .quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .quick-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--accent);
+            text-decoration: none;
+            padding: 0.55rem 0.8rem;
+            border: 1px solid var(--line);
+            letter-spacing: 0.03em;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quick-link:hover {
+            border-color: var(--accent);
+            background: rgba(255, 74, 28, 0.05);
+        }
+
+        .quick-link::after {
+            content: '→';
+            opacity: 0.6;
         }
 
         ::selection { background: var(--accent); color: var(--ink); }
@@ -537,6 +676,7 @@
             <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
         </a>
         <div class="nav-links">
+            <a href="/">Home</a>
             <a href="/jobs.html" class="active">Jobs</a>
             <a href="/certs.html">Certifications</a>
             <a href="/training.html">Training</a>
@@ -631,11 +771,162 @@
 
     </div>
 
+    <!-- ==================== MORE JOB SOURCES ==================== -->
+    <section class="more-sources">
+        <div class="more-sources-header">
+            <div class="more-sources-label">// More job sources</div>
+            <h2 class="more-sources-title">Search these <em>directly</em>.</h2>
+            <p class="more-sources-intro">
+                These sites aren't yet integrated into the search above, but they're
+                <strong>worth checking directly</strong>. Click any quick-link below to jump
+                straight to a pre-filtered search on that site — entry-level cyber jobs, ready to apply.
+            </p>
+        </div>
+
+        <div class="source-grid">
+
+            <div class="source-card">
+                <div class="source-card-name">CareerOneStop</div>
+                <div class="source-card-meta">
+                    US Dept. of Labor · Federal aggregator · Free
+                </div>
+                <p class="source-card-desc">
+                    <strong>The federal government's official job aggregator</strong> — pulls from state
+                    workforce systems (including Texas), employer sites, and other federal sources. Often
+                    has jobs that never appear on commercial boards.
+                </p>
+                <div class="quick-links">
+                    <a href="https://www.careeronestop.org/Toolkit/Jobs/find-jobs-results.aspx?keyword=cybersecurity&location=77339&radius=50&sortcolumns=Age&sortdirections=ASC" target="_blank" rel="noopener" class="quick-link">Cyber · Houston area (50mi)</a>
+                    <a href="https://www.careeronestop.org/Toolkit/Jobs/find-jobs-results.aspx?keyword=cybersecurity+entry+level&location=US&sortcolumns=Age&sortdirections=ASC" target="_blank" rel="noopener" class="quick-link">Entry-level cyber · US-wide</a>
+                    <a href="https://www.careeronestop.org/Toolkit/Jobs/find-jobs-results.aspx?keyword=information+security+intern&location=US&sortcolumns=Age&sortdirections=ASC" target="_blank" rel="noopener" class="quick-link">Internships · US-wide</a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <div class="source-card-name">USAJobs</div>
+                <div class="source-card-meta">
+                    OPM · Federal employment · Direct apply
+                </div>
+                <p class="source-card-desc">
+                    <strong>The federal government's official hiring portal.</strong> Every federal civilian
+                    job in the country is posted here. Supplements the federal jobs already shown in the
+                    search above — use this to drill into specific agencies.
+                </p>
+                <div class="quick-links">
+                    <a href="https://www.usajobs.gov/Search/Results?k=cybersecurity&hp=public&p=1" target="_blank" rel="noopener" class="quick-link">Cyber · Open to public</a>
+                    <a href="https://www.usajobs.gov/Search/Results?k=cybersecurity&l=Houston%2C+TX&p=1" target="_blank" rel="noopener" class="quick-link">Cyber · Houston area</a>
+                    <a href="https://www.usajobs.gov/Search/Results?k=cybersecurity&hp=student&p=1" target="_blank" rel="noopener" class="quick-link">Student &amp; internship programs</a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <div class="source-card-name">LinkedIn Jobs</div>
+                <div class="source-card-meta">
+                    Most actively updated · Requires free account
+                </div>
+                <p class="source-card-desc">
+                    LinkedIn has the largest active recruiter presence — <strong>this is where most hiring
+                    managers actually look</strong>. The filter URLs below target entry-level and internship
+                    experience levels directly.
+                </p>
+                <div class="quick-links">
+                    <a href="https://www.linkedin.com/jobs/search/?keywords=cybersecurity&location=Houston%2C%20Texas%2C%20United%20States&f_E=2%2C3&f_TPR=r604800" target="_blank" rel="noopener" class="quick-link">Entry-level cyber · Houston</a>
+                    <a href="https://www.linkedin.com/jobs/search/?keywords=cybersecurity&f_E=1&f_TPR=r604800&f_WT=2" target="_blank" rel="noopener" class="quick-link">Cyber internships · Remote</a>
+                    <a href="https://www.linkedin.com/jobs/search/?keywords=SOC+analyst&f_E=2%2C3&f_TPR=r604800" target="_blank" rel="noopener" class="quick-link">SOC analyst · Entry-level</a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <div class="source-card-name">Indeed</div>
+                <div class="source-card-meta">
+                    Largest general job site · Heavy volume · Many duplicates
+                </div>
+                <p class="source-card-desc">
+                    The largest general-purpose job board. <strong>High volume, noisy</strong> — you'll
+                    see the same job posted by multiple staffing agencies. Sort by Date and use Indeed's
+                    "Easy Apply" filter to move fast.
+                </p>
+                <div class="quick-links">
+                    <a href="https://www.indeed.com/jobs?q=cybersecurity+entry+level&l=Houston%2C+TX&sort=date" target="_blank" rel="noopener" class="quick-link">Entry-level cyber · Houston</a>
+                    <a href="https://www.indeed.com/jobs?q=cybersecurity+intern&l=&sort=date" target="_blank" rel="noopener" class="quick-link">Cyber internships · US-wide</a>
+                    <a href="https://www.indeed.com/jobs?q=information+security+analyst&l=Houston%2C+TX&explvl=entry_level&sort=date" target="_blank" rel="noopener" class="quick-link">InfoSec analyst · Houston</a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <div class="source-card-name">Dice</div>
+                <div class="source-card-meta">
+                    Tech-specific · Higher-quality tech roles
+                </div>
+                <p class="source-card-desc">
+                    <strong>Tech-specific job board</strong> — signal-to-noise is better than Indeed for
+                    cybersecurity. Many government contractor roles post here first. Good for clearance-track
+                    positions.
+                </p>
+                <div class="quick-links">
+                    <a href="https://www.dice.com/jobs?q=cybersecurity&location=Houston%2C+TX%2C+USA&radius=30&radiusUnit=mi&filters.postedDate=ONE" target="_blank" rel="noopener" class="quick-link">Cyber · Houston (30mi)</a>
+                    <a href="https://www.dice.com/jobs?q=cybersecurity+entry+level&location=United+States&filters.postedDate=ONE" target="_blank" rel="noopener" class="quick-link">Entry-level cyber · US-wide</a>
+                    <a href="https://www.dice.com/jobs?q=security+clearance&location=Houston%2C+TX%2C+USA&radius=30&radiusUnit=mi" target="_blank" rel="noopener" class="quick-link">Security clearance · Houston</a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <div class="source-card-name">ZipRecruiter</div>
+                <div class="source-card-meta">
+                    Volume aggregator · Good Houston coverage
+                </div>
+                <p class="source-card-desc">
+                    Large-volume aggregator with <strong>strong Houston market coverage</strong>. Complements
+                    Indeed — some employers post here first. One-click apply to many jobs with a saved
+                    profile.
+                </p>
+                <div class="quick-links">
+                    <a href="https://www.ziprecruiter.com/jobs-search?search=cybersecurity+entry+level&location=Houston%2C+TX&days=7" target="_blank" rel="noopener" class="quick-link">Entry-level cyber · Houston</a>
+                    <a href="https://www.ziprecruiter.com/jobs-search?search=SOC+analyst&location=Houston%2C+TX&days=7" target="_blank" rel="noopener" class="quick-link">SOC analyst · Houston</a>
+                    <a href="https://www.ziprecruiter.com/jobs-search?search=cybersecurity+intern&location=&days=14" target="_blank" rel="noopener" class="quick-link">Cyber internships · Anywhere</a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <div class="source-card-name">Built In Austin</div>
+                <div class="source-card-meta">
+                    Texas tech ecosystem · Startups + established tech
+                </div>
+                <p class="source-card-desc">
+                    <strong>Texas tech community's job board</strong> — covers Austin primarily but
+                    increasingly Houston and Dallas. Good for mission-driven startups and well-funded
+                    tech companies. Skews younger, faster-moving hiring processes.
+                </p>
+                <div class="quick-links">
+                    <a href="https://www.builtinaustin.com/jobs?f%5B0%5D=job-category_cybersecurity-it&search=cybersecurity" target="_blank" rel="noopener" class="quick-link">All cyber jobs</a>
+                    <a href="https://www.builtinaustin.com/jobs?search=security&exp=0%2B%20Years%20Experience" target="_blank" rel="noopener" class="quick-link">Entry-level (0+ yrs)</a>
+                    <a href="https://www.builtinaustin.com/jobs?search=security+intern" target="_blank" rel="noopener" class="quick-link">Security internships</a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <div class="source-card-name">Texas Workforce Commission — WorkInTexas</div>
+                <div class="source-card-meta">
+                    State workforce system · Often has unlisted roles
+                </div>
+                <p class="source-card-desc">
+                    The <strong>official Texas state workforce system</strong>. Has a lot of jobs that
+                    don't appear elsewhere — state agencies, local governments, smaller employers who
+                    only post here. Free registration required to search, but worth it for Texas coverage.
+                </p>
+                <div class="quick-links">
+                    <a href="https://www.workintexas.com/" target="_blank" rel="noopener" class="quick-link">WorkInTexas (register &amp; search)</a>
+                    <a href="https://www.twc.texas.gov/jobseekers" target="_blank" rel="noopener" class="quick-link">TWC Job Seeker Resources</a>
+                    <a href="https://www.texasinternnetwork.com/vosnet/default.aspx" target="_blank" rel="noopener" class="quick-link">Texas Intern Network</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <footer>
         <div>
             © 2026 CyberRoadmap
-            <span class="sep">/</span>
-            Curated by G. Lindstrom
             <span class="sep">/</span>
             Houston, TX
         </div>
