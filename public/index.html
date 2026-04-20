@@ -90,6 +90,8 @@
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
@@ -98,10 +100,38 @@
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            text-decoration: none;
+            color: var(--paper);
         }
 
         .logo .bracket {
             color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--paper);
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
 
         .nav-meta {
@@ -285,7 +315,7 @@
             border-right: 1px solid var(--line);
             border-bottom: 1px solid var(--line);
             position: relative;
-            background: rgba(10, 14, 20, 0.4);
+            background: rgba(255, 255, 255, 0.5);
             transition: background 0.3s ease;
         }
 
@@ -548,7 +578,12 @@
             }
 
             header {
-                padding: 1.5rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.7rem;
             }
 
             .hero, .pillars, .about, .signup {
@@ -608,8 +643,15 @@
 <body>
 
     <header>
-        <div class="logo">
+        <a href="/" class="logo">
             <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
+        </a>
+        <div class="nav-links">
+            <a href="/jobs.html">Jobs</a>
+            <a href="/certs.html">Certifications</a>
+            <a href="/training.html">Training</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/about.html">About</a>
         </div>
         <div class="nav-meta">
             <span class="live-dot"></span>LIVE v1.0
