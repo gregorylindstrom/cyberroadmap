@@ -2472,5 +2472,44 @@
  "north miami beach|FL": [
   25.9449,
   -80.1391
+ ],
+ "salisbury|NC": [
+  35.6515,
+  -80.4889
+ ],
+ "huntington beach|NY": null,
+ "leander|TX": [
+  30.5835,
+  -97.8575
+ ],
+ "taylor|TX": [
+  30.5807,
+  -97.4401
+ ],
+ "hutto|TX": [
+  30.5257,
+  -97.5672
+ ],
+ "monadale|TX": null,
+ "rices crossing|TX": null,
+ "bedford|TX": [
+  32.8536,
+  -97.1358
+ ],
+ "lake dallas|TX": [
+  33.1219,
+  -97.0237
+ ],
+ "winter haven|FL": [
+  27.9873,
+  -81.7625
+ ],
+ "burlingame|CA": [
+  37.5671,
+  -122.3676
+ ],
+ "mulberry|FL": [
+  27.902,
+  -82.0015
  ]
 }
