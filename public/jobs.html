@@ -48,7 +48,6 @@
 
         .mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* Nav */
         nav {
             position: relative;
             z-index: 10;
@@ -97,7 +96,6 @@
             border-bottom-color: var(--accent);
         }
 
-        /* Layout */
         .container {
             position: relative;
             z-index: 5;
@@ -109,7 +107,6 @@
             gap: 3rem;
         }
 
-        /* Header above filters and results */
         .page-header {
             grid-column: 1 / -1;
             margin-bottom: 1rem;
@@ -155,7 +152,6 @@
             vertical-align: middle;
         }
 
-        /* Filter sidebar */
         .filters {
             position: sticky;
             top: 2rem;
@@ -242,7 +238,6 @@
             background: rgba(255, 74, 28, 0.08);
         }
 
-        /* Checkboxes */
         .checkbox-list {
             display: grid;
             gap: 0.5rem;
@@ -295,7 +290,6 @@
             font-size: 0.75rem;
         }
 
-        /* Action buttons */
         .filter-actions {
             display: grid;
             gap: 0.5rem;
@@ -329,9 +323,8 @@
             background: transparent;
         }
 
-        /* Results panel */
         .results {
-            min-width: 0; /* allow shrinking inside grid */
+            min-width: 0;
         }
 
         .results-header {
@@ -360,7 +353,6 @@
             color: var(--muted);
         }
 
-        /* Job card */
         .job-card {
             border: 1px solid var(--line);
             padding: 1.5rem;
@@ -455,7 +447,6 @@
             letter-spacing: 0.05em;
         }
 
-        /* States */
         .state-msg {
             text-align: center;
             padding: 4rem 2rem;
@@ -478,7 +469,6 @@
             margin-top: 0.75rem;
         }
 
-        /* Load more */
         .load-more {
             margin: 2rem auto 0;
             display: block;
@@ -486,7 +476,6 @@
             max-width: 300px;
         }
 
-        /* Footer */
         footer {
             position: relative;
             z-index: 5;
@@ -508,7 +497,6 @@
         footer a:hover { border-bottom: 1px solid var(--accent); }
         footer .sep { color: var(--line-strong); margin: 0 0.75rem; }
 
-        /* Responsive */
         @media (max-width: 900px) {
             nav {
                 padding: 1rem 1.5rem;
@@ -550,7 +538,7 @@
             <a href="/certs.html">Certifications</a>
             <a href="/training.html">Training</a>
             <a href="/resources.html">Resources</a>
-            <a href="/#about">About</a>
+            <a href="/about.html">About</a>
         </div>
     </nav>
 
@@ -586,8 +574,8 @@
                 <label class="filter-label">Radius</label>
                 <select class="filter-select" id="f-radius">
                     <option value="25">25 miles</option>
-                    <option value="50" selected>50 miles</option>
-                    <option value="100">100 miles</option>
+                    <option value="50">50 miles</option>
+                    <option value="100" selected>100 miles</option>
                     <option value="250">250 miles</option>
                     <option value="0">Any US</option>
                 </select>
@@ -610,7 +598,7 @@
                 <label class="filter-label">Options</label>
                 <div class="checkbox-list">
                     <label class="checkbox-item"><input type="checkbox" id="f-federal"> Federal jobs only</label>
-                    <label class="checkbox-item"><input type="checkbox" id="f-remote"> Include remote</label>
+                    <label class="checkbox-item"><input type="checkbox" id="f-remote" checked> Include remote</label>
                 </div>
             </div>
 
@@ -655,26 +643,13 @@
 
 <script>
 /*
- * CyberRoadmap Jobs Page
- * ======================
- * Loads pre-scraped jobs.json from the same origin, then does all filtering
- * in the browser. No backend needed.
+ * CyberRoadmap Jobs Page - v3
+ * ============================
+ * Now uses real per-job lat/lng from the scraper instead of state centroids.
+ * Dramatically more accurate radius filtering.
  *
- * Location handling:
- *   - User types a ZIP (e.g., "77339") → geocode to lat/lng via zippopotam.us
- *     (free, CORS-enabled, no API key)
- *   - User types city → we do substring matching on job locations
- *   - User clicks ◉ Me → browser geolocation, reverse-lookup handled via
- *     comparing distance to each job's location (if geocoded)
- *
- * For radius filtering: when user has lat/lng and a job has lat/lng,
- * we use the haversine formula. If a job has no geocoded location, it's
- * only shown when radius = "Any US" OR the city matches loosely.
- *
- * PERFORMANCE: If jobs.json gets big, consider:
- *   - Pagination server-side (requires DB)
- *   - Web Worker for filtering (>10k jobs)
- *   - Progressive rendering (done here via PAGE_SIZE)
+ * Jobs WITHOUT geocoded coordinates still fall back gracefully — they only
+ * appear when radius is "Any US".
  */
 
 const PAGE_SIZE = 20;
@@ -682,13 +657,11 @@ let state = {
     allJobs: [],
     filtered: [],
     visible: PAGE_SIZE,
-    userLocation: null, // {lat, lng} when set
+    userLocation: null,
 };
 
-// --- Utilities ---
-
 function haversineMiles(lat1, lng1, lat2, lng2) {
-    const R = 3959; // miles
+    const R = 3959;
     const toRad = (d) => d * Math.PI / 180;
     const dLat = toRad(lat2 - lat1);
     const dLng = toRad(lng2 - lng1);
@@ -719,7 +692,6 @@ function formatSalary(min, max) {
     return `up to ${fmt(max)}`;
 }
 
-// --- ZIP geocoding via zippopotam.us ---
 async function geocodeZip(zip) {
     try {
         const r = await fetch(`https://api.zippopotam.us/us/${zip}`);
@@ -738,38 +710,22 @@ async function geocodeZip(zip) {
     }
 }
 
-// Approx US state-capital lat/lng for coarse city matching fallback
-// (Used only when user enters a city we can't geocode.)
+// Per-state centroids for "type a state-only location" fallback
 const STATE_CENTROIDS = {
-    "AL":[32.7, -86.8],"AK":[63.6, -152.4],"AZ":[34.2, -111.7],
-    "AR":[34.9, -92.4],"CA":[37.2, -119.5],"CO":[39.0, -105.5],
-    "CT":[41.6, -72.7],"DE":[38.9, -75.5],"FL":[28.6, -81.8],
-    "GA":[32.7, -83.4],"HI":[20.3, -156.4],"ID":[44.4, -114.6],
-    "IL":[40.0, -89.2],"IN":[39.9, -86.3],"IA":[42.1, -93.5],
-    "KS":[38.5, -98.3],"KY":[37.5, -85.3],"LA":[30.9, -92.0],
-    "ME":[45.4, -69.2],"MD":[39.0, -76.8],"MA":[42.2, -71.5],
-    "MI":[44.3, -85.4],"MN":[46.3, -94.3],"MS":[32.7, -89.7],
-    "MO":[38.4, -92.5],"MT":[47.0, -109.6],"NE":[41.5, -99.8],
-    "NV":[38.5, -117.1],"NH":[43.7, -71.6],"NJ":[40.3, -74.5],
-    "NM":[34.4, -106.1],"NY":[42.9, -75.5],"NC":[35.6, -79.8],
-    "ND":[47.5, -99.8],"OH":[40.3, -82.8],"OK":[35.5, -97.5],
-    "OR":[43.9, -120.6],"PA":[40.6, -77.2],"RI":[41.7, -71.4],
-    "SC":[33.9, -80.9],"SD":[44.4, -100.3],"TN":[35.7, -86.7],
-    "TX":[31.1, -97.6],"UT":[40.2, -111.9],"VT":[44.0, -72.7],
-    "VA":[37.8, -78.2],"WA":[47.4, -121.5],"WV":[38.5, -80.9],
-    "WI":[44.3, -89.6],"WY":[42.8, -107.3],"DC":[38.9, -77.0],
+    "AL":[32.7,-86.8],"AK":[63.6,-152.4],"AZ":[34.2,-111.7],"AR":[34.9,-92.4],
+    "CA":[37.2,-119.5],"CO":[39.0,-105.5],"CT":[41.6,-72.7],"DE":[38.9,-75.5],
+    "FL":[28.6,-81.8],"GA":[32.7,-83.4],"HI":[20.3,-156.4],"ID":[44.4,-114.6],
+    "IL":[40.0,-89.2],"IN":[39.9,-86.3],"IA":[42.1,-93.5],"KS":[38.5,-98.3],
+    "KY":[37.5,-85.3],"LA":[30.9,-92.0],"ME":[45.4,-69.2],"MD":[39.0,-76.8],
+    "MA":[42.2,-71.5],"MI":[44.3,-85.4],"MN":[46.3,-94.3],"MS":[32.7,-89.7],
+    "MO":[38.4,-92.5],"MT":[47.0,-109.6],"NE":[41.5,-99.8],"NV":[38.5,-117.1],
+    "NH":[43.7,-71.6],"NJ":[40.3,-74.5],"NM":[34.4,-106.1],"NY":[42.9,-75.5],
+    "NC":[35.6,-79.8],"ND":[47.5,-99.8],"OH":[40.3,-82.8],"OK":[35.5,-97.5],
+    "OR":[43.9,-120.6],"PA":[40.6,-77.2],"RI":[41.7,-71.4],"SC":[33.9,-80.9],
+    "SD":[44.4,-100.3],"TN":[35.7,-86.7],"TX":[31.1,-97.6],"UT":[40.2,-111.9],
+    "VT":[44.0,-72.7],"VA":[37.8,-78.2],"WA":[47.4,-121.5],"WV":[38.5,-80.9],
+    "WI":[44.3,-89.6],"WY":[42.8,-107.3],"DC":[38.9,-77.0],
 };
-
-function approximateLocationLatLng(loc) {
-    if (!loc || typeof loc !== 'object') return null;
-    if (loc.remote) return null;
-    if (loc.state && STATE_CENTROIDS[loc.state]) {
-        return { lat: STATE_CENTROIDS[loc.state][0], lng: STATE_CENTROIDS[loc.state][1] };
-    }
-    return null;
-}
-
-// --- Filter logic ---
 
 function applyFilters() {
     const kw = document.getElementById('f-keyword').value.trim().toLowerCase();
@@ -796,28 +752,32 @@ function applyFilters() {
         out = out.filter(j => j.federal);
     }
 
-    // Categories (OR within categories)
+    // Categories
     if (checkedCats.length > 0) {
         out = out.filter(j => {
             return j.categories.some(c => checkedCats.includes(c));
         });
     }
 
-    // Location radius
+    // Location radius — USES REAL LAT/LNG NOW
     if (radius > 0 && state.userLocation) {
         out = out.filter(j => {
             if (j.location.remote) {
-                return includeRemote; // remote only passes if user checked "include remote"
+                return includeRemote;
             }
-            const jobLoc = approximateLocationLatLng(j.location);
-            if (!jobLoc) {
-                return false; // no location data → exclude when radius is set
+
+            // Use the job's actual lat/lng if available
+            const jobLat = j.location.lat;
+            const jobLng = j.location.lng;
+
+            if (jobLat === null || jobLat === undefined) {
+                return false;  // No coords = can't measure distance = exclude
             }
-            const d = haversineMiles(state.userLocation.lat, state.userLocation.lng, jobLoc.lat, jobLoc.lng);
+
+            const d = haversineMiles(state.userLocation.lat, state.userLocation.lng, jobLat, jobLng);
             return d <= radius;
         });
     } else if (!includeRemote) {
-        // No location set but user wants to exclude remote
         out = out.filter(j => !j.location.remote);
     }
 
@@ -825,8 +785,6 @@ function applyFilters() {
     state.visible = PAGE_SIZE;
     render();
 }
-
-// --- Rendering ---
 
 function renderJobCard(job) {
     const card = document.createElement('a');
@@ -853,7 +811,6 @@ function renderJobCard(job) {
         <div class="job-tags"></div>
     `;
 
-    // textContent assignments (safe from HTML injection)
     card.querySelector('.job-title').textContent = job.title;
     card.querySelector('.job-source').textContent = job.federal ? 'FEDERAL · ' + job.source : job.source;
     card.querySelector('.job-company').textContent = job.company;
@@ -900,7 +857,6 @@ function render() {
     more.style.display = state.visible < state.filtered.length ? 'block' : 'none';
 }
 
-// --- Category counts (for the filter sidebar) ---
 function updateCategoryCounts() {
     document.querySelectorAll('[data-cat]').forEach(el => {
         const cat = el.dataset.cat;
@@ -909,7 +865,6 @@ function updateCategoryCounts() {
     });
 }
 
-// --- Meta info ---
 function updateMeta(meta) {
     if (!meta) return;
 
@@ -927,15 +882,16 @@ function updateMeta(meta) {
         `${(meta.total_jobs || 0).toLocaleString()} active listings`;
 
     if (meta.sources) {
-        const parts = Object.entries(meta.sources).map(([k, v]) => `${v} from ${k}`);
-        document.getElementById('stats-sources').textContent = parts.join(' + ');
+        const parts = Object.entries(meta.sources)
+            .sort(([, a], [, b]) => b - a)
+            .map(([k, v]) => `${v} from ${k}`);
+        document.getElementById('stats-sources').textContent = parts.join(' · ');
     }
 }
 
-// --- Data load ---
 async function loadJobs() {
     try {
-        const r = await fetch('/data/jobs.json', { cache: 'no-cache' });
+        const r = await fetch('/data/jobs.json?t=' + Date.now(), { cache: 'no-cache' });
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const data = await r.json();
 
@@ -970,12 +926,9 @@ async function loadJobs() {
     }
 }
 
-// --- Event handlers ---
-
 document.getElementById('btn-search').addEventListener('click', async () => {
     const loc = document.getElementById('f-location').value.trim();
     if (loc) {
-        // Try ZIP first
         if (/^\d{5}$/.test(loc)) {
             const g = await geocodeZip(loc);
             if (g) {
@@ -991,9 +944,7 @@ document.getElementById('btn-search').addEventListener('click', async () => {
                 const c = STATE_CENTROIDS[stateMatch[1]];
                 state.userLocation = { lat: c[0], lng: c[1] };
             } else {
-                // Unrecognized — fall back to keyword matching on location field
                 state.userLocation = null;
-                // Add to keywords so we still try to match
                 const kw = document.getElementById('f-keyword');
                 if (!kw.value.toLowerCase().includes(loc.toLowerCase())) {
                     kw.value = (kw.value + " " + loc).trim();
@@ -1009,9 +960,9 @@ document.getElementById('btn-search').addEventListener('click', async () => {
 document.getElementById('btn-clear').addEventListener('click', () => {
     document.getElementById('f-keyword').value = '';
     document.getElementById('f-location').value = '';
-    document.getElementById('f-radius').value = '50';
+    document.getElementById('f-radius').value = '100';
     document.getElementById('f-federal').checked = false;
-    document.getElementById('f-remote').checked = false;
+    document.getElementById('f-remote').checked = true;
     document.querySelectorAll('#f-categories input').forEach(el => el.checked = false);
     state.userLocation = null;
     applyFilters();
@@ -1044,19 +995,16 @@ document.getElementById('btn-more').addEventListener('click', () => {
     render();
 });
 
-// Enter key in any input triggers search
 ['f-keyword', 'f-location'].forEach(id => {
     document.getElementById(id).addEventListener('keydown', e => {
         if (e.key === 'Enter') document.getElementById('btn-search').click();
     });
 });
 
-// Checkbox changes trigger filter immediately (no need to click Search)
 document.querySelectorAll('#f-categories input, #f-federal, #f-remote').forEach(el => {
     el.addEventListener('change', applyFilters);
 });
 
-// Kickoff
 loadJobs();
 </script>
 

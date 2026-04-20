@@ -1,40 +1,41 @@
 name: Scrape Jobs
 
 on:
-  # Run every 6 hours
   schedule:
     - cron: '0 */6 * * *'
-
-  # Allow manual triggering from the GitHub UI (useful for testing)
   workflow_dispatch:
-
-  # Also run on push when the scraper itself changes, for verification
   push:
     branches: [main]
     paths:
       - '.github/scripts/scraper.py'
       - '.github/workflows/scrape-jobs.yml'
+      - 'requirements.txt'
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # needed to commit the updated jobs.json
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install requests
+          fi
 
       - name: Run scraper
         env:
@@ -43,19 +44,40 @@ jobs:
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
           THE_MUSE_API_KEY: ${{ secrets.THE_MUSE_API_KEY }}
+          THEIRSTACK_API_KEY: ${{ secrets.THEIRSTACK_API_KEY }}
+          CAREERONESTOP_USER_ID: ${{ secrets.CAREERONESTOP_USER_ID }}
+          CAREERONESTOP_API_TOKEN: ${{ secrets.CAREERONESTOP_API_TOKEN }}
         run: python .github/scripts/scraper.py
 
-      - name: Commit updated jobs.json
+      - name: Verify output
+        run: |
+          python -c "import json; d=json.load(open('public/data/jobs.json')); print('total_jobs:', d['meta']['total_jobs']); print('geocoded:', d['meta'].get('geocoded_count', '?'))"
+
+      - name: Commit and push updates
         run: |
           git config user.name "cyberroadmap-bot"
           git config user.email "actions@github.com"
 
+          # Stage all the files the scraper writes
           git add public/data/jobs.json
+          if [ -f public/data/location_cache.json ]; then
+            git add public/data/location_cache.json
+          fi
+          if [ -f .theirstack_last_run ]; then
+            git add .theirstack_last_run
+          fi
 
-          # Only commit if there are actual changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: update jobs.json [automated]"
-            git push
+            git commit -m "chore: update jobs.json + location cache [automated]"
+
+            # Retry push with rebase to handle concurrent commits
+            for i in 1 2 3; do
+              echo "Push attempt $i..."
+              git pull --rebase origin main && git push origin main && break
+              echo "Push attempt $i failed, retrying..."
+              sleep 5
+            done
+            echo "Push complete"
           fi

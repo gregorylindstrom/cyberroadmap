@@ -62,6 +62,7 @@ Live at: **[cyberroadmap.org](https://cyberroadmap.org)**
 └── README.md                  # This file
 ```
 
+ 
 ## Required GitHub Secrets
 
 The scraper needs API credentials stored as repository secrets. Set these at
@@ -161,6 +162,7 @@ Cybersecurity at Lone Star College.
 - Email: hello@cyberroadmap.org
 
 ## License
+
 
 All code in this repo is MIT licensed. See `LICENSE`.
 The content (job descriptions, etc.) belongs to the original job posters.

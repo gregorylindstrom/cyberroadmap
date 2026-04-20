@@ -1,0 +1,2343 @@
+{
+ "maumee|OH": [
+  41.5817,
+  -83.6628
+ ],
+ "carmel|IN": [
+  39.9712,
+  -86.1245
+ ],
+ "rosslyn|VA": null,
+ "washington|WA": null,
+ "fort george g meade|MD": [
+  39.1059,
+  -76.7467
+ ],
+ "woodlawn|MD": null,
+ "new york city|NY": [
+  40.7069,
+  -73.6731
+ ],
+ "orlando|NY": null,
+ "san francisco|NY": null,
+ "mcclellan|CA": [
+  38.6621,
+  -121.3955
+ ],
+ "south san francisco|CA": [
+  37.6574,
+  -122.4235
+ ],
+ "frankfort|KY": [
+  38.2281,
+  -84.8697
+ ],
+ "san francisco or new york|NY": null,
+ "fort meade|MD": null,
+ "orlando naval warfare center|FL": null,
+ "hanover|MD": [
+  39.1551,
+  -76.7215
+ ],
+ "saint francis|WI": [
+  42.9731,
+  -87.8687
+ ],
+ "naval air station jacksonville|FL": null,
+ "chambersburg|OH": null,
+ "in-bengaluru|IN": null,
+ "five corners|NJ": null,
+ "cheyenne mountain afb|CO": null,
+ "ca-toronto|CA": null,
+ "brussels|OR": null,
+ "irvine|NY": null,
+ "pentagon|VA": null,
+ "chicago|NY": null,
+ "national city|CA": [
+  32.6749,
+  -117.0897
+ ],
+ "richmond|NY": [
+  40.6982,
+  -73.8345
+ ],
+ "dublin or london|OR": null,
+ "mc lean|VA": [
+  38.9326,
+  -77.1706
+ ],
+ "gunter afb|AL": null,
+ "new york privy hq|NY": null,
+ "apex|NC": [
+  35.7225,
+  -78.8408
+ ],
+ "enterprise|WA": null,
+ "milam dairy|FL": null,
+ "diamond|NY": [
+  43.5156,
+  -73.7001
+ ],
+ "hines|IL": [
+  41.8623,
+  -87.8355
+ ],
+ "niwc lant charleston|SC": null,
+ "atlanta; new york|NY": null,
+ "seattle; san francisco; new york city|NY": null,
+ "seattle; san francisco; new york city; remote|NY": null,
+ "crane|IN": [
+  38.8949,
+  -86.9002
+ ],
+ "in - bengaluru|IN": null,
+ "quantico|VA": [
+  38.531,
+  -77.3358
+ ],
+ "antioch|IN": null,
+ "virginia|VA": [
+  36.844,
+  -76.1204
+ ],
+ "whitehall|OH": null,
+ "tysons corner|VA": null,
+ "lakehurst|NJ": [
+  40.0263,
+  -74.3254
+ ],
+ "seattle|NY": null,
+ "grandview heights|OH": null,
+ "hurlburt field|FL": [
+  30.4229,
+  -86.6985
+ ],
+ "pioneer square|WA": null,
+ "dover|DE": [
+  39.1564,
+  -75.4955
+ ],
+ "owings mills|MD": [
+  39.4269,
+  -76.7769
+ ],
+ "march afb|CA": null,
+ "elmendorf afb|AK": [
+  61.2515,
+  -149.8127
+ ],
+ "westerville|OH": [
+  40.1146,
+  -82.9105
+ ],
+ "mcguire afb|NJ": null,
+ "usa - san francisco|NY": null,
+ "williams creek|IN": null,
+ "lincoln|NJ": [
+  40.9208,
+  -74.2995
+ ],
+ "naval shipyard|VA": null,
+ "newport coast|NY": null,
+ "fort lee|VA": [
+  37.2447,
+  -77.334
+ ],
+ "pflugerville|TX": [
+  30.4421,
+  -97.6299
+ ],
+ "mansfield|OH": [
+  40.4043,
+  -83.5243
+ ],
+ "mechanicsburg|PA": [
+  40.2122,
+  -77.0265
+ ],
+ "ny or sf|NY": null,
+ "naval post graduate school|CA": null,
+ "montgomery|IN": [
+  38.6521,
+  -87.0476
+ ],
+ "fort belvoir|VA": [
+  38.6947,
+  -77.1433
+ ],
+ "atlanta|NY": [
+  42.5596,
+  -77.4669
+ ],
+ "west miami|FL": null,
+ "wright-patterson afb|OH": null,
+ "camp h.m. smith marine corp base|HI": null,
+ "ca-remote-british columbia|CA": null,
+ "naval air station whidbey island|WA": null,
+ "deerfield beach|FL": [
+  26.3096,
+  -80.0992
+ ],
+ "maxwell afb|AL": null,
+ "air park|PA": null,
+ "clarksville|PA": [
+  39.9667,
+  -80.0452
+ ],
+ "new york|CA": null,
+ "scott afb|IL": null,
+ "omaha|CO": null,
+ "boston|CA": null,
+ "district of columbia|DC": null,
+ "crystal|VA": [
+  36.8513,
+  -78.9179
+ ],
+ "texas|TX": [
+  29.397,
+  -94.9203
+ ],
+ "burlington|NJ": [
+  40.068,
+  -74.8454
+ ],
+ "national maritime intelligence center|MD": null,
+ "tumwater|WA": [
+  46.9616,
+  -123.0283
+ ],
+ "north carolina|NC": null,
+ "bonnie|UT": null,
+ "florida|FL": [
+  28.7676,
+  -81.3522
+ ],
+ "great lakes|IL": [
+  42.3032,
+  -87.8642
+ ],
+ "baileys crossroads|VA": null,
+ "frankfort|OH": [
+  39.391,
+  -83.2034
+ ],
+ "stennis space center|MS": [
+  30.4032,
+  -89.4982
+ ],
+ "georgia|GA": null,
+ "newburgh heights|OH": null,
+ "maryland|MD": [
+  39.0984,
+  -77.1578
+ ],
+ "five points|NC": null,
+ "illinois|IL": [
+  41.3892,
+  -90.8925
+ ],
+ "alpharetta|GA": [
+  34.1124,
+  -84.302
+ ],
+ "chicago|CA": [
+  39.143,
+  -120.9666
+ ],
+ "uptown|IN": null,
+ "dahlgren|VA": [
+  38.3375,
+  -77.0429
+ ],
+ "chisolm|PA": null,
+ "california|CA": [
+  35.8818,
+  -118.6561
+ ],
+ "chicago|CO": null,
+ "ny state campus|NY": null,
+ "salem|IN": [
+  39.8671,
+  -86.6388
+ ],
+ "boston|CO": null,
+ "poplar bluff|MO": [
+  36.7662,
+  -90.4166
+ ],
+ "camden|AL": [
+  32.0047,
+  -87.295
+ ],
+ "joint base anacostia-bolling|DC": null,
+ "des moines|FL": null,
+ "asheville|NC": [
+  35.5971,
+  -82.5565
+ ],
+ "william penn annex east|PA": null,
+ "tarrytown|TX": null,
+ "creech afb|NV": null,
+ "illinois medical district|IL": null,
+ "sheppard afb|TX": [
+  33.9824,
+  -98.5088
+ ],
+ "las vegas|WA": null,
+ "folsom|CA": [
+  38.6709,
+  -121.1529
+ ],
+ "minnesota|MN": [
+  44.0832,
+  -91.7418
+ ],
+ "goodfellow afb|TX": [
+  31.4321,
+  -100.4022
+ ],
+ "michigan|MI": [
+  42.2271,
+  -84.3161
+ ],
+ "springfield|VA": [
+  38.7797,
+  -77.1866
+ ],
+ "hot springs|SD": [
+  43.4223,
+  -103.4766
+ ],
+ "district of columbia|MD": null,
+ "chantilly|VA": [
+  38.8867,
+  -77.4457
+ ],
+ "boyers|PA": [
+  40.9211,
+  -79.9276
+ ],
+ "macon|GA": [
+  32.8095,
+  -83.6168
+ ],
+ "kansas|KS": [
+  39.1157,
+  -94.6271
+ ],
+ "foxfield|CO": null,
+ "hanscom afb|MA": [
+  42.4567,
+  -71.2795
+ ],
+ "louisville|CO": [
+  39.9789,
+  -105.1456
+ ],
+ "andrews afb|MD": null,
+ "benson|CO": null,
+ "fort richardson|AK": [
+  61.2753,
+  -149.6755
+ ],
+ "south waltham|NJ": null,
+ "adams|PA": [
+  40.3126,
+  -79.6565
+ ],
+ "new jersey|NJ": null,
+ "portola valley|CA": [
+  37.3702,
+  -122.2182
+ ],
+ "pennsylvania|PA": [
+  40.71,
+  -77.996
+ ],
+ "san carlos|CA": [
+  37.4969,
+  -122.2674
+ ],
+ "waltham|NJ": null,
+ "massachusetts|MA": null,
+ "clive|FL": null,
+ "ohio|OH": [
+  40.7854,
+  -84.6731
+ ],
+ "el segundo|CA": [
+  33.9243,
+  -118.4119
+ ],
+ "van nuys|CA": [
+  33.7866,
+  -118.2987
+ ],
+ "tennessee|TN": [
+  36.3297,
+  -87.7808
+ ],
+ "mcchord afb|WA": null,
+ "hunter afb|GA": null,
+ "california; san francisco|CA": null,
+ "battle creek|MI": [
+  42.303,
+  -85.1304
+ ],
+ "jefferson manor|VA": null,
+ "southfield|MI": [
+  42.4723,
+  -83.294
+ ],
+ "boston; new york city|NY": null,
+ "ellington afb|TX": null,
+ "millersville|MD": [
+  39.1041,
+  -76.619
+ ],
+ "north kingstown|RI": [
+  41.5894,
+  -71.4625
+ ],
+ "new york city; palo alto|NY": null,
+ "guadalupe|AZ": null,
+ "lackland afb|TX": null,
+ "austin; new york city; san francisco|NY": null,
+ "hawaii|HI": [
+  19.5935,
+  -155.438
+ ],
+ "new york city; palo alto; seattle; united states|NY": null,
+ "fort riley|KS": [
+  39.0619,
+  -96.7873
+ ],
+ "austin; chicago; indianapolis; minneapolis|IN": null,
+ "pico heights|CA": null,
+ "melbourne|FL": [
+  28.0691,
+  -80.62
+ ],
+ "eielson afb|AK": [
+  64.6735,
+  -147.0805
+ ],
+ "union park|NY": null,
+ "brentwood|TX": null,
+ "new york city; united states|NY": null,
+ "edgewood|NY": null,
+ "new york; united states|NY": null,
+ "prestonwood|TX": null,
+ "robins afb|GA": null,
+ "austin; new york city|NY": null,
+ "dobbs ferry|NY": [
+  41.0118,
+  -73.8665
+ ],
+ "naval medical center|CA": null,
+ "south boston|MA": null,
+ "new york city; palo alto; san francisco|NY": null,
+ "groton|CT": [
+  41.3572,
+  -72.0579
+ ],
+ "austin; new york city; palo alto; san francisco|NY": null,
+ "san marcos|CA": [
+  33.1444,
+  -117.1697
+ ],
+ "austin; new york city; raleigh|NY": null,
+ "duluth|MN": [
+  47.0056,
+  -92.0019
+ ],
+ "california; oregon; washington|CA": null,
+ "michigan city|IN": [
+  41.698,
+  -86.8699
+ ],
+ "west haven|CT": [
+  41.2701,
+  -72.9638
+ ],
+ "millvale|PA": null,
+ "atlanta; austin; dallas; florida; miami|FL": null,
+ "naval air station pensacola|FL": null,
+ "benbrook|TX": null,
+ "concord|NH": [
+  43.2185,
+  -71.5277
+ ],
+ "west indianapolis|IN": null,
+ "little rock afb|AR": null,
+ "burke|VA": [
+  38.8318,
+  -77.2888
+ ],
+ "jefferson barracks|MO": null,
+ "carteret|NJ": [
+  40.5823,
+  -74.2313
+ ],
+ "yonkers|NY": [
+  40.9461,
+  -73.8669
+ ],
+ "sharonville|IN": null,
+ "clearwater|FL": [
+  27.9781,
+  -82.7815
+ ],
+ "austin; florida; illinois; tennessee|FL": null,
+ "staples mill|VA": null,
+ "artesia|NM": [
+  32.8384,
+  -104.4074
+ ],
+ "austin; new york city; united states|NY": null,
+ "lawrenceville|GA": [
+  33.9295,
+  -84.1032
+ ],
+ "waukesha|WI": [
+  42.9993,
+  -88.2196
+ ],
+ "crystal city|VA": null,
+ "centennial|CO": null,
+ "remote - illinois|IL": null,
+ "beaufort|SC": [
+  32.4244,
+  -80.5653
+ ],
+ "remote - california|CA": null,
+ "remote - texas|TX": null,
+ "langley afb|VA": null,
+ "remote - arizona|AZ": null,
+ "camp verde|AZ": [
+  34.5697,
+  -111.8551
+ ],
+ "arizona|AZ": [
+  32.7452,
+  -111.6033
+ ],
+ "watervliet|NY": [
+  42.7298,
+  -73.7123
+ ],
+ "remote - north carolina|NC": null,
+ "culver city|CA": [
+  33.9949,
+  -118.3991
+ ],
+ "remote - minnesota|MN": null,
+ "fairchild afb|WA": null,
+ "remote - massachusetts|MA": null,
+ "fairview park|OH": null,
+ "remote - florida|FL": null,
+ "holloman afb|NM": null,
+ "page|AZ": [
+  36.9108,
+  -111.502
+ ],
+ "remote - kentucky|KY": null,
+ "west falls church|VA": null,
+ "mc murray|WA": null,
+ "remote - new york|NY": null,
+ "latham|NY": [
+  42.7462,
+  -73.763
+ ],
+ "clallam|WA": [
+  48.2255,
+  -124.2015
+ ],
+ "remote - pennsylvania|PA": null,
+ "remote - arkansas|AR": null,
+ "clarksburg|VA": null,
+ "peterson afb|CO": null,
+ "bee cave|TX": null,
+ "milton|FL": [
+  30.6604,
+  -87.0473
+ ],
+ "remote - michigan|MI": null,
+ "bethesda|PA": null,
+ "patuxent river|MD": [
+  38.2791,
+  -76.4381
+ ],
+ "san mateo|CA": [
+  37.5735,
+  -122.3225
+ ],
+ "air force academy|CO": null,
+ "remote - missouri|MO": null,
+ "keesler afb|MS": null,
+ "medley|FL": null,
+ "randolph afb|TX": null,
+ "maryland heights|MD": null,
+ "bay pines|FL": [
+  27.8137,
+  -82.7782
+ ],
+ "fayetteville|AR": [
+  36.052,
+  -94.1534
+ ],
+ "remote - usa; san jose|CA": null,
+ "johnson city|TN": [
+  36.3339,
+  -82.3408
+ ],
+ "beale afb|CA": [
+  39.1115,
+  -121.3604
+ ],
+ "bellevue|CA": null,
+ "walla walla|WA": [
+  46.0614,
+  -118.3315
+ ],
+ "chattanooga|IN": null,
+ "montgomery|PA": [
+  41.1788,
+  -76.8839
+ ],
+ "north charleston|SC": [
+  32.853,
+  -79.9913
+ ],
+ "joliet|IL": [
+  41.4712,
+  -87.9391
+ ],
+ "remote - alabama|AL": null,
+ "edwards afb|CA": null,
+ "towson|MD": [
+  39.4072,
+  -76.6038
+ ],
+ "wheeling|OH": null,
+ "erie|NY": [
+  42.8562,
+  -75.7543
+ ],
+ "charleston|VA": null,
+ "juneau|AK": [
+  58.3628,
+  -134.5294
+ ],
+ "remote - ohio|OH": null,
+ "the woodlands|PA": null,
+ "nashua|FL": null,
+ "montpelier|WA": null,
+ "remote - georgia|GA": null,
+ "fort myer|VA": null,
+ "elizabeth|NJ": [
+  40.6717,
+  -74.2043
+ ],
+ "warwick|MI": null,
+ "remote - new jersey|NJ": null,
+ "moffett field|CA": null,
+ "remote - connecticut|CT": null,
+ "washington navy yard|WA": null,
+ "remote - oregon|OR": null,
+ "pearl harbor|HI": [
+  21.3538,
+  -157.9394
+ ],
+ "remote - virginia|VA": null,
+ "remote - d.c.|FL": null,
+ "herndon|VA": [
+  38.9839,
+  -77.3675
+ ],
+ "north springfield|VA": null,
+ "lonsdale|TN": null,
+ "saint bernard|IN": null,
+ "fort gordon|GA": null,
+ "campbell|CA": [
+  37.2803,
+  -121.9539
+ ],
+ "nellis afb|NV": [
+  36.2395,
+  -115.0257
+ ],
+ "highland beach|FL": null,
+ "hanes|NC": null,
+ "shaw afb|SC": null,
+ "cambridge|NJ": null,
+ "belle chasse|LA": [
+  29.8345,
+  -90.0042
+ ],
+ "pimmit|VA": null,
+ "salt lake|UT": [
+  40.8446,
+  -111.9191
+ ],
+ "chicago|DC": null,
+ "state house|PA": null,
+ "new york|DC": null,
+ "flowood|MS": [
+  32.3299,
+  -90.0915
+ ],
+ "wyoming|WY": null,
+ "springfield|OH": [
+  40.4151,
+  -80.7567
+ ],
+ "bellevue|DC": null,
+ "hampton|GA": [
+  33.4124,
+  -84.2947
+ ],
+ "camp murray|WA": [
+  47.0662,
+  -122.1132
+ ],
+ "bellevue|IL": null,
+ "tyndall afb|FL": null,
+ "indiantown gap|PA": null,
+ "bedford|MA": [
+  42.4843,
+  -71.2768
+ ],
+ "otis ang base|MA": null,
+ "jefferson city|MO": [
+  38.5462,
+  -92.1525
+ ],
+ "new jersey; new york|NJ": null,
+ "yardley|PA": null,
+ "louisiana; oklahoma; saint louis|LA": null,
+ "simpsonville|MD": [
+  39.2364,
+  -76.9419
+ ],
+ "colorado|CO": [
+  38.8615,
+  -104.8578
+ ],
+ "pease afb|NH": null,
+ "nevada|NV": null,
+ "michigan; ohio|MI": null,
+ "fort huachuca|AZ": [
+  31.5587,
+  -110.3441
+ ],
+ "colorado; dallas|CA": null,
+ "suitland|MD": [
+  38.8425,
+  -76.9222
+ ],
+ "quincy|MA": [
+  42.2491,
+  -70.9978
+ ],
+ "seaside|CA": [
+  36.6217,
+  -121.7935
+ ],
+ "loveland|CO": [
+  40.3849,
+  -105.0916
+ ],
+ "fayetteville|NC": [
+  35.0743,
+  -78.8836
+ ],
+ "haymount|NC": null,
+ "lilburn|GA": [
+  33.8656,
+  -84.0725
+ ],
+ "colorado; san francisco|CA": null,
+ "offutt afb|NE": null,
+ "massachusetts; new york|MA": null,
+ "indian head|MD": [
+  38.454,
+  -77.0528
+ ],
+ "georgia; north carolina; south carolina|GA": null,
+ "mckinney|TX": null,
+ "torrance|CA": [
+  33.8268,
+  -118.3118
+ ],
+ "cincinnati|IN": null,
+ "audubon|PA": [
+  40.2119,
+  -75.3559
+ ],
+ "renton|WA": [
+  47.4648,
+  -122.2075
+ ],
+ "sun lakes|AZ": null,
+ "dannelly|PA": null,
+ "ashburn|VA": [
+  39.0853,
+  -77.6452
+ ],
+ "university place|WA": [
+  47.2033,
+  -122.5688
+ ],
+ "mableton|GA": [
+  33.8153,
+  -84.5618
+ ],
+ "warren afb|WY": [
+  41.1391,
+  -104.8629
+ ],
+ "watkins|CO": [
+  39.7623,
+  -104.5834
+ ],
+ "point loma complex|CA": null,
+ "arizona; chicago|AZ": null,
+ "newport news|VA": [
+  36.9786,
+  -76.4283
+ ],
+ "new bedford|MA": [
+  41.6347,
+  -70.9372
+ ],
+ "georgia; new york|DC": null,
+ "arizona; bellevue|AZ": null,
+ "warrenton|VA": [
+  38.6898,
+  -77.8361
+ ],
+ "lackland air force base|TX": null,
+ "seymour johnson afb|NC": null,
+ "iselin|NJ": [
+  40.5716,
+  -74.3167
+ ],
+ "camp lejeune|NC": [
+  34.664,
+  -77.4637
+ ],
+ "florida; georgia; michigan; new york|DC": null,
+ "fountainebleau|FL": null,
+ "new cumberland defense logistics center|PA": null,
+ "fort bragg|NC": [
+  35.1416,
+  -79.0025
+ ],
+ "rockville|PA": null,
+ "mexico city|TX": null,
+ "fort benning|GA": [
+  32.3923,
+  -84.9315
+ ],
+ "suisun|CA": [
+  38.2408,
+  -122.042
+ ],
+ "naval air station san diego|CA": null,
+ "milford|MA": [
+  42.1511,
+  -71.5274
+ ],
+ "fairfield|CA": [
+  38.2671,
+  -122.0356
+ ],
+ "jessup|MD": [
+  39.1484,
+  -76.7922
+ ],
+ "fort rucker|AL": [
+  31.348,
+  -85.7214
+ ],
+ "linthicum heights|MD": [
+  39.2092,
+  -76.6681
+ ],
+ "west bend|WA": null,
+ "lincoln|PA": [
+  39.7787,
+  -75.8876
+ ],
+ "burbank|CA": [
+  34.1862,
+  -118.3009
+ ],
+ "travis afb|CA": [
+  38.2743,
+  -121.9463
+ ],
+ "hollywood|FL": [
+  26.007,
+  -80.1219
+ ],
+ "vancouver|WA": [
+  45.6418,
+  -122.6801
+ ],
+ "annapolis junction|MD": [
+  39.1332,
+  -76.7988
+ ],
+ "grand junction|CO": [
+  39.0783,
+  -108.5457
+ ],
+ "los feliz|CA": null,
+ "lakewood|CO": null,
+ "starlight hills|CA": null,
+ "georgia; massachusetts; new york|DC": null,
+ "norman|OK": [
+  35.2086,
+  -97.4445
+ ],
+ "mountlake terrace|WA": [
+  47.7933,
+  -122.3076
+ ],
+ "palm harbor|FL": [
+  27.8918,
+  -82.7248
+ ],
+ "remote-friendly (travel-required) | san francisco|CA": [
+  37.6574,
+  -122.4235
+ ],
+ "somerville|NJ": [
+  40.588,
+  -74.6874
+ ],
+ "colchester|VT": [
+  44.4952,
+  -73.1651
+ ],
+ "neenah|IL": null,
+ "remote-friendly (travel required) | san francisco|CA": [
+  37.6574,
+  -122.4235
+ ],
+ "westminster|CO": [
+  39.8302,
+  -105.037
+ ],
+ "london|NY": null,
+ "textile finance|CA": null,
+ "gaithersburg|MD": [
+  39.1419,
+  -77.189
+ ],
+ "dearborn|MI": [
+  42.3053,
+  -83.1605
+ ],
+ "boston|HI": null,
+ "south main|NY": null,
+ "hampton|VA": [
+  37.0727,
+  -76.3899
+ ],
+ "santa ana|NY": null,
+ "naval support activity|PA": null,
+ "san francisco ca|CA": null,
+ "oaklandon|IN": null,
+ "redstone arsenal|AL": null,
+ "fort sam houston|TX": null,
+ "kennedy space center|FL": null,
+ "international|WA": null,
+ "yankton|SD": [
+  42.8821,
+  -97.3986
+ ],
+ "edgefield|SC": [
+  33.8953,
+  -80.498
+ ],
+ "beckley|VA": null,
+ "menlo park|CA": [
+  37.4396,
+  -122.1864
+ ],
+ "charleston afb|SC": [
+  32.8982,
+  -80.0686
+ ],
+ "westlake|TX": null,
+ "fort mc clellan|AL": null,
+ "lewis center|DE": null,
+ "patrick afb|FL": [
+  28.1743,
+  -80.584
+ ],
+ "osseo|MN": [
+  45.1243,
+  -93.4996
+ ],
+ "dublin|OH": [
+  40.0985,
+  -83.1537
+ ],
+ "dyess afb|TX": [
+  32.419,
+  -99.8221
+ ],
+ "elkridge|MD": [
+  39.2058,
+  -76.7531
+ ],
+ "miami-dade|FL": null,
+ "corona|CA": [
+  33.7529,
+  -116.0556
+ ],
+ "danbury|CT": [
+  41.3917,
+  -73.4532
+ ],
+ "apopka|NY": null,
+ "forrest city|AR": [
+  35.0091,
+  -90.7886
+ ],
+ "norco|CA": [
+  33.7529,
+  -116.0556
+ ],
+ "topeka|KS": [
+  38.9881,
+  -95.7807
+ ],
+ "ocoee|NY": null,
+ "hickam afb|HI": [
+  21.3347,
+  -157.9346
+ ],
+ "auburn hills|MI": [
+  42.6601,
+  -83.3863
+ ],
+ "augusta|ME": [
+  44.3232,
+  -69.7665
+ ],
+ "cupertino|CA": [
+  37.318,
+  -122.0449
+ ],
+ "inez|KY": [
+  37.8754,
+  -82.5337
+ ],
+ "wake crossroads|NC": null,
+ "florence|CO": [
+  38.385,
+  -105.1232
+ ],
+ "moorpark|CA": [
+  34.0324,
+  -119.1343
+ ],
+ "big spring|TX": [
+  32.2787,
+  -101.4578
+ ],
+ "rancho park|CA": null,
+ "marion|IN": [
+  40.5743,
+  -85.6741
+ ],
+ "croton on hudson|NY": [
+  41.218,
+  -73.8924
+ ],
+ "camp springs|MD": null,
+ "west palm beach|FL": [
+  26.7165,
+  -80.0679
+ ],
+ "harlingen|TX": [
+  26.1951,
+  -97.689
+ ],
+ "lorton|VA": [
+  38.6929,
+  -77.204
+ ],
+ "fort harrison|MT": [
+  46.6197,
+  -112.1099
+ ],
+ "century|CA": null,
+ "norwell|MA": [
+  42.1596,
+  -70.8217
+ ],
+ "boca raton|FL": [
+  26.376,
+  -80.1072
+ ],
+ "east orange|NJ": [
+  40.7696,
+  -74.2077
+ ],
+ "port isabel|TX": [
+  26.0539,
+  -97.3125
+ ],
+ "riverview|MI": [
+  42.1782,
+  -83.2461
+ ],
+ "minnetonka mills|MN": null,
+ "andover|NJ": [
+  40.9614,
+  -74.7524
+ ],
+ "laud lakes|FL": null,
+ "saugus|CA": null,
+ "dam neck naval facility|VA": null,
+ "pasco|OH": null,
+ "whiteman afb|MO": null,
+ "sandy|UT": [
+  40.5794,
+  -111.8816
+ ],
+ "tuxedo|GA": null,
+ "kings point|NY": null,
+ "newhall|CA": [
+  34.3795,
+  -118.523
+ ],
+ "naval facilities engineering command|VA": null,
+ "state farm|VA": [
+  37.7338,
+  -77.8881
+ ],
+ "greenbelt|MD": [
+  38.8336,
+  -76.8777
+ ],
+ "lake park|FL": null,
+ "portsmouth naval shipyard|ME": null,
+ "middle west|PA": null,
+ "kirtland afb|NM": [
+  35.0203,
+  -106.5503
+ ],
+ "peoria|AZ": [
+  33.5761,
+  -112.2344
+ ],
+ "tinker afb|OK": null,
+ "san martin|CA": [
+  37.0911,
+  -121.5999
+ ],
+ "west des moines|FL": null,
+ "massena|NY": [
+  44.9322,
+  -74.8845
+ ],
+ "dutton|MI": null,
+ "hill afb|UT": [
+  41.1202,
+  -111.9898
+ ],
+ "fairborn|OH": [
+  39.8053,
+  -84.0198
+ ],
+ "franklin|TX": [
+  33.4741,
+  -95.7591
+ ],
+ "cascade|MI": null,
+ "minerva park|OH": null,
+ "huntington|VA": null,
+ "cannon afb|NM": [
+  34.3841,
+  -103.3154
+ ],
+ "colleyville|TX": [
+  32.8872,
+  -97.146
+ ],
+ "mclean|VA": [
+  38.8318,
+  -77.2888
+ ],
+ "brookfield|WI": [
+  43.0622,
+  -88.098
+ ],
+ "wayzata|MN": [
+  44.9847,
+  -93.5422
+ ],
+ "hamel|MN": [
+  45.08,
+  -93.576
+ ],
+ "country park acres|NC": null,
+ "bond hill|IN": null,
+ "bedford|NJ": null,
+ "machias|WA": null,
+ "manassas|VA": [
+  38.7447,
+  -77.4872
+ ],
+ "anaheim hills|NY": null,
+ "salem|VA": [
+  37.2853,
+  -80.0692
+ ],
+ "martinsburg|VA": null,
+ "naval base|VA": null,
+ "jeffersonville|IN": [
+  38.3078,
+  -85.7359
+ ],
+ "white plains|NY": [
+  41.033,
+  -73.7652
+ ],
+ "turtle creek|PA": [
+  40.4114,
+  -79.822
+ ],
+ "elkins park|PA": [
+  40.075,
+  -75.1315
+ ],
+ "west delray beach|FL": null,
+ "prescott|AZ": [
+  34.5917,
+  -112.4265
+ ],
+ "fitchburg|WI": null,
+ "forbes afb|KS": null,
+ "delray beach|FL": [
+  26.4564,
+  -80.0793
+ ],
+ "green bay|WI": [
+  44.482,
+  -88.0205
+ ],
+ "costa mesa|NY": null,
+ "chinle|AZ": [
+  36.1304,
+  -109.6037
+ ],
+ "melville|MA": null,
+ "titusville|FL": [
+  28.5697,
+  -80.8191
+ ],
+ "smyrna|GA": [
+  33.8796,
+  -84.5023
+ ],
+ "baxter estates|NY": null,
+ "lexington|NJ": null,
+ "fremont|CA": [
+  37.5605,
+  -121.9999
+ ],
+ "pineville|NC": [
+  35.0709,
+  -80.8859
+ ],
+ "cape girardeau|MO": [
+  37.3168,
+  -89.5459
+ ],
+ "pinellas park|FL": [
+  27.8918,
+  -82.7248
+ ],
+ "meridian|MS": [
+  32.3574,
+  -88.656
+ ],
+ "brookline|MA": [
+  42.3082,
+  -71.0887
+ ],
+ "glynco|GA": null,
+ "eden prairie|MN": [
+  44.8574,
+  -93.4376
+ ],
+ "bloomington|MN": null,
+ "hastings|NE": [
+  40.5877,
+  -98.3911
+ ],
+ "pella|IN": null,
+ "grayson|GA": [
+  33.8901,
+  -83.9632
+ ],
+ "lime rock|PA": null,
+ "havre de grace|MD": [
+  39.5523,
+  -76.1171
+ ],
+ "edgewood|MD": [
+  39.4277,
+  -76.3056
+ ],
+ "terrell hills|TX": null,
+ "san margherita|OH": null,
+ "new castle|DE": [
+  39.5929,
+  -75.6515
+ ],
+ "grandview|OH": null,
+ "bexley|OH": null,
+ "camp dodge military reservation|IA": null,
+ "new albany|OH": [
+  40.0847,
+  -82.7988
+ ],
+ "powell|DE": null,
+ "lititz|PA": [
+  40.1846,
+  -76.3015
+ ],
+ "haverhill|FL": null,
+ "pensacola|FL": [
+  30.4223,
+  -87.2248
+ ],
+ "boys town|CO": null,
+ "naval surface warfare center|MD": null,
+ "aberdeen|MD": [
+  39.5109,
+  -76.1805
+ ],
+ "keyport|WA": [
+  47.698,
+  -122.6255
+ ],
+ "sanford|CA": null,
+ "china lake|CA": null,
+ "point mugu|CA": [
+  34.1134,
+  -119.1124
+ ],
+ "muskogee|OK": [
+  35.7058,
+  -95.5002
+ ],
+ "tripler army medical center|HI": null,
+ "woods hole|MA": [
+  41.5263,
+  -70.6643
+ ],
+ "silver spring|MD": [
+  39.0017,
+  -77.0366
+ ],
+ "edina|MN": null,
+ "port washington|WA": null,
+ "tampa palms|FL": null,
+ "fox chapel|PA": null,
+ "columbia|MD": [
+  39.2141,
+  -76.8788
+ ],
+ "fords|NJ": [
+  40.5392,
+  -74.3117
+ ],
+ "coconut creek|FL": null,
+ "alameda|CA": [
+  37.7706,
+  -122.2648
+ ],
+ "obetz|OH": null,
+ "glenwood|FL": [
+  29.0227,
+  -81.1722
+ ],
+ "glen burnie|MD": [
+  39.1702,
+  -76.5798
+ ],
+ "paradise|WA": [
+  47.0662,
+  -122.1132
+ ],
+ "falls church|VA": [
+  38.8842,
+  -77.1718
+ ],
+ "milpitas|CA": [
+  37.4352,
+  -121.895
+ ],
+ "lenox square finance|GA": null,
+ "florin|CA": null,
+ "heidenheimer|TX": [
+  31.0496,
+  -97.4936
+ ],
+ "gahanna|OH": null,
+ "hilliard|OH": [
+  40.0322,
+  -83.1383
+ ],
+ "idaho falls|ID": [
+  43.5518,
+  -111.8919
+ ],
+ "pearl harbor naval base|HI": null,
+ "davis monthan afb|AZ": null,
+ "schriever afb|CO": null,
+ "university park|FL": null,
+ "pascagoula|MS": [
+  30.5342,
+  -88.4894
+ ],
+ "fairmont|CA": null,
+ "la mirada|CA": [
+  33.7866,
+  -118.2987
+ ],
+ "aliso viejo|CA": [
+  33.5701,
+  -117.7086
+ ],
+ "vienna|VA": [
+  38.8935,
+  -77.2532
+ ],
+ "des plaines|IL": [
+  42.0467,
+  -87.8859
+ ],
+ "munson|OH": null,
+ "eglin afb|FL": [
+  30.5393,
+  -86.6087
+ ],
+ "camp mabry|TX": null,
+ "lake forest|NY": null,
+ "grand island|NE": [
+  40.9219,
+  -98.3411
+ ],
+ "wheeling|VA": null,
+ "taylor|MI": [
+  42.2317,
+  -83.2673
+ ],
+ "carrollton|TX": [
+  32.9657,
+  -96.8825
+ ],
+ "sheridan|WY": [
+  44.7849,
+  -106.9648
+ ],
+ "capitol hill|WA": null,
+ "ponderosa|NC": null,
+ "lathrup village|MI": null,
+ "alabama|AL": null,
+ "bremerton|WA": [
+  47.6019,
+  -122.6299
+ ],
+ "dover afb|DE": [
+  39.1253,
+  -75.4818
+ ],
+ "fort shafter|HI": [
+  21.3416,
+  -157.8918
+ ],
+ "new mexico|NM": null,
+ "malmstrom afb|MT": null,
+ "fort wainwright|AK": [
+  64.8283,
+  -147.6557
+ ],
+ "fort sill|OK": [
+  34.6595,
+  -98.4004
+ ],
+ "natick|MA": [
+  42.2875,
+  -71.3574
+ ],
+ "fort bliss|TX": null,
+ "des moines|WA": null,
+ "fort mccoy|WI": null,
+ "rock island|IL": [
+  41.4913,
+  -90.5648
+ ],
+ "durango|CO": [
+  37.2874,
+  -107.8617
+ ],
+ "tustin|NY": null,
+ "fort logan|CO": null,
+ "aberdeen|SD": [
+  45.4661,
+  -98.4856
+ ],
+ "morrisville|NC": [
+  35.8344,
+  -78.8466
+ ],
+ "coolidge|AZ": [
+  32.9574,
+  -111.5344
+ ],
+ "chambersburg|PA": [
+  39.9313,
+  -77.6579
+ ],
+ "vicksburg|MS": [
+  32.3258,
+  -90.8506
+ ],
+ "clark|NV": null,
+ "fairfield|PA": [
+  39.7808,
+  -77.3619
+ ],
+ "mcconnell afb|KS": [
+  37.6066,
+  -97.2979
+ ],
+ "buckley afb|CO": null,
+ "blacksburg|PA": null,
+ "lake charles|LA": [
+  30.2285,
+  -93.188
+ ],
+ "park ridge|NJ": [
+  41.0343,
+  -74.0396
+ ],
+ "bismarck|ND": [
+  46.8234,
+  -100.7748
+ ],
+ "bonham|TX": [
+  33.5806,
+  -96.1836
+ ],
+ "winchester|VA": [
+  39.1858,
+  -78.1827
+ ],
+ "naval research laboratory|DC": null,
+ "naval weapons station|VA": null,
+ "sevierville|TN": [
+  35.8452,
+  -83.5386
+ ],
+ "lemoore|NY": null,
+ "carson city|NV": [
+  39.1507,
+  -119.7459
+ ],
+ "palm springs|CA": [
+  33.925,
+  -116.5496
+ ],
+ "marietta|GA": [
+  33.9125,
+  -84.5572
+ ],
+ "loves park|IL": [
+  42.3295,
+  -89.0335
+ ],
+ "bloomfield|PA": [
+  40.4193,
+  -77.1938
+ ],
+ "cumberland|GA": null,
+ "romeo|MI": [
+  42.84,
+  -83.0388
+ ],
+ "sleepy hollow|NY": null,
+ "lomax|TX": null,
+ "south erie|NY": null,
+ "chapel hill|NY": null,
+ "ipswich|NJ": null,
+ "chelmsford|NJ": null,
+ "coraopolis|PA": [
+  40.5,
+  -80.1996
+ ],
+ "park|IN": [
+  40.1938,
+  -85.1963
+ ],
+ "north andover|NJ": null,
+ "libertyville|IN": null,
+ "beach park|IN": null,
+ "hamlet|NY": null,
+ "menomonee falls|WI": [
+  43.1602,
+  -88.1128
+ ],
+ "west milwaukee|WI": null,
+ "ramsey|MN": null,
+ "west roxbury|MA": [
+  42.2787,
+  -71.1589
+ ],
+ "foxboro|MA": [
+  42.0649,
+  -71.2441
+ ],
+ "lawrence|NJ": null,
+ "chestnut hill|NJ": null,
+ "brentwood|MA": null,
+ "fountain hills|AZ": [
+  33.6085,
+  -111.7237
+ ],
+ "lake bluff|IN": null,
+ "st. joseph|MI": null,
+ "westlake|PA": null,
+ "north las vegas|WA": null,
+ "chicopee|MA": [
+  42.1596,
+  -72.6082
+ ],
+ "cloverdale|TN": null,
+ "canyon crest|CA": null,
+ "lake ronkonkoma heights|MA": null,
+ "fairburn|GA": [
+  33.5648,
+  -84.5809
+ ],
+ "lake zurich|IN": null,
+ "wilsonville|OR": [
+  45.2986,
+  -122.7699
+ ],
+ "wauwatosa|WI": null,
+ "urbanna|NJ": null,
+ "cheektowaga|NY": null,
+ "manhasset hills|NY": null,
+ "arkansas city|AR": [
+  33.6143,
+  -91.2325
+ ],
+ "magnolia park|CA": null,
+ "macdill air force base|FL": null,
+ "visalia|CA": [
+  36.3114,
+  -119.3065
+ ],
+ "edgewater|CO": null,
+ "vandalia|NC": null,
+ "cedar mill|WA": null,
+ "wakefield|NJ": null,
+ "portland|NC": null,
+ "auburn|WA": [
+  47.3099,
+  -122.2653
+ ],
+ "holy|CA": [
+  37.1584,
+  -121.986
+ ],
+ "birmingham|CO": null,
+ "midway city|NY": null,
+ "king of prussia|PA": [
+  40.0956,
+  -75.3737
+ ],
+ "roseville|MN": null,
+ "peachtree corners|GA": null,
+ "antonino|TX": null,
+ "pinedale|CA": null,
+ "town branch|NY": null,
+ "carlsbad|CA": [
+  33.1602,
+  -117.325
+ ],
+ "west buechel|CO": null,
+ "new brighton|MN": null,
+ "apple valley|MN": null,
+ "carthage|IN": [
+  39.7466,
+  -85.5754
+ ],
+ "oconomowoc|WI": [
+  43.1095,
+  -88.4862
+ ],
+ "rubidoux|CA": null,
+ "needham heights|MA": null,
+ "kent|WA": [
+  47.3866,
+  -122.2109
+ ],
+ "coachella|CA": [
+  33.675,
+  -116.1772
+ ],
+ "antlers park|MN": null,
+ "west boylston|MA": [
+  42.3584,
+  -71.7838
+ ],
+ "clovis|CA": [
+  36.8253,
+  -119.6802
+ ],
+ "arsenal|PA": null,
+ "murphy|GA": null,
+ "east grand forks|FL": null,
+ "mc neil|TX": [
+  30.3264,
+  -97.7713
+ ],
+ "atlantis|FL": null,
+ "box springs|CA": null,
+ "twinsburg|OH": [
+  41.3289,
+  -81.4559
+ ],
+ "sterling|VA": [
+  39.0853,
+  -77.6452
+ ],
+ "beaumont|CO": null,
+ "simi valley|CA": [
+  34.0324,
+  -119.1343
+ ],
+ "calwa|CA": null,
+ "henrietta|NY": [
+  43.0483,
+  -77.6122
+ ],
+ "germantown|PA": [
+  40.4068,
+  -77.2926
+ ],
+ "nas north island|CA": null,
+ "morton|DE": null,
+ "auburn|CA": [
+  38.9829,
+  -121.0944
+ ],
+ "el paso|CO": null,
+ "spokane valley|WA": null,
+ "huntington|NY": [
+  40.8676,
+  -73.4102
+ ],
+ "wake|NC": [
+  35.9815,
+  -78.5392
+ ],
+ "gaithersburg|PA": null,
+ "hayward|CA": [
+  37.6802,
+  -121.9215
+ ],
+ "orenco|WA": null,
+ "eau gallie|FL": null,
+ "winter hill|NJ": null,
+ "springdale|WA": [
+  48.0022,
+  -117.829
+ ],
+ "hagerstown|WA": null,
+ "triangle|VA": [
+  38.5509,
+  -77.3229
+ ],
+ "goodlettsville|TN": [
+  36.1866,
+  -86.7852
+ ],
+ "tyler park|NJ": null,
+ "maplewood|MN": null,
+ "elsmere|NY": null,
+ "lawndale|CA": [
+  33.8879,
+  -118.351
+ ],
+ "savage|MD": [
+  39.138,
+  -76.8218
+ ],
+ "allen|TX": [
+  33.0934,
+  -96.6454
+ ],
+ "beachwood|OH": [
+  41.4701,
+  -81.5232
+ ],
+ "texas city|TX": [
+  29.397,
+  -94.9203
+ ],
+ "south|VA": [
+  36.7124,
+  -78.1534
+ ],
+ "kennesaw|GA": [
+  34.0287,
+  -84.6047
+ ],
+ "point pleasant boro|NJ": null,
+ "collierville|TN": [
+  35.0551,
+  -89.6767
+ ],
+ "jere baxter|TN": null,
+ "little tucson|AZ": null,
+ "monona|WI": null,
+ "valencia|CA": [
+  34.4466,
+  -118.5374
+ ],
+ "hillsboro|WA": null,
+ "new hampshire|NH": null,
+ "hanscom air force base|NJ": null,
+ "gridiron|TX": null,
+ "redondo beach|CA": [
+  33.8307,
+  -118.3832
+ ],
+ "laramie|NY": null,
+ "lewisville|NC": [
+  36.0967,
+  -80.4206
+ ],
+ "provo canyon|UT": null,
+ "utah|UT": null,
+ "brea|NY": null,
+ "dover|MI": null,
+ "woodcliff lake|NJ": [
+  41.0234,
+  -74.0604
+ ],
+ "circleville|NY": [
+  41.5244,
+  -74.385
+ ],
+ "sanford|FL": [
+  28.8013,
+  -81.285
+ ],
+ "charlottesville city|VA": null,
+ "twentynine palms|CA": [
+  34.1455,
+  -116.0601
+ ],
+ "midlothian|TX": [
+  32.4757,
+  -96.9936
+ ],
+ "california city|CA": [
+  35.1871,
+  -117.8854
+ ],
+ "schiller park|IL": [
+  41.9563,
+  -87.8692
+ ],
+ "franklin|OH": [
+  39.5357,
+  -84.303
+ ],
+ "bolingbrook|IL": [
+  41.6976,
+  -88.0873
+ ],
+ "bothell|WA": [
+  47.7497,
+  -122.2159
+ ],
+ "bridgewater|MA": [
+  41.9773,
+  -70.9723
+ ],
+ "buffalo grove|IN": null,
+ "fort carson|CO": null,
+ "blue ash|IN": null,
+ "hoboken|NJ": [
+  40.7445,
+  -74.0329
+ ],
+ "dalworthington gardens|TX": null,
+ "golden|CO": [
+  39.7305,
+  -105.1915
+ ],
+ "redwood city|CA": [
+  37.3811,
+  -122.3348
+ ],
+ "augusta|NY": null,
+ "trammells|TX": null,
+ "hapeville|GA": null,
+ "brookhaven|GA": null,
+ "powder springs|GA": [
+  33.9135,
+  -84.6859
+ ],
+ "sandy springs|GA": null,
+ "parkway|GA": null,
+ "union city|GA": [
+  33.5832,
+  -84.5499
+ ],
+ "east point|GA": null,
+ "riverdale|GA": [
+  33.5531,
+  -84.4003
+ ],
+ "forest|GA": [
+  33.6147,
+  -84.368
+ ],
+ "conley|GA": [
+  33.6473,
+  -84.3267
+ ],
+ "lithia springs|CO": null,
+ "college park|GA": null,
+ "austell|GA": [
+  33.8094,
+  -84.6077
+ ],
+ "vinings|GA": null,
+ "south natick|NJ": null,
+ "warren|MI": [
+  42.5164,
+  -82.9832
+ ],
+ "murphy|TX": null,
+ "lyndon|CO": null,
+ "gilroy|CA": [
+  37.0139,
+  -121.5773
+ ],
+ "bristol|PA": [
+  40.1159,
+  -74.8536
+ ],
+ "college estates|MD": null,
+ "san buenaventura|CA": null,
+ "strathmoor manor|CO": null,
+ "greensboro ndc|NC": null,
+ "greenland|WA": null,
+ "concord|CA": [
+  37.9504,
+  -122.0263
+ ],
+ "roseland|NJ": [
+  40.8203,
+  -74.3047
+ ],
+ "cedar pass|UT": null,
+ "onalaska|AK": null,
+ "oak hill|VA": null,
+ "malvern|PA": [
+  40.0468,
+  -75.531
+ ],
+ "san ramon|CA": [
+  37.7636,
+  -121.9155
+ ],
+ "eagan|MN": null,
+ "north bethesda|PA": null,
+ "grapevine|TX": [
+  32.9328,
+  -97.0808
+ ],
+ "st paul|TX": null,
+ "pantego|TX": null,
+ "richland hills|TX": [
+  32.84,
+  -97.225
+ ],
+ "mansfield|TX": [
+  32.5773,
+  -97.1416
+ ],
+ "euless|TX": [
+  32.8582,
+  -97.0832
+ ],
+ "the colony|TX": [
+  33.094,
+  -96.8836
+ ],
+ "lowell|NJ": null,
+ "paramount|CA": [
+  33.8969,
+  -118.1632
+ ],
+ "union city|CA": [
+  37.5895,
+  -122.0497
+ ],
+ "jackson|MO": [
+  37.3879,
+  -89.6519
+ ],
+ "stanford|CA": [
+  37.4236,
+  -122.1619
+ ],
+ "princeton|FL": null,
+ "bascom|TX": null,
+ "fort bliss|CO": null,
+ "berwyn|PA": [
+  40.0412,
+  -75.4475
+ ],
+ "greendale|MA": null,
+ "rosemont|CA": null,
+ "ocean beach|CA": null,
+ "lauderdale|MN": null,
+ "bridgeview|IL": [
+  41.7431,
+  -87.8066
+ ],
+ "pikesville|MD": [
+  39.3764,
+  -76.729
+ ],
+ "west side|MA": null,
+ "danvers|NJ": null,
+ "pinecraft|FL": null,
+ "juno beach|FL": null,
+ "balcones|TX": null,
+ "foy|CA": null,
+ "aliso viejo|NY": null,
+ "goodison|MI": null,
+ "roswell|GA": [
+  34.0408,
+  -84.3859
+ ],
+ "tewksbury|NJ": null,
+ "cahaba heights|CO": null,
+ "university|WA": [
+  47.2033,
+  -122.5688
+ ],
+ "alafaya|NY": null,
+ "south tucson|AZ": null,
+ "west adams|CA": null,
+ "corona del mar|NY": null,
+ "vandalia|PA": null,
+ "manchester|FL": null,
+ "oakwood|PA": null,
+ "lynnview|CO": null,
+ "lionshead lake|NJ": null,
+ "hudson|FL": [
+  28.3648,
+  -82.6757
+ ],
+ "hazelwood|IN": null,
+ "daytona beach shores|FL": null,
+ "daytona beach|FL": [
+  29.2012,
+  -81.0371
+ ],
+ "flower mound|TX": [
+  33.0268,
+  -97.1193
+ ],
+ "everglades br|FL": null,
+ "countryside|IL": null,
+ "gardena|CA": [
+  33.8925,
+  -118.2961
+ ],
+ "lehi|UT": [
+  40.3958,
+  -111.8506
+ ],
+ "east irvine|NY": null,
+ "mansfield|MA": [
+  41.9988,
+  -71.2009
+ ],
+ "marvin|NJ": null,
+ "westlake|OH": [
+  41.4535,
+  -81.9218
+ ],
+ "shannon plaza|NC": null,
+ "college park|WA": null,
+ "connecticut|CT": null,
+ "west los angeles|CA": null,
+ "la verne|CA": [
+  34.1159,
+  -117.7708
+ ],
+ "east baton rouge parish|LA": null,
+ "redlands|CA": [
+  34.0397,
+  -117.1804
+ ],
+ "cary|NC": [
+  35.7641,
+  -78.7786
+ ],
+ "west chester|PA": [
+  39.9845,
+  -75.5962
+ ],
+ "south portland|NC": null,
+ "evanston|IL": [
+  42.0546,
+  -87.6943
+ ],
+ "framingham|NJ": null,
+ "la verkin|WA": null,
+ "wellesley|MA": [
+  42.3006,
+  -71.2788
+ ],
+ "indiana|IN": [
+  39.775,
+  -86.1093
+ ],
+ "lake worth|FL": [
+  26.6048,
+  -80.2149
+ ],
+ "plymouth|MN": null,
+ "pomona|CA": [
+  34.0418,
+  -117.7569
+ ],
+ "hopkins|MN": [
+  44.9528,
+  -93.4372
+ ],
+ "westwood|MA": [
+  42.2148,
+  -71.2104
+ ],
+ "holmdel|NJ": [
+  40.3859,
+  -74.174
+ ],
+ "westbrook|NC": null,
+ "pleasanton|CA": [
+  37.6658,
+  -121.8755
+ ],
+ "dowtown carrier annex|CA": null,
+ "dublin|CA": [
+  37.7166,
+  -121.9226
+ ],
+ "idaho city|ID": [
+  43.8834,
+  -115.708
+ ],
+ "bristol|MA": null,
+ "new brunswick|NJ": [
+  40.4891,
+  -74.4482
+ ],
+ "barre|WA": null,
+ "frederick|MD": [
+  38.5336,
+  -76.5955
+ ],
+ "hammond|IN": [
+  41.6099,
+  -87.5079
+ ],
+ "fort myers|FL": [
+  26.6306,
+  -81.8506
+ ],
+ "gary|IN": [
+  41.5907,
+  -87.3199
+ ],
+ "tupelo|FL": null,
+ "north dartmouth|MA": [
+  41.6338,
+  -70.9958
+ ],
+ "laredo|TX": [
+  27.5155,
+  -99.4986
+ ],
+ "rochester hills|MI": null,
+ "edison|NJ": [
+  40.5171,
+  -74.3973
+ ],
+ "henderson|WA": null,
+ "iowa city|IA": [
+  41.6355,
+  -91.5016
+ ],
+ "northridge|CA": [
+  34.2367,
+  -118.5466
+ ],
+ "orem|UT": [
+  40.3134,
+  -111.6953
+ ],
+ "arvada|CO": [
+  39.522,
+  -105.2239
+ ],
+ "livermore|CA": [
+  37.683,
+  -121.763
+ ],
+ "altamont|CA": null,
+ "cimarron hills|CO": null,
+ "dedham|MA": [
+  42.2437,
+  -71.1637
+ ],
+ "hunt valley|MD": [
+  39.4805,
+  -76.6553
+ ],
+ "haslet|TX": [
+  32.9557,
+  -97.3372
+ ],
+ "saratoga|CA": [
+  37.2713,
+  -122.0227
+ ],
+ "shavano park|TX": null,
+ "urbandale|FL": null,
+ "jersey village|TX": null,
+ "frazer|PA": null,
+ "arco plaza|CA": null,
+ "east palo alto|CA": null,
+ "lutherville|MD": [
+  39.4332,
+  -76.6546
+ ],
+ "littleton|CO": [
+  39.5994,
+  -105.0044
+ ],
+ "clackamas|OR": [
+  45.415,
+  -122.52
+ ],
+ "cameron village|NC": null,
+ "beach|VA": [
+  38.1792,
+  -76.9959
+ ],
+ "holly springs|NC": [
+  35.6263,
+  -78.8458
+ ],
+ "el portal|FL": null,
+ "nichols|FL": [
+  28.0026,
+  -81.6186
+ ],
+ "village|NY": [
+  40.7173,
+  -73.8792
+ ],
+ "wayne|NY": [
+  42.4741,
+  -77.0977
+ ],
+ "superior|CO": null,
+ "nebraska|NE": [
+  40.6747,
+  -95.8619
+ ],
+ "glenview|IL": [
+  42.0758,
+  -87.8223
+ ],
+ "mayfield heights|OH": null,
+ "mountain view|OH": null,
+ "pottstown|PA": [
+  40.2635,
+  -75.6172
+ ],
+ "foster city|CA": null,
+ "monroeville|PA": [
+  40.429,
+  -79.7623
+ ],
+ "merrimack|FL": null,
+ "west slope|WA": null,
+ "spring valley|WA": null,
+ "monterey|CA": [
+  34.0534,
+  -118.1271
+ ],
+ "englewood cliffs|NJ": [
+  40.882,
+  -73.9544
+ ],
+ "ankeny|FL": null,
+ "norwoodville|FL": null,
+ "needham|MA": [
+  42.18,
+  -71.0892
+ ],
+ "warrendale|PA": [
+  40.4344,
+  -80.0248
+ ],
+ "little canada|MN": null,
+ "observatory|PA": null,
+ "fairmont|IN": null,
+ "sunkist|NY": null,
+ "brook park|OH": null,
+ "westford|NJ": null,
+ "williams grv|NC": null,
+ "centreville|VA": [
+  38.8448,
+  -77.467
+ ],
+ "sully station|VA": null,
+ "dulles town center|VA": null,
+ "menands|NY": null,
+ "holiday|NY": null,
+ "north newton|NC": null,
+ "summit avenue|NJ": null,
+ "east lake-orient park|FL": null,
+ "plymouth valley|PA": null,
+ "ridgeside|IN": null,
+ "north hills|NC": null
+}

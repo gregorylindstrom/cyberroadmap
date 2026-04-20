@@ -3,140 +3,571 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free and paid hands-on cybersecurity training platforms, CTF sites, and lab environments — curated and ranked for entry-level learners.">
+    <meta name="description" content="Hands-on cybersecurity training, labs, CTFs, and home lab guidance. Practical skill-building resources curated for students entering cyber and IT careers.">
     <title>Training & Labs — CyberRoadmap</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #0a0e14; --paper: #f4f1ea; --accent: #ff4a1c;
-            --muted: #6b7280; --line: rgba(244,241,234,0.12);
-            --line-strong: rgba(244,241,234,0.28);
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --green: #5fb24f;
+            --yellow: #e6b04f;
+            --red: #d14343;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+            --card-hover: rgba(255, 74, 28, 0.06);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            background: var(--ink); color: var(--paper);
+            background: var(--ink);
+            color: var(--paper);
             font-family: 'Fraunces', Georgia, serif;
-            font-size: 17px; line-height: 1.6;
-            min-height: 100vh; display: flex; flex-direction: column;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
+
         body::before {
-            content: ''; position: fixed; inset: 0;
+            content: '';
+            position: fixed;
+            inset: 0;
             background-image:
                 linear-gradient(var(--line) 1px, transparent 1px),
                 linear-gradient(90deg, var(--line) 1px, transparent 1px);
             background-size: 80px 80px;
-            pointer-events: none; z-index: 0; opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
         }
+
+        /* Nav */
         nav {
-            position: relative; z-index: 10;
+            position: relative;
+            z-index: 10;
             padding: 1.5rem 3rem;
             border-bottom: 1px solid var(--line);
-            display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(10px); flex-wrap: wrap; gap: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
+
         .logo {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem; font-weight: 700;
-            letter-spacing: 0.05em; text-transform: uppercase;
-            text-decoration: none; color: var(--paper);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--paper);
         }
+
         .logo .bracket { color: var(--accent); }
+
         .nav-links {
-            display: flex; gap: 2rem;
+            display: flex;
+            gap: 2rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
+
         .nav-links a {
-            color: var(--muted); text-decoration: none;
-            border-bottom: 1px solid transparent; padding-bottom: 2px;
-            transition: color 0.2s;
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
         }
+
         .nav-links a:hover { color: var(--paper); }
-        .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
-        main {
-            position: relative; z-index: 5; flex: 1;
-            max-width: 900px; margin: 0 auto;
-            padding: 6rem 3rem; text-align: center;
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
-        .eyebrow {
+
+        /* Hero */
+        .hero {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 3rem 3rem;
+        }
+
+        .page-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem; color: var(--accent);
-            letter-spacing: 0.2em; text-transform: uppercase;
-            margin-bottom: 2rem;
-            display: inline-flex; align-items: center; gap: 1rem;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
         }
-        .eyebrow::before, .eyebrow::after {
-            content: ''; width: 40px; height: 1px; background: var(--accent);
-        }
+
         h1 {
-            font-family: 'Fraunces', serif; font-weight: 300;
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
             font-size: clamp(2.5rem, 6vw, 5rem);
-            line-height: 1; letter-spacing: -0.03em;
+            line-height: 1;
+            letter-spacing: -0.03em;
             margin-bottom: 2rem;
         }
-        h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
         .lede {
             font-size: 1.2rem;
-            color: rgba(244,241,234,0.8);
-            max-width: 620px; margin: 0 auto 3rem;
-            font-weight: 300; line-height: 1.5;
+            color: rgba(244, 241, 234, 0.75);
+            max-width: 720px;
+            line-height: 1.5;
+            font-weight: 300;
         }
-        .status-box {
-            display: inline-block; padding: 1.5rem 2rem;
+
+        .lede strong {
+            color: var(--paper);
+            font-weight: 400;
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 5;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 3rem 4rem;
+        }
+
+        /* Philosophy callout */
+        .philosophy {
+            padding: 2rem 2.5rem;
+            background: rgba(255, 74, 28, 0.04);
+            border-left: 3px solid var(--accent);
+            margin-bottom: 4rem;
+        }
+
+        .philosophy h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .philosophy p {
+            font-size: 1.05rem;
+            color: rgba(244, 241, 234, 0.85);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .philosophy p:last-child { margin-bottom: 0; }
+
+        .philosophy strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Section header */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        h2.section-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        h2.section-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .section-intro {
+            font-size: 1.05rem;
+            color: rgba(244, 241, 234, 0.7);
+            max-width: 780px;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .section-intro strong {
+            color: var(--paper);
+            font-weight: 400;
+        }
+
+        /* Resource cards grid */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .resource-card {
+            border: 1px solid var(--line);
+            padding: 1.5rem;
+            background: var(--card);
+            transition: border-color 0.2s, background 0.2s, transform 0.15s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            border-color: var(--line-strong);
+            background: var(--card-hover);
+            transform: translateY(-2px);
+        }
+
+        .resource-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-name {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.35rem;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--paper);
+        }
+
+        .resource-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0.3rem 0.55rem;
+            white-space: nowrap;
+        }
+
+        .badge-free {
+            background: rgba(95, 178, 79, 0.15);
+            color: var(--green);
+            border: 1px solid var(--green);
+        }
+
+        .badge-freemium {
+            background: rgba(230, 176, 79, 0.12);
+            color: var(--yellow);
+            border: 1px solid var(--yellow);
+        }
+
+        .badge-paid {
+            background: rgba(244, 241, 234, 0.05);
+            color: rgba(244, 241, 234, 0.7);
             border: 1px solid var(--line-strong);
-            background: rgba(255,74,28,0.05);
+        }
+
+        .resource-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .resource-meta span { color: var(--paper); }
+
+        .resource-note {
+            font-size: 0.95rem;
+            color: rgba(244, 241, 234, 0.78);
+            line-height: 1.55;
+            font-weight: 300;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .resource-note strong {
+            color: var(--paper);
+            font-weight: 500;
+        }
+
+        .resource-note em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .resource-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid transparent;
+            align-self: flex-start;
+            transition: border-color 0.15s;
+            word-break: break-word;
+        }
+
+        .resource-link:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .resource-link::after {
+            content: ' →';
+        }
+
+        /* Home lab section special treatment */
+        .homelab-box {
+            border: 1px solid var(--line-strong);
+            padding: 2rem;
+            background: var(--card);
+            margin-bottom: 1.5rem;
+        }
+
+        .homelab-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--paper);
+        }
+
+        .homelab-body p {
+            font-size: 1rem;
+            color: rgba(244, 241, 234, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .homelab-body strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .homelab-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .stack-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stack-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+
+        .stack-value {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            color: var(--paper); letter-spacing: 0.05em;
+            color: var(--paper);
+        }
+
+        .stack-note {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            margin-top: 0.25rem;
+            line-height: 1.3;
+        }
+
+        /* YouTube channel card variant */
+        .yt-card {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.25rem;
+            align-items: center;
+            padding: 1.25rem;
+            border: 1px solid var(--line);
+            background: var(--card);
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .yt-card:hover {
+            border-color: var(--line-strong);
+            background: var(--card-hover);
+        }
+
+        .yt-marker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            width: 36px;
+        }
+
+        .yt-body h4 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: var(--paper);
+            margin-bottom: 0.25rem;
+        }
+
+        .yt-body p {
+            font-size: 0.9rem;
+            color: rgba(244, 241, 234, 0.7);
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        .yt-body p strong {
+            color: var(--paper);
+            font-weight: 500;
+        }
+
+        .yt-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .yt-link:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .yt-link::after { content: ' →'; }
+
+        .yt-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        /* LSC callout special treatment */
+        .lsc-callout {
+            border: 2px solid var(--accent);
+            padding: 2rem 2.5rem;
+            background: rgba(255, 74, 28, 0.05);
             margin-top: 1rem;
         }
-        .status-box strong {
-            display: block; color: var(--accent);
+
+        .lsc-callout h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.6rem;
+            color: var(--paper);
             margin-bottom: 0.5rem;
-            font-size: 0.75rem; letter-spacing: 0.15em;
-            text-transform: uppercase; font-weight: 500;
         }
-        .cta-row {
-            margin-top: 3rem;
-            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-        }
-        .cta {
-            padding: 0.9rem 1.75rem;
+
+        .lsc-callout .subtitle {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem; font-weight: 700;
-            letter-spacing: 0.1em; text-transform: uppercase;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .lsc-callout p {
+            font-size: 1rem;
+            color: rgba(244, 241, 234, 0.85);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .lsc-callout strong {
+            color: var(--paper);
+            font-weight: 500;
+        }
+
+        .lsc-callout a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
             text-decoration: none;
-            transition: all 0.2s;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
         }
-        .cta.primary { background: var(--accent); color: var(--ink); }
-        .cta.primary:hover { background: #c33a15; }
-        .cta.secondary {
-            background: transparent; color: var(--paper);
-            border: 1px solid var(--line-strong);
-        }
-        .cta.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+        .lsc-callout a:hover { border-bottom-color: var(--accent); }
+
+        /* Footer */
         footer {
-            position: relative; z-index: 5;
-            padding: 2rem 3rem;
+            position: relative;
+            z-index: 5;
+            padding: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
             border-top: 1px solid var(--line);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem; color: var(--muted);
+            font-size: 0.75rem;
+            color: var(--muted);
             letter-spacing: 0.05em;
-            display: flex; justify-content: space-between;
-            flex-wrap: wrap; gap: 1rem;
-            max-width: 1400px; margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
+
         footer a { color: var(--accent); text-decoration: none; }
-        footer .sep { color: var(--line-strong); margin: 0 0.5rem; }
+        footer a:hover { border-bottom: 1px solid var(--accent); }
+        footer .sep { color: var(--line-strong); margin: 0 0.75rem; }
+
+        /* Responsive */
         @media (max-width: 900px) {
             nav { padding: 1rem 1.5rem; }
             .nav-links { gap: 1rem; font-size: 0.7rem; }
-            main { padding: 3rem 1.5rem; }
-            footer { padding: 2rem 1.5rem; text-align: center; justify-content: center; }
+            .hero { padding: 3rem 1.5rem 2rem; }
+            .container { padding: 1.5rem 1.5rem 3rem; }
+            .philosophy { padding: 1.5rem; }
+            .homelab-box { padding: 1.5rem; }
+            .lsc-callout { padding: 1.5rem; }
+            .yt-card {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            footer {
+                padding: 2rem 1.5rem;
+                text-align: center;
+                justify-content: center;
+            }
         }
+
         ::selection { background: var(--accent); color: var(--ink); }
     </style>
 </head>
@@ -151,31 +582,803 @@
             <a href="/certs.html">Certifications</a>
             <a href="/training.html" class="active">Training</a>
             <a href="/resources.html">Resources</a>
-            <a href="/#about">About</a>
+            <a href="/about.html">About</a>
         </div>
     </nav>
 
-    <main>
-        <div class="eyebrow">Pillar 03 · Training</div>
-        <h1>Free and paid <em>hands-on labs</em>.</h1>
-        <p class="lede">A curated directory of platforms where you actually learn by doing. Every listing includes cost, difficulty level, what skills it builds, and which NICE framework role it maps to.</p>
+    <section class="hero">
+        <div class="page-label">// Pillar 03 · Training &amp; Labs</div>
+        <h1>Build it with your <em>hands</em>.</h1>
+        <p class="lede">
+            Certs prove you studied. <strong>Hands-on labs prove you can do the work.</strong>
+            Here's the full curated path — from your first reverse shell to production-grade
+            home lab — ordered by what actually builds competence.
+        </p>
+    </section>
 
-        <div class="status-box">
-            <strong>Currently in development</strong>
-            Coverage planned: TryHackMe, HackTheBox, PortSwigger Web Security Academy, OverTheWire, CyberDefenders, Blue Team Labs Online, LetsDefend, RangeForce Community, Immersive Labs Community, Pico CTF, and free university courses from MIT, Stanford, and Coursera.
+    <div class="container">
+
+        <div class="philosophy">
+            <h2>The honest truth about training</h2>
+            <p>
+                Formal education and certifications are <strong>the foundation</strong>. A degree and Security+
+                will get you past résumé screening. But that's the floor, not the ceiling.
+            </p>
+            <p>
+                <strong>Building skills at home is required to be successful.</strong> Every senior practitioner
+                you admire spent nights and weekends breaking things in their own lab, completing CTFs, walking
+                through IppSec videos at 2x speed. There is no shortcut around this work.
+            </p>
+            <p>
+                The resources below are the ones that actually build competence. Free where possible, paid only
+                when the jump in quality is worth it, and with clear guidance on the sequence.
+            </p>
         </div>
 
-        <div class="cta-row">
-            <a href="/jobs.html" class="cta primary">Browse jobs →</a>
-            <a href="/" class="cta secondary">← Back home</a>
-        </div>
-    </main>
+        <!-- ==================== START HERE ==================== -->
+        <section class="section">
+            <div class="section-label">// 01 · Start here</div>
+            <h2 class="section-title">Your first <em>reverse shell</em>.</h2>
+            <p class="section-intro">
+                If you've never popped a box, done a CTF, or used Kali Linux, start with these.
+                <strong>TryHackMe first</strong> — it's the gentlest on-ramp and what I point every
+                new student to. Once you're comfortable, expand out.
+            </p>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">TryHackMe</div>
+                        <span class="resource-badge badge-freemium">Freemium</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Free tier</span> · Premium $14/mo · Beginner-friendly
+                    </div>
+                    <p class="resource-note">
+                        <em>Start here.</em> Gamified rooms walk you through attacks and defense step-by-step.
+                        The free tier covers a lot — full learning paths like "Pre Security" and "Jr Penetration
+                        Tester" are excellent. <strong>Best on-ramp for students with zero hacking experience.</strong>
+                    </p>
+                    <a href="https://tryhackme.com/" target="_blank" rel="noopener" class="resource-link">tryhackme.com</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">PortSwigger Web Security Academy</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>100% free</span> · Labs + theory · Web application focus
+                    </div>
+                    <p class="resource-note">
+                        The best free resource for learning web application security — made by the company
+                        behind Burp Suite. SQL injection, XSS, SSRF, authentication bypass, deserialization —
+                        all covered with interactive labs. <strong>Essential if AppSec interests you.</strong>
+                    </p>
+                    <a href="https://portswigger.net/web-security" target="_blank" rel="noopener" class="resource-link">portswigger.net/web-security</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">OverTheWire</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>100% free</span> · SSH-based wargames · Command line
+                    </div>
+                    <p class="resource-note">
+                        The classic Linux / command-line wargame series. Start with <strong>Bandit</strong> — it
+                        teaches you terminal skills one puzzle at a time. If you can't navigate Linux comfortably,
+                        cybersecurity will be a constant struggle. Start fixing that here.
+                    </p>
+                    <a href="https://overthewire.org/wargames/" target="_blank" rel="noopener" class="resource-link">overthewire.org/wargames</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">PicoCTF</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>100% free</span> · CMU-maintained · Puzzle-based
+                    </div>
+                    <p class="resource-note">
+                        Carnegie Mellon's free CTF platform. Perfect introduction to the CTF format with
+                        progressively harder challenges across crypto, forensics, web, binary exploitation, and more.
+                        Annual competition every spring — a great first CTF to enter.
+                    </p>
+                    <a href="https://picoctf.org/" target="_blank" rel="noopener" class="resource-link">picoctf.org</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== INTERMEDIATE ==================== -->
+        <section class="section">
+            <div class="section-label">// 02 · Next level</div>
+            <h2 class="section-title">Past beginner? <em>Level up.</em></h2>
+            <p class="section-intro">
+                Once TryHackMe starts feeling easy, it's time to move to harder platforms.
+                <strong>If you're going to pay for anything, HackTheBox VIP is the best value</strong> at
+                $14/month for intermediate-level students. Commit to it seriously — an abandoned subscription
+                is just a donation.
+            </p>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">HackTheBox</div>
+                        <span class="resource-badge badge-freemium">Freemium</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Free tier</span> · VIP $14/mo · Intermediate–Advanced
+                    </div>
+                    <p class="resource-note">
+                        <em>The industry standard for hands-on offensive practice.</em> More realistic and
+                        unforgiving than TryHackMe — closer to actual engagements. Free tier has active machines;
+                        <strong>VIP unlocks retired machines with official writeups</strong>, which is where real
+                        learning happens. Pair with IppSec's YouTube walkthroughs.
+                    </p>
+                    <a href="https://www.hackthebox.com/" target="_blank" rel="noopener" class="resource-link">hackthebox.com</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">HackTheBox Academy</div>
+                        <span class="resource-badge badge-freemium">Freemium</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Pay-per-module</span> · Structured curriculum · Career paths
+                    </div>
+                    <p class="resource-note">
+                        Separate from HTB's machine platform — this is their structured learning environment
+                        with career-path modules (Penetration Tester, Bug Bounty Hunter, SOC Analyst).
+                        <strong>More academic feel</strong>, great if you prefer guided learning over open-ended challenges.
+                    </p>
+                    <a href="https://academy.hackthebox.com/" target="_blank" rel="noopener" class="resource-link">academy.hackthebox.com</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">VulnHub</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>100% free</span> · Downloadable VMs · Self-hosted
+                    </div>
+                    <p class="resource-note">
+                        Download vulnerable VMs and attack them in your own lab — completely free, no
+                        subscription. <strong>Great for practicing when offline</strong> or stress-testing your
+                        home lab setup. The "OSCP-like" list is famous for OSCP prep.
+                    </p>
+                    <a href="https://www.vulnhub.com/" target="_blank" rel="noopener" class="resource-link">vulnhub.com</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== BLUE TEAM / SOC ==================== -->
+        <section class="section">
+            <div class="section-label">// 03 · Blue team &amp; SOC</div>
+            <h2 class="section-title">Defending, <em>not attacking</em>.</h2>
+            <p class="section-intro">
+                Most cybersecurity jobs are defensive — SOC analysts, incident responders, threat hunters.
+                <strong>CyberDefenders and LetsDefend are both solid, with different strengths.</strong>
+                Use both if you can.
+            </p>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">CyberDefenders</div>
+                        <span class="resource-badge badge-freemium">Freemium</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Free challenges</span> · Paid Pro $39/mo · Blue team labs
+                    </div>
+                    <p class="resource-note">
+                        <em>Analyst-oriented.</em> Scenario-based challenges where you investigate real artifacts —
+                        memory dumps, PCAPs, disk images, email headers. <strong>Free tier is genuinely
+                        useful</strong>, unlike many "freemium" platforms. Strong for building DFIR muscles.
+                    </p>
+                    <a href="https://cyberdefenders.org/" target="_blank" rel="noopener" class="resource-link">cyberdefenders.org</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">LetsDefend</div>
+                        <span class="resource-badge badge-freemium">Freemium</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Free tier</span> · Paid $25/mo · SOC simulation
+                    </div>
+                    <p class="resource-note">
+                        <em>SOC simulator.</em> Closer to the day-to-day experience of a tier-1 SOC analyst —
+                        ticket queues, alert triage, SIEM investigations. <strong>Great for showing the work
+                        in interviews</strong> because the platform looks like an actual SOC dashboard.
+                    </p>
+                    <a href="https://letsdefend.io/" target="_blank" rel="noopener" class="resource-link">letsdefend.io</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Blue Team Labs Online</div>
+                        <span class="resource-badge badge-freemium">Freemium</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Free challenges</span> · Paid $19/mo · Community-driven
+                    </div>
+                    <p class="resource-note">
+                        Defender-focused CTFs covering investigations, threat hunting, and incident response.
+                        Challenges are contributed by the community, so quality varies — but the best ones
+                        are excellent practice. Complements CyberDefenders well.
+                    </p>
+                    <a href="https://blueteamlabs.online/" target="_blank" rel="noopener" class="resource-link">blueteamlabs.online</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Splunk Boss of the SOC</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Free</span> · Splunk-specific · Realistic SIEM
+                    </div>
+                    <p class="resource-note">
+                        Splunk's official SOC simulation. <strong>If you're targeting SOC roles,
+                        this is essential practice</strong> — it builds the Splunk query fluency that
+                        differentiates SOC candidates in hiring. Pair with the free Splunk Core Certified
+                        User cert.
+                    </p>
+                    <a href="https://bots.splunk.com/" target="_blank" rel="noopener" class="resource-link">bots.splunk.com</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== CTFs ==================== -->
+        <section class="section">
+            <div class="section-label">// 04 · CTF competitions</div>
+            <h2 class="section-title">Prove it under <em>pressure</em>.</h2>
+            <p class="section-intro">
+                CTFs teach what certifications don't — <strong>how to think under pressure</strong>, solve
+                problems creatively, collaborate under a deadline. Employers respect CTF participation because
+                it's hard to fake. Add these to your résumé.
+            </p>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">National Cyber League (NCL)</div>
+                        <span class="resource-badge badge-paid">~$35</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Twice a year</span> · Spring / Fall seasons · Individual + team
+                    </div>
+                    <p class="resource-note">
+                        <em>The best CTF for college students.</em> Structured challenges across domains
+                        students are actually hired for — forensics, cryptography, web exploitation, scanning.
+                        <strong>Get the NCL scouting report</strong> after competing — it's literally a résumé
+                        attachment showing employers which skills you demonstrated.
+                    </p>
+                    <a href="https://nationalcyberleague.org/" target="_blank" rel="noopener" class="resource-link">nationalcyberleague.org</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">NCCDC / CCDC</div>
+                        <span class="resource-badge badge-free">Free (team)</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Spring season</span> · Team defense · College-only
+                    </div>
+                    <p class="resource-note">
+                        Collegiate Cyber Defense Competition — 8-person teams defend a network from professional
+                        red teams while keeping business services running. <strong>Most prestigious collegiate
+                        blue-team competition</strong> in the US. If your school has a team, join it.
+                    </p>
+                    <a href="https://www.nationalccdc.org/" target="_blank" rel="noopener" class="resource-link">nationalccdc.org</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">SANS Holiday Hack Challenge</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Annual</span> · December–January · All skill levels
+                    </div>
+                    <p class="resource-note">
+                        <em>Free every year from SANS.</em> A creative, story-driven CTF with Christmas/winter
+                        theming, challenges across all disciplines, and active walkthroughs afterward.
+                        <strong>Best annual CTF for learning at any level</strong> — take it seriously.
+                    </p>
+                    <a href="https://www.sans.org/mlp/holiday-hack-challenge/" target="_blank" rel="noopener" class="resource-link">sans.org/holiday-hack-challenge</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">DEF CON CTF</div>
+                        <span class="resource-badge badge-free">Free (to watch)</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Annually in August</span> · Las Vegas · Expert level
+                    </div>
+                    <p class="resource-note">
+                        The "world championship" of CTFs — you probably won't compete until senior-level, but
+                        <strong>attending DEF CON itself</strong> (badge hacking, villages, workshops) is formative.
+                        Community, talks, and smaller CTFs at the conference are accessible to all levels.
+                    </p>
+                    <a href="https://defcon.org/" target="_blank" rel="noopener" class="resource-link">defcon.org</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">CTFtime</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Event tracker</span> · Global calendar · Team rankings
+                    </div>
+                    <p class="resource-note">
+                        Not a CTF itself — the <strong>global calendar of upcoming CTFs</strong>, team
+                        rankings, and past writeups. Bookmark it. Most weekends somewhere in the world, a
+                        CTF is running.
+                    </p>
+                    <a href="https://ctftime.org/" target="_blank" rel="noopener" class="resource-link">ctftime.org</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">BSides Houston</div>
+                        <span class="resource-badge badge-freemium">Low-cost</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Annual</span> · Houston, TX · Conference + CTF
+                    </div>
+                    <p class="resource-note">
+                        <em>Local to Houston students.</em> BSides conferences are community-driven, low-cost
+                        ($20–50), and often have CTFs onsite. <strong>Best opportunity to meet local cyber
+                        professionals</strong> face-to-face. Volunteer if you can — free entry and deeper
+                        networking.
+                    </p>
+                    <a href="https://www.bsideshouston.org/" target="_blank" rel="noopener" class="resource-link">bsideshouston.org</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== YOUTUBE ==================== -->
+        <section class="section">
+            <div class="section-label">// 05 · YouTube creators</div>
+            <h2 class="section-title">Learn from the <em>best practitioners</em>.</h2>
+            <p class="section-intro">
+                Different creators serve different needs. <strong>Follow multiple</strong> — no single channel
+                covers everything.
+            </p>
+
+            <div class="yt-list">
+
+                <div class="yt-card">
+                    <div class="yt-marker">01</div>
+                    <div class="yt-body">
+                        <h4>IppSec</h4>
+                        <p><strong>Best for HackTheBox walkthroughs.</strong> When you get stuck on a retired HTB machine, watch IppSec's video on it. Hundreds of videos covering every major technique — the unofficial companion to HTB VIP.</p>
+                    </div>
+                    <a href="https://www.youtube.com/@ippsec" target="_blank" rel="noopener" class="yt-link">youtube.com/@ippsec</a>
+                </div>
+
+                <div class="yt-card">
+                    <div class="yt-marker">02</div>
+                    <div class="yt-body">
+                        <h4>John Hammond</h4>
+                        <p><strong>Best for broad technical depth.</strong> CTF walkthroughs, malware analysis, reverse engineering, CTF live-streams, career advice — covers the widest range of topics at a high level of technical quality.</p>
+                    </div>
+                    <a href="https://www.youtube.com/@_JohnHammond" target="_blank" rel="noopener" class="yt-link">youtube.com/@_JohnHammond</a>
+                </div>
+
+                <div class="yt-card">
+                    <div class="yt-marker">03</div>
+                    <div class="yt-body">
+                        <h4>NetworkChuck</h4>
+                        <p><strong>Best for beginners + networking fundamentals.</strong> Enthusiastic, accessible, and great for students coming from non-technical backgrounds. If CLI and networking intimidate you, start here.</p>
+                    </div>
+                    <a href="https://www.youtube.com/@NetworkChuck" target="_blank" rel="noopener" class="yt-link">youtube.com/@NetworkChuck</a>
+                </div>
+
+                <div class="yt-card">
+                    <div class="yt-marker">04</div>
+                    <div class="yt-body">
+                        <h4>13Cubed</h4>
+                        <p><strong>Best for DFIR specifically.</strong> Richard Davis is a top-tier DFIR instructor — Windows forensics, memory analysis, PowerShell for incident response. Essential if DFIR interests you.</p>
+                    </div>
+                    <a href="https://www.youtube.com/@13cubed" target="_blank" rel="noopener" class="yt-link">youtube.com/@13cubed</a>
+                </div>
+
+                <div class="yt-card">
+                    <div class="yt-marker">05</div>
+                    <div class="yt-body">
+                        <h4>Professor Messer</h4>
+                        <p><strong>Best for CompTIA cert prep.</strong> Free, comprehensive, high-quality videos for Security+, Network+, A+. <em>You do not need to pay for CertMaster Learn</em> — Messer's videos are sufficient on their own.</p>
+                    </div>
+                    <a href="https://www.youtube.com/@professormesser" target="_blank" rel="noopener" class="yt-link">youtube.com/@professormesser</a>
+                </div>
+
+                <div class="yt-card">
+                    <div class="yt-marker">06</div>
+                    <div class="yt-body">
+                        <h4>LiveOverflow</h4>
+                        <p><strong>Best for binary exploitation + deep-dive research.</strong> More advanced content on how exploits actually work under the hood. Watch when you're ready to understand <em>why</em>, not just <em>how</em>.</p>
+                    </div>
+                    <a href="https://www.youtube.com/@LiveOverflow" target="_blank" rel="noopener" class="yt-link">youtube.com/@LiveOverflow</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== HOME LAB ==================== -->
+        <section class="section">
+            <div class="section-label">// 06 · Home lab</div>
+            <h2 class="section-title">Build your own <em>playground</em>.</h2>
+            <p class="section-intro">
+                <strong>Every serious cyber student should have a home lab.</strong> It's not optional. Free
+                courses and online labs teach you the what; a home lab teaches you the how when things break —
+                and they will break. This is where real practitioners separate from people who just pass exams.
+            </p>
+
+            <div class="homelab-box">
+                <div class="homelab-title">The starter stack</div>
+                <div class="homelab-body">
+                    <p>
+                        You don't need thousands of dollars of equipment. A used desktop with 32GB RAM (~$300
+                        on eBay or Craigslist) is enough to run everything below simultaneously.
+                        <strong>Start small, add as you go.</strong>
+                    </p>
+                    <div class="homelab-stack">
+                        <div class="stack-item">
+                            <div class="stack-label">Hypervisor</div>
+                            <div class="stack-value">Proxmox VE</div>
+                            <div class="stack-note">Free, Debian-based. Simpler than ESXi for home use.</div>
+                        </div>
+                        <div class="stack-item">
+                            <div class="stack-label">Firewall / router</div>
+                            <div class="stack-value">pfSense or OPNsense</div>
+                            <div class="stack-note">Free. Learn real networking with VLANs, IDS, VPN.</div>
+                        </div>
+                        <div class="stack-item">
+                            <div class="stack-label">Domain controller</div>
+                            <div class="stack-value">Windows Server 2022 Eval</div>
+                            <div class="stack-note">Free 180-day evaluation. Practice AD attacks safely.</div>
+                        </div>
+                        <div class="stack-item">
+                            <div class="stack-label">Attacker VM</div>
+                            <div class="stack-value">Kali Linux or Parrot OS</div>
+                            <div class="stack-note">Free. The standard pentester workstation.</div>
+                        </div>
+                        <div class="stack-item">
+                            <div class="stack-label">Target VMs</div>
+                            <div class="stack-value">Metasploitable, VulnHub VMs</div>
+                            <div class="stack-note">Free. Intentionally vulnerable targets to practice against.</div>
+                        </div>
+                        <div class="stack-item">
+                            <div class="stack-label">SIEM</div>
+                            <div class="stack-value">Security Onion or Splunk Free</div>
+                            <div class="stack-note">Both free. Build detection engineering muscle.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="homelab-box">
+                <div class="homelab-title">What to actually do with it</div>
+                <div class="homelab-body">
+                    <p>
+                        The lab is only valuable if you <strong>attack your own network</strong>. Specific projects
+                        that will teach you more than any class:
+                    </p>
+                    <p>
+                        • Build an Active Directory domain with 2–3 Windows VMs, then try to compromise it using
+                        BloodHound + impacket. <br>
+                        • Set up Security Onion, generate attack traffic, and learn to detect it. <br>
+                        • Deploy a honeypot (T-Pot) on your router and observe real internet attacks hitting it. <br>
+                        • Build a small web app, find its vulnerabilities, patch them. <br>
+                        • Capture network traffic with Wireshark during different activities and learn to read it.
+                    </p>
+                    <p>
+                        <strong>Document everything</strong> — your lab is your portfolio. A public GitHub repo or
+                        blog describing what you built beats a résumé line every time.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CODING ==================== -->
+        <section class="section">
+            <div class="section-label">// 07 · Scripting fundamentals</div>
+            <h2 class="section-title">Python and Linux are <em>essential</em>.</h2>
+            <p class="section-intro">
+                Cybersecurity runs on Linux. Automation runs on Python. You cannot be effective in this field
+                without both. These are not optional.
+            </p>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Python for Everybody</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Coursera / free</span> · Dr. Charles Severance · Michigan
+                    </div>
+                    <p class="resource-note">
+                        <em>Start here if you've never coded.</em> The most accessible free Python course online.
+                        Audit for free on Coursera or use the <strong>pythonforeverybody.com</strong> materials
+                        directly. Finish this before trying security-specific Python.
+                    </p>
+                    <a href="https://www.py4e.com/" target="_blank" rel="noopener" class="resource-link">py4e.com</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Linux Journey</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>100% free</span> · Browser-based · Structured curriculum
+                    </div>
+                    <p class="resource-note">
+                        Linux fundamentals from scratch — file systems, processes, permissions, shell scripting,
+                        networking. <strong>Work through this before touching Kali or trying CTFs</strong> or
+                        you'll constantly be fighting the OS instead of learning security.
+                    </p>
+                    <a href="https://linuxjourney.com/" target="_blank" rel="noopener" class="resource-link">linuxjourney.com</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Black Hat Python (book)</div>
+                        <span class="resource-badge badge-paid">~$35 book</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Justin Seitz</span> · 2nd edition · Offensive Python
+                    </div>
+                    <p class="resource-note">
+                        After you know basic Python, this book teaches you to <strong>write your own offensive
+                        tools</strong> — network scanners, keyloggers, trojans, web shell clients. Dated in some
+                        spots, but the fundamentals are evergreen.
+                    </p>
+                    <a href="https://nostarch.com/black-hat-python2E" target="_blank" rel="noopener" class="resource-link">nostarch.com/black-hat-python2E</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Automate the Boring Stuff</div>
+                        <span class="resource-badge badge-free">Free online</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Al Sweigart</span> · Python practical · Book + videos
+                    </div>
+                    <p class="resource-note">
+                        Full book available free online. Teaches Python by building practical, usable tools —
+                        file automation, web scraping, spreadsheets. <strong>Builds the habit of using Python
+                        to solve real problems</strong>, which matters for security automation.
+                    </p>
+                    <a href="https://automatetheboringstuff.com/" target="_blank" rel="noopener" class="resource-link">automatetheboringstuff.com</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== FREE FORMAL COURSES ==================== -->
+        <section class="section">
+            <div class="section-label">// 08 · Free formal courses</div>
+            <h2 class="section-title">University-grade, <em>zero cost</em>.</h2>
+            <p class="section-intro">
+                Top universities and federal programs have put their best cybersecurity coursework online for
+                free. Worth integrating into your learning if you're serious.
+            </p>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">SANS Cyber Aces Online</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>SANS</span> · Self-paced · Foundational
+                    </div>
+                    <p class="resource-note">
+                        <strong>SANS gives away their foundational training for free.</strong> Three courses —
+                        Operating Systems, Networking, System Administration — the prerequisites they expect
+                        before paid SANS courses. High quality, high rigor. Start here for self-study.
+                    </p>
+                    <a href="https://tutorials.cyberaces.org/" target="_blank" rel="noopener" class="resource-link">tutorials.cyberaces.org</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">MIT OpenCourseWare</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>MIT</span> · Full course materials · Self-directed
+                    </div>
+                    <p class="resource-note">
+                        Full MIT course materials free online — including <strong>6.858 Computer Systems Security</strong>,
+                        the course that trained many top security researchers. Lecture videos, assignments,
+                        labs. University-grade material, zero cost, no login required.
+                    </p>
+                    <a href="https://ocw.mit.edu/search/?q=security" target="_blank" rel="noopener" class="resource-link">ocw.mit.edu</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">CyberCorps: Scholarship for Service</div>
+                        <span class="resource-badge badge-free">Scholarship</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Federal scholarship</span> · Tuition + stipend · Service obligation
+                    </div>
+                    <p class="resource-note">
+                        <em>Federal scholarship for cybersecurity students.</em> Covers tuition, fees, plus a
+                        substantial annual stipend ($27K undergrad / $37K grad). <strong>Service commitment:
+                        work for federal government for the same number of years you received funding.</strong>
+                        Life-changing if you qualify.
+                    </p>
+                    <a href="https://sfs.opm.gov/" target="_blank" rel="noopener" class="resource-link">sfs.opm.gov</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">DoD Cyber Scholarship Program</div>
+                        <span class="resource-badge badge-free">Scholarship</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>DoD</span> · Undergrad + grad · Service obligation
+                    </div>
+                    <p class="resource-note">
+                        DoD equivalent to CyberCorps. Scholarship in exchange for civilian DoD employment
+                        after graduation. <strong>Specifically focused on CAE-designated schools</strong>
+                        (like Lone Star College), so if your school has CAE status, check this before paying
+                        tuition out of pocket.
+                    </p>
+                    <a href="https://dodcio.defense.gov/Cyber-Workforce/CySP/" target="_blank" rel="noopener" class="resource-link">dodcio.defense.gov/Cyber-Workforce/CySP</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Open Security Training</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>OST2</span> · Low-level security · Self-paced
+                    </div>
+                    <p class="resource-note">
+                        <strong>Deep free courses on reverse engineering, assembly, exploit development,
+                        and hardware security.</strong> Rigorous, technical — for students going into
+                        exploit development, malware analysis, or low-level research. Not beginner material.
+                    </p>
+                    <a href="https://ost2.fyi/" target="_blank" rel="noopener" class="resource-link">ost2.fyi</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">NIST NICE Framework</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>NIST</span> · Career roadmap · Skills mapping
+                    </div>
+                    <p class="resource-note">
+                        Not a course — a <strong>framework for mapping cyber careers to actual skills</strong>.
+                        Use the NICE Workforce Framework to understand what work roles exist, what competencies
+                        each requires, and target your learning accordingly. Especially useful for federal applicants.
+                    </p>
+                    <a href="https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center" target="_blank" rel="noopener" class="resource-link">nist.gov/itl/applied-cybersecurity/nice</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== COLLEGE / FORMAL PATHWAY ==================== -->
+        <section class="section">
+            <div class="section-label">// 09 · College pathways</div>
+            <h2 class="section-title">Formal education, <em>done right</em>.</h2>
+            <p class="section-intro">
+                A degree isn't required to break into cyber — but the right one accelerates you, especially
+                at affordable community colleges with federal designations.
+            </p>
+
+            <div class="lsc-callout">
+                <h3>Lone Star College — Cybersecurity</h3>
+                <div class="subtitle">// Local Houston · NSA CAE-designated · Accessible tuition</div>
+                <p>
+                    Lone Star College offers an accredited Bachelor of Applied Technology in Cybersecurity —
+                    <strong>at community-college tuition rates</strong>. It's designated as a National Center of
+                    Academic Excellence in Cyber Defense (NSA CAE-CD), which means the curriculum meets
+                    federal standards and qualifies graduates for federal scholarship programs.
+                </p>
+                <p>
+                    For Houston-area students in particular, this is one of the best value propositions in
+                    cybersecurity education in the region. Smaller classes than UH or Texas A&amp;M, faculty
+                    with real industry backgrounds, and a curriculum that maps to NIST NICE workforce categories.
+                </p>
+                <p>
+                    <strong>Degree or not:</strong> formal education gets you the foundation. Labs and home
+                    practice get you the skills. You need both — don't skip either.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    <a href="https://www.lonestar.edu/cybersecurity.htm" target="_blank" rel="noopener">lonestar.edu/cybersecurity →</a>
+                </p>
+            </div>
+
+            <div style="margin-top: 2rem;" class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">CAE Schools Directory</div>
+                        <span class="resource-badge badge-free">Free tool</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>NSA/CISA</span> · National list · Federally designated
+                    </div>
+                    <p class="resource-note">
+                        <strong>Find the CAE-designated school nearest you.</strong> NSA CAE schools meet
+                        federal standards and unlock scholarships like CyberCorps SFS and DoD CySP.
+                        If you're paying tuition, go to a CAE school if possible.
+                    </p>
+                    <a href="https://caecommunity.org/cae-map" target="_blank" rel="noopener" class="resource-link">caecommunity.org/cae-map</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">WGU Cybersecurity B.S.</div>
+                        <span class="resource-badge badge-paid">Accredited</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Online</span> · Competency-based · Flat tuition
+                    </div>
+                    <p class="resource-note">
+                        Western Governors University is an accredited online-only school with flat-rate
+                        tuition. The cybersecurity B.S. <strong>bundles industry certifications into the
+                        degree</strong> (Security+, CySA+, PenTest+). Good option for working adults who
+                        want a degree + certs together.
+                    </p>
+                    <a href="https://www.wgu.edu/online-it-degrees/cybersecurity-information-assurance-bachelors-program.html" target="_blank" rel="noopener" class="resource-link">wgu.edu/cybersecurity</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Community College Cyber Pilot</div>
+                        <span class="resource-badge badge-free">Federal</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>NSF grant</span> · Scholarships · Community colleges
+                    </div>
+                    <p class="resource-note">
+                        NSF's C3 pilot expands CyberCorps-style scholarships to community college students —
+                        <strong>scholarships + federal job placement without requiring a 4-year degree first.</strong>
+                        Check if your community college is participating.
+                    </p>
+                    <a href="https://sfs.opm.gov/ContactsPI.aspx" target="_blank" rel="noopener" class="resource-link">sfs.opm.gov/ContactsPI.aspx</a>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
 
     <footer>
         <div>
             © 2026 CyberRoadmap
             <span class="sep">/</span>
-            Curated by G. Lindstrom
+            Houston, TX
         </div>
         <div>
             <a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a>

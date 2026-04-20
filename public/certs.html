@@ -3,140 +3,564 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybersecurity and IT certification guidance: which certs matter, what they cost, and which ones get you hired.">
+    <meta name="description" content="Cybersecurity certification guidance from a 35-year practitioner. Which certs actually get you hired, which ones waste your money, and how to sequence them by career stage. Curated by Dr. Gregory Lindstrom.">
     <title>Certifications — CyberRoadmap</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #0a0e14; --paper: #f4f1ea; --accent: #ff4a1c;
-            --muted: #6b7280; --line: rgba(244,241,234,0.12);
-            --line-strong: rgba(244,241,234,0.28);
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --green: #5fb24f;
+            --yellow: #e6b04f;
+            --red: #d14343;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+            --card-hover: rgba(255, 74, 28, 0.06);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            background: var(--ink); color: var(--paper);
+            background: var(--ink);
+            color: var(--paper);
             font-family: 'Fraunces', Georgia, serif;
-            font-size: 17px; line-height: 1.6;
-            min-height: 100vh; display: flex; flex-direction: column;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
+
         body::before {
-            content: ''; position: fixed; inset: 0;
+            content: '';
+            position: fixed;
+            inset: 0;
             background-image:
                 linear-gradient(var(--line) 1px, transparent 1px),
                 linear-gradient(90deg, var(--line) 1px, transparent 1px);
             background-size: 80px 80px;
-            pointer-events: none; z-index: 0; opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
         }
+
+        /* Nav */
         nav {
-            position: relative; z-index: 10;
+            position: relative;
+            z-index: 10;
             padding: 1.5rem 3rem;
             border-bottom: 1px solid var(--line);
-            display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(10px); flex-wrap: wrap; gap: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
+
         .logo {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem; font-weight: 700;
-            letter-spacing: 0.05em; text-transform: uppercase;
-            text-decoration: none; color: var(--paper);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--paper);
         }
+
         .logo .bracket { color: var(--accent); }
+
         .nav-links {
-            display: flex; gap: 2rem;
+            display: flex;
+            gap: 2rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
+
         .nav-links a {
-            color: var(--muted); text-decoration: none;
-            border-bottom: 1px solid transparent; padding-bottom: 2px;
-            transition: color 0.2s;
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
         }
+
         .nav-links a:hover { color: var(--paper); }
-        .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
-        main {
-            position: relative; z-index: 5; flex: 1;
-            max-width: 900px; margin: 0 auto;
-            padding: 6rem 3rem; text-align: center;
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
-        .eyebrow {
+
+        /* Hero */
+        .hero {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 3rem 3rem;
+        }
+
+        .page-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem; color: var(--accent);
-            letter-spacing: 0.2em; text-transform: uppercase;
-            margin-bottom: 2rem;
-            display: inline-flex; align-items: center; gap: 1rem;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
         }
-        .eyebrow::before, .eyebrow::after {
-            content: ''; width: 40px; height: 1px; background: var(--accent);
-        }
+
         h1 {
-            font-family: 'Fraunces', serif; font-weight: 300;
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
             font-size: clamp(2.5rem, 6vw, 5rem);
-            line-height: 1; letter-spacing: -0.03em;
+            line-height: 1;
+            letter-spacing: -0.03em;
             margin-bottom: 2rem;
         }
-        h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
         .lede {
             font-size: 1.2rem;
-            color: rgba(244,241,234,0.8);
-            max-width: 620px; margin: 0 auto 3rem;
-            font-weight: 300; line-height: 1.5;
+            color: rgba(244, 241, 234, 0.75);
+            max-width: 720px;
+            line-height: 1.5;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
         }
-        .status-box {
-            display: inline-block; padding: 1.5rem 2rem;
-            border: 1px solid var(--line-strong);
-            background: rgba(255,74,28,0.05);
+
+        .lede strong {
+            color: var(--paper);
+            font-weight: 400;
+        }
+
+        .curator-byline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            padding: 1rem 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            max-width: 720px;
+        }
+
+        .curator-byline strong {
+            color: var(--accent);
+        }
+
+        /* Main layout */
+        .container {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 3rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+
+        /* Filter sidebar */
+        .filters {
+            position: sticky;
+            top: 2rem;
+            align-self: start;
+            border: 1px solid var(--line);
+            padding: 1.75rem;
+            background: rgba(10, 14, 20, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .filter-group:last-child { margin-bottom: 0; }
+
+        .filter-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .radio-list {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            color: var(--paper); letter-spacing: 0.05em;
-            margin-top: 1rem;
+            color: var(--paper);
+            user-select: none;
+            padding: 0.35rem 0;
         }
-        .status-box strong {
-            display: block; color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 0.75rem; letter-spacing: 0.15em;
-            text-transform: uppercase; font-weight: 500;
+
+        .radio-item input[type="radio"],
+        .radio-item input[type="checkbox"] {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--line-strong);
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            transition: border-color 0.2s, background 0.2s;
         }
-        .cta-row {
-            margin-top: 3rem;
-            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+
+        .radio-item input[type="radio"] {
+            border-radius: 50%;
         }
-        .cta {
-            padding: 0.9rem 1.75rem;
+
+        .radio-item input[type="radio"]:checked {
+            border-color: var(--accent);
+            background: transparent;
+        }
+
+        .radio-item input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .radio-item input[type="checkbox"]:checked {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .radio-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 700;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+        }
+
+        /* Cert cards */
+        .certs-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .cert-card {
+            border: 1px solid var(--line);
+            padding: 1.75rem;
+            background: var(--card);
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .cert-card:hover {
+            border-color: var(--line-strong);
+            background: var(--card-hover);
+        }
+
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cert-title-block h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: var(--paper);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-vendor {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem; font-weight: 700;
-            letter-spacing: 0.1em; text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.2s;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
-        .cta.primary { background: var(--accent); color: var(--ink); }
-        .cta.primary:hover { background: #c33a15; }
-        .cta.secondary {
-            background: transparent; color: var(--paper);
+
+        .verdict {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .verdict.worth-it {
+            background: rgba(95, 178, 79, 0.15);
+            color: var(--green);
+            border: 1px solid var(--green);
+        }
+
+        .verdict.situational {
+            background: rgba(230, 176, 79, 0.12);
+            color: var(--yellow);
+            border: 1px solid var(--yellow);
+        }
+
+        .verdict.skip {
+            background: rgba(209, 67, 67, 0.12);
+            color: var(--red);
+            border: 1px solid var(--red);
+        }
+
+        .verdict.wait {
+            background: transparent;
+            color: var(--muted);
             border: 1px solid var(--line-strong);
         }
-        .cta.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+        .cert-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--paper);
+        }
+
+        .meta-value.accent {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .cert-take {
+            margin-top: 1rem;
+        }
+
+        .cert-take-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-take p {
+            font-size: 0.95rem;
+            color: rgba(244, 241, 234, 0.85);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            font-weight: 300;
+        }
+
+        .cert-take p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cert-take strong {
+            color: var(--paper);
+            font-weight: 500;
+        }
+
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .cert-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            padding: 0.25rem 0.6rem;
+            background: rgba(255, 74, 28, 0.08);
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 74, 28, 0.2);
+        }
+
+        .cert-tag.stage {
+            background: rgba(244, 241, 234, 0.05);
+            color: rgba(244, 241, 234, 0.6);
+            border: 1px solid var(--line);
+        }
+
+        /* Section headers in the cert list */
+        .section-header {
+            grid-column: 1 / -1;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .section-header:first-child {
+            margin-top: 0;
+        }
+
+        .section-header small {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-weight: 400;
+            margin-left: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Philosophy callout at top */
+        .philosophy {
+            grid-column: 1 / -1;
+            padding: 2rem;
+            background: rgba(255, 74, 28, 0.04);
+            border-left: 3px solid var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .philosophy h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy p {
+            font-size: 1.05rem;
+            color: rgba(244, 241, 234, 0.85);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            font-weight: 300;
+        }
+
+        .philosophy p:last-child { margin-bottom: 0; }
+
+        .philosophy strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Results counter */
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .results-count strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px dashed var(--line-strong);
+        }
+
+        /* Footer */
         footer {
-            position: relative; z-index: 5;
-            padding: 2rem 3rem;
+            position: relative;
+            z-index: 5;
+            padding: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
             border-top: 1px solid var(--line);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem; color: var(--muted);
+            font-size: 0.75rem;
+            color: var(--muted);
             letter-spacing: 0.05em;
-            display: flex; justify-content: space-between;
-            flex-wrap: wrap; gap: 1rem;
-            max-width: 1400px; margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
+
         footer a { color: var(--accent); text-decoration: none; }
-        footer .sep { color: var(--line-strong); margin: 0 0.5rem; }
+        footer a:hover { border-bottom: 1px solid var(--accent); }
+        footer .sep { color: var(--line-strong); margin: 0 0.75rem; }
+
+        /* Responsive */
         @media (max-width: 900px) {
             nav { padding: 1rem 1.5rem; }
             .nav-links { gap: 1rem; font-size: 0.7rem; }
-            main { padding: 3rem 1.5rem; }
-            footer { padding: 2rem 1.5rem; text-align: center; justify-content: center; }
+            .hero { padding: 3rem 1.5rem 2rem; }
+            .container {
+                padding: 1.5rem;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .filters { position: static; }
+            footer {
+                padding: 2rem 1.5rem;
+                text-align: center;
+                justify-content: center;
+            }
         }
+
         ::selection { background: var(--accent); color: var(--ink); }
     </style>
 </head>
@@ -151,36 +575,756 @@
             <a href="/certs.html" class="active">Certifications</a>
             <a href="/training.html">Training</a>
             <a href="/resources.html">Resources</a>
-            <a href="/#about">About</a>
+            <a href="/about.html">About</a>
         </div>
     </nav>
 
-    <main>
-        <div class="eyebrow">Pillar 02 · Certifications</div>
+    <section class="hero">
+        <div class="page-label">// Pillar 02 · Certifications</div>
         <h1>Certs, <em>demystified</em>.</h1>
-        <p class="lede">Every cybersecurity and IT certification ranked by what employers actually filter résumés by in 2026. Cost, study time, exam tips, and which ones to prioritize for your target role.</p>
+        <p class="lede">
+            Which cybersecurity certifications actually get you hired, which ones
+            waste your money, and <strong>exactly what order to pursue them</strong> — from
+            someone who's been in the field for 35+ years and watches students navigate this every semester.
+        </p>
+    </section>
 
-        <div class="status-box">
-            <strong>Currently in development</strong>
-            Coverage planned: CompTIA (Security+, Network+, CySA+, PenTest+, CASP+), (ISC)² (CC, SSCP, CISSP), ISACA (CISA, CISM, CRISC), GIAC (GSEC, GCIH, GCIA), EC-Council (CEH), Cisco (CCNA, CyberOps), cloud certs (AWS/Azure/GCP security), and vendor certifications.
-        </div>
+    <div class="container">
 
-        <div class="cta-row">
-            <a href="/jobs.html" class="cta primary">Browse jobs →</a>
-            <a href="/" class="cta secondary">← Back home</a>
-        </div>
-    </main>
+        <aside class="filters">
+
+            <div class="filter-group">
+                <label class="filter-label">Where you are now</label>
+                <div class="radio-list" id="filter-stage">
+                    <label class="radio-item">
+                        <input type="radio" name="stage" value="all" checked>
+                        All stages
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="stage" value="entry">
+                        Just starting out
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="stage" value="early">
+                        In a first tech role
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="stage" value="mid">
+                        Mid-career (3+ yrs)
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="stage" value="senior">
+                        Senior (7+ yrs)
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Career direction</label>
+                <div class="radio-list" id="filter-path">
+                    <label class="radio-item">
+                        <input type="radio" name="path" value="all" checked>
+                        All directions
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="path" value="soc">
+                        SOC analyst / Defense
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="path" value="pentest">
+                        Offensive / Pentest
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="path" value="grc">
+                        GRC / Audit / Risk
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="path" value="cloud">
+                        Cloud Security
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="path" value="it">
+                        IT & Help Desk
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="path" value="federal">
+                        Federal / DoD
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Verdict</label>
+                <div class="radio-list" id="filter-verdict">
+                    <label class="radio-item">
+                        <input type="checkbox" value="worth-it" checked>
+                        Worth it
+                    </label>
+                    <label class="radio-item">
+                        <input type="checkbox" value="situational" checked>
+                        Situational
+                    </label>
+                    <label class="radio-item">
+                        <input type="checkbox" value="wait" checked>
+                        Wait until later
+                    </label>
+                    <label class="radio-item">
+                        <input type="checkbox" value="skip" checked>
+                        Skip / overrated
+                    </label>
+                </div>
+            </div>
+
+        </aside>
+
+        <main class="results">
+
+            <div class="philosophy">
+                <h2>The guiding principle</h2>
+                <p>
+                    <strong>Match the cert to the actual hiring signal for the specific role and employer.</strong>
+                    Don't chase prestige. Don't follow generic progressions. Don't spend money to fix a problem
+                    you don't have yet.
+                </p>
+                <p>
+                    Most students waste $1,000-3,000 on certifications that don't help them get hired — usually
+                    because someone on LinkedIn told them it was "required." What's actually required is the
+                    cert the employer's ATS is filtering résumés by. The list below is organized around that
+                    reality.
+                </p>
+            </div>
+
+            <div class="results-header">
+                <div class="results-count">
+                    Showing <strong id="result-count">—</strong> certifications
+                </div>
+                <div style="color: var(--muted);">ordered by: priority</div>
+            </div>
+
+            <div class="certs-list" id="certs-list">
+                <!-- Populated by JS -->
+            </div>
+
+        </main>
+
+    </div>
 
     <footer>
         <div>
             © 2026 CyberRoadmap
             <span class="sep">/</span>
-            Curated by G. Lindstrom
+            Houston, TX
         </div>
         <div>
             <a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a>
         </div>
     </footer>
+
+<script>
+// ============================================================================
+// CERTIFICATION DATA
+// Curated content reflecting Dr. Lindstrom's 35+ years of practitioner
+// experience. Each cert has a verdict, hiring signal commentary, and
+// honest cost-benefit analysis.
+// ============================================================================
+
+const CERTIFICATIONS = [
+    // ========== START HERE — FOUNDATIONAL ==========
+    {
+        name: "CompTIA Security+",
+        vendor: "CompTIA",
+        priority: 1,
+        section: "start-here",
+        verdict: "worth-it",
+        verdictLabel: "Start here",
+        cost: "$392",
+        studyTime: "80–120 hours",
+        validity: "3 years (CEUs)",
+        difficulty: "Moderate",
+        stages: ["entry", "early"],
+        paths: ["soc", "it", "grc", "federal"],
+        takeTitle: "If you only get one cert, this is it.",
+        takeBody: `
+            <p><strong>The gold standard entry.</strong> Security+ is what most employers' résumé screening tools actually filter for at the entry level. It's on DoD 8140's approved list, it's recognized across federal and commercial hiring, and it proves you understand fundamentals.</p>
+            <p><strong>Study resource:</strong> Professor Messer's free YouTube videos are sufficient on their own. You do not need to pay for CertMaster Learn. Pair the free videos with a single Jason Dion practice-test bundle if you want to be thorough.</p>
+            <p><strong>Don't skip this</strong> to chase more specialized certs — it's the one recruiters look for first.</p>
+        `,
+    },
+    {
+        name: "CompTIA Network+",
+        vendor: "CompTIA",
+        priority: 2,
+        section: "start-here",
+        verdict: "situational",
+        verdictLabel: "Sometimes first",
+        cost: "$358",
+        studyTime: "60–100 hours",
+        validity: "3 years (CEUs)",
+        difficulty: "Moderate",
+        stages: ["entry", "early"],
+        paths: ["it", "soc", "federal"],
+        takeTitle: "Only before Security+ if your networking is weak.",
+        takeBody: `
+            <p>Network+ teaches subnetting, routing, common protocols, and troubleshooting — the stuff Security+ assumes you already know. If you can already draw a diagram explaining how a packet gets from a browser to a server and back, you can skip Network+ and go straight to Security+.</p>
+            <p><strong>Who should take it:</strong> Students coming from non-CS/non-IT backgrounds, or anyone headed toward network administration, network security, or CCNA-track roles. Otherwise the time is better spent on Security+ directly.</p>
+        `,
+    },
+    {
+        name: "CompTIA A+",
+        vendor: "CompTIA",
+        priority: 3,
+        section: "start-here",
+        verdict: "situational",
+        verdictLabel: "If targeting IT",
+        cost: "$253 × 2 exams",
+        studyTime: "100–150 hours",
+        validity: "3 years (CEUs)",
+        difficulty: "Easy–Moderate",
+        stages: ["entry"],
+        paths: ["it"],
+        takeTitle: "Help desk, not security.",
+        takeBody: `
+            <p>A+ is designed for people going into end-user support — help desk, desktop technician, field tech. If that's your target first role (and for many students, it's a realistic way into IT), A+ helps.</p>
+            <p><strong>If you want security</strong>, skip A+ and go directly to Security+. Most security employers don't care about A+. It's not a step toward cyber — it's a step toward IT operations.</p>
+        `,
+    },
+
+    // ========== CORE SECURITY STACK ==========
+    {
+        name: "CompTIA CySA+",
+        vendor: "CompTIA",
+        priority: 4,
+        section: "second-cert",
+        verdict: "worth-it",
+        verdictLabel: "Natural next step",
+        cost: "$404",
+        studyTime: "80–120 hours",
+        validity: "3 years (CEUs)",
+        difficulty: "Moderate",
+        stages: ["early", "mid"],
+        paths: ["soc", "grc", "federal"],
+        takeTitle: "After Security+, this is the natural next step.",
+        takeBody: `
+            <p>CySA+ focuses on threat detection, vulnerability analysis, incident response — exactly the work SOC analysts do daily. Where Security+ covers breadth, CySA+ goes deeper into the operational side.</p>
+            <p><strong>Best for:</strong> Students who want to work in a SOC, perform threat hunting, or do vulnerability management. It's also DoD 8140 approved.</p>
+            <p><strong>Value per dollar:</strong> Good. Not a silver bullet on its own, but stacks well with Security+.</p>
+        `,
+    },
+    {
+        name: "CompTIA PenTest+",
+        vendor: "CompTIA",
+        priority: 5,
+        section: "second-cert",
+        verdict: "situational",
+        verdictLabel: "For offensive path",
+        cost: "$404",
+        studyTime: "100–140 hours",
+        validity: "3 years (CEUs)",
+        difficulty: "Moderate–Hard",
+        stages: ["early", "mid"],
+        paths: ["pentest", "federal"],
+        takeTitle: "Resume filler for DoD pentest roles; OSCP is the real credential.",
+        takeBody: `
+            <p>PenTest+ is on DoD 8140's approved list, which is why federal pentest contractors like it. For commercial/private-sector pentesting, employers care much more about OSCP (and increasingly CRTO and PJPT).</p>
+            <p><strong>Take PenTest+ if:</strong> You're aiming at federal or cleared offensive work. It's a cheaper, easier credential that checks the compliance box.</p>
+            <p><strong>Skip PenTest+ if:</strong> You're aiming at private-sector pentest. Put that money toward OSCP prep instead.</p>
+        `,
+    },
+
+    // ========== ADVANCED / MID-CAREER ==========
+    {
+        name: "CISSP",
+        vendor: "(ISC)²",
+        priority: 10,
+        section: "mid-senior",
+        verdict: "wait",
+        verdictLabel: "Wait until qualified",
+        cost: "$749",
+        studyTime: "150–300 hours",
+        validity: "3 years (CPEs + annual fee)",
+        difficulty: "Hard",
+        stages: ["mid", "senior"],
+        paths: ["grc", "soc", "federal"],
+        takeTitle: "Often treated as entry-level on LinkedIn; it's not.",
+        takeBody: `
+            <p>CISSP requires <strong>5 years of full-time paid cybersecurity experience</strong> in two or more of the 8 domains. You can take the exam early and become an "Associate of (ISC)²" while you accumulate hours, but the full credential requires years.</p>
+            <p><strong>When it's worth it:</strong> When you're actually at 4–5 years and applying for senior roles, $120K+ positions, or management tracks. Then it's genuinely valuable.</p>
+            <p><strong>What to avoid:</strong> Pursuing CISSP as a student or new hire because "job postings require it." Those postings are usually filtered by the HR department and ignored by hiring managers when a strong entry-level candidate applies.</p>
+        `,
+    },
+    {
+        name: "(ISC)² CC — Certified in Cybersecurity",
+        vendor: "(ISC)²",
+        priority: 6,
+        section: "start-here",
+        verdict: "situational",
+        verdictLabel: "Free, but limited",
+        cost: "Free (first year)",
+        studyTime: "30–50 hours",
+        validity: "3 years ($50/year after 1st)",
+        difficulty: "Easy",
+        stages: ["entry"],
+        paths: ["grc", "federal"],
+        takeTitle: "The 'first cert' most students don't realize isn't the first cert employers look for.",
+        takeBody: `
+            <p>(ISC)² launched CC as a free entry-level credential to address the industry's talent shortage. It's a good intro if you're genuinely at zero experience and want something on your résumé while studying for Security+.</p>
+            <p><strong>The catch:</strong> Most cybersecurity job postings specifically ask for Security+, not CC. So while CC is free and legitimate, it shouldn't replace Security+ — at most, it gets you started for a few months before you commit to Security+.</p>
+            <p><strong>Honest assessment:</strong> Take the free CC if you want to warm up. Don't stop there.</p>
+        `,
+    },
+    {
+        name: "(ISC)² SSCP",
+        vendor: "(ISC)²",
+        priority: 11,
+        section: "mid-senior",
+        verdict: "situational",
+        verdictLabel: "Niche",
+        cost: "$249",
+        studyTime: "80–120 hours",
+        validity: "3 years (CPEs)",
+        difficulty: "Moderate",
+        stages: ["early", "mid"],
+        paths: ["soc", "it"],
+        takeTitle: "Middle-child cert — adequate but rarely the differentiator.",
+        takeBody: `
+            <p>SSCP sits between CC and CISSP. Requires 1 year of paid work experience. It's a legitimate credential but it rarely outperforms Security+ + CySA+ in hiring filters.</p>
+            <p><strong>Take it if:</strong> Your employer is paying for it, or you're specifically targeting (ISC)² ecosystem roles (some defense contractors prefer their credentials).</p>
+            <p><strong>Otherwise:</strong> The same time invested in Security+ → CySA+ → PenTest+ will get you more interviews.</p>
+        `,
+    },
+
+    // ========== OFFENSIVE / PENTEST ==========
+    {
+        name: "CEH (Certified Ethical Hacker)",
+        vendor: "EC-Council",
+        priority: 7,
+        section: "second-cert",
+        verdict: "situational",
+        verdictLabel: "DoD yes, private no",
+        cost: "$1,199 (exam) or $2,199 (with training)",
+        studyTime: "100–150 hours",
+        validity: "3 years (ECE credits + annual fee)",
+        difficulty: "Moderate",
+        stages: ["early", "mid"],
+        paths: ["pentest", "federal", "soc"],
+        takeTitle: "Required for DoD 8140 pentest roles. Otherwise, OSCP crushes it.",
+        takeBody: `
+            <p>The honest answer: <strong>CEH is valuable specifically because DoD 8140 lists it</strong>. If you want cleared offensive or defensive work at federal contractors, CEH opens doors that OSCP alone doesn't — even though OSCP is the harder, more respected credential technically.</p>
+            <p><strong>For private-sector pentest:</strong> OSCP, PNPT, and CRTO carry more weight. CEH is seen as multiple-choice book knowledge rather than real skill.</p>
+            <p><strong>For federal/DoD contractor work:</strong> CEH is often the required compliance box-check. Pair with Security+ and you're competitive for many GS-level positions.</p>
+            <p><strong>Best of both worlds:</strong> CEH for the paperwork, OSCP for the actual skills interview.</p>
+        `,
+    },
+    {
+        name: "OSCP (Offensive Security Certified Professional)",
+        vendor: "Offensive Security",
+        priority: 12,
+        section: "offensive",
+        verdict: "worth-it",
+        verdictLabel: "The real pentest cert",
+        cost: "$1,649 (with PEN-200 training)",
+        studyTime: "300–600 hours",
+        validity: "3 years (renew by retaking)",
+        difficulty: "Very Hard",
+        stages: ["mid"],
+        paths: ["pentest"],
+        takeTitle: "The credential that actually proves you can pentest.",
+        takeBody: `
+            <p>OSCP is a 24-hour practical exam where you actually hack into machines. Unlike multiple-choice certs, you can't cram your way to a pass — you either have the skills or you don't. Hiring managers respect it because of that.</p>
+            <p><strong>What it gets you:</strong> Legitimate pentest interviews at commercial firms, bug bounty credibility, red-team starter roles. It's the closest thing to a universal offensive-security credential.</p>
+            <p><strong>The time commitment is real.</strong> Plan for 6+ months of lab work. The exam breaks people who weren't ready. If you're serious about offensive security, this is the mountain worth climbing.</p>
+        `,
+    },
+
+    // ========== CLOUD ==========
+    {
+        name: "AWS Certified Cloud Practitioner",
+        vendor: "Amazon Web Services",
+        priority: 8,
+        section: "cloud",
+        verdict: "worth-it",
+        verdictLabel: "Cloud foundation",
+        cost: "$100",
+        studyTime: "30–60 hours",
+        validity: "3 years",
+        difficulty: "Easy",
+        stages: ["entry", "early"],
+        paths: ["cloud", "it"],
+        takeTitle: "The cheapest, fastest way to get cloud on your résumé.",
+        takeBody: `
+            <p>Cloud Practitioner is AWS's foundational certification. Low cost, low time commitment, and it signals that you understand cloud basics — which matters increasingly as nearly every employer is "cloud-first."</p>
+            <p><strong>Take this before:</strong> Any AWS security or specialty certification. AWS itself recommends Solutions Architect Associate as the typical bridge to Security Specialty — and almost all students do better with that progression than jumping straight to specialty.</p>
+            <p><strong>Note:</strong> Cloud isn't my deepest technical area — this reflects the current AWS-recommended progression and what employers are asking for in 2026.</p>
+        `,
+    },
+    {
+        name: "AWS Certified Solutions Architect – Associate",
+        vendor: "Amazon Web Services",
+        priority: 13,
+        section: "cloud",
+        verdict: "worth-it",
+        verdictLabel: "Industry standard",
+        cost: "$150",
+        studyTime: "100–200 hours",
+        validity: "3 years",
+        difficulty: "Moderate–Hard",
+        stages: ["early", "mid"],
+        paths: ["cloud"],
+        takeTitle: "The cloud cert that actually moves the hiring needle.",
+        takeBody: `
+            <p>Solutions Architect Associate is AWS's most in-demand associate cert. If you're aiming at cloud security, cloud engineering, or DevSecOps roles, SAA-C03 is the one employers expect before they'll interview you for anything cloud-specific.</p>
+            <p><strong>Natural predecessor:</strong> Cloud Practitioner (or direct entry if you already have cloud experience).</p>
+            <p><strong>Natural next step:</strong> AWS Security Specialty — but that one officially expects 5 years of IT security experience, so it's a mid-career goal, not entry-level.</p>
+        `,
+    },
+    {
+        name: "AWS Certified Security – Specialty",
+        vendor: "Amazon Web Services",
+        priority: 14,
+        section: "cloud",
+        verdict: "wait",
+        verdictLabel: "5 yrs experience expected",
+        cost: "$300",
+        studyTime: "150–200 hours",
+        validity: "3 years",
+        difficulty: "Hard",
+        stages: ["mid", "senior"],
+        paths: ["cloud"],
+        takeTitle: "Not entry-level, despite what job postings suggest.",
+        takeBody: `
+            <p>AWS itself says this cert is intended for people with 5 years of IT security experience and 2+ years securing AWS workloads. Attempting this as your first cloud security cert is the same mistake as chasing CISSP without the hours: the knowledge you need to pass assumes working experience you don't have yet.</p>
+            <p><strong>Mid-career target:</strong> After 3–5 years hands-on with AWS in a security-adjacent role. At that point it's one of the highest-paying certs on the market.</p>
+        `,
+    },
+
+    // ========== GRC / AUDIT (WAIT CATEGORY) ==========
+    {
+        name: "CISA",
+        vendor: "ISACA",
+        priority: 20,
+        section: "grc",
+        verdict: "wait",
+        verdictLabel: "Add at 30+",
+        cost: "$760 (non-member)",
+        studyTime: "120–200 hours",
+        validity: "3 years (CPEs + annual fee)",
+        difficulty: "Hard",
+        stages: ["mid", "senior"],
+        paths: ["grc", "federal"],
+        takeTitle: "Powerful — but add it after you have technical depth.",
+        takeBody: `
+            <p>CISA opens doors to IT audit, risk, and compliance roles. The catch: without hands-on technical experience first, you end up as a paper auditor who can't assess the systems they're auditing. That's a career dead-end.</p>
+            <p><strong>Better sequence:</strong> Build technical skills for 5–7 years (SOC, sysadmin, security engineering). Then add CISA in your late 20s or 30s. At that point the cert plus your technical background makes you a standout GRC candidate rather than a commodity auditor.</p>
+            <p><strong>Don't chase this in your 20s</strong> just because GRC postings say they require it.</p>
+        `,
+    },
+    {
+        name: "CISM",
+        vendor: "ISACA",
+        priority: 21,
+        section: "grc",
+        verdict: "wait",
+        verdictLabel: "Management track",
+        cost: "$760 (non-member)",
+        studyTime: "120–200 hours",
+        validity: "3 years (CPEs + annual fee)",
+        difficulty: "Hard",
+        stages: ["senior"],
+        paths: ["grc"],
+        takeTitle: "For the manager path, not the practitioner path.",
+        takeBody: `
+            <p>CISM is aimed at information security managers — people writing policy, running programs, managing teams. It requires 5 years of experience including 3 in management.</p>
+            <p><strong>Don't pursue this if:</strong> You want to stay technical. CISM pulls you toward management; if that's not what you want, skip it.</p>
+            <p><strong>Pursue this if:</strong> You're 7+ years in, already leading a team or writing policy, and need the credential to move into a CISO track.</p>
+        `,
+    },
+    {
+        name: "CRISC",
+        vendor: "ISACA",
+        priority: 22,
+        section: "grc",
+        verdict: "wait",
+        verdictLabel: "Risk-focused niche",
+        cost: "$760 (non-member)",
+        studyTime: "120–200 hours",
+        validity: "3 years (CPEs + annual fee)",
+        difficulty: "Hard",
+        stages: ["senior"],
+        paths: ["grc"],
+        takeTitle: "Skip unless risk is specifically your target specialty.",
+        takeBody: `
+            <p>CRISC is focused on IT risk management. It's a fine cert for people whose day job is enterprise risk or third-party risk management — but for most students, it's a poorly-matched credential.</p>
+            <p><strong>Take CISA first</strong> if you're drawn to the audit/risk space. CRISC is narrower and less versatile.</p>
+        `,
+    },
+
+    // ========== VENDOR / TOOL CERTS ==========
+    {
+        name: "Splunk Core Certified User",
+        vendor: "Splunk",
+        priority: 9,
+        section: "tools",
+        verdict: "worth-it",
+        verdictLabel: "SOC gold",
+        cost: "Free",
+        studyTime: "30–50 hours",
+        validity: "3 years",
+        difficulty: "Easy–Moderate",
+        stages: ["entry", "early"],
+        paths: ["soc"],
+        takeTitle: "For SOC roles specifically, this is the cert that moves the needle.",
+        takeBody: `
+            <p>Here's a contrarian take: most career guides tell students to stack Security+ → CySA+ for SOC roles. That's fine, but the ONE cert that actually differentiates you in SOC hiring is <strong>demonstrating you can use the tool the SOC uses every day</strong>. For most SOCs, that tool is Splunk.</p>
+            <p><strong>Why employers love it:</strong> It proves you won't spend the first 3 months of the job learning the platform from scratch. That's genuinely valuable to hiring managers.</p>
+            <p><strong>Cost: free.</strong> Splunk Core Certified User has no exam fee. Splunk offers free training. There's almost no reason not to take it if you're SOC-bound.</p>
+            <p>Pair Splunk Core with Security+ and you're competitive for most tier-1 SOC roles nationwide.</p>
+        `,
+    },
+    {
+        name: "Google Cybersecurity Professional Certificate",
+        vendor: "Google (Coursera)",
+        priority: 99,
+        section: "avoid",
+        verdict: "skip",
+        verdictLabel: "Marketing, not substance",
+        cost: "$49/month Coursera",
+        studyTime: "100–150 hours",
+        validity: "N/A (no expiration, but also no weight)",
+        difficulty: "Easy",
+        stages: ["entry"],
+        paths: ["soc", "it", "grc"],
+        takeTitle: "The one I see students waste money on most often.",
+        takeBody: `
+            <p>Google's Cybersecurity Professional Certificate is heavily marketed as a fast-track into security careers. In practice, it's <strong>primarily marketing</strong>: the curriculum is broad but shallow, it's not on any DoD 8140 list, and in my direct experience, employer ATS systems and hiring managers do not weight it the way they weight CompTIA, (ISC)², or GIAC credentials.</p>
+            <p><strong>The real problem:</strong> Students spend $200–500 and 3–6 months on this certificate and then discover that Security+ — which costs about the same and takes similar time — was the credential employers actually wanted.</p>
+            <p><strong>If you've already done it</strong>, that's fine — no cert is wasted if you learned from it. But don't stop there. Move on to Security+ immediately. The Google cert alone doesn't get you interviews.</p>
+        `,
+    },
+    {
+        name: "SANS / GIAC certifications",
+        vendor: "SANS / GIAC",
+        priority: 90,
+        section: "tools",
+        verdict: "situational",
+        verdictLabel: "Only if sponsored",
+        cost: "$8,000–$10,000+",
+        studyTime: "60 hours (week-long course)",
+        validity: "4 years (CMU credits)",
+        difficulty: "Varies",
+        stages: ["mid", "senior"],
+        paths: ["soc", "pentest", "grc", "federal"],
+        takeTitle: "World-class training. Don't pay out of pocket.",
+        takeBody: `
+            <p>SANS courses are genuinely excellent — the instructors are top-tier practitioners, the materials are deep, and the GIAC credentials are respected. But at <strong>$8,000 to $10,000+ per course</strong>, they're priced for corporate training budgets, not student wallets.</p>
+            <p><strong>Take SANS if:</strong> Your employer is paying. Many defense contractors, federal agencies, and large enterprises cover SANS courses as professional development.</p>
+            <p><strong>Don't take SANS if:</strong> You're paying from your own pocket as a student. The same specializations (DFIR, pentesting, ICS) can be built through self-study plus free labs (TryHackMe, HackTheBox, SANS' own free materials) for under $100/month.</p>
+            <p>If you're a student reading this — budget SANS as a "signing bonus negotiation" years from now, not a current investment.</p>
+        `,
+    },
+    {
+        name: "Cisco CCNA",
+        vendor: "Cisco",
+        priority: 15,
+        section: "tools",
+        verdict: "situational",
+        verdictLabel: "Networking depth",
+        cost: "$300",
+        studyTime: "150–250 hours",
+        validity: "3 years (CE credits)",
+        difficulty: "Hard",
+        stages: ["early", "mid"],
+        paths: ["it", "soc", "federal"],
+        takeTitle: "Heavy lift, narrow payoff — unless networking is your target.",
+        takeBody: `
+            <p>CCNA is a serious networking cert. It teaches routing, switching, VLAN configuration, and security fundamentals at the protocol level. Getting one proves you can actually work with networking equipment, not just pass a multiple-choice exam.</p>
+            <p><strong>Worth it if:</strong> You want to be a network engineer, network admin, or network security specialist. Defense contractors and ISPs love it.</p>
+            <p><strong>Skip if:</strong> You want to be a SOC analyst or work in software security. Network+ covers what you need. CCNA is overkill and the time investment is better spent on Security+ + CySA+ + a tool cert.</p>
+        `,
+    },
+];
+
+
+// ============================================================================
+// RENDERING
+// ============================================================================
+
+function getVerdictClass(v) {
+    return v;
+}
+
+function renderCert(cert) {
+    const card = document.createElement('div');
+    card.className = 'cert-card';
+
+    const stages = (cert.stages || []).map(s => {
+        const labels = {
+            entry: "Starting out",
+            early: "First role",
+            mid: "Mid-career",
+            senior: "Senior"
+        };
+        return `<span class="cert-tag stage">${labels[s] || s}</span>`;
+    }).join('');
+
+    const paths = (cert.paths || []).map(p => {
+        const labels = {
+            soc: "SOC",
+            pentest: "Pentest",
+            grc: "GRC",
+            cloud: "Cloud",
+            it: "IT",
+            federal: "Federal/DoD"
+        };
+        return `<span class="cert-tag">${labels[p] || p}</span>`;
+    }).join('');
+
+    card.innerHTML = `
+        <div class="cert-header">
+            <div class="cert-title-block">
+                <h3></h3>
+                <div class="cert-vendor"></div>
+            </div>
+            <span class="verdict ${cert.verdict}"></span>
+        </div>
+
+        <div class="cert-meta">
+            <div class="meta-item">
+                <span class="meta-label">Cost</span>
+                <span class="meta-value accent"></span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Study time</span>
+                <span class="meta-value"></span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Validity</span>
+                <span class="meta-value"></span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Difficulty</span>
+                <span class="meta-value"></span>
+            </div>
+        </div>
+
+        <div class="cert-take">
+            <div class="cert-take-label">// ${cert.takeTitle ? 'The take' : ''}</div>
+            <p style="font-style: italic; color: var(--paper); font-weight: 400; margin-bottom: 1rem;"></p>
+            <div class="cert-take-body"></div>
+        </div>
+
+        <div class="cert-tags">${stages}${paths}</div>
+    `;
+
+    // Safely populate text content
+    card.querySelector('h3').textContent = cert.name;
+    card.querySelector('.cert-vendor').textContent = cert.vendor;
+    card.querySelector('.verdict').textContent = cert.verdictLabel;
+    card.querySelectorAll('.meta-value')[0].textContent = cert.cost;
+    card.querySelectorAll('.meta-value')[1].textContent = cert.studyTime;
+    card.querySelectorAll('.meta-value')[2].textContent = cert.validity;
+    card.querySelectorAll('.meta-value')[3].textContent = cert.difficulty;
+
+    // Take title (italic) and body (HTML is safe because we control it in the data)
+    card.querySelector('.cert-take p').textContent = cert.takeTitle;
+    card.querySelector('.cert-take-body').innerHTML = cert.takeBody;
+
+    return card;
+}
+
+
+// ============================================================================
+// FILTERING
+// ============================================================================
+
+function getCheckedValues(name) {
+    return [...document.querySelectorAll(`#filter-${name} input:checked`)].map(el => el.value);
+}
+
+function getRadioValue(name) {
+    const el = document.querySelector(`#filter-${name} input[name="${name}"]:checked`);
+    return el ? el.value : 'all';
+}
+
+function applyFilters() {
+    const stage = getRadioValue('stage');
+    const path = getRadioValue('path');
+    const verdicts = getCheckedValues('verdict');
+
+    let filtered = CERTIFICATIONS.slice();
+
+    if (stage !== 'all') {
+        filtered = filtered.filter(c => (c.stages || []).includes(stage));
+    }
+
+    if (path !== 'all') {
+        filtered = filtered.filter(c => (c.paths || []).includes(path));
+    }
+
+    if (verdicts.length > 0) {
+        filtered = filtered.filter(c => verdicts.includes(c.verdict));
+    }
+
+    // Sort by priority
+    filtered.sort((a, b) => (a.priority || 99) - (b.priority || 99));
+
+    const list = document.getElementById('certs-list');
+    list.innerHTML = '';
+
+    document.getElementById('result-count').textContent = filtered.length;
+
+    if (filtered.length === 0) {
+        list.innerHTML = `
+            <div class="empty-state">
+                <strong style="display:block; color: var(--paper); font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                    No certifications match those filters.
+                </strong>
+                Try widening your stage or clearing verdict filters.
+            </div>
+        `;
+        return;
+    }
+
+    // Group into sections for better visual structure
+    // (but only when showing "all stages" — specific filters just show a flat list)
+    if (stage === 'all' && path === 'all') {
+        const sections = [
+            { key: 'start-here', label: 'Start here', note: 'First certs most students should consider' },
+            { key: 'second-cert', label: 'Second or third cert', note: 'After Security+' },
+            { key: 'tools', label: 'Tool and specialty certs', note: 'Target these to specific roles' },
+            { key: 'cloud', label: 'Cloud progression', note: 'AWS path' },
+            { key: 'offensive', label: 'Offensive security', note: 'Technical, demanding' },
+            { key: 'mid-senior', label: 'Mid-career and senior', note: 'Requires experience — wait if you don\'t have it' },
+            { key: 'grc', label: 'GRC / audit / risk', note: 'Better after technical foundation' },
+            { key: 'avoid', label: 'Overrated or avoid', note: 'Popular but not worth your money' },
+        ];
+
+        sections.forEach(section => {
+            const certsInSection = filtered.filter(c => c.section === section.key);
+            if (certsInSection.length === 0) return;
+
+            const header = document.createElement('div');
+            header.className = 'section-header';
+            header.innerHTML = `${section.label} <small>${section.note}</small>`;
+            list.appendChild(header);
+
+            certsInSection.forEach(cert => list.appendChild(renderCert(cert)));
+        });
+    } else {
+        filtered.forEach(cert => list.appendChild(renderCert(cert)));
+    }
+}
+
+
+// ============================================================================
+// INIT
+// ============================================================================
+
+document.querySelectorAll('.filters input').forEach(el => {
+    el.addEventListener('change', applyFilters);
+});
+
+applyFilters();
+</script>
 
 </body>
 </html>
