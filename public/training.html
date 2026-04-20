@@ -10,18 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #FAF7F0;
-            --paper: #1A1A1A;
-            --accent: #D94420;
-            --accent-dim: #B03515;
-            --green: #2D6930;
-            --yellow: #996515;
-            --red: #A62828;
-            --muted: #6B6760;
-            --line: rgba(26, 26, 26, 0.12);
-            --line-strong: rgba(26, 26, 26, 0.28);
-            --card: rgba(255, 255, 255, 0.6);
-            --card-hover: rgba(217, 68, 32, 0.05);
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --green: #5fb24f;
+            --yellow: #e6b04f;
+            --red: #d14343;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+            --card-hover: rgba(255, 74, 28, 0.06);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -132,7 +132,7 @@
 
         .lede {
             font-size: 1.2rem;
-            color: rgba(26, 26, 26, 0.78);
+            color: rgba(244, 241, 234, 0.75);
             max-width: 720px;
             line-height: 1.5;
             font-weight: 300;
@@ -141,6 +141,38 @@
         .lede strong {
             color: var(--paper);
             font-weight: 400;
+        }
+
+        /* Table of contents / jump-nav */
+        .toc {
+            position: relative;
+            z-index: 5;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem 2rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .toc-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .toc-list a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 0.5rem 0.9rem;
+            border: 1px solid var(--line);
+            transition: all 0.2s;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         /* Main container */
@@ -170,7 +202,7 @@
 
         .philosophy p {
             font-size: 1.05rem;
-            color: rgba(26, 26, 26, 0.88);
+            color: rgba(244, 241, 234, 0.85);
             line-height: 1.6;
             margin-bottom: 1rem;
             font-weight: 300;
@@ -186,6 +218,7 @@
         /* Section header */
         .section {
             margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
         }
 
         .section-label {
@@ -213,7 +246,7 @@
 
         .section-intro {
             font-size: 1.05rem;
-            color: rgba(26, 26, 26, 0.72);
+            color: rgba(244, 241, 234, 0.7);
             max-width: 780px;
             margin-bottom: 2rem;
             font-weight: 300;
@@ -287,8 +320,8 @@
         }
 
         .badge-paid {
-            background: rgba(255, 255, 255, 0.7);
-            color: rgba(26, 26, 26, 0.72);
+            background: rgba(244, 241, 234, 0.05);
+            color: rgba(244, 241, 234, 0.7);
             border: 1px solid var(--line-strong);
         }
 
@@ -306,7 +339,7 @@
 
         .resource-note {
             font-size: 0.95rem;
-            color: rgba(26, 26, 26, 0.8);
+            color: rgba(244, 241, 234, 0.78);
             line-height: 1.55;
             font-weight: 300;
             margin-bottom: 1.25rem;
@@ -361,7 +394,7 @@
 
         .homelab-body p {
             font-size: 1rem;
-            color: rgba(26, 26, 26, 0.82);
+            color: rgba(244, 241, 234, 0.8);
             line-height: 1.6;
             margin-bottom: 1rem;
             font-weight: 300;
@@ -445,7 +478,7 @@
 
         .yt-body p {
             font-size: 0.9rem;
-            color: rgba(26, 26, 26, 0.72);
+            color: rgba(244, 241, 234, 0.7);
             line-height: 1.4;
             font-weight: 300;
         }
@@ -504,7 +537,7 @@
 
         .lsc-callout p {
             font-size: 1rem;
-            color: rgba(26, 26, 26, 0.88);
+            color: rgba(244, 241, 234, 0.85);
             line-height: 1.6;
             margin-bottom: 1rem;
             font-weight: 300;
@@ -553,6 +586,7 @@
             nav { padding: 1rem 1.5rem; }
             .nav-links { gap: 1rem; font-size: 0.7rem; }
             .hero { padding: 3rem 1.5rem 2rem; }
+            .toc { padding: 0 1.5rem 1.5rem; }
             .container { padding: 1.5rem 1.5rem 3rem; }
             .philosophy { padding: 1.5rem; }
             .homelab-box { padding: 1.5rem; }
@@ -578,6 +612,7 @@
             <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
         </a>
         <div class="nav-links">
+            <a href="/">Home</a>
             <a href="/jobs.html">Jobs</a>
             <a href="/certs.html">Certifications</a>
             <a href="/training.html" class="active">Training</a>
@@ -595,6 +630,21 @@
             home lab — ordered by what actually builds competence.
         </p>
     </section>
+
+    <div class="toc">
+        <div class="toc-list">
+            <a href="#start-here">Start here</a>
+            <a href="#next-level">Next level</a>
+            <a href="#blue-team">Blue team &amp; SOC</a>
+            <a href="#ctf">CTFs</a>
+            <a href="#youtube">YouTube</a>
+            <a href="#home-lab">Home lab</a>
+            <a href="#python-linux">Python &amp; Linux</a>
+            <a href="#ai-data">Python, Data &amp; AI</a>
+            <a href="#formal-courses">Free courses</a>
+            <a href="#college">College pathways</a>
+        </div>
+    </div>
 
     <div class="container">
 
@@ -616,7 +666,7 @@
         </div>
 
         <!-- ==================== START HERE ==================== -->
-        <section class="section">
+        <section class="section" id="start-here">
             <div class="section-label">// 01 · Start here</div>
             <h2 class="section-title">Your first <em>reverse shell</em>.</h2>
             <p class="section-intro">
@@ -695,7 +745,7 @@
         </section>
 
         <!-- ==================== INTERMEDIATE ==================== -->
-        <section class="section">
+        <section class="section" id="next-level">
             <div class="section-label">// 02 · Next level</div>
             <h2 class="section-title">Past beginner? <em>Level up.</em></h2>
             <p class="section-intro">
@@ -760,7 +810,7 @@
         </section>
 
         <!-- ==================== BLUE TEAM / SOC ==================== -->
-        <section class="section">
+        <section class="section" id="blue-team">
             <div class="section-label">// 03 · Blue team &amp; SOC</div>
             <h2 class="section-title">Defending, <em>not attacking</em>.</h2>
             <p class="section-intro">
@@ -840,7 +890,7 @@
         </section>
 
         <!-- ==================== CTFs ==================== -->
-        <section class="section">
+        <section class="section" id="ctf">
             <div class="section-label">// 04 · CTF competitions</div>
             <h2 class="section-title">Prove it under <em>pressure</em>.</h2>
             <p class="section-intro">
@@ -953,7 +1003,7 @@
         </section>
 
         <!-- ==================== YOUTUBE ==================== -->
-        <section class="section">
+        <section class="section" id="youtube">
             <div class="section-label">// 05 · YouTube creators</div>
             <h2 class="section-title">Learn from the <em>best practitioners</em>.</h2>
             <p class="section-intro">
@@ -1021,7 +1071,7 @@
         </section>
 
         <!-- ==================== HOME LAB ==================== -->
-        <section class="section">
+        <section class="section" id="home-lab">
             <div class="section-label">// 06 · Home lab</div>
             <h2 class="section-title">Build your own <em>playground</em>.</h2>
             <p class="section-intro">
@@ -1097,7 +1147,7 @@
         </section>
 
         <!-- ==================== CODING ==================== -->
-        <section class="section">
+        <section class="section" id="python-linux">
             <div class="section-label">// 07 · Scripting fundamentals</div>
             <h2 class="section-title">Python and Linux are <em>essential</em>.</h2>
             <p class="section-intro">
@@ -1191,9 +1241,336 @@
             </div>
         </section>
 
+        <!-- ==================== AI / DATA / PYTHON ==================== -->
+        <section class="section" id="ai-data">
+            <div class="section-label">// 08 · Python, Data &amp; AI</div>
+            <h2 class="section-title">AI is <em>eating cybersecurity</em>. Learn the language.</h2>
+            <p class="section-intro">
+                AI is already reshaping cyber work — SOC alert triage, threat intel, malware analysis, and
+                phishing detection are all being automated or augmented. <strong>Students entering the field
+                without Python, data, and AI literacy will be at a significant disadvantage.</strong> This
+                section is the fastest path to that literacy.
+            </p>
+
+            <div class="lsc-callout">
+                <h3>Why this matters for cyber specifically</h3>
+                <div class="subtitle">// Not optional. Not "nice-to-have." Foundational.</div>
+                <p>
+                    Three things are happening simultaneously. First, <strong>AI is automating entry-level
+                    cyber tasks</strong> — tier-1 SOC alert triage, log correlation, phishing email
+                    classification. Second, <strong>AI is creating new attack surfaces</strong> — prompt
+                    injection, model poisoning, data exfiltration via LLM queries, deepfake social
+                    engineering. Third, <strong>AI is becoming a force multiplier for defenders</strong> —
+                    analysts who can use AI tools effectively will outperform those who can't, dramatically.
+                </p>
+                <p>
+                    You don't need to become a data scientist. You need enough Python + data fluency to:
+                    (a) understand what your AI tools are actually doing, (b) recognize when they're wrong,
+                    (c) customize or automate around them, and (d) defend systems that use them.
+                </p>
+                <p>
+                    <strong>The goal of this section:</strong> practical, applied AI/data skills layered on
+                    top of the cybersecurity foundation. Not a PhD in machine learning.
+                </p>
+            </div>
+
+            <h3 style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.4rem; margin: 3rem 0 1.25rem;">
+                Datasets &amp; platforms
+            </h3>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Kaggle</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Datasets + competitions + notebooks</span> · Google-owned · Huge community
+                    </div>
+                    <p class="resource-note">
+                        <em>The default destination.</em> Thousands of datasets (including cybersecurity ones
+                        like malware samples, phishing URLs, network intrusion logs), live competitions with
+                        prize money, and shared notebooks where you can learn from others' analyses.
+                        <strong>Create an account, download a dataset, and start poking at it.</strong>
+                    </p>
+                    <a href="https://www.kaggle.com/" target="_blank" rel="noopener" class="resource-link">kaggle.com</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Kaggle Learn</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Micro-courses</span> · Python · Pandas · Data viz · Intro ML
+                    </div>
+                    <p class="resource-note">
+                        <strong>Kaggle's free micro-courses</strong> — each one a few hours, with hands-on
+                        notebooks. "Intro to Machine Learning," "Pandas," "Data Visualization." Ideal
+                        starting points for students who want the minimum viable data science exposure
+                        without committing to a semester-long course.
+                    </p>
+                    <a href="https://www.kaggle.com/learn" target="_blank" rel="noopener" class="resource-link">kaggle.com/learn</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Google Colab</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Free cloud Python</span> · GPU access · No install needed
+                    </div>
+                    <p class="resource-note">
+                        Jupyter notebooks in the browser with free GPU access — <strong>no local setup
+                        required</strong>. This is how most courses and tutorials are now delivered. Can
+                        handle real machine learning workloads. The free tier is generous; the paid tier is
+                        optional for heavier workloads.
+                    </p>
+                    <a href="https://colab.research.google.com/" target="_blank" rel="noopener" class="resource-link">colab.research.google.com</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Hugging Face</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Pretrained models</span> · Datasets · Tutorials · GitHub of AI
+                    </div>
+                    <p class="resource-note">
+                        <em>The GitHub of AI.</em> Hundreds of thousands of pretrained models you can
+                        download and run, datasets organized and searchable, and excellent free tutorials.
+                        <strong>If you want to use AI models (not build them from scratch), start here.</strong>
+                    </p>
+                    <a href="https://huggingface.co/" target="_blank" rel="noopener" class="resource-link">huggingface.co</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">CIC (Canadian Institute for Cybersecurity) Datasets</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Academic-grade</span> · Intrusion detection · Malware · Network traffic
+                    </div>
+                    <p class="resource-note">
+                        <strong>The most-used cybersecurity datasets in academic ML research.</strong>
+                        CIC-IDS2017 for intrusion detection, CIC-AndMal for Android malware, CICDDoS2019 for
+                        denial-of-service attacks. If you want to do a capstone or portfolio project with
+                        real cyber data, these are the starting points.
+                    </p>
+                    <a href="https://www.unb.ca/cic/datasets/" target="_blank" rel="noopener" class="resource-link">unb.ca/cic/datasets</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Microsoft Security Datasets</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>GitHub repo</span> · Real-world security telemetry · Attack simulations
+                    </div>
+                    <p class="resource-note">
+                        Microsoft-curated, open-sourced security datasets for detection engineering and
+                        ML research. <strong>Organized by MITRE ATT&amp;CK technique</strong> — find attack
+                        data by the TTP you want to detect. Good bridge between security concepts and data
+                        analysis work.
+                    </p>
+                    <a href="https://github.com/OTRF/Security-Datasets" target="_blank" rel="noopener" class="resource-link">github.com/OTRF/Security-Datasets</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">UCI Machine Learning Repository</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Classic datasets</span> · Academic standard · 600+ datasets
+                    </div>
+                    <p class="resource-note">
+                        The original, long-running repository of ML datasets used in academic research.
+                        <strong>Great for practicing fundamental ML techniques</strong> before moving to
+                        cyber-specific data. Iris, Titanic, wine quality — these are the "hello world"
+                        datasets every data person has seen.
+                    </p>
+                    <a href="https://archive.ics.uci.edu/" target="_blank" rel="noopener" class="resource-link">archive.ics.uci.edu</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Papers with Code</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Latest research</span> · Runnable implementations · State-of-the-art
+                    </div>
+                    <p class="resource-note">
+                        <strong>ML research papers paired with runnable code.</strong> Useful for staying
+                        current on what's actually new versus hype, and for seeing how cutting-edge
+                        techniques are actually implemented. The security section tracks papers on adversarial
+                        ML, malware detection, and intrusion detection.
+                    </p>
+                    <a href="https://paperswithcode.com/area/computer-security" target="_blank" rel="noopener" class="resource-link">paperswithcode.com/area/computer-security</a>
+                </div>
+
+            </div>
+
+            <h3 style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.4rem; margin: 3rem 0 1.25rem;">
+                Structured courses
+            </h3>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">fast.ai — Practical Deep Learning</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Jeremy Howard</span> · Top-down teaching · Video + code
+                    </div>
+                    <p class="resource-note">
+                        <em>The best free deep learning course on the internet.</em> Teaches top-down
+                        (build real things first, theory later) and assumes only Python knowledge.
+                        <strong>Students finish the course having built working AI applications</strong>,
+                        which is far more motivating than starting with linear algebra.
+                    </p>
+                    <a href="https://course.fast.ai/" target="_blank" rel="noopener" class="resource-link">course.fast.ai</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Andrew Ng — Machine Learning Specialization</div>
+                        <span class="resource-badge badge-freemium">Free to audit</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Coursera</span> · Stanford · The canonical ML course
+                    </div>
+                    <p class="resource-note">
+                        <strong>The canonical intro to machine learning</strong> — Andrew Ng taught more
+                        people ML than anyone alive. Free to audit (you just don't get the cert). Covers
+                        supervised learning, neural networks, and ML best practices. A solid base for
+                        anyone going deeper.
+                    </p>
+                    <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" rel="noopener" class="resource-link">coursera.org (Machine Learning)</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Hands-On Machine Learning (book)</div>
+                        <span class="resource-badge badge-paid">Book / $50</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Aurélien Géron</span> · O'Reilly · The practitioner's reference
+                    </div>
+                    <p class="resource-note">
+                        <strong>The ML reference book working practitioners actually use</strong> —
+                        covers scikit-learn, Keras, and TensorFlow with working code examples. Not free,
+                        but worth the $50 if you're serious. <em>3rd edition (2022) is the current one.</em>
+                    </p>
+                    <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/" target="_blank" rel="noopener" class="resource-link">oreilly.com</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">DeepLearning.AI Short Courses</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Andrew Ng's platform</span> · 1-2 hour courses · LLMs, RAG, agents
+                    </div>
+                    <p class="resource-note">
+                        <strong>Free short courses on working with LLMs, prompt engineering, RAG systems,
+                        and AI agents.</strong> Each course is 1-2 hours and focused on a specific skill.
+                        Perfect for cyber professionals who want to use modern AI tools without committing
+                        to a full degree-length program.
+                    </p>
+                    <a href="https://www.deeplearning.ai/short-courses/" target="_blank" rel="noopener" class="resource-link">deeplearning.ai/short-courses</a>
+                </div>
+
+            </div>
+
+            <h3 style="font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.4rem; margin: 3rem 0 1.25rem;">
+                Cyber + AI specifically
+            </h3>
+
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">OWASP Top 10 for LLMs</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>OWASP Foundation</span> · Essential reading · Industry reference
+                    </div>
+                    <p class="resource-note">
+                        <strong>The OWASP Top 10 vulnerabilities specific to LLM applications</strong> —
+                        prompt injection, training data poisoning, insecure output handling, model denial
+                        of service, and more. If you're going to secure AI systems professionally, this
+                        is the starting reference document. <em>Updated annually.</em>
+                    </p>
+                    <a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener" class="resource-link">genai.owasp.org/llm-top-10</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">MITRE ATLAS</div>
+                        <span class="resource-badge badge-free">Free</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>MITRE</span> · Adversarial ML threat matrix · Like ATT&amp;CK for AI
+                    </div>
+                    <p class="resource-note">
+                        <strong>MITRE's adversarial threat matrix specifically for AI/ML systems.</strong>
+                        Structured like MITRE ATT&amp;CK but focused on how attackers target machine
+                        learning systems — data poisoning, evasion, model inversion, etc. Essential
+                        vocabulary for working in AI security.
+                    </p>
+                    <a href="https://atlas.mitre.org/" target="_blank" rel="noopener" class="resource-link">atlas.mitre.org</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">Black Hat Python (book)</div>
+                        <span class="resource-badge badge-paid">Book / $45</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Justin Seitz</span> · 2nd edition · Offensive Python for cyber
+                    </div>
+                    <p class="resource-note">
+                        <em>Cybersecurity-specific Python, not AI.</em> Listed here because it's the bridge
+                        book — teaches Python through offensive security use cases. <strong>If you want
+                        Python for cyber work specifically (not general programming), this is the book.</strong>
+                    </p>
+                    <a href="https://nostarch.com/black-hat-python2E" target="_blank" rel="noopener" class="resource-link">nostarch.com/black-hat-python2E</a>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-name">HackTheBox AI Red Teaming</div>
+                        <span class="resource-badge badge-freemium">Freemium</span>
+                    </div>
+                    <div class="resource-meta">
+                        <span>HackTheBox Academy</span> · AI-specific attack labs · Emerging area
+                    </div>
+                    <p class="resource-note">
+                        HackTheBox Academy has added paths for <strong>attacking and defending AI/ML
+                        systems</strong> — prompt injection labs, model extraction, adversarial example
+                        generation. Still developing, but worth watching as this becomes a bigger part
+                        of the field.
+                    </p>
+                    <a href="https://academy.hackthebox.com/" target="_blank" rel="noopener" class="resource-link">academy.hackthebox.com</a>
+                </div>
+
+            </div>
+        </section>
+
         <!-- ==================== FREE FORMAL COURSES ==================== -->
-        <section class="section">
-            <div class="section-label">// 08 · Free formal courses</div>
+        <section class="section" id="formal-courses">
+            <div class="section-label">// 09 · Free formal courses</div>
             <h2 class="section-title">University-grade, <em>zero cost</em>.</h2>
             <p class="section-intro">
                 Top universities and federal programs have put their best cybersecurity coursework online for
@@ -1303,8 +1680,8 @@
         </section>
 
         <!-- ==================== COLLEGE / FORMAL PATHWAY ==================== -->
-        <section class="section">
-            <div class="section-label">// 09 · College pathways</div>
+        <section class="section" id="college">
+            <div class="section-label">// 10 · College pathways</div>
             <h2 class="section-title">Formal education, <em>done right</em>.</h2>
             <p class="section-intro">
                 A degree isn't required to break into cyber — but the right one accelerates you without
