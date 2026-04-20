@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Dr. Gregory Lindstrom — Professor and Department Chair of Cybersecurity at Lone Star College, with 35+ years of experience in military intelligence, NASA contracting, and enterprise cybersecurity leadership.">
+    <title>About — CyberRoadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
+        }
+
+        /* Nav */
+        nav {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--paper);
+        }
+
+        .logo .bracket { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--paper); }
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            z-index: 5;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 3rem 3rem;
+        }
+
+        .page-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* Main content */
+        .container {
+            position: relative;
+            z-index: 5;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 3rem 4rem;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .headshot-wrap {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .headshot {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border: 1px solid var(--line-strong);
+            filter: grayscale(0.1) contrast(1.02);
+        }
+
+        .headshot-caption {
+            margin-top: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .headshot-caption strong {
+            color: var(--paper);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-content h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+            font-size: 1.8rem;
+            line-height: 1.2;
+            color: var(--paper);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .profile-content h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .profile-content p {
+            font-size: 1.05rem;
+            color: rgba(244, 241, 234, 0.85);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .profile-content p strong {
+            color: var(--paper);
+            font-weight: 500;
+        }
+
+        .profile-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Mission callout */
+        .mission {
+            border-left: 3px solid var(--accent);
+            padding: 1.75rem 2rem;
+            background: rgba(255, 74, 28, 0.04);
+            margin: 2rem 0 3rem;
+        }
+
+        .mission p {
+            font-size: 1.05rem;
+            color: rgba(244, 241, 234, 0.95);
+            line-height: 1.6;
+            font-weight: 300;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .mission p strong {
+            font-style: normal;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Credentials grid */
+        .creds-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .creds-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .creds-section h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .creds-section h3 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .creds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .cred-card {
+            border: 1px solid var(--line);
+            padding: 1.5rem;
+            background: var(--card);
+        }
+
+        .cred-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .cred-name {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            line-height: 1.3;
+            color: var(--paper);
+            margin-bottom: 0.5rem;
+        }
+
+        .cred-issuer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: rgba(244, 241, 234, 0.6);
+            line-height: 1.4;
+        }
+
+        /* Certifications list */
+        .cert-list-section {
+            padding: 2rem 0;
+        }
+
+        .cert-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .cert-chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 74, 28, 0.08);
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 74, 28, 0.3);
+            font-weight: 500;
+        }
+
+        /* Experience section */
+        .experience-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .experience-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .experience-item {
+            border-left: 2px solid var(--accent-dim);
+            padding: 0.75rem 0 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: rgba(244, 241, 234, 0.85);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .experience-item strong {
+            color: var(--paper);
+            font-weight: 500;
+        }
+
+        /* CTA block */
+        .cta-block {
+            margin-top: 4rem;
+            padding: 2.5rem;
+            border: 1px solid var(--line-strong);
+            text-align: center;
+        }
+
+        .cta-block h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-block p {
+            color: rgba(244, 241, 234, 0.7);
+            max-width: 520px;
+            margin: 0 auto 1.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.9rem 1.75rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            color: var(--ink);
+        }
+
+        .cta-btn.primary {
+            background: var(--accent);
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .cta-btn.primary:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 5;
+            padding: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid var(--line);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { border-bottom: 1px solid var(--accent); }
+        footer .sep { color: var(--line-strong); margin: 0 0.75rem; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { gap: 1rem; font-size: 0.7rem; }
+            .hero { padding: 3rem 1.5rem 2rem; }
+            .container { padding: 1.5rem 1.5rem 3rem; }
+            .profile-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .headshot-wrap { position: static; max-width: 240px; margin: 0 auto; }
+            .cta-block { padding: 1.5rem; }
+            footer {
+                padding: 2rem 1.5rem;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        ::selection { background: var(--accent); color: var(--ink); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">
+            <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
+        </a>
+        <div class="nav-links">
+            <a href="/jobs.html">Jobs</a>
+            <a href="/certs.html">Certifications</a>
+            <a href="/training.html">Training</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/about.html" class="active">About</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="page-label">// About</div>
+        <h1>Why this <em>exists</em>.</h1>
+    </section>
+
+    <div class="container">
+
+        <div class="profile-section">
+
+            <div class="headshot-wrap">
+                <img src="/images/greg-lindstrom.jpg" alt="Dr. Gregory Lindstrom" class="headshot">
+                <div class="headshot-caption">
+                    <strong>Dr. Gregory Lindstrom</strong>
+                    D.Eng. · CISSP · CISM<br>
+                    Houston, Texas
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <h2>Thirty-five years in the field, <em>one roadmap</em> for students.</h2>
+
+                <p>
+                    <strong>Dr. Gregory Lindstrom</strong> currently serves as Professor and Department Chair
+                    of Cybersecurity (Bachelor's) at Lone Star College. He has more than 35 years of experience
+                    in cybersecurity spanning military intelligence, NASA contracting, and senior enterprise
+                    leadership at global corporations including General Electric (GE) and Saudi Basic Industries
+                    Corporation (SABIC).
+                </p>
+
+                <p>
+                    Dr. Lindstrom is also a professorial lecturer and doctoral advisor for the Online
+                    Engineering Programs at The George Washington University.
+                </p>
+
+                <p>
+                    He holds a Doctor of Engineering in Cybersecurity Analytics from The George Washington
+                    University, an M.B.A. from the University at Albany, a Postgraduate Certificate in Cloud
+                    Computing from The University of Texas at Austin, and a B.S. in Computer Science from
+                    Athens State University.
+                </p>
+
+                <div class="mission">
+                    <p>
+                        <strong>The reason CyberRoadmap exists:</strong>
+                        I watch students navigate this field every semester. There's too much bad advice
+                        and not enough honest guidance — so this is the resource I wish they had.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="creds-section">
+            <div class="creds-label">// Academic credentials</div>
+            <h3>Degrees and <em>formal education</em>.</h3>
+
+            <div class="creds-grid">
+
+                <div class="cred-card">
+                    <div class="cred-type">Doctoral</div>
+                    <div class="cred-name">D.Eng., Cybersecurity Analytics</div>
+                    <div class="cred-issuer">The George Washington University</div>
+                </div>
+
+                <div class="cred-card">
+                    <div class="cred-type">Graduate</div>
+                    <div class="cred-name">M.B.A.</div>
+                    <div class="cred-issuer">University at Albany</div>
+                </div>
+
+                <div class="cred-card">
+                    <div class="cred-type">Postgraduate</div>
+                    <div class="cred-name">Certificate in Cloud Computing</div>
+                    <div class="cred-issuer">The University of Texas at Austin</div>
+                </div>
+
+                <div class="cred-card">
+                    <div class="cred-type">Undergraduate</div>
+                    <div class="cred-name">B.S., Computer Science</div>
+                    <div class="cred-issuer">Athens State University</div>
+                </div>
+
+            </div>
+
+            <div class="cert-list-section">
+                <div class="creds-label">// Professional certifications</div>
+                <div class="cert-list">
+                    <span class="cert-chip">CISSP</span>
+                    <span class="cert-chip">CISM</span>
+                    <span class="cert-chip">PMP</span>
+                    <span class="cert-chip">SABSA Chartered Security Architect</span>
+                    <span class="cert-chip">ISO 27001 Lead Implementer</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-section">
+            <div class="creds-label">// Professional experience</div>
+            <h3>A career across <em>three worlds</em>.</h3>
+
+            <div class="experience-list">
+
+                <div class="experience-item">
+                    <strong>Academic leadership:</strong> Professor and Department Chair of Cybersecurity
+                    (Bachelor's) at Lone Star College; professorial lecturer and doctoral advisor for the
+                    Online Engineering Programs at The George Washington University.
+                </div>
+
+                <div class="experience-item">
+                    <strong>Federal and defense:</strong> Military intelligence and NASA contracting —
+                    early-career experience in mission-critical environments that shaped his approach to
+                    risk, operations, and discipline.
+                </div>
+
+                <div class="experience-item">
+                    <strong>Enterprise leadership:</strong> Senior cybersecurity leadership roles at
+                    General Electric (GE) and Saudi Basic Industries Corporation (SABIC), managing
+                    security programs at Fortune 500 / global enterprise scale.
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cta-block">
+            <h3>Questions or corrections?</h3>
+            <p>
+                CyberRoadmap is a living resource. If you see something wrong, missing, or could be
+                better — let me know. Students, employers, educators all welcome.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:hello@cyberroadmap.org" class="cta-btn primary">hello@cyberroadmap.org</a>
+                <a href="/" class="cta-btn">Back to home</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div>
+            © 2026 CyberRoadmap
+            <span class="sep">/</span>
+            Houston, TX
+        </div>
+        <div>
+            <a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a>
+        </div>
+    </footer>
+
+</body>
+</html>
