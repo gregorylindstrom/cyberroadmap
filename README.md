@@ -62,7 +62,6 @@ Live at: **[cyberroadmap.org](https://cyberroadmap.org)**
 └── README.md                  # This file
 ```
 
-
 ## Required GitHub Secrets
 
 The scraper needs API credentials stored as repository secrets. Set these at
