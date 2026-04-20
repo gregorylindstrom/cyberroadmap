@@ -479,10 +479,21 @@ def is_entry_level(title: str, description: str = "") -> bool:
 
 
 def clean_description(text: str, max_len: int = 300) -> str:
+    """Clean HTML tags and entity-escaped content from job descriptions."""
     if not text:
         return ""
+
+    # First, UNESCAPE html entities — Greenhouse returns &lt;div&gt; instead of <div>
+    # Must run html.unescape BEFORE stripping tags, or we keep the escaped entities.
+    import html as html_module
+    text = html_module.unescape(text)
+
+    # Now strip HTML tags
     text = re.sub(r"<[^>]+>", " ", text)
+
+    # Collapse whitespace
     text = re.sub(r"\s+", " ", text).strip()
+
     if len(text) > max_len:
         text = text[:max_len].rsplit(" ", 1)[0] + "…"
     return text
@@ -492,6 +503,8 @@ def geocode_location(city: str, state: str) -> Optional[tuple]:
     """
     Returns (lat, lng) for a given city/state, or None if not found.
     Tries: exact match → alias lookup → state centroid fallback.
+    This is the SYNC, IN-MEMORY lookup. For unknown cities, the full
+    online lookup happens in parse_location() via zippopotam.us.
     """
     if not city and not state:
         return None
@@ -511,15 +524,321 @@ def geocode_location(city: str, state: str) -> Optional[tuple]:
         if aliased in CITY_COORDINATES:
             return CITY_COORDINATES[aliased]
 
-    # State centroid fallback
+    return None
+
+
+# --- Location cache with online fallback -----------------------------------
+
+# Global cache loaded at startup and saved at end
+LOCATION_CACHE: dict = {}
+CACHE_PATH = Path("public/data/location_cache.json")
+
+
+def load_location_cache() -> None:
+    """Load cached location-string → coords mapping from disk."""
+    global LOCATION_CACHE
+    try:
+        if CACHE_PATH.exists():
+            with open(CACHE_PATH, "r") as f:
+                LOCATION_CACHE = json.load(f)
+            log(f"Location cache: loaded {len(LOCATION_CACHE)} entries")
+        else:
+            LOCATION_CACHE = {}
+            log("Location cache: no existing cache, starting fresh")
+    except Exception as e:
+        log(f"Location cache: load failed ({e}), starting fresh")
+        LOCATION_CACHE = {}
+
+
+def save_location_cache() -> None:
+    """Persist the cache back to disk (committed by workflow)."""
+    try:
+        CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(CACHE_PATH, "w") as f:
+            json.dump(LOCATION_CACHE, f, indent=1)
+        log(f"Location cache: saved {len(LOCATION_CACHE)} entries")
+    except Exception as e:
+        log(f"Location cache: save failed ({e})")
+
+
+def lookup_online(city: str, state: str) -> Optional[tuple]:
+    """
+    Online geocoding fallback using zippopotam.us (free, no key, CORS-enabled).
+    Returns (lat, lng) or None. Rate-limited to 5 req/sec to avoid getting banned.
+    """
+    if not city or not state:
+        return None
+
+    try:
+        # zippopotam.us supports "city lookup by state"
+        url = f"https://api.zippopotam.us/us/{state.strip().upper()}/{city.strip()}"
+        r = requests.get(url, timeout=8)
+        time.sleep(0.2)  # rate limit ourselves
+
+        if r.status_code != 200:
+            return None
+
+        data = r.json()
+        places = data.get("places", [])
+        if not places:
+            return None
+
+        # Use first (usually the main city center)
+        place = places[0]
+        return (float(place["latitude"]), float(place["longitude"]))
+    except Exception:
+        return None
+
+
+def geocode_with_fallback(city: str, state: str) -> Optional[tuple]:
+    """
+    Full geocoding pipeline:
+      1. Built-in city table (fast, no network)
+      2. Cache lookup (fast, no network)
+      3. Online lookup (slow, network) — results cached
+      4. State centroid fallback (coarse but better than nothing)
+    """
+    if not city and not state:
+        return None
+
+    cache_key = f"{city.strip().lower()}|{state.strip().upper()}"
+
+    # 1. Built-in table
+    result = geocode_location(city, state)
+    if result:
+        return result
+
+    # 2. Cache (including "negative" cached misses)
+    if cache_key in LOCATION_CACHE:
+        cached = LOCATION_CACHE[cache_key]
+        if cached is None:
+            # Previously looked up and failed — still use state fallback
+            pass
+        else:
+            return (cached[0], cached[1])
+
+    # 3. Online lookup (only if we have both city AND state)
+    if city and state:
+        online = lookup_online(city, state)
+        if online:
+            LOCATION_CACHE[cache_key] = [online[0], online[1]]
+            return online
+        else:
+            # Cache the negative result so we don't retry next scrape
+            LOCATION_CACHE[cache_key] = None
+
+    # 4. State centroid as final fallback
+    state_clean = state.strip().upper() if state else ""
     if state_clean in STATE_CENTROIDS:
         return STATE_CENTROIDS[state_clean]
 
     return None
 
 
+def extract_state_from_messy(text: str) -> str:
+    """
+    Try harder to find a US state in a messy location string.
+    Handles: 'Harris County' (no state), 'Southeast, Putnam County, NY',
+             'Atlanta Metro', 'United States', etc.
+    """
+    # Direct 2-letter state code
+    m = re.search(r"\b([A-Z]{2})\b", text)
+    if m and m.group(1) in STATE_CENTROIDS:
+        return m.group(1)
+
+    # Full state name
+    state_names = {
+        "alabama": "AL", "alaska": "AK", "arizona": "AZ", "arkansas": "AR",
+        "california": "CA", "colorado": "CO", "connecticut": "CT", "delaware": "DE",
+        "florida": "FL", "georgia": "GA", "hawaii": "HI", "idaho": "ID",
+        "illinois": "IL", "indiana": "IN", "iowa": "IA", "kansas": "KS",
+        "kentucky": "KY", "louisiana": "LA", "maine": "ME", "maryland": "MD",
+        "massachusetts": "MA", "michigan": "MI", "minnesota": "MN", "mississippi": "MS",
+        "missouri": "MO", "montana": "MT", "nebraska": "NE", "nevada": "NV",
+        "new hampshire": "NH", "new jersey": "NJ", "new mexico": "NM", "new york": "NY",
+        "north carolina": "NC", "north dakota": "ND", "ohio": "OH", "oklahoma": "OK",
+        "oregon": "OR", "pennsylvania": "PA", "rhode island": "RI", "south carolina": "SC",
+        "south dakota": "SD", "tennessee": "TN", "texas": "TX", "utah": "UT",
+        "vermont": "VT", "virginia": "VA", "washington": "WA", "west virginia": "WV",
+        "wisconsin": "WI", "wyoming": "WY", "district of columbia": "DC",
+    }
+    text_lower = text.lower()
+    for name, code in state_names.items():
+        if name in text_lower:
+            return code
+
+    # Try county-to-state inference (handles "Harris County" → TX, "Duval County" → FL)
+    county_match = re.search(r"([A-Za-z.\s\-]+)\s+County\b", text, re.IGNORECASE)
+    if county_match:
+        county = county_match.group(1).strip().title()
+        if county in COUNTY_TO_STATE:
+            return COUNTY_TO_STATE[county]
+
+    return ""
+
+
+# Common US counties → state mapping (for locations like "Harris County" without state code)
+# Includes the top counties by population + ones relevant to CyberRoadmap audience (TX, CA, VA, MD)
+COUNTY_TO_STATE = {
+    # Texas — high priority for CyberRoadmap
+    "Harris": "TX", "Dallas": "TX", "Tarrant": "TX", "Bexar": "TX",
+    "Travis": "TX", "Collin": "TX", "Denton": "TX", "Fort Bend": "TX",
+    "Hidalgo": "TX", "El Paso": "TX", "Montgomery": "TX", "Williamson": "TX",
+    "Cameron": "TX", "Nueces": "TX", "Brazoria": "TX", "Galveston": "TX",
+    "Jefferson": "TX", "Lubbock": "TX", "Webb": "TX", "Ellis": "TX",
+    "Smith": "TX", "Bell": "TX", "McLennan": "TX",
+
+    # California — high volume source
+    "Los Angeles": "CA", "San Diego": "CA", "Orange": "CA", "Riverside": "CA",
+    "San Bernardino": "CA", "Santa Clara": "CA", "Alameda": "CA",
+    "Sacramento": "CA", "Contra Costa": "CA", "Fresno": "CA", "Kern": "CA",
+    "San Francisco": "CA", "Ventura": "CA", "San Mateo": "CA", "San Joaquin": "CA",
+    "Stanislaus": "CA", "Sonoma": "CA", "Tulare": "CA", "Solano": "CA",
+    "Monterey": "CA", "Placer": "CA",
+
+    # Florida
+    "Miami-Dade": "FL", "Broward": "FL", "Palm Beach": "FL", "Hillsborough": "FL",
+    "Orange": "FL", "Duval": "FL", "Pinellas": "FL", "Lee": "FL",
+    "Polk": "FL", "Brevard": "FL", "Volusia": "FL", "Pasco": "FL",
+    "Seminole": "FL", "Sarasota": "FL", "Manatee": "FL", "Collier": "FL",
+
+    # New York
+    "Kings": "NY", "Queens": "NY", "New York": "NY", "Suffolk": "NY",
+    "Bronx": "NY", "Nassau": "NY", "Westchester": "NY", "Erie": "NY",
+    "Monroe": "NY", "Onondaga": "NY", "Orange": "NY", "Albany": "NY",
+    "Richmond": "NY", "Rockland": "NY", "Putnam": "NY",
+
+    # Virginia — DC metro tech
+    "Fairfax": "VA", "Prince William": "VA", "Loudoun": "VA", "Arlington": "VA",
+    "Chesterfield": "VA", "Henrico": "VA", "Virginia Beach": "VA",
+
+    # Maryland — DC metro tech
+    "Montgomery": "MD", "Prince George's": "MD", "Baltimore": "MD",
+    "Anne Arundel": "MD", "Howard": "MD", "Frederick": "MD", "Harford": "MD",
+
+    # Washington
+    "King": "WA", "Pierce": "WA", "Snohomish": "WA", "Spokane": "WA",
+    "Clark": "WA", "Thurston": "WA",
+
+    # Illinois
+    "Cook": "IL", "DuPage": "IL", "Lake": "IL", "Will": "IL",
+    "Kane": "IL", "McHenry": "IL", "Winnebago": "IL",
+
+    # Georgia
+    "Fulton": "GA", "Gwinnett": "GA", "Cobb": "GA", "DeKalb": "GA",
+    "Clayton": "GA", "Cherokee": "GA", "Forsyth": "GA", "Henry": "GA",
+
+    # Colorado
+    "Denver": "CO", "Jefferson": "CO", "Arapahoe": "CO", "El Paso": "CO",
+    "Adams": "CO", "Douglas": "CO", "Boulder": "CO", "Larimer": "CO",
+
+    # Massachusetts
+    "Middlesex": "MA", "Worcester": "MA", "Essex": "MA", "Suffolk": "MA",
+    "Norfolk": "MA", "Plymouth": "MA", "Bristol": "MA", "Hampden": "MA",
+
+    # North Carolina
+    "Mecklenburg": "NC", "Wake": "NC", "Guilford": "NC", "Forsyth": "NC",
+    "Cumberland": "NC", "Durham": "NC",
+
+    # Arizona
+    "Maricopa": "AZ", "Pima": "AZ", "Pinal": "AZ", "Yavapai": "AZ",
+
+    # Ohio
+    "Franklin": "OH", "Cuyahoga": "OH", "Hamilton": "OH", "Summit": "OH",
+    "Montgomery": "OH", "Lucas": "OH",
+
+    # Pennsylvania
+    "Philadelphia": "PA", "Allegheny": "PA", "Montgomery": "PA", "Bucks": "PA",
+    "Chester": "PA", "Delaware": "PA", "Lancaster": "PA",
+
+    # Michigan
+    "Wayne": "MI", "Oakland": "MI", "Macomb": "MI", "Kent": "MI",
+
+    # New Jersey
+    "Bergen": "NJ", "Middlesex": "NJ", "Essex": "NJ", "Hudson": "NJ",
+    "Monmouth": "NJ", "Ocean": "NJ", "Union": "NJ", "Passaic": "NJ",
+
+    # Tennessee
+    "Shelby": "TN", "Davidson": "TN", "Knox": "TN", "Hamilton": "TN",
+
+    # Minnesota
+    "Hennepin": "MN", "Ramsey": "MN", "Dakota": "MN", "Anoka": "MN",
+
+    # Missouri
+    "St. Louis": "MO", "Jackson": "MO", "St. Charles": "MO",
+
+    # Indiana
+    "Marion": "IN", "Lake": "IN", "Allen": "IN", "Hamilton": "IN",
+
+    # Wisconsin
+    "Milwaukee": "WI", "Dane": "WI", "Waukesha": "WI",
+
+    # Oregon
+    "Multnomah": "OR", "Washington": "OR", "Clackamas": "OR",
+}
+
+
+def extract_city_from_messy(text: str, state: str) -> str:
+    """
+    Try to extract a plausible city name from messy location.
+    Handles 'Houston, TX', 'Houston', 'Houston, Harris County, TX',
+            'West Islip, Suffolk County', etc.
+    """
+    # Clean common suffixes
+    cleaned = re.sub(r"\s+(County|Metro|Area|Region)\b", "", text, flags=re.IGNORECASE)
+
+    # Remove state from end
+    if state:
+        cleaned = re.sub(rf",?\s*{state}$", "", cleaned, flags=re.IGNORECASE).strip()
+        # Also try removing state's full name
+        state_full = next((n for n, c in {
+            "AL": "Alabama", "TX": "Texas", "CA": "California", "NY": "New York",
+            "FL": "Florida", "IL": "Illinois", "PA": "Pennsylvania", "OH": "Ohio",
+            "GA": "Georgia", "NC": "North Carolina", "MI": "Michigan", "VA": "Virginia",
+            "WA": "Washington", "AZ": "Arizona", "MA": "Massachusetts", "TN": "Tennessee",
+            "IN": "Indiana", "MO": "Missouri", "MD": "Maryland", "WI": "Wisconsin",
+            "CO": "Colorado", "MN": "Minnesota", "SC": "South Carolina", "AL": "Alabama",
+            "LA": "Louisiana", "KY": "Kentucky", "OR": "Oregon", "OK": "Oklahoma",
+            "CT": "Connecticut", "UT": "Utah", "IA": "Iowa", "NV": "Nevada",
+            "AR": "Arkansas", "MS": "Mississippi", "KS": "Kansas", "NM": "New Mexico",
+            "NE": "Nebraska", "WV": "West Virginia", "ID": "Idaho", "HI": "Hawaii",
+            "NH": "New Hampshire", "ME": "Maine", "MT": "Montana", "RI": "Rhode Island",
+            "DE": "Delaware", "SD": "South Dakota", "ND": "North Dakota", "AK": "Alaska",
+            "VT": "Vermont", "WY": "Wyoming", "DC": "District of Columbia",
+        }.items() if c == state), None)
+
+    # First comma-separated piece is usually the city
+    first_piece = cleaned.split(",")[0].strip()
+    if first_piece and len(first_piece) < 50:
+        return first_piece
+
+    return ""
+
+
+def infer_state_from_city(city: str) -> str:
+    """
+    If someone writes 'Houston' without state, try to infer state by
+    looking up the city in our built-in table. If it matches exactly one
+    (city, state) pair, use that. Ambiguous cities return empty.
+    """
+    if not city:
+        return ""
+
+    city_title = city.strip().title()
+    matches = [st for (c, st) in CITY_COORDINATES.keys() if c == city_title]
+
+    # Only confident if exactly one match (ambiguous cities like "Springfield" return nothing)
+    if len(matches) == 1:
+        return matches[0]
+
+    return ""
+
+
 def parse_location(loc: str) -> dict:
-    """Parse location string and attempt to geocode it."""
+    """
+    Parse location string and geocode it using our cascading system.
+    Much more robust than v1 — handles messy real-world strings.
+    """
     if not loc:
         return {"display": "Location not specified", "city": "", "state": "",
                 "remote": False, "lat": None, "lng": None}
@@ -527,17 +846,18 @@ def parse_location(loc: str) -> dict:
     display = loc.strip()
     remote = bool(re.search(r"\bremote\b|\banywhere\b|\btelework\b", display, re.IGNORECASE))
 
-    city = ""
-    state = ""
+    # Extract state using robust matcher
+    state = extract_state_from_messy(display)
 
-    # Try to extract "City, ST" pattern
-    match = re.search(r"([A-Za-z .\-]+),\s*([A-Z]{2})\b", display)
-    if match:
-        city = match.group(1).strip()
-        state = match.group(2).strip()
+    # Extract city using robust matcher
+    city = extract_city_from_messy(display, state)
 
-    # Geocode
-    coords = geocode_location(city, state)
+    # If state is missing but we have a city name, try inferring state from city
+    if city and not state:
+        state = infer_state_from_city(city)
+
+    # Geocode using the full cascading pipeline
+    coords = geocode_with_fallback(city, state)
     lat = coords[0] if coords else None
     lng = coords[1] if coords else None
 
@@ -1213,7 +1533,10 @@ def merge_and_dedupe(jobs_lists: list[list[dict]]) -> list[dict]:
 
 def main():
     start = time.time()
-    log("=== CyberRoadmap scraper v3 starting ===")
+    log("=== CyberRoadmap scraper v3.1 starting ===")
+
+    # Load geocoding cache (shared across all scraping threads)
+    load_location_cache()
 
     sources = {
         "usajobs": fetch_usajobs,
@@ -1246,7 +1569,10 @@ def main():
 
     fed_count = sum(1 for j in jobs if j.get("federal"))
     geocoded_count = sum(1 for j in jobs if j["location"].get("lat") is not None)
-    log(f"Federal: {fed_count} | Geocoded: {geocoded_count}/{len(jobs)}")
+    log(f"Federal: {fed_count} | Geocoded: {geocoded_count}/{len(jobs)} ({100*geocoded_count//max(len(jobs),1)}%)")
+
+    # Save the updated location cache for next run
+    save_location_cache()
 
     output = {
         "meta": {
