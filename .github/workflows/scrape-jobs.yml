@@ -51,15 +51,18 @@ jobs:
 
       - name: Verify output
         run: |
-          python -c "import json; d=json.load(open('public/data/jobs.json')); print('total_jobs:', d['meta']['total_jobs'])"
+          python -c "import json; d=json.load(open('public/data/jobs.json')); print('total_jobs:', d['meta']['total_jobs']); print('geocoded:', d['meta'].get('geocoded_count', '?'))"
 
       - name: Commit and push updates
         run: |
           git config user.name "cyberroadmap-bot"
           git config user.email "actions@github.com"
 
+          # Stage all the files the scraper writes
           git add public/data/jobs.json
-          # Also commit the TheirStack throttle marker if it changed
+          if [ -f public/data/location_cache.json ]; then
+            git add public/data/location_cache.json
+          fi
           if [ -f .theirstack_last_run ]; then
             git add .theirstack_last_run
           fi
@@ -67,9 +70,9 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: update jobs.json [automated]"
+            git commit -m "chore: update jobs.json + location cache [automated]"
 
-            # Retry push up to 3 times with pull --rebase for concurrent commits
+            # Retry push with rebase to handle concurrent commits
             for i in 1 2 3; do
               echo "Push attempt $i..."
               git pull --rebase origin main && git push origin main && break
