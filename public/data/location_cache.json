@@ -2339,5 +2339,138 @@
  "east lake-orient park|FL": null,
  "plymouth valley|PA": null,
  "ridgeside|IN": null,
- "north hills|NC": null
+ "north hills|NC": null,
+ "luke afb|AZ": [
+  33.5355,
+  -112.3766
+ ],
+ "macdill afb|FL": null,
+ "naval station complex|CA": null,
+ "wheaton|MD": null,
+ "fort smith|AR": [
+  35.3653,
+  -94.411
+ ],
+ "coronado|CA": [
+  32.6807,
+  -117.1698
+ ],
+ "bangor|WA": null,
+ "kelly afb|TX": null,
+ "cucamonga|CA": [
+  34.1376,
+  -117.5999
+ ],
+ "silver spring|PA": [
+  40.0647,
+  -76.4343
+ ],
+ "westover air reserve base|MA": null,
+ "aberdeen proving ground|MD": [
+  39.4771,
+  -76.1208
+ ],
+ "oxnard|CA": [
+  34.2141,
+  -119.175
+ ],
+ "wilmington|NJ": null,
+ "fort hood|TX": null,
+ "valley brook|OK": null,
+ "mineola|NY": [
+  40.7469,
+  -73.6398
+ ],
+ "lakeside|TX": null,
+ "burnsville|MN": [
+  44.7307,
+  -93.2921
+ ],
+ "cape canaveral|FL": [
+  28.3903,
+  -80.6043
+ ],
+ "cocoa|FL": [
+  28.3672,
+  -80.7465
+ ],
+ "indian harbour beach|FL": null,
+ "glenn heights|TX": null,
+ "times square|WA": null,
+ "plymouth|MA": [
+  41.9104,
+  -70.642
+ ],
+ "beverly hills|CA": [
+  33.7866,
+  -118.2987
+ ],
+ "duluth|GA": [
+  33.963,
+  -84.0923
+ ],
+ "industry|NY": [
+  43.0027,
+  -77.6966
+ ],
+ "pultneyville|MI": null,
+ "hilton|NY": [
+  43.2923,
+  -77.7905
+ ],
+ "englewood|CO": [
+  39.6463,
+  -105.0092
+ ],
+ "alpine|CA": [
+  32.8282,
+  -116.7543
+ ],
+ "brentwood|CA": [
+  37.9324,
+  -121.6894
+ ],
+ "lancaster|PA": [
+  40.0766,
+  -76.3107
+ ],
+ "hillsborough|CA": null,
+ "alameda pt|CA": null,
+ "malabar|FL": [
+  27.9761,
+  -80.5788
+ ],
+ "lauderdale lakes|FL": null,
+ "arlington|NJ": [
+  40.7898,
+  -74.1343
+ ],
+ "monrovia|CA": [
+  34.144,
+  -118.0014
+ ],
+ "hawthorne|CA": [
+  33.9143,
+  -118.3493
+ ],
+ "rowland heights|CA": [
+  33.9818,
+  -117.8969
+ ],
+ "south pasadena|CA": [
+  34.1109,
+  -118.1547
+ ],
+ "grant|FL": [
+  27.9364,
+  -80.5556
+ ],
+ "city of sunrise|FL": null,
+ "newton highlands|NJ": null,
+ "melrose|NJ": null,
+ "coral springs|FL": null,
+ "north miami beach|FL": [
+  25.9449,
+  -80.1391
+ ]
 }
