@@ -44,26 +44,32 @@ jobs:
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
           THE_MUSE_API_KEY: ${{ secrets.THE_MUSE_API_KEY }}
+          THEIRSTACK_API_KEY: ${{ secrets.THEIRSTACK_API_KEY }}
+          CAREERONESTOP_USER_ID: ${{ secrets.CAREERONESTOP_USER_ID }}
+          CAREERONESTOP_API_TOKEN: ${{ secrets.CAREERONESTOP_API_TOKEN }}
         run: python .github/scripts/scraper.py
 
       - name: Verify output
         run: |
           python -c "import json; d=json.load(open('public/data/jobs.json')); print('total_jobs:', d['meta']['total_jobs'])"
 
-      - name: Commit and push jobs.json
+      - name: Commit and push updates
         run: |
           git config user.name "cyberroadmap-bot"
           git config user.email "actions@github.com"
 
           git add public/data/jobs.json
+          # Also commit the TheirStack throttle marker if it changed
+          if [ -f .theirstack_last_run ]; then
+            git add .theirstack_last_run
+          fi
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             git commit -m "chore: update jobs.json [automated]"
 
-            # Pull any remote changes made while scraper was running,
-            # then push. --rebase keeps our commit on top cleanly.
+            # Retry push up to 3 times with pull --rebase for concurrent commits
             for i in 1 2 3; do
               echo "Push attempt $i..."
               git pull --rebase origin main && git push origin main && break
