@@ -15,18 +15,18 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #FAF7F0;
-            --paper: #1A1A1A;
-            --accent: #D94420;
-            --accent-dim: #B03515;
-            --green: #2D6930;
-            --yellow: #996515;
-            --red: #A62828;
-            --muted: #6B6760;
-            --line: rgba(26, 26, 26, 0.12);
-            --line-strong: rgba(26, 26, 26, 0.28);
-            --card: rgba(255, 255, 255, 0.6);
-            --card-hover: rgba(217, 68, 32, 0.05);
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --green: #5fb24f;
+            --yellow: #e6b04f;
+            --red: #d14343;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+            --card-hover: rgba(255, 74, 28, 0.06);
         }
 
         * {
@@ -221,7 +221,7 @@
         .hero-lede {
             font-size: 1.25rem;
             line-height: 1.5;
-            color: rgba(26, 26, 26, 0.82);
+            color: rgba(244, 241, 234, 0.8);
             max-width: 620px;
             margin-bottom: 3rem;
             font-weight: 300;
@@ -315,7 +315,7 @@
             border-right: 1px solid var(--line);
             border-bottom: 1px solid var(--line);
             position: relative;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(10, 14, 20, 0.4);
             transition: background 0.3s ease;
         }
 
@@ -347,7 +347,7 @@
         }
 
         .pillar-desc {
-            color: rgba(26, 26, 26, 0.72);
+            color: rgba(244, 241, 234, 0.7);
             font-size: 1rem;
             line-height: 1.5;
             margin-bottom: 2rem;
@@ -416,36 +416,10 @@
 
         .about-body p {
             font-size: 1.1rem;
-            color: rgba(26, 26, 26, 0.82);
+            color: rgba(244, 241, 234, 0.8);
             line-height: 1.6;
             margin-bottom: 1.5rem;
             font-weight: 300;
-        }
-
-        .credentials {
-            margin-top: 2.5rem;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem 3rem;
-            border-top: 1px solid var(--line);
-            padding-top: 2rem;
-        }
-
-        .cred {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: rgba(26, 26, 26, 0.72);
-            letter-spacing: 0.02em;
-        }
-
-        .cred strong {
-            color: var(--accent);
-            font-weight: 500;
-            display: block;
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 0.25rem;
         }
 
         /* Email signup */
@@ -475,7 +449,7 @@
         }
 
         .signup p {
-            color: rgba(26, 26, 26, 0.72);
+            color: rgba(244, 241, 234, 0.7);
             margin-bottom: 2.5rem;
             font-weight: 300;
         }
@@ -604,10 +578,6 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 padding: 4rem 1.5rem;
-            }
-
-            .credentials {
-                grid-template-columns: 1fr;
             }
 
             .signup-form {
@@ -768,32 +738,9 @@
                 students had ten years ago.
             </p>
 
-            <a href="/about.html" style="display: inline-block; margin-top: 0.5rem; margin-bottom: 1.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px;">
+            <a href="/about.html" style="display: inline-block; margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px;">
                 Full bio &amp; background →
             </a>
-
-            <div class="credentials">
-                <div class="cred">
-                    <strong>Academic</strong>
-                    D.Eng. Cybersecurity Analytics<br>
-                    George Washington University
-                </div>
-                <div class="cred">
-                    <strong>Teaching</strong>
-                    Professor & Dept. Chair<br>
-                    Lone Star College
-                </div>
-                <div class="cred">
-                    <strong>Industry</strong>
-                    35+ years cybersecurity,<br>
-                    military, NASA, DIB
-                </div>
-                <div class="cred">
-                    <strong>Consulting</strong>
-                    CMMC-track via<br>
-                    Secur.org
-                </div>
-            </div>
         </div>
     </section>
 
