@@ -94,6 +94,7 @@ export ADZUNA_APP_KEY=xxx
 python .github/scripts/scraper.py
 ```
 
+
 Output lands at `public/data/jobs.json`.
 
 ## Adding New Job Sources
