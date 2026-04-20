@@ -10,18 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #FAF7F0;
-            --paper: #1A1A1A;
-            --accent: #D94420;
-            --accent-dim: #B03515;
-            --green: #2D6930;
-            --yellow: #996515;
-            --red: #A62828;
-            --muted: #6B6760;
-            --line: rgba(26, 26, 26, 0.12);
-            --line-strong: rgba(26, 26, 26, 0.28);
-            --card: rgba(255, 255, 255, 0.6);
-            --card-hover: rgba(217, 68, 32, 0.05);
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --green: #5fb24f;
+            --yellow: #e6b04f;
+            --red: #d14343;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+            --card-hover: rgba(255, 74, 28, 0.06);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -132,7 +132,7 @@
 
         .lede {
             font-size: 1.2rem;
-            color: rgba(26, 26, 26, 0.78);
+            color: rgba(244, 241, 234, 0.75);
             max-width: 720px;
             line-height: 1.5;
             font-weight: 300;
@@ -171,6 +171,52 @@
             gap: 3rem;
         }
 
+        /* TOC jump-nav */
+        .toc {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem 1.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .toc-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .toc-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .toc-list a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--line);
+            transition: all 0.2s;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Hide TOC when filters are active (only show in default view) */
+        .toc.hidden {
+            display: none;
+        }
+
         /* Filter sidebar */
         .filters {
             position: sticky;
@@ -178,7 +224,7 @@
             align-self: start;
             border: 1px solid var(--line);
             padding: 1.75rem;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(10, 14, 20, 0.6);
             backdrop-filter: blur(10px);
         }
 
@@ -397,7 +443,7 @@
 
         .cert-take p {
             font-size: 0.95rem;
-            color: rgba(26, 26, 26, 0.88);
+            color: rgba(244, 241, 234, 0.85);
             line-height: 1.6;
             margin-bottom: 0.75rem;
             font-weight: 300;
@@ -432,8 +478,8 @@
         }
 
         .cert-tag.stage {
-            background: rgba(255, 255, 255, 0.7);
-            color: rgba(26, 26, 26, 0.55);
+            background: rgba(244, 241, 234, 0.05);
+            color: rgba(244, 241, 234, 0.6);
             border: 1px solid var(--line);
         }
 
@@ -448,6 +494,7 @@
             margin: 2rem 0 1rem;
             padding-bottom: 0.75rem;
             border-bottom: 1px solid var(--line-strong);
+            scroll-margin-top: 2rem;
         }
 
         .section-header:first-child {
@@ -480,7 +527,7 @@
 
         .philosophy p {
             font-size: 1.05rem;
-            color: rgba(26, 26, 26, 0.88);
+            color: rgba(244, 241, 234, 0.85);
             line-height: 1.6;
             margin-bottom: 0.75rem;
             font-weight: 300;
@@ -548,6 +595,7 @@
             nav { padding: 1rem 1.5rem; }
             .nav-links { gap: 1rem; font-size: 0.7rem; }
             .hero { padding: 3rem 1.5rem 2rem; }
+            .toc { padding: 0 1.5rem 1.5rem; }
             .container {
                 padding: 1.5rem;
                 grid-template-columns: 1fr;
@@ -571,6 +619,7 @@
             <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
         </a>
         <div class="nav-links">
+            <a href="/">Home</a>
             <a href="/jobs.html">Jobs</a>
             <a href="/certs.html" class="active">Certifications</a>
             <a href="/training.html">Training</a>
@@ -588,6 +637,21 @@
             someone who's been in the field for 35+ years and watches students navigate this every semester.
         </p>
     </section>
+
+    <div class="toc" id="toc">
+        <div class="toc-label">// Jump to section</div>
+        <div class="toc-list">
+            <a href="#section-start-here">Start here</a>
+            <a href="#section-second-cert">Second / third</a>
+            <a href="#section-tools">Tool specialties</a>
+            <a href="#section-cloud">Cloud</a>
+            <a href="#section-offensive">Offensive</a>
+            <a href="#section-ai-data">AI &amp; data</a>
+            <a href="#section-mid-senior">Mid-career</a>
+            <a href="#section-grc">GRC / audit</a>
+            <a href="#section-avoid">Overrated</a>
+        </div>
+    </div>
 
     <div class="container">
 
@@ -649,6 +713,10 @@
                     <label class="radio-item">
                         <input type="radio" name="path" value="federal">
                         Federal / DoD
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="path" value="ai-data">
+                        AI / Data
                     </label>
                 </div>
             </div>
@@ -1141,6 +1209,107 @@ const CERTIFICATIONS = [
             <p><strong>Skip if:</strong> You want to be a SOC analyst or work in software security. Network+ covers what you need. CCNA is overkill and the time investment is better spent on Security+ + CySA+ + a tool cert.</p>
         `,
     },
+    // ========== AI / DATA SCIENCE ==========
+    {
+        name: "IBM Data Science Professional Certificate",
+        vendor: "IBM / Coursera",
+        priority: 16,
+        section: "ai-data",
+        verdict: "worth-it",
+        verdictLabel: "Entry-level data",
+        cost: "$49/mo subscription",
+        studyTime: "3–6 months",
+        validity: "No expiration",
+        difficulty: "Beginner",
+        stages: ["entry", "early"],
+        paths: ["ai-data"],
+        takeTitle: "The most accessible entry into data/AI for career changers.",
+        takeBody: `
+            <p><strong>Nine self-paced courses</strong> covering Python, SQL, data analysis with pandas, data visualization, machine learning, and a capstone project. Aimed at beginners. Audit free, pay to get the cert.</p>
+            <p><strong>Worth it if:</strong> You're early career and want to add data literacy to your cyber résumé. The IBM brand carries some recognition with hiring managers who don't know data certifications well.</p>
+            <p><strong>Skip if:</strong> You already know Python and pandas. You'll be bored. Go straight to the Kaggle Learn micro-courses and build projects instead.</p>
+        `,
+    },
+    {
+        name: "AWS Certified AI Practitioner",
+        vendor: "AWS",
+        priority: 17,
+        section: "ai-data",
+        verdict: "worth-it",
+        verdictLabel: "Foundation-tier",
+        cost: "$100",
+        studyTime: "40–80 hours",
+        validity: "3 years",
+        difficulty: "Beginner",
+        stages: ["early", "mid"],
+        paths: ["ai-data", "cloud"],
+        takeTitle: "Fastest way to signal baseline AI literacy to employers.",
+        takeBody: `
+            <p><strong>AWS's foundational AI/ML certification</strong> — designed for people who need to understand AI concepts but aren't building models from scratch. Covers generative AI, ML fundamentals, responsible AI, and AWS-specific AI services (Bedrock, SageMaker, Comprehend).</p>
+            <p><strong>Worth it if:</strong> You want a credential that says "I understand AI in a business context." Pairs well with Security+ for cyber pros adding AI literacy. Relatively low time commitment for a recognized credential.</p>
+            <p><strong>Skip if:</strong> You want to actually build ML systems — this cert is too shallow for that. Go for the ML Specialty or hands-on courses instead.</p>
+        `,
+    },
+    {
+        name: "AWS Machine Learning Specialty",
+        vendor: "AWS",
+        priority: 18,
+        section: "ai-data",
+        verdict: "situational",
+        verdictLabel: "Mid-career specialty",
+        cost: "$300",
+        studyTime: "200+ hours",
+        validity: "3 years",
+        difficulty: "Hard",
+        stages: ["mid", "senior"],
+        paths: ["ai-data", "cloud"],
+        takeTitle: "Serious credential for serious ML work — not entry-level.",
+        takeBody: `
+            <p><strong>AWS's deep-dive ML certification.</strong> Tests everything from data engineering through model training, evaluation, deployment, and monitoring. Heavy on AWS-specific services (SageMaker, Comprehend, Forecast, Rekognition).</p>
+            <p><strong>Worth it if:</strong> You're mid-career and moving toward ML engineering for security (anomaly detection, threat intel automation). Employer sponsorship helps — this one is a significant study commitment.</p>
+            <p><strong>Skip if:</strong> You're entry-level or just curious about AI. This is an advanced cert. Start with AI Practitioner, fast.ai, and Kaggle competitions to build portfolio first.</p>
+        `,
+    },
+    {
+        name: "Microsoft Azure AI Engineer Associate (AI-102)",
+        vendor: "Microsoft",
+        priority: 19,
+        section: "ai-data",
+        verdict: "situational",
+        verdictLabel: "Azure stack",
+        cost: "$165",
+        studyTime: "80–120 hours",
+        validity: "1 year (renewable free)",
+        difficulty: "Moderate",
+        stages: ["mid"],
+        paths: ["ai-data", "cloud"],
+        takeTitle: "Azure-centric. Good if your employer is a Microsoft shop.",
+        takeBody: `
+            <p><strong>Focused on building AI solutions using Azure Cognitive Services and OpenAI on Azure.</strong> Less about the math of ML, more about integrating Microsoft's AI services into applications. Covers computer vision, natural language, and generative AI.</p>
+            <p><strong>Worth it if:</strong> Your employer (or target employer) is on the Microsoft stack. Government and enterprise shops often are. Pairs well with SC-100 for cloud security + AI.</p>
+            <p><strong>Skip if:</strong> You're in an AWS or Google Cloud environment. The Azure-specific knowledge won't transfer directly.</p>
+        `,
+    },
+    {
+        name: "TensorFlow Developer Certificate",
+        vendor: "Google / TensorFlow",
+        priority: 20,
+        section: "ai-data",
+        verdict: "situational",
+        verdictLabel: "Portfolio piece",
+        cost: "$100",
+        studyTime: "40–60 hours",
+        validity: "3 years",
+        difficulty: "Moderate",
+        stages: ["early", "mid"],
+        paths: ["ai-data"],
+        takeTitle: "Niche, but a good portfolio signal for ML-curious cyber folk.",
+        takeBody: `
+            <p><strong>Practical exam — you actually build models in TensorFlow</strong>, not answer multiple choice. Covers computer vision, NLP, time series. The hands-on nature makes it more credible than knowledge-check certs.</p>
+            <p><strong>Worth it if:</strong> You want to demonstrate you can actually write ML code, not just talk about it. A good résumé differentiator for cyber pros claiming AI skills.</p>
+            <p><strong>Skip if:</strong> You don't plan to use TensorFlow professionally. PyTorch has eaten most of the research world, and many production systems have moved off TF too. Know what your target employers use before investing.</p>
+        `,
+    },
 ];
 
 
@@ -1286,13 +1455,16 @@ function applyFilters() {
 
     // Group into sections for better visual structure
     // (but only when showing "all stages" — specific filters just show a flat list)
+    const toc = document.getElementById('toc');
     if (stage === 'all' && path === 'all') {
+        if (toc) toc.classList.remove('hidden');
         const sections = [
             { key: 'start-here', label: 'Start here', note: 'First certs most students should consider' },
             { key: 'second-cert', label: 'Second or third cert', note: 'After Security+' },
             { key: 'tools', label: 'Tool and specialty certs', note: 'Target these to specific roles' },
             { key: 'cloud', label: 'Cloud progression', note: 'AWS path' },
             { key: 'offensive', label: 'Offensive security', note: 'Technical, demanding' },
+            { key: 'ai-data', label: 'AI &amp; data science', note: 'Increasingly non-optional for modern cyber work' },
             { key: 'mid-senior', label: 'Mid-career and senior', note: 'Requires experience — wait if you don\'t have it' },
             { key: 'grc', label: 'GRC / audit / risk', note: 'Better after technical foundation' },
             { key: 'avoid', label: 'Overrated or avoid', note: 'Popular but not worth your money' },
@@ -1304,12 +1476,14 @@ function applyFilters() {
 
             const header = document.createElement('div');
             header.className = 'section-header';
+            header.id = 'section-' + section.key;
             header.innerHTML = `${section.label} <small>${section.note}</small>`;
             list.appendChild(header);
 
             certsInSection.forEach(cert => list.appendChild(renderCert(cert)));
         });
     } else {
+        if (toc) toc.classList.add('hidden');
         filtered.forEach(cert => list.appendChild(renderCert(cert)));
     }
 }
