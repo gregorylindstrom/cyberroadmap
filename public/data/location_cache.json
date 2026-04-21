@@ -2683,5 +2683,34 @@
   42.3648,
   -71.8969
  ],
- "norfolk downs|MA": null
+ "norfolk downs|MA": null,
+ "schenectady|NY": [
+  42.8333,
+  -74.058
+ ],
+ "lees summit|MO": [
+  38.912,
+  -94.3517
+ ],
+ "kingsley field|OR": null,
+ "connecticut; massachusetts; new york|DC": null,
+ "savoy|IL": [
+  40.0654,
+  -88.2528
+ ],
+ "camp williams|WI": null,
+ "naples|FL": [
+  26.143,
+  -81.7957
+ ],
+ "lazy lake|FL": null,
+ "cockeysville|MD": [
+  39.4919,
+  -76.6677
+ ],
+ "lakewood|CA": [
+  33.7866,
+  -118.2987
+ ],
+ "la habra|NY": null
 }
