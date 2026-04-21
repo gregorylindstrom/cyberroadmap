@@ -2565,5 +2565,59 @@
   34.4835,
   -118.1959
  ],
- "falls church city|VA": null
+ "falls church city|VA": null,
+ "miamisburg|PA": null,
+ "alaska|AK": [
+  53.8871,
+  -166.5199
+ ],
+ "pinehurst|WA": null,
+ "loehmanns plaza|NY": null,
+ "newark|CA": [
+  37.5368,
+  -122.032
+ ],
+ "homewood|CO": null,
+ "strongsville|OH": [
+  41.3132,
+  -81.8285
+ ],
+ "dayton|PA": [
+  40.8741,
+  -79.2686
+ ],
+ "north chicago|IN": null,
+ "tidewater|NY": null,
+ "chino|CA": [
+  33.954,
+  -117.6404
+ ],
+ "urbana|MD": null,
+ "belcamp|MD": [
+  39.4756,
+  -76.242
+ ],
+ "deerfield|IN": null,
+ "north cambridge|NJ": null,
+ "carver|MA": [
+  41.8883,
+  -70.7678
+ ],
+ "matthews|NC": [
+  35.0604,
+  -80.6958
+ ],
+ "calabasas|CA": [
+  34.1419,
+  -118.6641
+ ],
+ "del mar|CA": [
+  32.9665,
+  -117.249
+ ],
+ "rhode island|RI": null,
+ "poway|CA": [
+  32.9756,
+  -117.0402
+ ]
 }
