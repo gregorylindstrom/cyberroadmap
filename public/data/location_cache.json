@@ -2712,5 +2712,216 @@
   33.7866,
   -118.2987
  ],
- "la habra|NY": null
+ "la habra|NY": null,
+ "schofield barracks|HI": [
+  24.8598,
+  -168.0218
+ ],
+ "universal city|CA": [
+  34.1383,
+  -118.3528
+ ],
+ "exton|PA": [
+  40.0468,
+  -75.6432
+ ],
+ "fairview|TX": null,
+ "wayne|MI": [
+  42.2768,
+  -83.3758
+ ],
+ "brickell|FL": null,
+ "mount pleasant|GA": null,
+ "west springfield|VA": null,
+ "chatsworth|CA": [
+  34.2583,
+  -118.5914
+ ],
+ "hamburg|NY": [
+  42.7334,
+  -78.8389
+ ],
+ "fontana|CA": [
+  34.0922,
+  -117.4612
+ ],
+ "bannockburn|IN": null,
+ "stevenson ranch|CA": [
+  34.3775,
+  -118.6131
+ ],
+ "north syracuse|NY": null,
+ "lafayette|CO": [
+  39.998,
+  -105.0963
+ ],
+ "parker|TX": null,
+ "bogota|NJ": [
+  40.8744,
+  -74.0281
+ ],
+ "midway|WA": null,
+ "hermitage|TN": [
+  36.1848,
+  -86.6002
+ ],
+ "douglasville|CO": null,
+ "siluria|TN": null,
+ "bausman|PA": [
+  40.024,
+  -76.3281
+ ],
+ "malden|NJ": null,
+ "seal beach|NY": null,
+ "bartlesville|WA": null,
+ "south carolina|SC": null,
+ "marietta|PA": [
+  40.0664,
+  -76.5645
+ ],
+ "gettysburg|CO": null,
+ "altus|MO": null,
+ "richfield|OH": [
+  41.2371,
+  -81.6467
+ ],
+ "ridgefield park|NJ": [
+  40.8562,
+  -74.023
+ ],
+ "whitsett|NC": [
+  36.033,
+  -79.5972
+ ],
+ "commerce city|CO": [
+  39.8259,
+  -104.9113
+ ],
+ "cambridgeport|NJ": null,
+ "piscataway|NJ": [
+  40.5515,
+  -74.459
+ ],
+ "centerville|PA": [
+  41.7243,
+  -79.79
+ ],
+ "germantown|TN": [
+  35.0883,
+  -89.8053
+ ],
+ "southeastern|PA": [
+  39.9832,
+  -75.7481
+ ],
+ "north grafton|MA": [
+  42.2297,
+  -71.7037
+ ],
+ "downey|IN": null,
+ "fairless hills|PA": [
+  40.1748,
+  -74.8519
+ ],
+ "delhi|DE": null,
+ "jericho|NY": [
+  40.7881,
+  -73.5331
+ ],
+ "toronto|CO": null,
+ "clifton|NJ": [
+  40.8789,
+  -74.1425
+ ],
+ "stockbridge|GA": [
+  33.5633,
+  -84.2165
+ ],
+ "radnor|DE": null,
+ "town of tonawanda|NY": null,
+ "sarasota|FL": [
+  27.335,
+  -82.5372
+ ],
+ "san lorenzo|CA": [
+  37.6787,
+  -122.1295
+ ],
+ "east syracuse|NY": [
+  43.0734,
+  -76.0558
+ ],
+ "orange|NY": [
+  41.0442,
+  -73.9609
+ ],
+ "west acton|NJ": null,
+ "brockton|MA": [
+  42.0794,
+  -71.04
+ ],
+ "woodbridge|NJ": [
+  40.556,
+  -74.2845
+ ],
+ "montgomery village|PA": null,
+ "short hills|NJ": [
+  40.7368,
+  -74.3271
+ ],
+ "plantation|FL": null,
+ "roseville|CA": [
+  38.7346,
+  -121.234
+ ],
+ "madison heights|MI": [
+  42.5016,
+  -83.1027
+ ],
+ "camarillo|CA": [
+  34.2313,
+  -119.0464
+ ],
+ "vista|CA": [
+  33.0169,
+  -116.846
+ ],
+ "rosemont|IL": null,
+ "lake oswego|OR": [
+  45.4093,
+  -122.6847
+ ],
+ "barker|TX": [
+  29.834,
+  -95.4342
+ ],
+ "west greenwich|MI": null,
+ "brooklyn park|MN": null,
+ "harmans|MD": [
+  39.1561,
+  -76.6977
+ ],
+ "brisbane|CA": [
+  37.6811,
+  -122.4001
+ ],
+ "tuckahoe|VA": null,
+ "galena park|TX": [
+  29.7392,
+  -95.24
+ ],
+ "feasterville|PA": [
+  40.1547,
+  -74.9904
+ ],
+ "happy valley|OR": [
+  45.4446,
+  -122.5372
+ ],
+ "santa clara|WA": null,
+ "warr acres|OK": null,
+ "oakland|PA": [
+  40.6147,
+  -77.3192
+ ]
 }
