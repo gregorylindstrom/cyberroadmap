@@ -2923,5 +2923,93 @@
  "oakland|PA": [
   40.6147,
   -77.3192
- ]
+ ],
+ "marlborough|NJ": null,
+ "suffolk|VA": [
+  36.8668,
+  -76.5598
+ ],
+ "district of columbia|MA": null,
+ "peachtree city|GA": [
+  33.3915,
+  -84.5635
+ ],
+ "peterson air force base|CO": null,
+ "hampton city|VA": null,
+ "coronado|AZ": null,
+ "west allis|WI": null,
+ "rancho cordova|CA": [
+  38.6072,
+  -121.2761
+ ],
+ "ketchikan|AK": [
+  55.372,
+  -131.6832
+ ],
+ "staten island|NY": [
+  40.6316,
+  -74.0927
+ ],
+ "town|NJ": [
+  40.9883,
+  -74.0635
+ ],
+ "sedges garden|NC": null,
+ "fort washington|WA": null,
+ "byron center|MI": [
+  42.8016,
+  -85.7136
+ ],
+ "painesville|IN": null,
+ "helena|TN": null,
+ "menasha|IL": null,
+ "morristown|IL": null,
+ "paw creek|NC": [
+  35.26,
+  -80.8042
+ ],
+ "ridge|VA": [
+  38.6356,
+  -77.2683
+ ],
+ "sterling heights|MI": [
+  42.5648,
+  -83.0701
+ ],
+ "camp pendleton|CA": [
+  33.0169,
+  -116.846
+ ],
+ "edwards|CA": [
+  35.2582,
+  -118.1302
+ ],
+ "walled lake|MI": [
+  42.5582,
+  -83.4773
+ ],
+ "fullerton|NY": null,
+ "roxbury crossing|MA": null,
+ "village|CA": [
+  34.0324,
+  -119.1343
+ ],
+ "drexel gardens|IN": null,
+ "del rey oaks|CA": null,
+ "kirkland|WA": [
+  47.6786,
+  -122.1894
+ ],
+ "olmos park|TX": null,
+ "newport beach|NY": null,
+ "ruston|WA": null,
+ "eagle|WI": [
+  42.8809,
+  -88.4674
+ ],
+ "sand lake|NY": [
+  42.6379,
+  -73.4989
+ ],
+ "mosby|VA": null
 }
