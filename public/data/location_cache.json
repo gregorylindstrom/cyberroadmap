@@ -3011,5 +3011,76 @@
   42.6379,
   -73.4989
  ],
- "mosby|VA": null
+ "mosby|VA": null,
+ "carson|CA": [
+  33.823,
+  -118.2684
+ ],
+ "farmington hills|MI": null,
+ "new almaden|CA": [
+  37.1771,
+  -121.8207
+ ],
+ "glendale|WI": null,
+ "buckeye|AZ": [
+  33.389,
+  -112.6077
+ ],
+ "webster|NY": [
+  43.2196,
+  -77.4616
+ ],
+ "bethany|OK": [
+  35.5043,
+  -97.6399
+ ],
+ "coon rapids|MN": null,
+ "medicine lake|MN": null,
+ "miami gardens|FL": null,
+ "north reading|NJ": null,
+ "winchester|NJ": null,
+ "south lawrence|NJ": null,
+ "north chelmsford|NJ": null,
+ "methuen|NJ": null,
+ "dracut|NJ": null,
+ "billerica|NJ": null,
+ "west boxford|NJ": null,
+ "pinehurst|NJ": null,
+ "casas adobes|AZ": null,
+ "middleton|NJ": null,
+ "nutting lake|NJ": null,
+ "woburn|NJ": null,
+ "lynnfield|NJ": null,
+ "tyngsborough|NJ": null,
+ "acton|NJ": null,
+ "pelham|FL": null,
+ "north billerica|NJ": null,
+ "cortaro|AZ": [
+  32.4201,
+  -111.1132
+ ],
+ "fort lowell|AZ": null,
+ "mission|AZ": null,
+ "rincon|AZ": null,
+ "fayetteville|WA": null,
+ "nuttings lake|NJ": null,
+ "carlisle|NJ": null,
+ "woodland hills|CA": [
+  34.1557,
+  -118.6
+ ],
+ "west orange|NY": null,
+ "la jolla|CA": [
+  32.8455,
+  -117.2521
+ ],
+ "sansom park|TX": null,
+ "satellite beach|FL": [
+  28.178,
+  -80.602
+ ],
+ "cocoa beach|FL": [
+  28.3325,
+  -80.6121
+ ]
 }
