@@ -3147,5 +3147,130 @@
  "south lake|TX": null,
  "chuluota|FL": null,
  "cherry hills|CO": null,
- "nashville|MD": null
+ "nashville|MD": null,
+ "sunrise|FL": null,
+ "crownsville|MD": [
+  39.0489,
+  -76.5935
+ ],
+ "west bethesda|PA": null,
+ "seal beach|CA": [
+  33.7602,
+  -118.0808
+ ],
+ "lakeland|TN": null,
+ "pompano beach|FL": [
+  26.2315,
+  -80.1235
+ ],
+ "panama city naval surface warfare center|FL": null,
+ "moreno valley|CA": [
+  33.8814,
+  -117.2261
+ ],
+ "olney|PA": null,
+ "pontiac|MI": [
+  42.668,
+  -83.2893
+ ],
+ "ontario|CA": [
+  34.84,
+  -115.9671
+ ],
+ "lakeville estates|NY": null,
+ "minnetonka beach|MN": [
+  44.9402,
+  -93.5927
+ ],
+ "shenandoah|PA": [
+  40.8167,
+  -76.2035
+ ],
+ "villanova|DE": null,
+ "palmdale|CA": [
+  34.4133,
+  -118.0917
+ ],
+ "sandston|VA": [
+  37.5157,
+  -77.2758
+ ],
+ "stone ridge|VA": null,
+ "triadelphia|OH": null,
+ "south cheektowaga|NY": null,
+ "escondido|CA": [
+  33.1101,
+  -117.07
+ ],
+ "luke air force base|AZ": null,
+ "north richmond|CA": null,
+ "ysleta del sur pueblo|CO": null,
+ "highland park|MI": [
+  42.4212,
+  -83.1009
+ ],
+ "hyde park|IN": null,
+ "noblesville|IN": [
+  40.0563,
+  -86.0163
+ ],
+ "lutz|FL": [
+  28.1385,
+  -82.4821
+ ],
+ "dr martin luther king jr|FL": null,
+ "security services|TX": null,
+ "universal city|TX": [
+  29.5465,
+  -98.2954
+ ],
+ "burton|CO": null,
+ "galesburg|TN": null,
+ "higley|AZ": [
+  33.3024,
+  -111.6969
+ ],
+ "lake mary|FL": [
+  28.7577,
+  -81.3508
+ ],
+ "schneiders prairie|WA": null,
+ "pleasant grove|UT": [
+  40.372,
+  -111.7333
+ ],
+ "middletown|NJ": [
+  40.3944,
+  -74.1157
+ ],
+ "one horse store|AR": null,
+ "williamsville|NY": null,
+ "north hill|OH": null,
+ "romulus|MI": [
+  42.2203,
+  -83.3583
+ ],
+ "merrillville|IN": [
+  41.4957,
+  -87.3509
+ ],
+ "brooklyn|MN": null,
+ "arizona city|AZ": [
+  32.7452,
+  -111.6033
+ ],
+ "timpanogos|UT": null,
+ "rye brook|NY": null,
+ "el dorado|IL": null,
+ "saint george|WA": null,
+ "cranbury|NJ": [
+  40.3039,
+  -74.5065
+ ],
+ "manassas park city|VA": null,
+ "anaheim|NY": null,
+ "richmond|CA": [
+  37.94,
+  -122.362
+ ]
 }
