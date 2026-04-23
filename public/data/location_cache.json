@@ -3321,5 +3321,87 @@
   -74.4064
  ],
  "panther creek|PA": null,
- "oak lane|PA": null
+ "oak lane|PA": null,
+ "federal heights|CO": null,
+ "bixby knolls|CA": null,
+ "the acreage|FL": null,
+ "blythe|CA": [
+  33.7464,
+  -114.6681
+ ],
+ "covington|WA": null,
+ "orange city|FL": [
+  28.9453,
+  -81.2995
+ ],
+ "ocala|IN": null,
+ "turner|IN": null,
+ "mcallen|TX": [
+  26.2154,
+  -98.2359
+ ],
+ "mount tabor|NC": null,
+ "paradise valley|AZ": [
+  33.5494,
+  -111.9565
+ ],
+ "horsham|PA": [
+  40.1821,
+  -75.1479
+ ],
+ "pacheco|CA": null,
+ "midlothian|IL": [
+  41.635,
+  -87.7362
+ ],
+ "pine bluff|CA": null,
+ "alondra park|CA": null,
+ "crawfordsville|PA": null,
+ "goodhope|NC": null,
+ "granville|MA": [
+  42.1127,
+  -72.952
+ ],
+ "thompsons station|TX": null,
+ "hickory hill|TN": null,
+ "bartlett|TN": null,
+ "cordova|TN": [
+  35.1602,
+  -89.7816
+ ],
+ "millington|TN": [
+  35.3185,
+  -89.9054
+ ],
+ "eads|TN": [
+  35.1551,
+  -89.676
+ ],
+ "longmeadow|MA": [
+  42.0672,
+  -72.5056
+ ],
+ "fife|WA": null,
+ "fort lee|NJ": [
+  40.8503,
+  -73.9745
+ ],
+ "woodbury|WA": null,
+ "conshohocken|PA": [
+  40.0825,
+  -75.3044
+ ],
+ "forest glen|PA": null,
+ "temple city|CA": [
+  34.1016,
+  -118.0537
+ ],
+ "palm bay|FL": [
+  28.0313,
+  -80.5995
+ ],
+ "thousand oaks|CA": [
+  34.0324,
+  -119.1343
+ ]
 }
