@@ -3403,5 +3403,42 @@
  "thousand oaks|CA": [
   34.0324,
   -119.1343
+ ],
+ "west warwick|MI": null,
+ "rickenbacker afb|OH": null,
+ "perry point|MD": [
+  39.553,
+  -76.0725
+ ],
+ "white city|OR": [
+  42.4319,
+  -122.8296
+ ],
+ "iron mountain|MI": [
+  45.8219,
+  -88.0683
+ ],
+ "davidson|NC": [
+  35.4993,
+  -80.8486
+ ],
+ "kohrville|TX": null,
+ "bennington|CO": null,
+ "north kansas city|KS": null,
+ "salinas|CA": [
+  36.6677,
+  -121.6596
+ ],
+ "timnath|CO": [
+  40.7087,
+  -105.0175
+ ],
+ "midlothian|VA": [
+  37.431,
+  -77.6545
+ ],
+ "oakdale|CA": [
+  37.7741,
+  -120.8377
  ]
 }
