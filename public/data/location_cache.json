@@ -3272,5 +3272,54 @@
  "richmond|CA": [
   37.94,
   -122.362
- ]
+ ],
+ "ford island|HI": null,
+ "deer park|TX": [
+  29.6826,
+  -95.1222
+ ],
+ "mather afb|CA": null,
+ "sandusky|OH": [
+  40.8249,
+  -83.2977
+ ],
+ "barksdale afb|LA": [
+  32.5137,
+  -93.6404
+ ],
+ "lake city|MO": null,
+ "montgomery|MD": [
+  39.1757,
+  -77.1872
+ ],
+ "uptown|NJ": null,
+ "avondale|IN": null,
+ "concord|MA": [
+  42.4567,
+  -71.3747
+ ],
+ "wellington|FL": null,
+ "vinnings|GA": null,
+ "fort hamilton|NY": null,
+ "satsuma|TX": null,
+ "palma ceia|FL": null,
+ "buena park|NY": null,
+ "cumberland|IN": null,
+ "east long beach|CA": null,
+ "winter park|NY": null,
+ "hoover|CO": null,
+ "lansdowne|DE": null,
+ "lake balboa|CA": null,
+ "cherry hills village|CO": null,
+ "bluff park|CO": null,
+ "jackson|NJ": [
+  40.121,
+  -74.3017
+ ],
+ "east brunswick|NJ": [
+  40.4284,
+  -74.4064
+ ],
+ "panther creek|PA": null,
+ "oak lane|PA": null
 }
