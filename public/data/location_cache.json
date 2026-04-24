@@ -3440,5 +3440,66 @@
  "oakdale|CA": [
   37.7741,
   -120.8377
- ]
+ ],
+ "arlington heights|IL": [
+  42.112,
+  -87.9792
+ ],
+ "shrewsbury|NJ": [
+  40.3282,
+  -74.0589
+ ],
+ "downingtown|PA": [
+  40.0161,
+  -75.7183
+ ],
+ "sun city|CA": [
+  33.7467,
+  -117.1721
+ ],
+ "decker prairie|PA": null,
+ "upper gwynedd|PA": null,
+ "garden grove|NY": null,
+ "maple grove|MN": null,
+ "mississippi|MS": [
+  33.4156,
+  -88.7433
+ ],
+ "solon|OH": [
+  39.7423,
+  -83.597
+ ],
+ "rancho mirage|CA": [
+  33.7643,
+  -116.4225
+ ],
+ "central islip|MA": null,
+ "merritt island|FL": [
+  28.2764,
+  -80.6568
+ ],
+ "roanoke|TX": [
+  33.0211,
+  -97.2127
+ ],
+ "lemont|IL": [
+  41.7074,
+  -87.9756
+ ],
+ "baldwin park|CA": [
+  34.0964,
+  -117.9682
+ ],
+ "hastings|CO": null,
+ "bloomfield|NJ": [
+  40.8035,
+  -74.1891
+ ],
+ "indian orchard|MA": [
+  42.1532,
+  -72.505
+ ],
+ "highlands ranch|CO": null,
+ "breckenridge|OH": null,
+ "seybold|FL": null
 }
