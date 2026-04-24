@@ -3656,5 +3656,26 @@
   40.1576,
   -75.2799
  ],
- "meadow woods|NY": null
+ "meadow woods|NY": null,
+ "atlanta; boston; new york city|NY": null,
+ "kingwood|VA": null,
+ "jackson|WY": [
+  43.4528,
+  -110.7393
+ ],
+ "clarksville|TN": [
+  36.522,
+  -87.349
+ ],
+ "saint michaels|AZ": [
+  35.904,
+  -109.3087
+ ],
+ "independence|OH": [
+  41.3809,
+  -81.6642
+ ],
+ "johnson city|WA": null,
+ "lakewood ranch|FL": null,
+ "palm valley|TX": null
 }
