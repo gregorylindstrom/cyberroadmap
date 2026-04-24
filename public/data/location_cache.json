@@ -3501,5 +3501,129 @@
  ],
  "highlands ranch|CO": null,
  "breckenridge|OH": null,
- "seybold|FL": null
+ "seybold|FL": null,
+ "king|NY": [
+  40.8861,
+  -73.2438
+ ],
+ "minot afb|ND": [
+  48.4232,
+  -101.3168
+ ],
+ "bay saint louis|MS": [
+  30.2956,
+  -89.4632
+ ],
+ "federal medical center carswell|TX": null,
+ "east view|NY": null,
+ "fort knox|KY": [
+  37.8928,
+  -85.9489
+ ],
+ "fort leavenworth|KS": [
+  39.3485,
+  -94.9265
+ ],
+ "fort eustis|VA": [
+  37.1574,
+  -76.5845
+ ],
+ "white sands missile range|NM": [
+  32.3839,
+  -106.4937
+ ],
+ "gainesville|VA": [
+  38.8157,
+  -77.6216
+ ],
+ "garfield heights|OH": null,
+ "troy|NY": [
+  42.7114,
+  -73.5256
+ ],
+ "ridgecrest|CA": [
+  35.5405,
+  -117.794
+ ],
+ "lewistown|MD": null,
+ "verona|WI": [
+  42.9999,
+  -89.5522
+ ],
+ "freeport|NY": [
+  40.6536,
+  -73.5866
+ ],
+ "chamberlayne|VA": null,
+ "north quincy|MA": null,
+ "somerset|TX": [
+  29.2205,
+  -98.6678
+ ],
+ "middleton|WI": [
+  43.1052,
+  -89.5073
+ ],
+ "santa fe springs|CA": [
+  33.9464,
+  -118.0838
+ ],
+ "radford|VA": [
+  37.1197,
+  -80.5565
+ ],
+ "delaware|DE": [
+  39.5725,
+  -75.5957
+ ],
+ "american fork|UT": [
+  40.3928,
+  -111.7941
+ ],
+ "meadowbrook|TN": null,
+ "palm beach|FL": [
+  26.7165,
+  -80.0679
+ ],
+ "schriever air force base|CO": null,
+ "kentucky|KY": null,
+ "raynham center|MA": [
+  41.7562,
+  -71.0671
+ ],
+ "foothill ranch|NY": null,
+ "jollyville|TX": null,
+ "havelock|PA": null,
+ "oakdale|WA": null,
+ "fort detrick|MD": null,
+ "huntington|MA": [
+  42.2653,
+  -72.8733
+ ],
+ "denton|TX": [
+  33.2289,
+  -97.1314
+ ],
+ "issaquah|WA": [
+  47.4974,
+  -122.0107
+ ],
+ "hicksville|NY": [
+  40.7623,
+  -73.523
+ ],
+ "pinecrest|FL": null,
+ "glendale|CA": [
+  34.1716,
+  -118.2899
+ ],
+ "alpine|UT": [
+  40.4616,
+  -111.7689
+ ],
+ "norcross|GA": [
+  33.9604,
+  -84.0379
+ ],
+ "roxborough|CO": null
 }
