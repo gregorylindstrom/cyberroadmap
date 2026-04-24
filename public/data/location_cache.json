@@ -3625,5 +3625,36 @@
   33.9604,
   -84.0379
  ],
- "roxborough|CO": null
+ "roxborough|CO": null,
+ "mishawaka|IN": [
+  41.6507,
+  -86.1623
+ ],
+ "aloma|NY": null,
+ "niles|IL": [
+  42.0312,
+  -87.8112
+ ],
+ "el monte|CA": [
+  34.0791,
+  -118.0371
+ ],
+ "arlington|CA": null,
+ "fair oaks|CA": [
+  38.6554,
+  -121.2611
+ ],
+ "huffman|CO": null,
+ "panorama village|PA": null,
+ "shorewood|IL": [
+  41.5076,
+  -88.2169
+ ],
+ "saginaw|TX": null,
+ "sunset valley|TX": null,
+ "blue bell|PA": [
+  40.1576,
+  -75.2799
+ ],
+ "meadow woods|NY": null
 }
