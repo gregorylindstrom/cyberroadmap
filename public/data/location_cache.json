@@ -3677,5 +3677,100 @@
  ],
  "johnson city|WA": null,
  "lakewood ranch|FL": null,
- "palm valley|TX": null
+ "palm valley|TX": null,
+ "austin; dallas; new york city|NY": null,
+ "austin; new jersey; new york city|NJ": null,
+ "gloucester|NJ": [
+  39.8911,
+  -75.117
+ ],
+ "marine corps air station miramar|CA": null,
+ "casa grande|AZ": [
+  32.8906,
+  -111.754
+ ],
+ "eagle rock|NC": [
+  35.7725,
+  -78.9604
+ ],
+ "fort monmouth|NJ": [
+  40.3177,
+  -74.039
+ ],
+ "brown deer|WI": null,
+ "eastlake|CO": [
+  39.808,
+  -104.4079
+ ],
+ "eldorado springs|CO": [
+  39.9324,
+  -105.288
+ ],
+ "adams|CO": null,
+ "norfolk|MA": [
+  42.1177,
+  -71.3269
+ ],
+ "sunbeam|OH": null,
+ "brooklyn|OH": null,
+ "marysville|NJ": null,
+ "turlock|CA": [
+  37.4888,
+  -120.8535
+ ],
+ "melrose park|IL": [
+  41.9003,
+  -87.8581
+ ],
+ "brenham|WA": null,
+ "drexel hill|DE": null,
+ "west norriton|PA": null,
+ "wyncote|PA": [
+  40.0867,
+  -75.1524
+ ],
+ "spring house|PA": [
+  40.1839,
+  -75.2327
+ ],
+ "harvard square|NJ": null,
+ "mission hill|MA": null,
+ "ellicott city|MD": [
+  39.2364,
+  -76.9419
+ ],
+ "rahns|PA": null,
+ "federal way|WA": [
+  47.3203,
+  -122.3117
+ ],
+ "hatboro|PA": [
+  40.1785,
+  -75.1072
+ ],
+ "oreland|PA": [
+  40.3294,
+  -79.6806
+ ],
+ "bensalem|PA": [
+  40.1109,
+  -74.9378
+ ],
+ "ambler|PA": [
+  40.1809,
+  -75.2156
+ ],
+ "glenside|PA": [
+  40.1096,
+  -75.155
+ ],
+ "broomall|DE": null,
+ "lansdale|PA": [
+  40.2378,
+  -75.2955
+ ],
+ "jenkintown|PA": [
+  40.098,
+  -75.1078
+ ]
 }
