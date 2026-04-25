@@ -3853,5 +3853,39 @@
  ],
  "barrett parkway|GA": null,
  "bedford|FL": null,
- "warren park|IN": null
+ "warren park|IN": null,
+ "fountain|CO": [
+  38.6996,
+  -104.7005
+ ],
+ "morgan hill|CA": [
+  37.1353,
+  -121.6501
+ ],
+ "allendale|NJ": [
+  41.0327,
+  -74.1342
+ ],
+ "glen allen|VA": [
+  37.5313,
+  -77.4161
+ ],
+ "san pedro|CA": [
+  33.7339,
+  -118.2914
+ ],
+ "lakewood|NJ": [
+  40.085,
+  -74.2042
+ ],
+ "eudowood|MD": null,
+ "santa monica|CA": [
+  34.0176,
+  -118.4907
+ ],
+ "arco|CA": [
+  33.1444,
+  -117.1697
+ ],
+ "camp hill|NC": null
 }
