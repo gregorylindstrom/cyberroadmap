@@ -3941,5 +3941,75 @@
   34.1227,
   -118.7573
  ],
- "montana|MT": null
+ "montana|MT": null,
+ "fort leonard wood|MO": [
+  37.7677,
+  -92.112
+ ],
+ "suwanee|GA": [
+  34.0425,
+  -84.0262
+ ],
+ "maitland|NY": null,
+ "chesterfield|MI": null,
+ "garner|NC": [
+  35.6813,
+  -78.5975
+ ],
+ "arbutus|MD": null,
+ "orlo vista|NY": null,
+ "batavia|IL": [
+  41.8482,
+  -88.3098
+ ],
+ "wheaton|PA": null,
+ "joelton|TN": [
+  36.329,
+  -86.9163
+ ],
+ "manchester|NJ": null,
+ "rolling meadows|IL": [
+  42.073,
+  -88.0191
+ ],
+ "lima|IN": null,
+ "olde farm|NC": null,
+ "muncie|DE": null,
+ "anna|NJ": [
+  40.6287,
+  -74.8855
+ ],
+ "edmond|OK": [
+  35.6748,
+  -97.4997
+ ],
+ "woodbridge|NY": null,
+ "kimberlin heights|TN": null,
+ "new augusta|IN": null,
+ "waynedale|IN": null,
+ "wheeler|WA": null,
+ "west bloomfield|MI": [
+  42.5424,
+  -83.3793
+ ],
+ "nashville|WA": null,
+ "wylie|TX": [
+  33.0041,
+  -96.5394
+ ],
+ "springfield|WA": null,
+ "oakland park|FL": null,
+ "greencastle|OH": null,
+ "salmon creek|WA": null,
+ "delray|MI": null,
+ "tracy|CA": [
+  37.7319,
+  -121.4096
+ ],
+ "dorchester|MD": null,
+ "north sioux city|NJ": null,
+ "troy|MI": [
+  42.6061,
+  -83.2976
+ ]
 }
