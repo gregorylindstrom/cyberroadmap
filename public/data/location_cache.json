@@ -4011,5 +4011,57 @@
  "troy|MI": [
   42.6061,
   -83.2976
- ]
+ ],
+ "pumpkin|CA": null,
+ "north hollywood|CA": [
+  34.1687,
+  -118.3713
+ ],
+ "east union|WA": null,
+ "groton|NJ": null,
+ "pine mountain|TX": null,
+ "sun city center|FL": [
+  27.7201,
+  -82.453
+ ],
+ "akwesasne|OH": null,
+ "clear creek|NY": null,
+ "metuchen|NJ": [
+  40.5449,
+  -74.3517
+ ],
+ "hood college|MD": null,
+ "rockrimmon|CO": null,
+ "wheat ridge|CO": [
+  39.774,
+  -105.0962
+ ],
+ "cicero|IL": [
+  41.8457,
+  -87.7613
+ ],
+ "ogden park|IL": null,
+ "stock yards|IL": [
+  38.6516,
+  -90.1639
+ ],
+ "schaumburg|IL": [
+  41.8119,
+  -87.6873
+ ],
+ "high point|NC": [
+  35.954,
+  -79.9884
+ ],
+ "wall|NJ": [
+  40.8536,
+  -74.1079
+ ],
+ "keystone islands|FL": null,
+ "indian land|PA": null,
+ "monument|CO": [
+  39.1007,
+  -104.8542
+ ],
+ "greenwood village|CO": null
 }
