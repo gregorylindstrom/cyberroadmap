@@ -4141,5 +4141,33 @@
  "beech grove|IN": [
   39.7154,
   -86.0933
- ]
+ ],
+ "draper|UT": [
+  40.5046,
+  -111.881
+ ],
+ "atlanta; austin; new york city|NY": null,
+ "new york city; seattle|NY": null,
+ "medway|MA": [
+  42.1514,
+  -71.4217
+ ],
+ "freehold|NJ": [
+  40.2458,
+  -74.2768
+ ],
+ "white river junction|VT": [
+  43.6722,
+  -72.3813
+ ],
+ "south elgin|IL": [
+  41.9969,
+  -88.2986
+ ],
+ "gambrills|MD": [
+  39.0407,
+  -76.6819
+ ],
+ "mettawa|IN": null,
+ "marigold|CA": null
 }
