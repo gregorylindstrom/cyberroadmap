@@ -4497,5 +4497,73 @@
  "la grange|IL": [
   41.7842,
   -87.8689
+ ],
+ "wahiawa|HI": [
+  21.5006,
+  -158.0435
+ ],
+ "mayport|FL": null,
+ "upper arlington|OH": null,
+ "north chicago|IL": [
+  42.3247,
+  -87.8564
+ ],
+ "cerritos|CA": [
+  33.8669,
+  -118.0686
+ ],
+ "butler|MD": [
+  39.533,
+  -76.7432
+ ],
+ "sparks|MD": [
+  39.5483,
+  -76.6819
+ ],
+ "riderwood|MD": [
+  39.439,
+  -76.5921
+ ],
+ "community|VA": null,
+ "fowbelsburg|MD": null,
+ "oakton|VA": [
+  38.8852,
+  -77.3233
+ ],
+ "lisbon|MD": [
+  39.3378,
+  -77.072
+ ],
+ "adamstown|MD": [
+  39.291,
+  -77.4552
+ ],
+ "monkton|MD": [
+  39.5662,
+  -76.5979
+ ],
+ "lincolnia|VA": null,
+ "middle river|MD": [
+  39.3401,
+  -76.4153
+ ],
+ "chevy chase village|PA": null,
+ "lothian|MD": [
+  38.8029,
+  -76.6628
+ ],
+ "elk grove village|IL": [
+  42.0076,
+  -87.9931
+ ],
+ "limerick|PA": null,
+ "canonsburg|WA": null,
+ "odessa|FL": [
+  28.1421,
+  -82.5905
+ ],
+ "rockledge|FL": [
+  28.3134,
+  -80.7319
  ]
 }
