@@ -4631,5 +4631,68 @@
  ],
  "huntington station|MA": null,
  "edwards air force base|CA": null,
- "falcon|CO": null
+ "falcon|CO": null,
+ "lawncrest|PA": null,
+ "oregon|OR": [
+  45.3377,
+  -122.57
+ ],
+ "riverhead|MA": null,
+ "middlesex|NJ": [
+  40.5759,
+  -74.5008
+ ],
+ "manvel|TX": [
+  29.4694,
+  -95.3503
+ ],
+ "lincolnshire woods|IN": null,
+ "hasbrouck heights|NJ": [
+  40.8623,
+  -74.0756
+ ],
+ "south barrington|IN": null,
+ "stafford|TX": [
+  29.6228,
+  -95.5678
+ ],
+ "lunenburg|MA": [
+  42.5884,
+  -71.7266
+ ],
+ "carl fisher|FL": null,
+ "guasti|CA": [
+  34.84,
+  -115.9671
+ ],
+ "kennett square|PA": [
+  39.855,
+  -75.7
+ ],
+ "dessau|TX": null,
+ "stateville|IL": null,
+ "eastlawn|MO": null,
+ "harrison|NY": [
+  40.9719,
+  -73.7181
+ ],
+ "southlake|TX": [
+  32.9485,
+  -97.1524
+ ],
+ "newtown square|DE": null,
+ "woody acres|PA": null,
+ "lancaster|CA": [
+  34.6909,
+  -118.1491
+ ],
+ "temecula|CA": [
+  33.7529,
+  -116.0556
+ ],
+ "old brookville|NY": null,
+ "green mountain falls|CO": [
+  38.9389,
+  -105.0094
+ ]
 }
