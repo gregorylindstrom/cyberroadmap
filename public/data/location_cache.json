@@ -4921,5 +4921,72 @@
   -77.2345
  ],
  "widefield|CO": null,
- "van buren|MI": null
+ "van buren|MI": null,
+ "grand prairie|TX": [
+  32.7649,
+  -97.0112
+ ],
+ "thomson|IL": [
+  41.9816,
+  -90.0844
+ ],
+ "grandville|MI": [
+  42.8939,
+  -85.7619
+ ],
+ "farmingdale|NY": [
+  40.7315,
+  -73.4327
+ ],
+ "aventura|FL": null,
+ "tolland|CT": [
+  41.8696,
+  -72.3718
+ ],
+ "allenwood|NY": null,
+ "oak grove village|OH": null,
+ "grain valley|MO": [
+  39.0274,
+  -94.2087
+ ],
+ "union|OH": [
+  40.1367,
+  -83.3408
+ ],
+ "de soto|CO": null,
+ "groveport|OH": [
+  39.8581,
+  -82.8872
+ ],
+ "shannon|CO": null,
+ "mechanicsburg|NC": null,
+ "henrico|VA": null,
+ "caroline|VA": null,
+ "fairlawn|NJ": null,
+ "lewistown|GA": null,
+ "merrionette park|IL": null,
+ "princeton|TX": [
+  33.1555,
+  -96.4981
+ ],
+ "readville|MA": [
+  42.3389,
+  -70.9196
+ ],
+ "medford|NJ": [
+  39.8637,
+  -74.8223
+ ],
+ "palms|CA": [
+  33.8082,
+  -116.3713
+ ],
+ "waller|TX": [
+  30.071,
+  -95.9253
+ ],
+ "devon|PA": [
+  40.0452,
+  -75.4227
+ ]
 }
