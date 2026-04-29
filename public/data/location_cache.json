@@ -4891,5 +4891,35 @@
   37.8753,
   -122.0703
  ],
- "bay lake|NY": null
+ "bay lake|NY": null,
+ "scotia|NY": null,
+ "meadows|NJ": [
+  40.852,
+  -74.9418
+ ],
+ "wisconsin rapids|WI": [
+  44.3758,
+  -89.8062
+ ],
+ "baldwin hills|CA": null,
+ "franconia|VA": null,
+ "arnold|MD": [
+  39.0476,
+  -76.4941
+ ],
+ "engleside|VA": null,
+ "poolesville|PA": null,
+ "kingsville|MD": [
+  39.4558,
+  -76.4147
+ ],
+ "aspen hill|PA": null,
+ "chevy chase|PA": null,
+ "cabin john|PA": null,
+ "merrifield|VA": [
+  38.8739,
+  -77.2345
+ ],
+ "widefield|CO": null,
+ "van buren|MI": null
 }
