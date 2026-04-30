@@ -5127,5 +5127,77 @@
   -87.4648
  ],
  "morningdale|MA": null,
- "north kingstown|WA": null
+ "north kingstown|WA": null,
+ "leeds|MA": [
+  42.3543,
+  -72.7034
+ ],
+ "la canada|CA": [
+  34.2217,
+  -118.2051
+ ],
+ "murfreesboro|TN": [
+  35.763,
+  -86.3722
+ ],
+ "tinley park|IL": [
+  41.5825,
+  -87.805
+ ],
+ "charlottesville|VA": [
+  38.0936,
+  -78.5611
+ ],
+ "danville|IL": [
+  40.137,
+  -87.6217
+ ],
+ "jefferson|LA": null,
+ "wexford|PA": [
+  40.612,
+  -80.0649
+ ],
+ "rahway|NJ": [
+  40.6087,
+  -74.2819
+ ],
+ "sedona|AZ": [
+  34.8266,
+  -111.7506
+ ],
+ "lansing|IL": [
+  41.566,
+  -87.5446
+ ],
+ "bayonne|NJ": [
+  40.6664,
+  -74.1192
+ ],
+ "camas|WA": [
+  45.6058,
+  -122.4142
+ ],
+ "commack|MA": null,
+ "russellville|OH": [
+  38.8511,
+  -83.7625
+ ],
+ "roseland|CA": null,
+ "santa rosa|CA": [
+  38.4432,
+  -122.7547
+ ],
+ "sonoma|CA": [
+  38.2849,
+  -122.4696
+ ],
+ "mundelein|IN": null,
+ "raleigh|TX": null,
+ "chesterfield|VA": [
+  37.3923,
+  -77.5668
+ ],
+ "blytheville|MS": null,
+ "mclean|WA": null,
+ "tacoma|DE": null
 }
