@@ -5446,5 +5446,50 @@
  "wetmore|TX": null,
  "midfield|CO": null,
  "new cumberland|NC": null,
- "newark|MI": null
+ "newark|MI": null,
+ "north smithfield|RI": [
+  41.9724,
+  -71.5508
+ ],
+ "austin; new york city; palo alto|NY": null,
+ "remote - maryland|MD": null,
+ "san angelo|TX": [
+  31.4782,
+  -100.4818
+ ],
+ "valley stream|NY": [
+  40.6742,
+  -73.7057
+ ],
+ "cherry valley|IL": [
+  42.2206,
+  -88.9619
+ ],
+ "quincy|CO": null,
+ "bradenton|FL": [
+  27.4047,
+  -82.4705
+ ],
+ "oak park|IL": [
+  41.8886,
+  -87.7986
+ ],
+ "bloomington|NY": [
+  41.8752,
+  -74.0436
+ ],
+ "niwot|CO": [
+  40.177,
+  -105.275
+ ],
+ "portway acres|TX": null,
+ "mather|CA": [
+  38.5579,
+  -121.291
+ ],
+ "duarte|CA": [
+  34.149,
+  -117.9644
+ ],
+ "bratenahl|OH": null
 }
