@@ -5199,5 +5199,101 @@
  ],
  "blytheville|MS": null,
  "mclean|WA": null,
- "tacoma|DE": null
+ "tacoma|DE": null,
+ "egypt lake-leto|FL": null,
+ "colfax|IN": [
+  40.1956,
+  -86.6593
+ ],
+ "bourne|MA": null,
+ "city ranch|CA": null,
+ "nellis air force base|WA": null,
+ "mescalero|NM": [
+  33.2164,
+  -105.7743
+ ],
+ "connecticut; massachusetts|CT": null,
+ "cavalier|ND": [
+  48.7935,
+  -97.7143
+ ],
+ "pascagoula|MO": null,
+ "calico ridge|WA": null,
+ "sioux city|IA": [
+  42.4972,
+  -96.4029
+ ],
+ "fulton|GA": null,
+ "temple|TX": [
+  31.0895,
+  -97.3343
+ ],
+ "price hill|IN": null,
+ "english village|CO": null,
+ "milwaukie|OR": null,
+ "sells|AZ": [
+  32.0315,
+  -112.0065
+ ],
+ "perris|CA": [
+  33.7852,
+  -117.3166
+ ],
+ "mount air|OH": null,
+ "boydton|NC": null,
+ "jefferson|IN": [
+  38.3078,
+  -85.7359
+ ],
+ "san clemente|NY": null,
+ "oceanside|CA": [
+  33.0169,
+  -116.846
+ ],
+ "mapleton|UT": [
+  40.1337,
+  -111.5801
+ ],
+ "westfield ter|NC": null,
+ "south riding|VA": null,
+ "stephens city|MD": null,
+ "natick|NJ": null,
+ "stephenson|MD": null,
+ "del city|OK": null,
+ "lakewood village|TX": null,
+ "lewisville|TX": [
+  33.2074,
+  -97.1163
+ ],
+ "lucas|TX": null,
+ "savannah|TX": null,
+ "lavon|TX": [
+  33.0139,
+  -96.4377
+ ],
+ "prosper|TX": [
+  33.2362,
+  -96.7954
+ ],
+ "travis heights|TX": null,
+ "tuscon|AZ": null,
+ "main avenue station|NJ": null,
+ "vail|AZ": [
+  32.0027,
+  -110.7053
+ ],
+ "dearborn heights|MI": [
+  42.2768,
+  -83.2606
+ ],
+ "north|GA": [
+  34.0035,
+  -84.1505
+ ],
+ "gresham|OR": [
+  45.5154,
+  -122.4203
+ ],
+ "tualatin|WA": null,
+ "maynard|NJ": null
 }
