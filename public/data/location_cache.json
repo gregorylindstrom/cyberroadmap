@@ -5295,5 +5295,146 @@
   -122.4203
  ],
  "tualatin|WA": null,
- "maynard|NJ": null
+ "maynard|NJ": null,
+ "loma linda|CA": [
+  34.84,
+  -115.9671
+ ],
+ "sand|CA": [
+  34.0324,
+  -119.1343
+ ],
+ "independence|PA": null,
+ "montvale|NJ": [
+  41.0495,
+  -74.0384
+ ],
+ "college park|MD": [
+  38.9963,
+  -76.9299
+ ],
+ "kittery|ME": [
+  43.0921,
+  -70.7429
+ ],
+ "wilkes barre|PA": [
+  41.2436,
+  -75.885
+ ],
+ "naval base newport|RI": null,
+ "butler|WI": [
+  43.1054,
+  -88.071
+ ],
+ "irondale|CO": null,
+ "phillips ranch|CA": null,
+ "carlisle|NC": null,
+ "westchase|FL": null,
+ "millers|VA": [
+  37.8364,
+  -76.9138
+ ],
+ "bridgehampton|MA": null,
+ "west bridgewater|MA": [
+  42.0255,
+  -71.0161
+ ],
+ "north loma linda|CA": null,
+ "bethpage|NY": [
+  40.74,
+  -73.4857
+ ],
+ "brushy creek|TX": null,
+ "saint thomas|OH": null,
+ "hemet|CA": [
+  33.7416,
+  -116.973
+ ],
+ "grayslake|IN": null,
+ "timberwood park|TX": null,
+ "tarpon springs|FL": [
+  28.1458,
+  -82.6825
+ ],
+ "balcones heights|TX": null,
+ "highland|IN": [
+  41.55,
+  -87.4569
+ ],
+ "crest hill|IL": [
+  41.8397,
+  -87.7905
+ ],
+ "oak lawn|IL": [
+  41.7143,
+  -87.7516
+ ],
+ "north port|FL": [
+  27.0748,
+  -82.1756
+ ],
+ "north palm springs|CA": [
+  33.925,
+  -116.5496
+ ],
+ "gila bend|AZ": [
+  32.9306,
+  -112.7468
+ ],
+ "roseburg|CO": null,
+ "marion|MA": [
+  41.7095,
+  -70.7613
+ ],
+ "comstock park|MI": [
+  43.0578,
+  -85.6845
+ ],
+ "great lakes|IN": null,
+ "upper key largo|NY": null,
+ "gorham|NC": null,
+ "holy city|CA": [
+  37.1584,
+  -121.986
+ ],
+ "victorville|CA": [
+  34.4802,
+  -117.4082
+ ],
+ "little elm|TX": [
+  33.1768,
+  -96.9583
+ ],
+ "melissa|TX": [
+  33.2841,
+  -96.574
+ ],
+ "totowa|NJ": [
+  41.0114,
+  -74.3048
+ ],
+ "tukwila|WA": null,
+ "atherton|CA": [
+  37.4563,
+  -122.2002
+ ],
+ "arnold|CO": null,
+ "toms river|NJ": [
+  39.9771,
+  -74.1565
+ ],
+ "secaucus|NJ": [
+  40.791,
+  -74.0634
+ ],
+ "maine|ME": null,
+ "parkville|MD": [
+  39.3876,
+  -76.5418
+ ],
+ "woodbridge|VA": [
+  38.6356,
+  -77.2683
+ ],
+ "greenlawn|MA": null
 }
