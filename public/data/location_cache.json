@@ -5576,5 +5576,164 @@
  ],
  "piney point village|TX": null,
  "bradford|NJ": null,
- "silverthorne|OH": null
+ "silverthorne|OH": null,
+ "stow creek|NC": null,
+ "cedars|PA": [
+  40.2174,
+  -75.365
+ ],
+ "sumneytown|PA": [
+  40.3278,
+  -75.454
+ ],
+ "jamison|PA": [
+  40.2566,
+  -75.0961
+ ],
+ "fallsington|PA": null,
+ "drexelbrook|DE": null,
+ "chesterbrook|DE": null,
+ "belmont shore|CA": null,
+ "westworth village|TX": null,
+ "pine view|FL": null,
+ "west peterborough|FL": null,
+ "monee|IL": [
+  41.4191,
+  -87.7748
+ ],
+ "westboro|NJ": null,
+ "gate|WA": null,
+ "battle ground|WA": [
+  45.7907,
+  -122.5318
+ ],
+ "el cerrito|CA": [
+  37.9156,
+  -122.2985
+ ],
+ "belleville|NJ": [
+  40.7946,
+  -74.1631
+ ],
+ "harrison|NJ": [
+  40.7445,
+  -74.1508
+ ],
+ "eastgate|WA": null,
+ "littleton|NJ": null,
+ "lederach|PA": [
+  40.2119,
+  -75.3559
+ ],
+ "northeast|TN": null,
+ "watertown|NJ": null,
+ "lodi|NJ": [
+  40.8764,
+  -74.0838
+ ],
+ "napoleon|GA": null,
+ "cicero|NY": [
+  43.1707,
+  -76.0962
+ ],
+ "westvale|NY": null,
+ "cardiff|NY": null,
+ "marietta|NY": [
+  42.8974,
+  -76.2806
+ ],
+ "mottville|NY": [
+  42.9745,
+  -76.4408
+ ],
+ "lyons|MI": [
+  42.9634,
+  -84.9209
+ ],
+ "plainville|NY": [
+  43.1577,
+  -76.447
+ ],
+ "skaneateles|NY": [
+  42.9258,
+  -76.4052
+ ],
+ "belleville|CO": null,
+ "washington mills|WA": null,
+ "minoa|NY": [
+  43.0772,
+  -76.0098
+ ],
+ "south butler|MI": null,
+ "berwyn|NY": null,
+ "new york mills|NY": [
+  43.1,
+  -75.2937
+ ],
+ "tully|NY": [
+  42.807,
+  -76.1394
+ ],
+ "fabius|NY": [
+  42.8531,
+  -75.9836
+ ],
+ "jamesville|NY": [
+  42.983,
+  -76.0766
+ ],
+ "dewitt|NY": [
+  42.2394,
+  -79.4193
+ ],
+ "vesper|NY": null,
+ "manlius|NY": [
+  42.9904,
+  -75.9703
+ ],
+ "eastwood|NY": null,
+ "radisson|NY": null,
+ "clay|NY": [
+  43.1737,
+  -76.1707
+ ],
+ "rockwell springs|NY": null,
+ "kirkville|NY": [
+  43.0981,
+  -75.955
+ ],
+ "geddes|NY": null,
+ "fayetteville|NY": [
+  43.0268,
+  -76.0145
+ ],
+ "ellisburg|CO": null,
+ "ivyland|PA": null,
+ "jewell manor|NY": null,
+ "marcellus|NY": [
+  42.9821,
+  -76.3323
+ ],
+ "elbridge|NY": [
+  43.0252,
+  -76.4352
+ ],
+ "wolcott|MI": null,
+ "onon hill|NY": null,
+ "bridgeport|NY": [
+  43.159,
+  -75.97
+ ],
+ "carousel|NY": null,
+ "brewerton|NY": [
+  43.2252,
+  -76.1351
+ ],
+ "elmwood|NY": null,
+ "cross lake|NY": null,
+ "mdale|NY": [
+  42.0381,
+  -73.5819
+ ],
+ "clyde|MI": null
 }
