@@ -5533,5 +5533,48 @@
  ],
  "progress|WA": null,
  "central point|MO": null,
- "george school|PA": null
+ "george school|PA": null,
+ "tuscaloosa|AL": [
+  33.1969,
+  -87.5627
+ ],
+ "sylvan lake|MI": null,
+ "saint cloud|MN": [
+  45.541,
+  -94.1819
+ ],
+ "clermont|IN": null,
+ "altamonte springs|FL": [
+  28.6666,
+  -81.365
+ ],
+ "ham lake|MN": [
+  43.8942,
+  -95.0457
+ ],
+ "beaverton|WA": null,
+ "truckee|NV": null,
+ "harleysville|PA": [
+  40.2659,
+  -75.3883
+ ],
+ "mangonia park|FL": null,
+ "englewood|NJ": [
+  40.8943,
+  -73.9772
+ ],
+ "zephyrhills|FL": [
+  28.213,
+  -82.1657
+ ],
+ "laguna niguel|NY": null,
+ "candler|IN": null,
+ "jeffersonville|WA": null,
+ "pittsford|NY": [
+  43.0695,
+  -77.5141
+ ],
+ "piney point village|TX": null,
+ "bradford|NJ": null,
+ "silverthorne|OH": null
 }
