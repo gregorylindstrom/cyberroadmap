@@ -5749,5 +5749,25 @@
   -119.946
  ],
  "richfield|MN": null,
- "blue river|OH": null
+ "blue river|OH": null,
+ "vauxhall|NJ": [
+  40.7179,
+  -74.2829
+ ],
+ "concordville|DE": null,
+ "woodbridge|CA": [
+  38.1551,
+  -121.3086
+ ],
+ "casa blanca|CA": null,
+ "burlington|IL": [
+  42.0458,
+  -88.539
+ ],
+ "vernon hills|IN": null,
+ "morton grove|IL": [
+  42.0431,
+  -87.7899
+ ],
+ "hamilton|NJ": null
 }
