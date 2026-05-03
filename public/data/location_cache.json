@@ -5792,5 +5792,15 @@
   42.2245,
   -70.8911
  ],
- "north hills|NY": null
+ "north hills|NY": null,
+ "rosemont|DE": null,
+ "hilo|HI": [
+  19.7025,
+  -155.0939
+ ],
+ "stony brook|MA": null,
+ "doylestown|PA": [
+  40.3054,
+  -75.1489
+ ]
 }
