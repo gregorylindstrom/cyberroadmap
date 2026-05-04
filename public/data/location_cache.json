@@ -5886,5 +5886,31 @@
   38.7877,
   -121.2366
  ],
- "modello|FL": null
+ "modello|FL": null,
+ "cape canaveral afs|FL": null,
+ "atwater|CA": [
+  37.3489,
+  -120.6028
+ ],
+ "valkaria|FL": null,
+ "grant valkaria|FL": null,
+ "iowa park|IA": null,
+ "auburndale|FL": [
+  28.0724,
+  -81.8122
+ ],
+ "san tan valley|AZ": null,
+ "red oak|GA": [
+  33.6259,
+  -84.5163
+ ],
+ "kearneysville|CO": null,
+ "newton|NJ": [
+  41.0695,
+  -74.8069
+ ],
+ "la mesa|CA": [
+  32.7604,
+  -117.0115
+ ]
 }
