@@ -5803,5 +5803,46 @@
   40.3054,
   -75.1489
  ],
- "sherwood|WA": null
+ "sherwood|WA": null,
+ "memphis|WA": null,
+ "ronkonkoma|MA": null,
+ "rockbridge|GA": null,
+ "morrisville|PA": [
+  40.2084,
+  -74.8291
+ ],
+ "miami beach|FL": [
+  25.7588,
+  -80.1376
+ ],
+ "nonantum|NJ": null,
+ "west newton|NJ": null,
+ "franklin|MA": [
+  42.0935,
+  -71.4058
+ ],
+ "northbrook|IL": [
+  42.1254,
+  -87.8465
+ ],
+ "winston salem|NC": [
+  36.1024,
+  -80.2228
+ ],
+ "conroe|PA": null,
+ "mineola|PA": null,
+ "summit|NJ": [
+  40.7149,
+  -74.3642
+ ],
+ "tarrytown|NY": [
+  41.0897,
+  -73.844
+ ],
+ "matthews|CO": null,
+ "south florida|FL": null,
+ "perkiomenville|PA": [
+  40.3157,
+  -75.5022
+ ]
 }
