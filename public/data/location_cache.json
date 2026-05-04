@@ -5873,5 +5873,18 @@
  ],
  "parkway village|CO": null,
  "amsterdam|PA": null,
- "algona|WA": null
+ "algona|WA": null,
+ "alexandria|LA": [
+  31.2885,
+  -92.4633
+ ],
+ "lompoc|CA": [
+  34.6583,
+  -120.4506
+ ],
+ "rocklin|CA": [
+  38.7877,
+  -121.2366
+ ],
+ "modello|FL": null
 }
