@@ -5912,5 +5912,34 @@
  "la mesa|CA": [
   32.7604,
   -117.0115
+ ],
+ "cypress|NY": null,
+ "huntington beach|CA": [
+  33.7151,
+  -118.0077
+ ],
+ "hamptons road|VA": null,
+ "windermere|NY": null,
+ "africa|OH": null,
+ "woodstock|TN": null,
+ "arcadia|CA": [
+  34.1324,
+  -118.0264
+ ],
+ "wausau|WA": null,
+ "neptune city|NJ": null,
+ "ogden|GA": null,
+ "waldon|CA": null,
+ "green valley|AZ": [
+  31.8543,
+  -111.0003
+ ],
+ "sahuarita|AZ": [
+  31.9452,
+  -111.0002
+ ],
+ "oro valley|AZ": [
+  32.4738,
+  -110.9553
  ]
 }
