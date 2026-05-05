@@ -5941,5 +5941,32 @@
  "oro valley|AZ": [
   32.4738,
   -110.9553
- ]
+ ],
+ "atlantic city|NJ": [
+  39.3642,
+  -74.4233
+ ],
+ "ybor|FL": null,
+ "west point|NY": [
+  41.3945,
+  -73.9737
+ ],
+ "bethel park|PA": [
+  40.321,
+  -80.0398
+ ],
+ "lockhart|NY": null,
+ "dupont|WA": [
+  47.0909,
+  -122.6567
+ ],
+ "everett|WA": [
+  47.9884,
+  -122.2006
+ ],
+ "steilacoom|WA": [
+  47.1704,
+  -122.5888
+ ],
+ "fondren|TX": null
 }
