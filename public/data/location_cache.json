@@ -6003,5 +6003,44 @@
  "fosston|FL": null,
  "leisure city|FL": null,
  "vermont|VT": null,
- "weston|NJ": null
+ "weston|NJ": null,
+ "ferndale|MI": [
+  42.4586,
+  -83.1363
+ ],
+ "chester|SC": [
+  33.1247,
+  -80.4034
+ ],
+ "fountain valley|NY": null,
+ "raynham|MA": [
+  41.9324,
+  -71.0469
+ ],
+ "middletown|NY": [
+  41.4512,
+  -74.4701
+ ],
+ "kentwood|MI": null,
+ "ajo|AZ": [
+  32.2295,
+  -112.6542
+ ],
+ "wollaston|MA": null,
+ "rutherford|NJ": [
+  40.8292,
+  -74.1121
+ ],
+ "buford|GA": [
+  33.9604,
+  -84.0379
+ ],
+ "hendersonville|WA": null,
+ "south daytona|FL": null,
+ "riverchase|CO": null,
+ "violet|TX": null,
+ "paterson|NJ": [
+  40.9143,
+  -74.1671
+ ]
 }
