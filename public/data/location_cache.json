@@ -6042,5 +6042,82 @@
  "paterson|NJ": [
   40.9143,
   -74.1671
+ ],
+ "temple terrace|FL": null,
+ "richlands|NC": [
+  34.8624,
+  -77.5863
+ ],
+ "tuskegee|AL": [
+  32.4316,
+  -85.6861
+ ],
+ "edinburg|TX": [
+  26.2792,
+  -98.1832
+ ],
+ "valley glen|CA": null,
+ "lynnwood|WA": [
+  47.8049,
+  -122.2855
+ ],
+ "mare island naval shipyard|CA": null,
+ "chester|PA": [
+  40.7157,
+  -80.2603
+ ],
+ "north fort myers|FL": [
+  26.693,
+  -81.9125
+ ],
+ "spring glen|WA": null,
+ "oregon city|OR": [
+  45.3377,
+  -122.57
+ ],
+ "swansea|MA": [
+  41.7473,
+  -71.2122
+ ],
+ "waukee|TX": null,
+ "pamrapo|NJ": null,
+ "davie|FL": null,
+ "upper dublin|PA": null,
+ "lincoln|CA": [
+  33.0169,
+  -116.846
+ ],
+ "hatfield|PA": [
+  40.2778,
+  -75.2975
+ ],
+ "fall river|MA": [
+  41.7182,
+  -71.14
+ ],
+ "iowa|IA": [
+  42.5138,
+  -93.2709
+ ],
+ "plymouth|MI": [
+  42.3688,
+  -83.4799
+ ],
+ "los gatos|CA": [
+  37.2296,
+  -121.9834
+ ],
+ "sprinkle|TX": null,
+ "calabasas hills|CA": null,
+ "port orange|FL": [
+  29.1372,
+  -81.0241
+ ],
+ "stamford|DE": null,
+ "monterey|GA": null,
+ "media|DE": null,
+ "safety harbor|FL": [
+  28.0096,
+  -82.6967
  ]
 }
