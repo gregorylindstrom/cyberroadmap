@@ -6156,5 +6156,18 @@
  "largo|FL": [
   24.9635,
   -80.9613
+ ],
+ "california; hawaii; nevada; oregon; washington|CA": null,
+ "reynoldsville|PA": [
+  41.0629,
+  -78.8961
+ ],
+ "pittsfield|MA": [
+  42.4531,
+  -73.2471
+ ],
+ "dillon|OH": [
+  40.2251,
+  -80.8031
  ]
 }
