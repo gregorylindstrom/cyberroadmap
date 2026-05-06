@@ -6119,5 +6119,42 @@
  "safety harbor|FL": [
   28.0096,
   -82.6967
+ ],
+ "new london|CT": [
+  41.3507,
+  -72.1062
+ ],
+ "martinsburg|PA": [
+  40.2951,
+  -78.3244
+ ],
+ "port neches|CO": null,
+ "jennings|IN": null,
+ "cayce|GA": null,
+ "north houston|TX": [
+  29.834,
+  -95.4342
+ ],
+ "plainsboro|NJ": [
+  40.3324,
+  -74.5688
+ ],
+ "dallas|FL": null,
+ "west somerville|NJ": null,
+ "oakland|MI": [
+  42.7732,
+  -83.1711
+ ],
+ "newell|NC": [
+  35.2768,
+  -80.7165
+ ],
+ "gardner|MA": [
+  42.574,
+  -71.9898
+ ],
+ "largo|FL": [
+  24.9635,
+  -80.9613
  ]
 }
