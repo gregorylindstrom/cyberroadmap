@@ -6326,5 +6326,41 @@
  "lafayette|CA": [
   37.8961,
   -122.1119
- ]
+ ],
+ "anderson|AK": [
+  63.5436,
+  -149.9867
+ ],
+ "round hill|VA": [
+  39.1164,
+  -77.7802
+ ],
+ "glenville|VA": null,
+ "redmond|OR": [
+  44.2767,
+  -121.1896
+ ],
+ "locust grove|GA": [
+  33.3449,
+  -84.0982
+ ],
+ "rest haven|GA": null,
+ "oak grove|GA": null,
+ "woodburn|IN": [
+  41.1361,
+  -84.8929
+ ],
+ "south hill|WA": null,
+ "center line|MI": [
+  42.4788,
+  -83.0248
+ ],
+ "reisterstown|MD": [
+  39.46,
+  -76.8135
+ ],
+ "factoryville|WY": null,
+ "east maine|ME": null,
+ "nicholson|WY": null,
+ "orson|MI": null
 }
