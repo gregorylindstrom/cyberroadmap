@@ -6362,5 +6362,25 @@
  "factoryville|WY": null,
  "east maine|ME": null,
  "nicholson|WY": null,
- "orson|MI": null
+ "orson|MI": null,
+ "saint james|MO": [
+  38.0056,
+  -91.6076
+ ],
+ "dublin|GA": [
+  32.4593,
+  -82.9381
+ ],
+ "tomah|WI": [
+  45.4963,
+  -89.7273
+ ],
+ "rolling hills|CA": null,
+ "goldsboro|MI": null,
+ "watson|WA": null,
+ "hempstead|NY": [
+  40.7172,
+  -73.6027
+ ],
+ "university heights|OH": null
 }
