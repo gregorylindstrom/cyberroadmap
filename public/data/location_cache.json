@@ -6463,5 +6463,32 @@
  ],
  "conimicut|MI": null,
  "blue mound|TX": null,
- "columbia|WA": null
+ "columbia|WA": null,
+ "alabama; bellevue|DC": null,
+ "haines city|FL": [
+  28.0758,
+  -81.5929
+ ],
+ "hanover park|IL": [
+  41.9394,
+  -88.1212
+ ],
+ "holly hill|FL": null,
+ "deltona|FL": [
+  28.8989,
+  -81.2473
+ ],
+ "humble|TX": [
+  29.834,
+  -95.4342
+ ],
+ "sparks|IL": null,
+ "webster|MA": [
+  42.0521,
+  -71.8486
+ ],
+ "hampshire|IL": [
+  42.0807,
+  -88.517
+ ]
 }
