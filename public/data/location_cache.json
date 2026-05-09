@@ -6559,5 +6559,60 @@
   -74.0119
  ],
  "harlan|TN": null,
- "colonie|NY": null
+ "colonie|NY": null,
+ "greenfield|WI": null,
+ "galena|DE": null,
+ "waynecastle|OH": null,
+ "vincennes|TN": null,
+ "bell gardens|CA": [
+  33.7866,
+  -118.2987
+ ],
+ "bonita springs|FL": [
+  26.3472,
+  -81.7899
+ ],
+ "westfield|IN": [
+  40.0489,
+  -86.1499
+ ],
+ "mission|TX": [
+  26.2644,
+  -98.3909
+ ],
+ "northport|MA": null,
+ "hesperia|CA": [
+  34.84,
+  -115.9671
+ ],
+ "anna|TX": [
+  33.3445,
+  -96.5639
+ ],
+ "richmond|TX": [
+  29.6436,
+  -95.798
+ ],
+ "norristown|PA": [
+  40.1245,
+  -75.3304
+ ],
+ "summerfield|NC": [
+  36.2245,
+  -79.8901
+ ],
+ "christiansburg|PA": null,
+ "braintree|MA": [
+  42.3198,
+  -72.1306
+ ],
+ "arden hills|MN": null,
+ "lynbrook|NY": [
+  40.6571,
+  -73.6741
+ ],
+ "levittown|PA": [
+  40.1681,
+  -74.8231
+ ]
 }
