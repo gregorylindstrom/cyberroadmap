@@ -6614,5 +6614,40 @@
  "levittown|PA": [
   40.1681,
   -74.8231
+ ],
+ "haverhill|NJ": null,
+ "gates|NY": null,
+ "east pittsburgh|PA": [
+  40.4036,
+  -79.8389
+ ],
+ "glenshaw|PA": [
+  40.5375,
+  -79.9644
+ ],
+ "east liberty|PA": null,
+ "curtisville|PA": [
+  40.4344,
+  -80.0248
+ ],
+ "cheswick|PA": [
+  40.5681,
+  -79.841
+ ],
+ "braddock|PA": [
+  40.4038,
+  -79.8625
+ ],
+ "brackenridge|PA": [
+  40.6082,
+  -79.7414
+ ],
+ "tarentum|PA": [
+  40.6187,
+  -79.7852
+ ],
+ "gibsonia|PA": [
+  40.6252,
+  -79.9443
  ]
 }
