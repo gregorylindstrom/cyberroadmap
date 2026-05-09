@@ -6490,5 +6490,25 @@
  "hampshire|IL": [
   42.0807,
   -88.517
+ ],
+ "denver|CA": null,
+ "forest hills|MI": null,
+ "loudonville|NY": null,
+ "west point|PA": [
+  40.2033,
+  -75.3019
+ ],
+ "ridley park|DE": null,
+ "southbridge|VA": null,
+ "chestnut|NJ": null,
+ "louisiana|LA": null,
+ "manito|WA": null,
+ "clint|CO": null,
+ "west galveston|TX": null,
+ "minden|CO": null,
+ "east cleveland|OH": null,
+ "feasterville trevose|PA": [
+  40.1547,
+  -74.9904
  ]
 }
