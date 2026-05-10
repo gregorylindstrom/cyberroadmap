@@ -6649,5 +6649,20 @@
  "gibsonia|PA": [
   40.6252,
   -79.9443
- ]
+ ],
+ "sewickley|PA": [
+  40.557,
+  -80.1578
+ ],
+ "gulfport|FL": null,
+ "richland|FL": null,
+ "san bruno|CA": [
+  37.6247,
+  -122.429
+ ],
+ "canton|GA": [
+  34.2505,
+  -84.4909
+ ],
+ "wolverine lake|MI": null
 }
