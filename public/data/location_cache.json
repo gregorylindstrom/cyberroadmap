@@ -6704,5 +6704,41 @@
   38.1645,
   -86.051
  ],
- "maynardville|NJ": null
+ "maynardville|NJ": null,
+ "vallejo|CA": [
+  38.1582,
+  -122.2804
+ ],
+ "kalispell|MT": [
+  48.2028,
+  -114.3039
+ ],
+ "bloomingdale|NJ": [
+  41.0128,
+  -74.3338
+ ],
+ "north miami|FL": [
+  25.9449,
+  -80.1391
+ ],
+ "hallandale|FL": [
+  26.1457,
+  -80.4483
+ ],
+ "dorchester center|MA": null,
+ "kamas|OH": null,
+ "palmyra|MI": [
+  41.8729,
+  -83.9263
+ ],
+ "lighthouse point|FL": null,
+ "williamson|MI": null,
+ "honeoye falls|NY": [
+  42.9695,
+  -77.5781
+ ],
+ "clifton|NY": [
+  42.8499,
+  -73.7851
+ ]
 }
