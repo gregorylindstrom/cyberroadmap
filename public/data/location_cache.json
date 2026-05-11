@@ -6748,5 +6748,44 @@
  "hawthorne|NJ": [
   40.9564,
   -74.1569
+ ],
+ "altus afb|OK": [
+  34.5982,
+  -99.4408
+ ],
+ "hope mills|NC": [
+  34.9536,
+  -78.9354
+ ],
+ "edinboro|NY": null,
+ "albion|NY": [
+  43.2398,
+  -78.2068
+ ],
+ "cranesville|NY": null,
+ "lafayette|NC": null,
+ "barre|MA": [
+  42.4097,
+  -72.1084
+ ],
+ "lake city|NY": null,
+ "palmer|MA": [
+  42.1762,
+  -72.3288
+ ],
+ "girard|NY": null,
+ "claysville|WA": null,
+ "brookfield|MA": [
+  42.1991,
+  -72.0989
+ ],
+ "gastonville|WA": null,
+ "green|CA": [
+  34.2348,
+  -117.066
+ ],
+ "stevens|PA": [
+  40.2194,
+  -76.1626
  ]
 }
