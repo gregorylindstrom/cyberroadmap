@@ -6904,5 +6904,29 @@
  "north chili|NY": [
   43.1186,
   -77.8005
- ]
+ ],
+ "gulfport|MS": [
+  30.3861,
+  -89.0677
+ ],
+ "mcalester|OK": [
+  34.9262,
+  -95.7592
+ ],
+ "mentor|IN": null,
+ "lake monroe|FL": [
+  28.8272,
+  -81.3329
+ ],
+ "upper saddle river|NJ": null,
+ "lake placid|NJ": null,
+ "elmsford|NY": [
+  41.0572,
+  -73.8136
+ ],
+ "lake|OH": [
+  39.9447,
+  -82.4797
+ ],
+ "hubbard|IN": null
 }
