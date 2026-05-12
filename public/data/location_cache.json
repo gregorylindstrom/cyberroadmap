@@ -6808,5 +6808,101 @@
   34.1376,
   -117.5999
  ],
- "mission viejo|NY": null
+ "mission viejo|NY": null,
+ "jacksonville|NC": [
+  34.7375,
+  -77.4628
+ ],
+ "gila|AZ": [
+  32.9306,
+  -112.7468
+ ],
+ "las cruces|NM": [
+  32.2901,
+  -106.7539
+ ],
+ "ogden|UT": [
+  41.2443,
+  -112.0079
+ ],
+ "lima|OH": [
+  40.9649,
+  -80.6549
+ ],
+ "maricamp|IN": null,
+ "barstow|CA": [
+  34.8914,
+  -117.0387
+ ],
+ "florence|AZ": [
+  32.9969,
+  -111.3612
+ ],
+ "euclid|OH": [
+  41.5696,
+  -81.5257
+ ],
+ "delafield|WI": [
+  43.05,
+  -88.3972
+ ],
+ "claremont|CA": [
+  34.1092,
+  -117.7183
+ ],
+ "lake of the woods|NY": null,
+ "brunswick|NC": [
+  34.2907,
+  -78.6994
+ ],
+ "tigard|WA": null,
+ "walsh station|CA": null,
+ "la porte|TX": [
+  29.6884,
+  -95.0513
+ ],
+ "medfield|MA": [
+  42.1845,
+  -71.3048
+ ],
+ "patton|CA": [
+  34.84,
+  -115.9671
+ ],
+ "venice|FL": [
+  27.1675,
+  -82.381
+ ],
+ "iron springs|AZ": [
+  34.7067,
+  -112.3977
+ ],
+ "contra costa|CA": null,
+ "beach|NY": [
+  40.6588,
+  -73.8438
+ ],
+ "brownsville|TX": [
+  25.9337,
+  -97.5174
+ ],
+ "belmont|CA": [
+  37.5174,
+  -122.2927
+ ],
+ "cedar hammock|FL": null,
+ "orchards|WA": [
+  47.7027,
+  -117.1121
+ ],
+ "townsend|NJ": null,
+ "south kearny|NJ": null,
+ "haverford|PA": [
+  40.0097,
+  -75.3121
+ ],
+ "north chili|NY": [
+  43.1186,
+  -77.8005
+ ]
 }
