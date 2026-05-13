@@ -6944,5 +6944,36 @@
   -95.2515
  ],
  "lansdowne|VA": null,
- "tiki island|TX": null
+ "tiki island|TX": null,
+ "bridgeport|MO": null,
+ "remote - colorado|CO": null,
+ "groesbeck|IN": null,
+ "northborough|MA": [
+  42.3182,
+  -71.6464
+ ],
+ "rockwood|OR": null,
+ "villa park|NY": null,
+ "hackensack|NJ": [
+  40.8882,
+  -74.0503
+ ],
+ "oceanside|NY": [
+  40.6362,
+  -73.6375
+ ],
+ "broadview|IL": [
+  41.8577,
+  -87.8562
+ ],
+ "east petersburg|PA": [
+  40.1008,
+  -76.3512
+ ],
+ "allston|MA": [
+  42.3535,
+  -71.1329
+ ],
+ "suntree|FL": null,
+ "alexandria|CO": null
 }
