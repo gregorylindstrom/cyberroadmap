@@ -7054,5 +7054,66 @@
  "yarmouth|NC": null,
  "thompson place|WA": null,
  "fisher island|FL": null,
- "raytown|MO": null
+ "raytown|MO": null,
+ "mountain home afb|ID": null,
+ "paducah|KY": [
+  37.0634,
+  -88.6632
+ ],
+ "rapid city|SD": [
+  44.1415,
+  -103.2052
+ ],
+ "eagle|CO": [
+  39.6341,
+  -106.7588
+ ],
+ "abingdon|VA": [
+  36.6916,
+  -82.02
+ ],
+ "lebanon|PA": [
+  40.5838,
+  -79.3423
+ ],
+ "parker|AZ": [
+  33.9677,
+  -114.2681
+ ],
+ "tinton falls|NJ": null,
+ "ormond beach|FL": [
+  29.0227,
+  -81.1722
+ ],
+ "yorktown|NY": [
+  41.2999,
+  -73.7924
+ ],
+ "klein|TX": null,
+ "tomball|TX": [
+  30.0739,
+  -95.6201
+ ],
+ "sand hill|PA": null,
+ "baldwin|NY": [
+  41.3421,
+  -73.7454
+ ],
+ "cortlandt manor|NY": [
+  41.284,
+  -73.8931
+ ],
+ "hartland|WI": [
+  43.1172,
+  -88.3446
+ ],
+ "forest park|GA": [
+  33.6147,
+  -84.368
+ ],
+ "ocean ridge|FL": null,
+ "oro grande|CA": [
+  34.6178,
+  -117.3327
+ ]
 }
