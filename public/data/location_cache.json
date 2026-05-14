@@ -7130,5 +7130,86 @@
  "camden|NJ": [
   39.9532,
   -75.0722
- ]
+ ],
+ "bridgeton|NC": [
+  35.1295,
+  -77.02
+ ],
+ "laurel|MD": [
+  39.1077,
+  -76.872
+ ],
+ "milford mill|MD": null,
+ "gunnison|CO": [
+  38.5511,
+  -106.931
+ ],
+ "covina|CA": [
+  34.0972,
+  -117.9065
+ ],
+ "selma|CA": [
+  36.5695,
+  -119.617
+ ],
+ "youngstown|OH": [
+  41.0171,
+  -80.8029
+ ],
+ "warren|WA": null,
+ "bohemia|MA": null,
+ "apple valley|CA": [
+  34.5291,
+  -117.2132
+ ],
+ "plainview|NY": [
+  40.7781,
+  -73.4816
+ ],
+ "lake helen|FL": [
+  28.9806,
+  -81.2334
+ ],
+ "sayville|MA": null,
+ "marshall ford|TX": null,
+ "kent lakes|NY": null,
+ "bowmansville|NY": [
+  42.941,
+  -78.688
+ ],
+ "puyallup|WA": [
+  47.1991,
+  -122.3151
+ ],
+ "oldsmar|FL": [
+  28.046,
+  -82.6848
+ ],
+ "rosemount|MN": [
+  44.7378,
+  -93.0685
+ ],
+ "san jacinto|CA": [
+  33.7529,
+  -116.0556
+ ],
+ "woodlawn park|OK": null,
+ "getzville|NY": [
+  43.024,
+  -78.7532
+ ],
+ "washington heights|WA": null,
+ "camp washington|WA": null,
+ "yorba linda|NY": null,
+ "phillipsville|NY": null,
+ "montclair|NJ": [
+  40.8131,
+  -74.2165
+ ],
+ "montrose heights|VA": null,
+ "atlantic beach|FL": [
+  30.3483,
+  -81.4159
+ ],
+ "berne|CO": null
 }
