@@ -7227,5 +7227,27 @@
  "dayton|NJ": [
   40.3825,
   -74.5111
+ ],
+ "san francisco or new york city|NY": null,
+ "new york city or san francisco|NY": null,
+ "aspen|CO": [
+  39.1951,
+  -106.8236
+ ],
+ "telluride|CO": [
+  37.94,
+  -107.8214
+ ],
+ "riverdale|ND": [
+  47.4868,
+  -101.3831
+ ],
+ "lakewood|WA": [
+  48.0373,
+  -121.6823
+ ],
+ "timonium|MD": [
+  39.4332,
+  -76.6546
  ]
 }
