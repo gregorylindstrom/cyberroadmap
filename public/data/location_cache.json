@@ -7211,5 +7211,21 @@
   30.3483,
   -81.4159
  ],
- "berne|CO": null
+ "berne|CO": null,
+ "sayler park|IN": null,
+ "halyoke|MA": null,
+ "driftwood|WA": null,
+ "montrose|CA": [
+  34.2114,
+  -118.2305
+ ],
+ "la crescenta|CA": [
+  34.2316,
+  -118.2457
+ ],
+ "tobyhanna|NY": null,
+ "dayton|NJ": [
+  40.3825,
+  -74.5111
+ ]
 }
