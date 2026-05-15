@@ -7270,5 +7270,40 @@
  ],
  "south hill|NC": null,
  "la crosse|NC": null,
- "watauga|TX": null
+ "watauga|TX": null,
+ "westchester|CA": null,
+ "ramsey|NJ": [
+  41.0577,
+  -74.1445
+ ],
+ "kings bay|GA": [
+  30.7906,
+  -81.5607
+ ],
+ "jacksonville naval hospital|FL": null,
+ "carrboro|NY": null,
+ "wheatland|WY": [
+  42.0495,
+  -104.9679
+ ],
+ "solana beach|CA": [
+  32.9937,
+  -117.2598
+ ],
+ "alamo heights|TX": null,
+ "maywood park|OR": null,
+ "tinker air force base|OK": null,
+ "cottage grove|WI": [
+  43.0784,
+  -89.2017
+ ],
+ "vernon|CA": null,
+ "charlestown|MA": [
+  42.3778,
+  -71.0627
+ ],
+ "veradale|WA": [
+  47.6421,
+  -117.1977
+ ]
 }
