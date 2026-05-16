@@ -7377,5 +7377,24 @@
   40.6205,
   -73.7474
  ],
- "rancho santa margarita|NY": null
+ "rancho santa margarita|NY": null,
+ "smyrna|MI": [
+  42.9449,
+  -85.0747
+ ],
+ "annandale|VA": [
+  38.8307,
+  -77.2142
+ ],
+ "independence|MO": [
+  39.0983,
+  -94.4111
+ ],
+ "thornton|CO": null,
+ "bluff springs|TX": null,
+ "nassau bay|TX": null,
+ "boston|NY": [
+  42.6314,
+  -78.7391
+ ]
 }
