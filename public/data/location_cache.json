@@ -7319,5 +7319,23 @@
  "remote - virginia|CA": null,
  "boston|DC": null,
  "remote-friendly|CA": null,
- "north barrington|IN": null
+ "north barrington|IN": null,
+ "brier|WA": null,
+ "selma|TX": [
+  32.1826,
+  -94.9355
+ ],
+ "munster|IN": [
+  41.5544,
+  -87.5011
+ ],
+ "brookhaven|MA": null,
+ "west akron|OH": null,
+ "cabrillo|CA": null,
+ "litchfield|AZ": [
+  33.5098,
+  -112.4135
+ ],
+ "oildale|CA": null,
+ "stallings|NJ": null
 }
