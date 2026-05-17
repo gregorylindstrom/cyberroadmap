@@ -7396,5 +7396,20 @@
  "boston|NY": [
   42.6314,
   -78.7391
+ ],
+ "green|OH": [
+  40.5322,
+  -83.2078
+ ],
+ "joint base lewis mcchord|WA": null,
+ "ocean|NJ": [
+  40.2116,
+  -74.0093
+ ],
+ "concord farragut|TN": null,
+ "eastside|WA": null,
+ "utica|MI": [
+  42.671,
+  -82.9988
  ]
 }
