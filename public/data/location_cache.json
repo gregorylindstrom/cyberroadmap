@@ -7411,5 +7411,38 @@
  "utica|MI": [
   42.671,
   -82.9988
- ]
+ ],
+ "santa rosa valley|CA": null,
+ "pittsburg|CA": [
+  38.0031,
+  -121.9172
+ ],
+ "marshfield|MA": [
+  42.1062,
+  -70.6993
+ ],
+ "buffalo center|IL": null,
+ "harrison township|MI": [
+  42.5877,
+  -82.8215
+ ],
+ "rhawnhurst|PA": null,
+ "rillito|AZ": [
+  31.9701,
+  -111.8907
+ ],
+ "beech croft|MA": null,
+ "belmar|NJ": [
+  40.3027,
+  -74.2493
+ ],
+ "morrison|CO": [
+  39.6125,
+  -105.1746
+ ],
+ "signal hill|CA": [
+  33.8029,
+  -118.1677
+ ],
+ "west peabody|NJ": null
 }
