@@ -7619,5 +7619,41 @@
  ],
  "riverlea|OH": null,
  "washington terrace|WA": null,
- "homecroft|IN": null
+ "homecroft|IN": null,
+ "estill|SC": [
+  32.7375,
+  -81.2178
+ ],
+ "houma|LA": [
+  29.5943,
+  -90.7548
+ ],
+ "cornelius|NC": [
+  35.4733,
+  -80.8726
+ ],
+ "maybrook|NY": [
+  41.4886,
+  -74.2163
+ ],
+ "sidney|DE": null,
+ "peabody|NJ": null,
+ "palisades park|NJ": [
+  40.8462,
+  -73.9954
+ ],
+ "roselle|NJ": [
+  40.653,
+  -74.261
+ ],
+ "long beach|NY": [
+  40.5877,
+  -73.6595
+ ],
+ "alabaster|TN": null,
+ "laporte|IN": null,
+ "south holland|IL": [
+  41.5979,
+  -87.5938
+ ]
 }
