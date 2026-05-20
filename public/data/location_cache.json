@@ -7746,5 +7746,26 @@
  ],
  "ducktown|FL": null,
  "westchester|NY": null,
- "glassell|CA": null
+ "glassell|CA": null,
+ "san fransisco|NY": null,
+ "colorado; maryland; virginia; washington|DC": null,
+ "bridgeport|WA": [
+  48.0161,
+  -119.7028
+ ],
+ "altoona|PA": [
+  40.5209,
+  -78.4089
+ ],
+ "joint base lewis-mcchord|WA": null,
+ "rufus|OR": [
+  45.6852,
+  -120.7268
+ ],
+ "bossier city|LA": [
+  32.5449,
+  -93.7038
+ ],
+ "wallingford|WA": null,
+ "olympia heights|FL": null
 }
