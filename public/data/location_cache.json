@@ -7655,5 +7655,24 @@
  "south holland|IL": [
   41.5979,
   -87.5938
+ ],
+ "alabama; arizona; arkansas; bellevue|DC": null,
+ "two harbors|IN": null,
+ "crabb|TX": null,
+ "independence|FL": null,
+ "norwood|IN": null,
+ "arkansas|AR": [
+  33.6143,
+  -91.2325
+ ],
+ "south nyack|NY": null,
+ "scarborough|NC": null,
+ "penfield|NY": [
+  43.1396,
+  -77.456
+ ],
+ "sydney|FL": [
+  27.872,
+  -82.4388
  ]
 }
