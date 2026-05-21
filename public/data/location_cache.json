@@ -7967,5 +7967,52 @@
  "rochester|WA": [
   46.8193,
   -123.0406
+ ],
+ "hampton road|VA": null,
+ "grandview|MO": [
+  38.8819,
+  -94.5205
+ ],
+ "spanish fork|UT": [
+  40.1099,
+  -111.6462
+ ],
+ "san benito|TX": [
+  26.1337,
+  -97.6447
+ ],
+ "hope hull|PA": null,
+ "southgate|MI": [
+  42.2044,
+  -83.1999
+ ],
+ "oak ridge|NC": [
+  36.1673,
+  -79.9804
+ ],
+ "dickinson|TX": [
+  29.4585,
+  -95.0345
+ ],
+ "bronxville|NY": [
+  40.9391,
+  -73.8353
+ ],
+ "tamarac|FL": null,
+ "molalla|OR": [
+  45.1223,
+  -122.5756
+ ],
+ "gig harbor|WA": [
+  47.3786,
+  -122.7
+ ],
+ "canby|OR": [
+  45.2514,
+  -122.6832
+ ],
+ "ridgefield|WA": [
+  45.7846,
+  -122.6934
  ]
 }
