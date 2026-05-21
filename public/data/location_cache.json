@@ -7767,5 +7767,64 @@
   -93.7038
  ],
  "wallingford|WA": null,
- "olympia heights|FL": null
+ "olympia heights|FL": null,
+ "west mifflin|PA": [
+  40.3606,
+  -79.9086
+ ],
+ "bellevue|AZ": null,
+ "tolleson|AZ": [
+  33.4347,
+  -112.2774
+ ],
+ "stevenson|MO": null,
+ "immokalee|FL": [
+  26.4168,
+  -81.4423
+ ],
+ "beachwood|NJ": [
+  39.9302,
+  -74.1961
+ ],
+ "oak leaf|TX": null,
+ "sparrows point|MD": [
+  39.2296,
+  -76.4455
+ ],
+ "occoquan|VA": [
+  38.6816,
+  -77.2605
+ ],
+ "braddock heights|MD": [
+  39.4203,
+  -77.5051
+ ],
+ "harwood|MD": [
+  38.8582,
+  -76.6145
+ ],
+ "highland|MD": [
+  39.1843,
+  -76.9686
+ ],
+ "fallston|MD": [
+  39.527,
+  -76.4328
+ ],
+ "damascus|PA": [
+  41.7366,
+  -75.1312
+ ],
+ "dickerson|PA": [
+  40.0418,
+  -79.66
+ ],
+ "new braintree|MA": [
+  42.3198,
+  -72.1306
+ ],
+ "spencer|MA": [
+  42.2441,
+  -71.9906
+ ]
 }
