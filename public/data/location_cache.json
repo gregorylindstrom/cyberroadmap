@@ -8014,5 +8014,30 @@
  "ridgefield|WA": [
   45.7846,
   -122.6934
+ ],
+ "district of columbia|VA": null,
+ "oldtown|ID": [
+  48.1552,
+  -116.9781
+ ],
+ "summit|CO": null,
+ "hacienda heights|CA": [
+  33.9977,
+  -117.9652
+ ],
+ "centre|GA": null,
+ "hurst|TX": [
+  32.8211,
+  -97.1756
+ ],
+ "livingston|NJ": [
+  40.7896,
+  -74.3202
+ ],
+ "gateway|FL": null,
+ "mckownville|NY": null,
+ "vacaville|CA": [
+  38.3482,
+  -121.9538
  ]
 }
