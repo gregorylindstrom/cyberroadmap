@@ -8162,5 +8162,28 @@
  "pleasant hill|CA": [
   37.954,
   -122.0737
- ]
+ ],
+ "remote - usa; remote - washington|WA": null,
+ "cordova|AK": [
+  60.5362,
+  -145.7534
+ ],
+ "bethel|AK": [
+  60.13,
+  -162.1739
+ ],
+ "kotzebue|AK": [
+  66.8653,
+  -161.7808
+ ],
+ "barrow|AK": [
+  71.2346,
+  -156.8174
+ ],
+ "yakutat|AK": [
+  59.812,
+  -139.5505
+ ],
+ "maryland; virginia; washington|DC": null,
+ "hampton roads|VA": null
 }
