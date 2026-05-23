@@ -8283,5 +8283,17 @@
   42.6496,
   -71.1565
  ],
- "lake barrington|IN": null
+ "lake barrington|IN": null,
+ "jefferson|CO": [
+  39.2759,
+  -105.6865
+ ],
+ "liberty hill|TX": [
+  30.663,
+  -97.9316
+ ],
+ "pacific grove|CA": [
+  36.6167,
+  -121.922
+ ]
 }
