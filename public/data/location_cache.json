@@ -8185,5 +8185,26 @@
   -139.5505
  ],
  "maryland; virginia; washington|DC": null,
- "hampton roads|VA": null
+ "hampton roads|VA": null,
+ "north little rock|AR": [
+  34.7666,
+  -92.2629
+ ],
+ "arrowhead farms|CA": null,
+ "mountain home|WA": null,
+ "gibsonia|FL": null,
+ "palm shores|FL": null,
+ "ridgewood|NJ": [
+  40.982,
+  -74.1131
+ ],
+ "glen allan|WA": null,
+ "calumet city|IL": [
+  41.6153,
+  -87.5483
+ ],
+ "franklin|WI": [
+  42.9017,
+  -88.0086
+ ]
 }
