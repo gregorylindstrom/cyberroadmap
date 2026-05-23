@@ -8206,5 +8206,82 @@
  "franklin|WI": [
   42.9017,
   -88.0086
- ]
+ ],
+ "north las vegas|NV": [
+  36.2115,
+  -115.1241
+ ],
+ "anniston|AL": [
+  33.6539,
+  -85.8382
+ ],
+ "monroe|LA": [
+  32.5286,
+  -92.1061
+ ],
+ "ithaca|NY": [
+  42.4028,
+  -76.484
+ ],
+ "elmira|NY": [
+  42.1008,
+  -76.812
+ ],
+ "garden city|KS": [
+  37.9769,
+  -100.8621
+ ],
+ "dodge city|KS": [
+  37.7569,
+  -100.0241
+ ],
+ "salina|KS": [
+  38.8237,
+  -97.6421
+ ],
+ "el dorado|AR": [
+  33.2074,
+  -92.6629
+ ],
+ "new rome|OH": null,
+ "attleboro|MA": [
+  41.9296,
+  -71.3009
+ ],
+ "headland|GA": null,
+ "liberty lake|WA": [
+  47.6517,
+  -117.0838
+ ],
+ "kernersville|NC": [
+  36.1165,
+  -80.0831
+ ],
+ "everett|NJ": null,
+ "greenville|WA": null,
+ "lincoln park|MI": [
+  42.2422,
+  -83.1807
+ ],
+ "mint hill|NC": null,
+ "forest park|IL": [
+  41.8744,
+  -87.8106
+ ],
+ "missouri city|MO": [
+  39.2458,
+  -94.2924
+ ],
+ "upland|CA": [
+  34.141,
+  -117.6581
+ ],
+ "gurnee|IN": null,
+ "stanton point|IN": null,
+ "cottage grove|WA": null,
+ "dover|MA": [
+  42.6496,
+  -71.1565
+ ],
+ "lake barrington|IN": null
 }
