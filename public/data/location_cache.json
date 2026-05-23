@@ -8295,5 +8295,20 @@
  "pacific grove|CA": [
   36.6167,
   -121.922
- ]
+ ],
+ "homer glen|IL": [
+  41.6028,
+  -87.9599
+ ],
+ "inkster|MI": [
+  42.294,
+  -83.3146
+ ],
+ "monticello|CO": null,
+ "union|NJ": [
+  40.6952,
+  -74.2677
+ ],
+ "rocky mount|OH": null,
+ "cedar hills|UT": null
 }
