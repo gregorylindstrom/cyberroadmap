@@ -8324,5 +8324,52 @@
  "cape coral south|FL": null,
  "spring valley lake|CA": null,
  "farmingville|MA": null,
- "brookhaven|DE": null
+ "brookhaven|DE": null,
+ "roanoke|VA": [
+  37.2707,
+  -79.9415
+ ],
+ "bridgeport|CA": [
+  38.2566,
+  -119.208
+ ],
+ "durham|IN": null,
+ "ludlam|FL": null,
+ "weymouth|MA": [
+  42.2113,
+  -70.9582
+ ],
+ "garden city|MI": [
+  42.3242,
+  -83.3402
+ ],
+ "hurricane|WA": null,
+ "thomasville|TN": null,
+ "fuquay varina|NC": [
+  35.58,
+  -78.7908
+ ],
+ "saratoga springs|UT": [
+  40.3495,
+  -111.9043
+ ],
+ "millville|NC": null,
+ "elmwood park|NJ": [
+  40.9069,
+  -74.1209
+ ],
+ "lake aluma|OK": null,
+ "bayonet point|FL": null,
+ "woodbine|TN": null,
+ "mclean|IL": null,
+ "forest hills|TN": null,
+ "upper providence|DE": null,
+ "mira loma|CA": [
+  33.9938,
+  -117.5236
+ ],
+ "columbia|IN": [
+  41.1619,
+  -85.4737
+ ]
 }
