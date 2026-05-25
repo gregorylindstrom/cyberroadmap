@@ -8486,5 +8486,79 @@
  "hamlin|NY": [
   43.3076,
   -77.927
+ ],
+ "fort lewis|WA": null,
+ "fairfield|CO": null,
+ "peekskill|NY": [
+  41.3374,
+  -73.8838
+ ],
+ "briarcliff manor|NY": [
+  41.1444,
+  -73.835
+ ],
+ "alta loma|TX": null,
+ "friendswood|TX": [
+  29.5224,
+  -95.1879
+ ],
+ "san juan|TX": [
+  26.2044,
+  -98.1537
+ ],
+ "pharr|TX": [
+  26.1771,
+  -98.187
+ ],
+ "yescas|TX": null,
+ "citrus|TX": null,
+ "keller|TX": [
+  32.931,
+  -97.2843
+ ],
+ "haltom|TX": [
+  32.8087,
+  -97.2709
+ ],
+ "socorro|CO": null,
+ "converse|TX": [
+  29.5173,
+  -98.3217
+ ],
+ "gregg|TX": null,
+ "garth|TX": null,
+ "alton|TX": null,
+ "alamo|TX": [
+  26.1906,
+  -98.1164
+ ],
+ "uvalda|PA": null,
+ "richwood|TX": null,
+ "bonaventure|FL": null,
+ "acworth|GA": [
+  34.0756,
+  -84.6477
+ ],
+ "concord|CO": null,
+ "eutaw|NC": null,
+ "blue ridge|TX": [
+  33.3061,
+  -96.3901
+ ],
+ "southborough|MA": [
+  42.2939,
+  -71.532
+ ],
+ "ayer|NJ": null,
+ "sterling|MA": [
+  42.4354,
+  -71.7752
+ ],
+ "long island|CA": null,
+ "murrieta hot springs|CA": null,
+ "ampthill|VA": null,
+ "eagleville|PA": [
+  40.1566,
+  -75.4131
  ]
 }
