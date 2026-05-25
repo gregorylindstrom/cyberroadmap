@@ -8452,5 +8452,35 @@
   40.702,
   -73.592
  ],
- "bexar|TX": null
+ "bexar|TX": null,
+ "celina|TX": [
+  33.3103,
+  -96.7673
+ ],
+ "lakeville|MN": [
+  44.6749,
+  -93.2578
+ ],
+ "plum|PA": [
+  40.64,
+  -79.1294
+ ],
+ "soudersburg|PA": [
+  40.0185,
+  -76.2976
+ ],
+ "forest lake|WA": null,
+ "willet|WA": null,
+ "kailua kona|HI": [
+  19.6531,
+  -155.9798
+ ],
+ "harford|MD": null,
+ "marathon|NY": [
+  42.4527,
+  -76.0395
+ ],
+ "nicholson|MO": null,
+ "factoryville|NJ": null,
+ "east weymouth|MA": null
 }
