@@ -8561,5 +8561,25 @@
   40.1566,
   -75.4131
  ],
- "hubbell cors|DE": null
+ "hubbell cors|DE": null,
+ "la crosse|WI": [
+  43.7989,
+  -91.2175
+ ],
+ "ceredo|VA": null,
+ "lewisburg|VA": null,
+ "laughlin afb|TX": null,
+ "redding|CA": [
+  40.5605,
+  -122.4116
+ ],
+ "lake spivey|GA": null,
+ "park forest|IL": [
+  41.479,
+  -87.6828
+ ],
+ "miramar|FL": [
+  30.385,
+  -86.3473
+ ]
 }
