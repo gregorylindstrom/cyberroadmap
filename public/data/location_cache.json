@@ -8635,5 +8635,52 @@
   -74.0164
  ],
  "moraine|PA": null,
- "millard|CO": null
+ "millard|CO": null,
+ "homestead|FL": [
+  25.4766,
+  -80.4839
+ ],
+ "nashua|NH": [
+  42.7564,
+  -71.4667
+ ],
+ "swanton|VT": [
+  44.9168,
+  -73.1211
+ ],
+ "lewiston|ID": [
+  46.3646,
+  -116.8609
+ ],
+ "gering|NE": [
+  41.822,
+  -103.6629
+ ],
+ "north platte|NE": [
+  41.1326,
+  -100.7746
+ ],
+ "coyote|CA": [
+  37.2123,
+  -121.7416
+ ],
+ "meadia heights|PA": null,
+ "stickney|IL": null,
+ "burbank|IL": [
+  41.7447,
+  -87.7699
+ ],
+ "ingram|PA": null,
+ "burkittsville|MD": [
+  39.3923,
+  -77.6275
+ ],
+ "shenandoah junction|CO": null,
+ "brownsville|NJ": null,
+ "kensington|CA": null,
+ "charles town|CO": null,
+ "cromwell|NJ": null,
+ "higganum|NJ": null,
+ "gapland|WA": null,
+ "shepherdstown|NC": null
 }
