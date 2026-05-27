@@ -8616,5 +8616,24 @@
   -87.808
  ],
  "west enola|NC": null,
- "west carrollton|PA": null
+ "west carrollton|PA": null,
+ "williamsport|WA": null,
+ "estes park|CO": [
+  40.6281,
+  -105.5692
+ ],
+ "north bergen|NJ": [
+  40.7939,
+  -74.0258
+ ],
+ "lindon|UT": [
+  40.3412,
+  -111.7144
+ ],
+ "oceanport|NJ": [
+  40.3157,
+  -74.0164
+ ],
+ "moraine|PA": null,
+ "millard|CO": null
 }
