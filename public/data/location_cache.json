@@ -8719,5 +8719,42 @@
   42.5946,
   -79.084
  ],
- "st. lucie|FL": null
+ "st. lucie|FL": null,
+ "ellsworth afb|SD": [
+  44.1447,
+  -103.0759
+ ],
+ "overland|MO": null,
+ "albany|OR": [
+  44.652,
+  -123.1333
+ ],
+ "west saint paul|MN": null,
+ "lockport|IL": [
+  41.593,
+  -88.0507
+ ],
+ "sussex|WI": [
+  43.1441,
+  -88.2271
+ ],
+ "elmora|NJ": null,
+ "lilydale|MN": null,
+ "analomink|NY": null,
+ "windcrest|TX": null,
+ "blackhawk|CO": null,
+ "waddell|AZ": [
+  33.5673,
+  -112.4387
+ ],
+ "mission bend|TX": null,
+ "glen rock|NJ": [
+  40.9602,
+  -74.1254
+ ],
+ "clearlake|IN": null,
+ "highland park|NJ": [
+  40.4991,
+  -74.4266
+ ]
 }
