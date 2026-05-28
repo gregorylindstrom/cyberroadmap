@@ -8765,5 +8765,19 @@
   30.3899,
   -98.0539
  ],
- "livingston|FL": null
+ "livingston|FL": null,
+ "alcoa|TN": [
+  35.7852,
+  -83.9809
+ ],
+ "carrollwood|FL": null,
+ "lemon grove|CA": [
+  32.7332,
+  -117.0326
+ ],
+ "catalina|AZ": [
+  31.9701,
+  -111.8907
+ ],
+ "desert hills|AZ": null
 }
