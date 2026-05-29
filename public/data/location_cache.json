@@ -8784,5 +8784,48 @@
   41.0222,
   -73.6798
  ],
- "shorewood|WI": null
+ "shorewood|WI": null,
+ "pocatello|ID": [
+  42.8876,
+  -112.4381
+ ],
+ "moselle|MS": [
+  31.4836,
+  -89.3206
+ ],
+ "pembroke lakes|FL": null,
+ "elko|NV": [
+  40.9056,
+  -115.5344
+ ],
+ "new cassel|NY": null,
+ "sumner|WA": [
+  47.0662,
+  -122.1132
+ ],
+ "south paterson|NJ": null,
+ "queen creek|AZ": [
+  33.2286,
+  -111.5322
+ ],
+ "fraziers bottom|NY": null,
+ "port richey|FL": [
+  28.2326,
+  -82.7327
+ ],
+ "grey forest|TX": null,
+ "edgewood|MA": null,
+ "round hill|CO": null,
+ "keedysville|WA": null,
+ "purcellville|VA": [
+  39.1436,
+  -77.7342
+ ],
+ "middleway|CO": null,
+ "rohrersville|WA": null,
+ "hamilton|IN": [
+  41.5566,
+  -84.8951
+ ],
+ "millwood|WA": null
 }
