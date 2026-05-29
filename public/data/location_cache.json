@@ -8827,5 +8827,30 @@
   41.5566,
   -84.8951
  ],
- "millwood|WA": null
+ "millwood|WA": null,
+ "georgiana|GA": null,
+ "oak ridge|TN": [
+  36.0159,
+  -84.2623
+ ],
+ "lewis and clark|MT": null,
+ "aiken|SC": [
+  33.553,
+  -81.7194
+ ],
+ "stateline|CO": null,
+ "willowbrook|CA": null,
+ "brownsville|WA": null,
+ "hillsboro|VA": null,
+ "harpers ferry|CO": null,
+ "bolivar|CO": null,
+ "brunswick|MD": [
+  39.3164,
+  -77.623
+ ],
+ "morganville|NJ": [
+  40.3529,
+  -74.2779
+ ],
+ "vernon|WI": null
 }
