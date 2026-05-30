@@ -8880,5 +8880,70 @@
  "mascoutah|UT": null,
  "lake sherwood|CA": null,
  "guilford college|NC": null,
- "north elizabeth|NJ": null
+ "north elizabeth|NJ": null,
+ "alpena|MI": [
+  45.079,
+  -83.4602
+ ],
+ "natchez|MS": [
+  31.5492,
+  -91.3642
+ ],
+ "twin falls|ID": [
+  42.5565,
+  -114.4693
+ ],
+ "wilmington|NC": [
+  34.2726,
+  -77.9633
+ ],
+ "gulf shores|AL": [
+  30.2717,
+  -87.7589
+ ],
+ "bridgeton|MO": [
+  38.7506,
+  -90.4161
+ ],
+ "kirksville|MO": [
+  40.1908,
+  -92.5856
+ ],
+ "provincetown|MA": [
+  42.0534,
+  -70.1865
+ ],
+ "barnstable|MA": [
+  41.6983,
+  -70.3001
+ ],
+ "parkrose|OR": null,
+ "kaneohe|HI": [
+  21.4228,
+  -157.8115
+ ],
+ "castleton|IN": null,
+ "spring hills|IN": null,
+ "belle meade|TN": null,
+ "perkasie|PA": [
+  40.3765,
+  -75.2648
+ ],
+ "clearing|IL": null,
+ "wilbraham|MA": [
+  42.1245,
+  -72.4464
+ ],
+ "vestavia hills|CO": null,
+ "nahant|NJ": null,
+ "paoli|NY": null,
+ "acton|IN": null,
+ "west lake hills|TX": null,
+ "fort edward|WA": null,
+ "brentwood|NC": null,
+ "cottonwood|AZ": [
+  34.7055,
+  -112.0091
+ ],
+ "liberty park|WA": null
 }
