@@ -9127,5 +9127,33 @@
  "west henrietta|NY": [
   43.0397,
   -77.6871
+ ],
+ "alabama; mississippi|AL": null,
+ "conway|AR": [
+  35.0842,
+  -92.4236
+ ],
+ "saint louis park|MN": null,
+ "pass a grille beach|FL": null,
+ "pasadena|FL": null,
+ "south pasadena|FL": null,
+ "treasure island|FL": null,
+ "belleair beach|FL": [
+  27.9229,
+  -82.8393
+ ],
+ "tierra verde|FL": null,
+ "belleair|FL": [
+  27.9229,
+  -82.8393
+ ],
+ "indian rocks beach|FL": [
+  27.8868,
+  -82.8435
+ ],
+ "madeira beach|FL": null,
+ "petaluma|CA": [
+  38.2403,
+  -122.6777
  ]
 }
