@@ -9021,5 +9021,51 @@
  "westlake village|CA": [
   34.0324,
   -119.1343
+ ],
+ "elkhorn|CO": null,
+ "romeoville|IL": [
+  41.6404,
+  -88.0696
+ ],
+ "streamwood|IL": [
+  42.0225,
+  -88.169
+ ],
+ "brightwood|MA": null,
+ "gray|NC": null,
+ "dent|IN": null,
+ "coco river|FL": null,
+ "wasco|IL": [
+  41.937,
+  -88.4202
+ ],
+ "hillside|IL": [
+  41.8725,
+  -87.9016
+ ],
+ "berkeley|IL": [
+  41.8888,
+  -87.909
+ ],
+ "elburn|IL": [
+  41.8824,
+  -88.4611
+ ],
+ "valley view|IL": null,
+ "western springs|IL": [
+  41.8049,
+  -87.8995
+ ],
+ "north aurora|IL": [
+  41.8089,
+  -88.3274
+ ],
+ "kaneville|IL": [
+  41.937,
+  -88.4202
+ ],
+ "lafox|IL": [
+  41.937,
+  -88.4202
  ]
 }
