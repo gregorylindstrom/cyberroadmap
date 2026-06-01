@@ -9067,5 +9067,65 @@
  "lafox|IL": [
   41.937,
   -88.4202
+ ],
+ "lakesite|IN": null,
+ "east ridge|IN": null,
+ "west new york|NY": null,
+ "patetown|MI": null,
+ "willamette|OR": null,
+ "forest grove|WA": null,
+ "keizer|IN": null,
+ "sugar creek|MO": null,
+ "blue springs|MO": [
+  38.9645,
+  -94.3703
+ ],
+ "laurel lake|NC": null,
+ "garfield|NJ": [
+  40.8789,
+  -74.1081
+ ],
+ "westfield|NJ": [
+  40.6479,
+  -74.3451
+ ],
+ "parlin|NJ": [
+  40.4587,
+  -74.305
+ ],
+ "lake tapawingo|MO": null,
+ "mesquite|WA": null,
+ "crystal|MN": [
+  45.0159,
+  -93.4719
+ ],
+ "wyandotte|MI": [
+  42.2084,
+  -83.1616
+ ],
+ "hastings|MN": [
+  44.7129,
+  -92.8637
+ ],
+ "champlin|MN": [
+  45.17,
+  -93.3819
+ ],
+ "white bear lake|MN": null,
+ "farragut|TN": null,
+ "vander|NC": null,
+ "brambleton|VA": null,
+ "dunstable|NJ": null,
+ "newton lower falls|NJ": null,
+ "brookline|FL": null,
+ "essington|DE": null,
+ "adams basin|NY": [
+  43.1953,
+  -77.8559
+ ],
+ "collingdale|DE": null,
+ "west henrietta|NY": [
+  43.0397,
+  -77.6871
  ]
 }
