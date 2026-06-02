@@ -9214,5 +9214,40 @@
   42.0235,
   -71.1324
  ],
- "jefferson|IL": null
+ "jefferson|IL": null,
+ "saginaw|MI": [
+  43.4047,
+  -83.9156
+ ],
+ "san luis obispo|CA": [
+  35.2635,
+  -120.6509
+ ],
+ "virginia state university|VA": null,
+ "passaic|NJ": [
+  40.8601,
+  -74.1283
+ ],
+ "north plainfield|NJ": null,
+ "east vineland|NC": null,
+ "linden|NJ": [
+  40.6354,
+  -74.2556
+ ],
+ "cliffside park|NJ": [
+  40.8222,
+  -73.988
+ ],
+ "scott|IL": [
+  38.5432,
+  -89.859
+ ],
+ "de leon springs|FL": [
+  29.1166,
+  -81.3488
+ ],
+ "canoga park|CA": [
+  34.1993,
+  -118.5983
+ ]
 }
