@@ -9185,5 +9185,34 @@
  "lake park|NJ": null,
  "waxhaw|NJ": null,
  "broadway manchester|CA": null,
- "scarsdale park|NY": null
+ "scarsdale park|NY": null,
+ "missoula|MT": [
+  46.8563,
+  -114.0252
+ ],
+ "lester|DE": null,
+ "lawndale|PA": null,
+ "new haven|MI": [
+  42.7443,
+  -82.8042
+ ],
+ "southampton|PA": [
+  40.1868,
+  -75.0071
+ ],
+ "richmond|MI": [
+  42.8389,
+  -82.7996
+ ],
+ "goffstown|FL": null,
+ "hillsborough|NY": null,
+ "lyndhurst|NJ": [
+  40.8094,
+  -74.1245
+ ],
+ "easton|MA": [
+  42.0235,
+  -71.1324
+ ],
+ "jefferson|IL": null
 }
