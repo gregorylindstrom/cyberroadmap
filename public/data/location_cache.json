@@ -9249,5 +9249,32 @@
  "canoga park|CA": [
   34.1993,
   -118.5983
- ]
+ ],
+ "yakima|WA": [
+  46.6932,
+  -120.4153
+ ],
+ "pasco|WA": [
+  46.2492,
+  -119.1044
+ ],
+ "curtis bay|MD": [
+  39.2109,
+  -76.5597
+ ],
+ "meridian hills|IN": null,
+ "beltsville|MD": [
+  38.8336,
+  -76.8777
+ ],
+ "herlong sierra ordnance depot|CA": null,
+ "maui|HI": null,
+ "wayland|NJ": null,
+ "revere|MA": [
+  42.4138,
+  -71.0052
+ ],
+ "sidney|TN": null,
+ "key west|NY": null,
+ "eno valley|NC": null
 }
