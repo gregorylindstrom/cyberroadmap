@@ -9276,5 +9276,21 @@
  ],
  "sidney|TN": null,
  "key west|NY": null,
- "eno valley|NC": null
+ "eno valley|NC": null,
+ "north|NC": [
+  36.2384,
+  -81.046
+ ],
+ "landfall|WA": null,
+ "armada|MI": [
+  42.8409,
+  -82.8899
+ ],
+ "la joya|TX": [
+  26.2426,
+  -98.4747
+ ],
+ "huber heights|PA": null,
+ "oakwood|CA": null,
+ "central manor|PA": null
 }
