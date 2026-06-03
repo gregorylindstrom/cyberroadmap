@@ -9292,5 +9292,20 @@
  ],
  "huber heights|PA": null,
  "oakwood|CA": null,
- "central manor|PA": null
+ "central manor|PA": null,
+ "santa barbara|CA": [
+  34.4197,
+  -119.7078
+ ],
+ "new castle|GA": null,
+ "la palma|NY": null,
+ "deerfield|OH": [
+  41.0359,
+  -81.0528
+ ],
+ "east charlemont|OH": null,
+ "southwick|MA": [
+  42.0511,
+  -72.7706
+ ]
 }
