@@ -9312,5 +9312,24 @@
   40.0449,
   -111.7321
  ],
- "windsor park|MO": null
+ "windsor park|MO": null,
+ "stroudsburg|NY": null,
+ "lenexa|KS": null,
+ "north bay shore|MA": null,
+ "canyon country|CA": [
+  34.4262,
+  -118.449
+ ],
+ "el cajon|CA": [
+  32.7777,
+  -116.9191
+ ],
+ "troutdale|OR": [
+  45.5254,
+  -122.3739
+ ],
+ "new hudson|MI": [
+  42.5076,
+  -83.6342
+ ]
 }
