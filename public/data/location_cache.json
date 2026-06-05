@@ -9367,5 +9367,13 @@
  "richmond heights|FL": null,
  "naval medical center|VA": null,
  "ettrick|VA": null,
- "northridge|PA": null
+ "northridge|PA": null,
+ "oswego|OR": [
+  45.4093,
+  -122.6847
+ ],
+ "willow grove|PA": [
+  40.1567,
+  -75.1269
+ ]
 }
