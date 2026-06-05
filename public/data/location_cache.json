@@ -9375,5 +9375,41 @@
  "willow grove|PA": [
   40.1567,
   -75.1269
- ]
+ ],
+ "spring valley|AZ": null,
+ "jamul|CA": [
+  32.7163,
+  -116.8323
+ ],
+ "yuma|AZ": [
+  32.7015,
+  -114.6424
+ ],
+ "grand forks afb|ND": [
+  47.9679,
+  -97.3675
+ ],
+ "dinsmore|FL": null,
+ "los alamos|NM": [
+  35.8663,
+  -106.2676
+ ],
+ "carroll park|PA": null,
+ "north tunbridge|NY": null,
+ "cambria|PA": [
+  40.6661,
+  -78.792
+ ],
+ "gaston|WA": null,
+ "piperton|TN": null,
+ "wilders grove|NC": null,
+ "winnetka|IL": [
+  42.1054,
+  -87.7535
+ ],
+ "alamo|CA": [
+  34.7457,
+  -120.2049
+ ],
+ "saint albans|OH": null
 }
