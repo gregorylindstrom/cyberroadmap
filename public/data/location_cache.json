@@ -9419,5 +9419,18 @@
  ],
  "north saint paul|MN": null,
  "chance|NJ": null,
- "highland heights|OH": null
+ "highland heights|OH": null,
+ "glen head|NY": [
+  40.8281,
+  -73.6076
+ ],
+ "harper woods|MI": [
+  42.4377,
+  -82.9289
+ ],
+ "east durham|NC": null,
+ "baldwin|IN": null,
+ "base line|CA": null,
+ "gardendale|CO": null,
+ "medford|DE": null
 }
