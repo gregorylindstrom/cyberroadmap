@@ -9432,5 +9432,33 @@
  "baldwin|IN": null,
  "base line|CA": null,
  "gardendale|CO": null,
- "medford|DE": null
+ "medford|DE": null,
+ "thurmont|MD": [
+  39.6109,
+  -77.3989
+ ],
+ "newington|NH": null,
+ "university place|PA": null,
+ "indian wells|CA": [
+  33.7163,
+  -116.3381
+ ],
+ "lowell|IN": [
+  41.2845,
+  -87.4191
+ ],
+ "landenberg|PA": [
+  39.7696,
+  -75.7807
+ ],
+ "manila|MS": null,
+ "east rockland key|NY": null,
+ "pacific beach|CA": null,
+ "waterford|MI": [
+  42.6438,
+  -83.4076
+ ],
+ "jurupa valley|CA": null,
+ "welby|CO": null,
+ "hanford|NY": null
 }
