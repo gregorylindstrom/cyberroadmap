@@ -9478,5 +9478,19 @@
   -75.5272
  ],
  "kimball junction|OH": null,
- "parkdale|IN": null
+ "parkdale|IN": null,
+ "waitsfield|WA": null,
+ "tarrant|TX": null,
+ "trophy club|TX": null,
+ "northlake|TX": null,
+ "saddle brook|NJ": [
+  40.9031,
+  -74.0955
+ ],
+ "rayford|TX": null,
+ "cathedral city|CA": [
+  33.8098,
+  -116.4665
+ ],
+ "farmer market|CA": null
 }
