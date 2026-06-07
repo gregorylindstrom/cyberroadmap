@@ -9463,5 +9463,20 @@
  "hanford|NY": null,
  "brooklyn center|MN": null,
  "wedgwood|WA": null,
- "seatac|WA": null
+ "seatac|WA": null,
+ "great notch|NJ": null,
+ "millbury|MA": [
+  42.1968,
+  -71.7644
+ ],
+ "warrington|PA": [
+  40.2464,
+  -75.1354
+ ],
+ "phoenixville|PA": [
+  40.1267,
+  -75.5272
+ ],
+ "kimball junction|OH": null,
+ "parkdale|IN": null
 }
