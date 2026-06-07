@@ -9499,5 +9499,13 @@
   -88.2536
  ],
  "bryn mawr|DE": null,
- "poca|NY": null
+ "poca|NY": null,
+ "oak creek|WI": [
+  42.8892,
+  -87.9027
+ ],
+ "mohave|AZ": [
+  35.0052,
+  -114.5687
+ ]
 }
