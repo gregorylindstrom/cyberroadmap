@@ -9507,5 +9507,27 @@
  "mohave|AZ": [
   35.0052,
   -114.5687
+ ],
+ "franklin lakes|NJ": [
+  41.0081,
+  -74.2113
+ ],
+ "philadelphia|CO": null,
+ "prides crossing|NJ": null,
+ "ludlow|MA": [
+  42.1728,
+  -72.471
+ ],
+ "warren|MA": [
+  42.204,
+  -72.1994
+ ],
+ "east millbury|MA": null,
+ "hollywood|WA": null,
+ "saint davids|DE": null,
+ "norwood|DE": null,
+ "abington|PA": [
+  40.1238,
+  -75.1148
  ]
 }
