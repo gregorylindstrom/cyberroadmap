@@ -9560,5 +9560,75 @@
   45.2972,
   -121.739
  ],
- "virginia foothills|VA": null
+ "virginia foothills|VA": null,
+ "churchville|PA": null,
+ "highland|MI": [
+  42.4212,
+  -83.1009
+ ],
+ "canton|MI": [
+  42.332,
+  -83.4695
+ ],
+ "blackstone|MA": [
+  42.0287,
+  -71.5269
+ ],
+ "holliston|NJ": null,
+ "framingham so|NJ": null,
+ "clinton|MA": [
+  42.4181,
+  -71.6828
+ ],
+ "barrington|MA": [
+  42.1959,
+  -73.3606
+ ],
+ "keego harbor|MI": [
+  42.6114,
+  -83.3356
+ ],
+ "south lyon|MI": [
+  42.4567,
+  -83.659
+ ],
+ "northville|MI": [
+  42.4262,
+  -83.4794
+ ],
+ "whitinsville|MA": [
+  42.1153,
+  -71.6644
+ ],
+ "clarkston|MI": [
+  42.7239,
+  -83.4232
+ ],
+ "charlton|MA": [
+  42.1379,
+  -71.9664
+ ],
+ "belmont|NJ": null,
+ "north attleborough|MA": null,
+ "sudbury|NJ": null,
+ "union lake|MI": [
+  42.7253,
+  -83.3116
+ ],
+ "orion|MI": [
+  42.7231,
+  -83.2769
+ ],
+ "babson park|MA": [
+  42.1739,
+  -71.1855
+ ],
+ "shrewsbury|MA": [
+  42.2848,
+  -71.7205
+ ],
+ "north uxbridge|MA": [
+  42.3648,
+  -71.8969
+ ]
 }
