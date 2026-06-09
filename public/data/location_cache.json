@@ -9549,5 +9549,16 @@
  "normandy|FL": null,
  "westgate|NY": null,
  "bowmansdale|NC": null,
- "mount olive|MI": null
+ "mount olive|MI": null,
+ "silverton|IN": null,
+ "mcchord air force base|WA": null,
+ "old bridge|NJ": [
+  40.398,
+  -74.3236
+ ],
+ "government camp|OR": [
+  45.2972,
+  -121.739
+ ],
+ "virginia foothills|VA": null
 }
