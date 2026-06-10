@@ -9718,5 +9718,90 @@
  "altadena|CA": [
   34.1912,
   -118.1392
+ ],
+ "us-new york|NY": null,
+ "crown point|IN": [
+  41.4236,
+  -87.3556
+ ],
+ "white lake|MI": [
+  42.658,
+  -83.5398
+ ],
+ "roslindale|MA": [
+  42.2836,
+  -71.1295
+ ],
+ "stow|NJ": [
+  40.9674,
+  -74.9651
+ ],
+ "richardson corners|MA": null,
+ "harvard|MA": [
+  42.4986,
+  -71.5753
+ ],
+ "river rouge|MI": [
+  42.2692,
+  -83.1364
+ ],
+ "grafton|MA": [
+  42.2004,
+  -71.6868
+ ],
+ "bolton|MA": [
+  42.4365,
+  -71.6076
+ ],
+ "sutton|MA": [
+  42.1266,
+  -71.7552
+ ],
+ "paxton|MA": [
+  42.3066,
+  -71.9202
+ ],
+ "grosse pointe|MI": [
+  42.3847,
+  -82.9244
+ ],
+ "sherborn|NJ": null,
+ "raleigh hills|WA": null,
+ "edgemere|MA": null,
+ "wellesley hills|MA": [
+  42.3106,
+  -71.2747
+ ],
+ "redford|MI": [
+  42.3756,
+  -83.289
+ ],
+ "hamtramck|MI": [
+  42.4081,
+  -83.0583
+ ],
+ "upton|MA": [
+  42.1756,
+  -71.6032
+ ],
+ "lake orion|MI": [
+  42.7231,
+  -83.2769
+ ],
+ "auburn|MA": [
+  42.2055,
+  -71.8391
+ ],
+ "fayville|MA": [
+  42.2934,
+  -71.5028
+ ],
+ "berlin|MA": [
+  42.3844,
+  -71.6356
+ ],
+ "bloomfield|MI": [
+  42.5445,
+  -83.2792
  ]
 }
