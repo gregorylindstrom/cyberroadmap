@@ -9649,5 +9649,46 @@
  "north brunswick|NJ": [
   40.4538,
   -74.4823
+ ],
+ "riddle|CO": null,
+ "tomah|NY": null,
+ "purchase|NY": [
+  41.0384,
+  -73.7156
+ ],
+ "hopedale|MA": [
+  42.1268,
+  -71.5376
+ ],
+ "valley grove|OH": null,
+ "lake station|IN": [
+  41.5686,
+  -87.2622
+ ],
+ "tontitown|WA": null,
+ "hopkinton|NJ": null,
+ "exeter|WA": null,
+ "linwood|CO": null,
+ "madison|TN": [
+  36.2604,
+  -86.7046
+ ],
+ "babson park|FL": [
+  27.8163,
+  -81.5139
+ ],
+ "cumberland|NC": [
+  35.1509,
+  -78.9158
+ ],
+ "waverley|NJ": null,
+ "jeffersontown|CO": null,
+ "kearny|NJ": [
+  40.7647,
+  -74.1471
+ ],
+ "north attleboro|MA": [
+  41.9775,
+  -71.3298
  ]
 }
