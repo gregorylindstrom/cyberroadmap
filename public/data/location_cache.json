@@ -9690,5 +9690,33 @@
  "north attleboro|MA": [
   41.9775,
   -71.3298
+ ],
+ "san francisco|DC": null,
+ "fort devens|MA": null,
+ "davis|CA": [
+  38.5538,
+  -121.7418
+ ],
+ "chelsea|MA": [
+  42.3963,
+  -71.0325
+ ],
+ "golden acres|TX": null,
+ "forest heights|WA": null,
+ "lyons|IL": [
+  41.813,
+  -87.8236
+ ],
+ "gladstone|OR": [
+  45.3899,
+  -122.5902
+ ],
+ "marylhurst|OR": [
+  45.1733,
+  -122.2599
+ ],
+ "altadena|CA": [
+  34.1912,
+  -118.1392
  ]
 }
