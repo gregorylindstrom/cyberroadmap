@@ -9851,5 +9851,52 @@
  "edmonds|WA": [
   47.8061,
   -122.3724
+ ],
+ "saint george|UT": [
+  37.3068,
+  -113.3554
+ ],
+ "wagner|CA": null,
+ "takoma park|PA": null,
+ "clarksburg|TN": [
+  35.8675,
+  -88.3934
+ ],
+ "woodmont beach|WA": null,
+ "chevy chase|WA": null,
+ "warwick|OH": null,
+ "wakefield|CO": null,
+ "commerce township|MI": [
+  42.5834,
+  -83.5009
+ ],
+ "south hackensack|NJ": [
+  40.8634,
+  -74.0456
+ ],
+ "oak park|CA": [
+  34.185,
+  -118.7669
+ ],
+ "hopkinton|DE": null,
+ "bloomfield hills|MI": [
+  42.5445,
+  -83.2792
+ ],
+ "seekonk|MA": [
+  41.8378,
+  -71.3224
+ ],
+ "north scituate|MA": [
+  41.9705,
+  -70.7014
+ ],
+ "northbridge|MA": [
+  42.1494,
+  -71.6564
+ ],
+ "leicester|MA": [
+  42.237,
+  -71.9188
  ]
 }
