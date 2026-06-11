@@ -9815,5 +9815,41 @@
  "cudahy|WI": [
   42.949,
   -87.862
+ ],
+ "bellflower|CA": [
+  33.8867,
+  -118.1265
+ ],
+ "wyoming|VA": null,
+ "robinson|VA": null,
+ "silver lake|WA": null,
+ "mount carmel|IN": null,
+ "donna|TX": [
+  26.1671,
+  -98.0529
+ ],
+ "bon air|VA": null,
+ "rohnert park|CA": [
+  38.4631,
+  -122.99
+ ],
+ "parma|MO": [
+  36.5856,
+  -89.819
+ ],
+ "marblehead|NJ": null,
+ "randolph|MA": [
+  42.1736,
+  -71.0514
+ ],
+ "new hope|MN": null,
+ "eaton park|FL": [
+  28.0844,
+  -81.5415
+ ],
+ "fredericktown|TN": null,
+ "edmonds|WA": [
+  47.8061,
+  -122.3724
  ]
 }
