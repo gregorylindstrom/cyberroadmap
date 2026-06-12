@@ -9954,5 +9954,32 @@
  "santee|CA": [
   32.8486,
   -116.9862
+ ],
+ "hailey|ID": [
+  43.5239,
+  -114.3064
+ ],
+ "carlsbad|NM": [
+  32.4119,
+  -104.2395
+ ],
+ "rossmoor|NY": null,
+ "hawthorne|NY": [
+  41.0953,
+  -73.8017
+ ],
+ "thonotosassa|FL": [
+  28.0617,
+  -82.3082
+ ],
+ "south miami|FL": null,
+ "mendenhall|PA": [
+  39.9832,
+  -75.7481
+ ],
+ "stanton|NY": null,
+ "brewster|NY": [
+  41.4097,
+  -73.5992
  ]
 }
