@@ -10001,5 +10001,18 @@
  ],
  "pucketville|WA": null,
  "tamiami|FL": null,
- "lockland|IN": null
+ "lockland|IN": null,
+ "watertown|NY": [
+  43.9743,
+  -75.9122
+ ],
+ "concord|NC": [
+  35.3716,
+  -80.53
+ ],
+ "taft|CA": [
+  35.1482,
+  -119.4557
+ ],
+ "booth|TX": null
 }
