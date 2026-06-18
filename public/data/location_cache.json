@@ -10206,5 +10206,59 @@
  "champions gate|FL": null,
  "good hope|TN": null,
  "south highlands|CO": null,
- "west hollywood|FL": null
+ "west hollywood|FL": null,
+ "gillette|WY": [
+  44.282,
+  -105.4974
+ ],
+ "sweet grass|MT": [
+  48.9401,
+  -111.849
+ ],
+ "portal|ND": [
+  48.9758,
+  -102.548
+ ],
+ "bath|NY": [
+  42.3575,
+  -77.3028
+ ],
+ "malibu|CA": [
+  33.7866,
+  -118.2987
+ ],
+ "cornell|CA": null,
+ "triadelphia|VA": null,
+ "kahlotus|WA": [
+  46.6779,
+  -118.5337
+ ],
+ "jacksonville|GA": [
+  31.8481,
+  -82.975
+ ],
+ "cuyahoga falls|OH": [
+  41.1401,
+  -81.479
+ ],
+ "marshall|WA": [
+  47.6177,
+  -117.5926
+ ],
+ "freeport|NC": null,
+ "cross plains|WI": [
+  43.1132,
+  -89.6397
+ ],
+ "fremont valley|CA": null,
+ "shoreview|MN": null,
+ "view park|CA": null,
+ "fountain|NY": null,
+ "northfield|WA": null,
+ "elizabethtown|PA": [
+  40.1553,
+  -76.6025
+ ],
+ "anne arundel|MD": null,
+ "montclair|VA": null
 }
