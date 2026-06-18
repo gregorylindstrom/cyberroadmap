@@ -10282,5 +10282,20 @@
   -122.2637
  ],
  "texas valley|TX": null,
- "perry|WY": null
+ "perry|WY": null,
+ "boston; new york city; pennsylvania|NY": null,
+ "glendale|CO": null,
+ "trenton|MI": [
+  42.1382,
+  -83.2179
+ ],
+ "kennedale|TX": [
+  32.6432,
+  -97.2139
+ ],
+ "irwindale|CA": null,
+ "camden|TN": [
+  36.0556,
+  -88.1119
+ ]
 }
