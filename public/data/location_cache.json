@@ -10351,5 +10351,14 @@
  ],
  "monroeville|NY": null,
  "frisco city|NY": null,
- "beatrice|NY": null
+ "beatrice|NY": null,
+ "linton hall|VA": null,
+ "holland|OH": [
+  39.5589,
+  -83.2504
+ ],
+ "oradell|NJ": [
+  40.9535,
+  -74.0335
+ ]
 }
