@@ -10387,5 +10387,14 @@
   42.4898,
   -72.1893
  ],
- "us: sf bay|NY": null
+ "us: sf bay|NY": null,
+ "us-san francisco|NY": null,
+ "connecticut; new jersey; new york|CT": null,
+ "fort rosecrans|CA": null,
+ "shutesbury|OH": null,
+ "west covina|CA": [
+  34.0673,
+  -117.9366
+ ],
+ "bristol|NY": null
 }
