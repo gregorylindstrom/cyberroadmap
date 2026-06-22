@@ -10369,5 +10369,22 @@
   40.8185,
   -74.1589
  ],
- "parkland|WA": null
+ "parkland|WA": null,
+ "vanceboro|ME": [
+  45.5702,
+  -67.4694
+ ],
+ "lubec|ME": [
+  44.9043,
+  -67.0408
+ ],
+ "paicines|CA": [
+  36.4985,
+  -120.9744
+ ],
+ "north weymouth|MA": null,
+ "petersham|MA": [
+  42.4898,
+  -72.1893
+ ]
 }
