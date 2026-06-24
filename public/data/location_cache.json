@@ -10433,5 +10433,40 @@
   42.8689,
   -77.2846
  ],
- "newton center|NJ": null
+ "newton center|NJ": null,
+ "naval air station patuxent river|MD": null,
+ "big bend national park|TX": [
+  29.2924,
+  -103.2963
+ ],
+ "fort ap hill|VA": null,
+ "saint leo|FL": [
+  28.3348,
+  -82.2693
+ ],
+ "kingsburg|CA": [
+  36.508,
+  -119.5433
+ ],
+ "plumville|IN": null,
+ "lawrence|NY": [
+  40.614,
+  -73.733
+ ],
+ "gates mills|OH": [
+  41.5324,
+  -81.415
+ ],
+ "cheltenham|PA": [
+  40.0603,
+  -75.1048
+ ],
+ "floral park|NY": [
+  40.7236,
+  -73.7058
+ ],
+ "eastchester|NY": [
+  40.955,
+  -73.8086
+ ]
 }
