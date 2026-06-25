@@ -10488,5 +10488,99 @@
   -72.7459
  ],
  "balance rock|CA": null,
- "home|WA": null
+ "home|WA": null,
+ "moline|IL": [
+  41.5118,
+  -90.4321
+ ],
+ "great lakes naval training center|IL": null,
+ "helena|MT": [
+  46.6131,
+  -112.0213
+ ],
+ "lawrenceburg|IN": [
+  39.1401,
+  -84.8658
+ ],
+ "palmyra|IN": [
+  38.4105,
+  -86.0888
+ ],
+ "colma|CA": null,
+ "ballard|WA": null,
+ "willow springs|CA": null,
+ "southbridge|MA": [
+  42.075,
+  -72.0353
+ ],
+ "hyde park|DE": null,
+ "south weymouth|MA": null,
+ "topsfield|WA": null,
+ "flat rock|MO": null,
+ "east brookfield|NY": null,
+ "bellingham|MA": [
+  42.0746,
+  -71.4768
+ ],
+ "brush prairie|WA": [
+  45.7304,
+  -122.4843
+ ],
+ "north dighton|MA": [
+  41.8644,
+  -71.123
+ ],
+ "carleton|NY": null,
+ "davisburg|TX": null,
+ "palos heights|IL": [
+  41.6621,
+  -87.7927
+ ],
+ "palos hills|IL": [
+  41.7004,
+  -87.8263
+ ],
+ "la grange|FL": null,
+ "chelsea|TN": null,
+ "dundee|FL": [
+  28.0194,
+  -81.6212
+ ],
+ "goodrich|CO": null,
+ "sturbridge|MA": [
+  42.1126,
+  -72.0842
+ ],
+ "south rockwood|NY": null,
+ "winnetka|CA": [
+  34.2092,
+  -118.5749
+ ],
+ "mendon|CO": null,
+ "north brookfield|MA": [
+  42.2665,
+  -72.0821
+ ],
+ "grosse ile|MI": [
+  42.1352,
+  -83.1561
+ ],
+ "millis|MA": [
+  42.1669,
+  -71.3607
+ ],
+ "whiting|IN": [
+  41.6787,
+  -87.5005
+ ],
+ "new boston|FL": null,
+ "fraser|MI": [
+  42.5423,
+  -82.947
+ ],
+ "dudley|GA": [
+  32.5259,
+  -83.0899
+ ],
+ "cornelius|WA": null
 }
