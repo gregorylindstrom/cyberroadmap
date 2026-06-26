@@ -10710,5 +10710,22 @@
   42.3648,
   -71.8969
  ],
- "portland|NJ": null
+ "portland|NJ": null,
+ "bloomington|IL": [
+  40.4783,
+  -88.9893
+ ],
+ "traverse city|MI": [
+  44.694,
+  -85.6763
+ ],
+ "elberton|GA": [
+  34.1082,
+  -82.8448
+ ],
+ "kayenta|AZ": [
+  36.6883,
+  -110.2652
+ ],
+ "east akron|OH": null
 }
