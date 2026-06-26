@@ -10636,5 +10636,79 @@
   33.7287,
   -116.0357
  ],
- "nashville|MO": null
+ "nashville|MO": null,
+ "toronto|NY": null,
+ "downers grove|IL": [
+  41.8034,
+  -88.0138
+ ],
+ "james island|SC": null,
+ "blair|WA": null,
+ "uxbridge|MA": [
+  42.3648,
+  -71.8969
+ ],
+ "north dakota|ND": null,
+ "sheldonville|MA": [
+  42.18,
+  -71.0892
+ ],
+ "hickory isle|MI": null,
+ "brookfield|IL": [
+  41.8217,
+  -87.8492
+ ],
+ "east walpole|MA": [
+  42.1532,
+  -71.2179
+ ],
+ "rockland|MA": [
+  42.1293,
+  -70.9133
+ ],
+ "woodville|NJ": null,
+ "ortonville|MI": [
+  42.8409,
+  -83.4288
+ ],
+ "azalia|NY": null,
+ "wrentham|MA": [
+  42.0617,
+  -71.3396
+ ],
+ "flat rock|MI": [
+  42.1055,
+  -83.2795
+ ],
+ "dudley|MA": [
+  42.0489,
+  -71.8932
+ ],
+ "rockwood|MI": [
+  42.0731,
+  -83.2127
+ ],
+ "coventry|MI": null,
+ "avon|MA": [
+  42.1258,
+  -71.0437
+ ],
+ "east greenwich|MI": null,
+ "franklin|MI": [
+  42.5219,
+  -83.2519
+ ],
+ "oxford|MA": [
+  42.1655,
+  -71.886
+ ],
+ "norwood|MA": [
+  42.1868,
+  -71.2033
+ ],
+ "princeton|MA": [
+  42.3648,
+  -71.8969
+ ],
+ "portland|NJ": null
 }
