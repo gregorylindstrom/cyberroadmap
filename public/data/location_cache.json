@@ -10605,5 +10605,15 @@
  "ida|NY": [
   41.3295,
   -74.3528
- ]
+ ],
+ "austin; boston; new york city|NY": null,
+ "emmitsburg|MD": [
+  39.694,
+  -77.3357
+ ],
+ "whiteriver|AZ": [
+  33.8021,
+  -109.9937
+ ],
+ "bywood|DE": null
 }
