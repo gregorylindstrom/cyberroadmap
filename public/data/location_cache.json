@@ -10615,5 +10615,26 @@
   33.8021,
   -109.9937
  ],
- "bywood|DE": null
+ "bywood|DE": null,
+ "sydney or singapore|OR": null,
+ "fairmont|VA": null,
+ "rochester|MN": [
+  44.0496,
+  -92.4896
+ ],
+ "south lexington|TN": null,
+ "morgan|NJ": [
+  40.3529,
+  -74.2779
+ ],
+ "franklin heights|OH": null,
+ "mountain pass|CA": [
+  34.84,
+  -115.9671
+ ],
+ "indio|CA": [
+  33.7287,
+  -116.0357
+ ],
+ "nashville|MO": null
 }
