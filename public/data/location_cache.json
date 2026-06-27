@@ -10728,5 +10728,20 @@
   -110.2652
  ],
  "east akron|OH": null,
- "austin; california; chicago; nevada|CA": null
+ "austin; california; chicago; nevada|CA": null,
+ "camp shelby|MS": null,
+ "bithlo|NY": null,
+ "helotes|TX": [
+  29.6321,
+  -98.7542
+ ],
+ "naples|CA": null,
+ "east taunton|MA": [
+  41.8736,
+  -71.0192
+ ],
+ "mountainside|NJ": [
+  40.6785,
+  -74.3588
+ ]
 }
