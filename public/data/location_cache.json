@@ -10755,5 +10755,11 @@
  "new chicago|IN": null,
  "boskydell|MO": null,
  "new elliott|IN": null,
- "cedar point|TX": null
+ "cedar point|TX": null,
+ "bala cynwyd|PA": [
+  40.0118,
+  -75.2342
+ ],
+ "sunbury|DE": null,
+ "lakeport|IN": null
 }
