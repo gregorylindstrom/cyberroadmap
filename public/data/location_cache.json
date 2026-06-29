@@ -10779,5 +10779,29 @@
  "morrow|GA": [
   33.5849,
   -84.3247
+ ],
+ "dickinson|ND": [
+  46.8057,
+  -102.7565
+ ],
+ "whiskeytown|CA": [
+  40.7352,
+  -122.1944
+ ],
+ "east warren|WA": null,
+ "milford|FL": null,
+ "pocomoke city|MA": null,
+ "castle shannon|PA": null,
+ "monroe township|NJ": null,
+ "south deerfield|OH": null,
+ "newburyport|NJ": null,
+ "boxford|NJ": null,
+ "aubrey|TX": [
+  33.292,
+  -96.9879
+ ],
+ "clarkson|NY": [
+  43.286,
+  -77.6843
  ]
 }
