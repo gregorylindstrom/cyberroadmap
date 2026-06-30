@@ -10838,5 +10838,22 @@
  "san ysidro|CA": [
   33.0169,
   -116.846
- ]
+ ],
+ "calais|WA": null,
+ "hillsborough|FL": null,
+ "manchester by the sea|NJ": null,
+ "irondequoit|NY": null,
+ "spencer|OK": [
+  35.5183,
+  -97.3488
+ ],
+ "eagle mountain|UT": [
+  40.3802,
+  -111.991
+ ],
+ "south el monte|CA": [
+  34.0557,
+  -118.0444
+ ],
+ "bostonia|CA": null
 }
