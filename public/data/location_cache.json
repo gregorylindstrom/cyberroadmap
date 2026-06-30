@@ -10811,5 +10811,32 @@
  ],
  "rockland|TN": null,
  "remote - iowa|IA": null,
- "arizona; arkansas; dallas|AZ": null
+ "arizona; arkansas; dallas|AZ": null,
+ "elida|IN": null,
+ "hume|CA": [
+  36.7515,
+  -118.9575
+ ],
+ "millington|MI": [
+  43.2718,
+  -83.5619
+ ],
+ "clifton|VA": [
+  38.7818,
+  -77.3818
+ ],
+ "lake ridge|VA": null,
+ "choctaw|OK": [
+  35.4718,
+  -97.2726
+ ],
+ "forest park|OK": null,
+ "fort calhoun|WA": null,
+ "kennard|WA": null,
+ "valley|CO": null,
+ "rancho la costa|CA": null,
+ "san ysidro|CA": [
+  33.0169,
+  -116.846
+ ]
 }
