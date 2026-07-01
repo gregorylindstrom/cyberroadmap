@@ -10865,5 +10865,45 @@
   -118.4373
  ],
  "circleville|TX": null,
- "maxville|FL": null
+ "maxville|FL": null,
+ "granite bay|CA": [
+  38.7435,
+  -121.1897
+ ],
+ "loomis|CA": [
+  38.8071,
+  -121.1698
+ ],
+ "stow|OH": [
+  40.1445,
+  -82.6973
+ ],
+ "valhalla|NY": [
+  41.0856,
+  -73.7776
+ ],
+ "windsor|WI": [
+  43.2078,
+  -89.3418
+ ],
+ "maypearl|TX": [
+  32.2993,
+  -97.027
+ ],
+ "four points|TX": null,
+ "windham|NC": null,
+ "jefferson|MO": [
+  38.5462,
+  -92.1525
+ ],
+ "center square|PA": null,
+ "belmont|MI": [
+  43.075,
+  -85.5632
+ ],
+ "drayton plains|MI": [
+  42.6754,
+  -83.3637
+ ],
+ "berry hill|TN": null
 }
