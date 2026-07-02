@@ -10932,5 +10932,15 @@
  "parkland|FL": null,
  "groveland|IN": null,
  "lauderdale isles|FL": null,
- "greenacres|FL": null
+ "greenacres|FL": null,
+ "flint|CA": [
+  34.2217,
+  -118.2051
+ ],
+ "county market|MN": null,
+ "roosevelt|NY": [
+  40.6802,
+  -73.5867
+ ],
+ "tullytown|PA": null
 }
