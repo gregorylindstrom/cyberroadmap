@@ -10950,5 +10950,29 @@
  "boron|CA": [
   35.0037,
   -117.6629
+ ],
+ "austin; new york city; san francisco; seattle|NY": null,
+ "aspinwall|PA": null,
+ "tifton|GA": [
+  31.4619,
+  -83.5873
+ ],
+ "lihue|HI": [
+  21.9816,
+  -159.3683
+ ],
+ "nantucket|MA": [
+  41.2725,
+  -70.0932
+ ],
+ "spanish lake|MO": null,
+ "superior|WI": [
+  46.7016,
+  -92.0912
+ ],
+ "inscription house|AZ": null,
+ "lutherville timonium|MD": [
+  39.4332,
+  -76.6546
  ]
 }
