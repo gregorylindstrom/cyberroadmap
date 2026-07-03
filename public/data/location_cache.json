@@ -10983,5 +10983,18 @@
  "manchester|DE": null,
  "boston ravine|NV": null,
  "robbinsdale|MN": null,
- "deephaven|MN": null
+ "deephaven|MN": null,
+ "belle isle|NY": null,
+ "bay harbor islands|FL": null,
+ "port arthur|CO": null,
+ "manhasset|NY": [
+  40.7934,
+  -73.6888
+ ],
+ "morgans point resort|TX": null,
+ "winthrop|MA": [
+  42.3763,
+  -70.98
+ ],
+ "stoneham|NJ": null
 }
