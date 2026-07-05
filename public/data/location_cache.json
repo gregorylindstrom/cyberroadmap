@@ -11008,5 +11008,33 @@
   -80.1219
  ],
  "linndale|OH": null,
- "sweden|NC": null
+ "sweden|NC": null,
+ "sun|TX": [
+  32.797,
+  -96.5616
+ ],
+ "crafton|PA": null,
+ "wilkinsburg|PA": null,
+ "mount oliver|PA": null,
+ "asbury park|NJ": [
+  40.2507,
+  -74.0486
+ ],
+ "keansburg|NJ": [
+  40.4414,
+  -74.1306
+ ],
+ "keyport|NJ": [
+  40.4384,
+  -74.1881
+ ],
+ "rumson|NJ": [
+  40.3707,
+  -74.0084
+ ],
+ "laurence harbor|NJ": null,
+ "littlerock|CA": [
+  34.4891,
+  -117.9708
+ ]
 }
