@@ -11070,5 +11070,22 @@
   -87.7914
  ],
  "swiftwater|WA": null,
- "penn valley|PA": null
+ "penn valley|PA": null,
+ "circle pines|MN": [
+  45.1528,
+  -93.144
+ ],
+ "roseville|MI": [
+  42.5034,
+  -82.9387
+ ],
+ "eastpointe|MI": [
+  42.4658,
+  -82.9459
+ ],
+ "anniston|MS": null,
+ "laveen|AZ": [
+  33.3436,
+  -112.1716
+ ]
 }
