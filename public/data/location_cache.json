@@ -11221,5 +11221,21 @@
   41.0928,
   -74.2659
  ],
- "delphos|IN": null
+ "delphos|IN": null,
+ "talladega|AL": [
+  33.4354,
+  -86.1134
+ ],
+ "brunswick|GA": [
+  31.1807,
+  -81.4949
+ ],
+ "browning|MT": [
+  48.6491,
+  -112.7936
+ ],
+ "yorba linda|CA": [
+  33.8882,
+  -117.8014
+ ]
 }
