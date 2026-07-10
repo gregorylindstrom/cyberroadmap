@@ -11191,5 +11191,34 @@
  "hugo|WA": null,
  "mount vernon|FL": null,
  "bammel|TX": null,
- "lake forest park|WA": null
+ "lake forest park|WA": null,
+ "el centro|CA": [
+  32.7893,
+  -115.5665
+ ],
+ "kunia|HI": [
+  21.463,
+  -158.0638
+ ],
+ "new holland|PA": [
+  40.1005,
+  -76.0801
+ ],
+ "longwood|FL": [
+  28.712,
+  -81.3552
+ ],
+ "orange|OH": [
+  41.3252,
+  -80.5336
+ ],
+ "swampscott|NJ": null,
+ "south beloit|IL": [
+  42.4837,
+  -89.0298
+ ],
+ "ringwood|NJ": [
+  41.0928,
+  -74.2659
+ ]
 }
