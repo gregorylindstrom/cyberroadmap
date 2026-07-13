@@ -11283,5 +11283,17 @@
   40.2021,
   -75.2507
  ],
- "east white plains|NY": null
+ "east white plains|NY": null,
+ "cudahy|CA": null,
+ "waterloo|NY": [
+  42.9045,
+  -76.8755
+ ],
+ "avalon|CA": [
+  33.332,
+  -118.3437
+ ],
+ "west medford|NJ": null,
+ "rowley|NJ": null,
+ "wendell|OH": null
 }
