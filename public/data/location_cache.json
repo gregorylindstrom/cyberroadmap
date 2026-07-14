@@ -11308,5 +11308,11 @@
  "bexar|IN": null,
  "speedway|IN": null,
  "unity village|MO": null,
- "dallas|DC": null
+ "dallas|DC": null,
+ "new york city; palo alto; seattle|NY": null,
+ "centralia|IN": null,
+ "palmetto|GA": [
+  33.5242,
+  -84.679
+ ]
 }
