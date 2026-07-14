@@ -11332,5 +11332,16 @@
   42.18,
   -71.0892
  ],
- "newton|CO": null
+ "newton|CO": null,
+ "new york/ san francisco|NY": null,
+ "fort jackson|SC": null,
+ "terre haute|IN": [
+  39.4336,
+  -87.4101
+ ],
+ "downtown joliet|IL": null,
+ "ardmore|PA": [
+  40.002,
+  -75.2966
+ ]
 }
