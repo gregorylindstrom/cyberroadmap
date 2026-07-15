@@ -11364,5 +11364,14 @@
  "torresdale south|PA": null,
  "wauseon|GA": null,
  "steubenville|CO": null,
- "lou del|NY": null
+ "lou del|NY": null,
+ "roseburg|OR": [
+  43.2297,
+  -123.2343
+ ],
+ "lowell|MA": [
+  42.656,
+  -71.3051
+ ],
+ "pinehurst|PA": null
 }
