@@ -11424,5 +11424,37 @@
   41.606,
   -109.23
  ],
- "fort polk|LA": null
+ "fort polk|LA": null,
+ "tehachapi|CA": [
+  35.043,
+  -118.5022
+ ],
+ "chadds ford|DE": null,
+ "glen ridge|FL": null,
+ "port everglades|FL": null,
+ "genesee depot|WI": [
+  42.9601,
+  -88.3745
+ ],
+ "colgate|WA": null,
+ "chenequa|WI": null,
+ "dousman|WI": [
+  42.9851,
+  -88.4568
+ ],
+ "mukwonago|WI": [
+  42.8821,
+  -88.3451
+ ],
+ "nashotah|WI": [
+  43.1118,
+  -88.4089
+ ],
+ "brookhurst|NY": null,
+ "north prairie|WI": [
+  42.9385,
+  -88.395
+ ],
+ "osceola|MS": null,
+ "lakeville|CA": null
 }
