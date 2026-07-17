@@ -11456,5 +11456,14 @@
   -88.395
  ],
  "osceola|MS": null,
- "lakeville|CA": null
+ "lakeville|CA": null,
+ "austin; boston; denver; new york city|NY": null,
+ "lisle|IL": [
+  41.7862,
+  -88.0879
+ ],
+ "eden|NY": [
+  42.6506,
+  -78.8781
+ ]
 }
