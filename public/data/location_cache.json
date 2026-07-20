@@ -11492,5 +11492,11 @@
  "willoughby hills|IN": null,
  "diplomat|IN": null,
  "black river falls|MO": null,
- "eustis|IN": null
+ "eustis|IN": null,
+ "richland|WA": [
+  46.2522,
+  -119.288
+ ],
+ "murrell|PA": null,
+ "macedon|MI": null
 }
