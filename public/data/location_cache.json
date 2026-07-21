@@ -11546,5 +11546,26 @@
  "chalfont|PA": [
   40.2892,
   -75.2149
+ ],
+ "new york city|DC": null,
+ "remote - maine|ME": null,
+ "many farms|AZ": [
+  36.4083,
+  -109.634
+ ],
+ "gallup|NM": [
+  35.5065,
+  -108.7414
+ ],
+ "quioque|MA": null,
+ "navy homeport|MO": null,
+ "glenmont|NY": [
+  42.5971,
+  -73.7959
+ ],
+ "festus|CO": null,
+ "arlington|WA": [
+  48.1829,
+  -122.1121
  ]
 }
