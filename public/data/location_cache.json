@@ -11622,5 +11622,20 @@
   -73.9609
  ],
  "east cambridge|NJ": null,
- "arcola|CO": null
+ "arcola|CO": null,
+ "bar harbor|ME": [
+  44.3738,
+  -68.2448
+ ],
+ "hudson|NJ": null,
+ "del rey|CA": [
+  33.9779,
+  -118.4525
+ ],
+ "warren|TN": null,
+ "dana point|NY": null,
+ "holiday|FL": [
+  28.1913,
+  -82.7279
+ ]
 }
