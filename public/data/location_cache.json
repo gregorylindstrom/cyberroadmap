@@ -11637,5 +11637,32 @@
  "holiday|FL": [
   28.1913,
   -82.7279
+ ],
+ "kerrville|TN": null,
+ "stratford|CT": [
+  41.2071,
+  -73.1305
+ ],
+ "beavercreek|OR": [
+  45.2597,
+  -122.4751
+ ],
+ "warwick|RI": [
+  41.7026,
+  -71.4476
+ ],
+ "pearl river|NY": [
+  41.0629,
+  -74.0159
+ ],
+ "westwood|NJ": [
+  41.0092,
+  -74.0041
+ ],
+ "cedar hill|PA": null,
+ "desoto|DE": null,
+ "slingerlands|NY": [
+  42.6485,
+  -73.8711
  ]
 }
