@@ -11667,5 +11667,20 @@
  ],
  "florida; georgia; indiana; new jersey; new york|DC": null,
  "north charleroi|WA": null,
- "south kingstown|WA": null
+ "south kingstown|WA": null,
+ "southtown|IN": null,
+ "laguna hills|NY": null,
+ "springdale|IN": null,
+ "kingston|WA": [
+  47.8108,
+  -122.5255
+ ],
+ "edgewood park|CO": null,
+ "coyote springs|WA": null,
+ "uwchland|PA": [
+  40.098,
+  -75.688
+ ],
+ "hillcrest|FL": null,
+ "pandora|NY": null
 }
