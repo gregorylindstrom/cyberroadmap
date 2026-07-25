@@ -11714,5 +11714,19 @@
  "iowana|IA": null,
  "webster|MO": null,
  "crystal city|CO": null,
- "west lynn|NJ": null
+ "west lynn|NJ": null,
+ "mounds view|MN": null,
+ "king|WA": [
+  47.8108,
+  -122.5255
+ ],
+ "castro valley|CA": [
+  37.7015,
+  -122.0782
+ ],
+ "port jefferson station|MA": null,
+ "hidalgo|TX": [
+  26.1028,
+  -98.2536
+ ]
 }
