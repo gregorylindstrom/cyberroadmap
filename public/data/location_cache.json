@@ -11738,5 +11738,16 @@
  "port townsend|CO": null,
  "avalon|PA": null,
  "sweetwater|FL": null,
- "saydel|FL": null
+ "saydel|FL": null,
+ "fort drum|NY": [
+  44.0354,
+  -75.754
+ ],
+ "braselton|MO": null,
+ "boyle heights|CA": null,
+ "catharpin|VA": [
+  38.8455,
+  -77.5669
+ ],
+ "east palmyra|MI": null
 }
