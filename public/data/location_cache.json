@@ -11767,5 +11767,11 @@
  "arkansas; dallas|AR": null,
  "fort campbell|TN": null,
  "stoney beach|MD": null,
- "dugway proving ground|UT": null
+ "dugway proving ground|UT": null,
+ "ashland|CA": null,
+ "wilsonville|CO": null,
+ "englishtown|NJ": [
+  40.2825,
+  -74.3424
+ ]
 }
