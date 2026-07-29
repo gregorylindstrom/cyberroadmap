@@ -11782,5 +11782,24 @@
   41.1909,
   -73.6355
  ],
- "ladera ranch|NY": null
+ "ladera ranch|NY": null,
+ "ames|IA": [
+  42.0379,
+  -93.6003
+ ],
+ "folkston|GA": [
+  30.8508,
+  -82.0116
+ ],
+ "barneveld|IA": null,
+ "chester springs|PA": [
+  40.0978,
+  -75.6398
+ ],
+ "firestone park|OH": null,
+ "fridley|MN": null,
+ "east meadow|NY": [
+  40.7149,
+  -73.5561
+ ]
 }
