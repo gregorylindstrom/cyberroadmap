@@ -11824,5 +11824,15 @@
  ],
  "mineral point|WA": null,
  "decatur|CO": null,
- "leimert park|CA": null
+ "leimert park|CA": null,
+ "us-sf|GA": null,
+ "acoma|NM": [
+  34.6975,
+  -106.8078
+ ],
+ "glenview manor|CO": null,
+ "union|PA": [
+  39.8897,
+  -79.7282
+ ]
 }
