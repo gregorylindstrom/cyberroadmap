@@ -11872,5 +11872,10 @@
  "durham|WA": null,
  "auriesville|PA": null,
  "lake tapps|WA": null,
- "primm|WA": null
+ "primm|WA": null,
+ "haddam neck|NJ": null,
+ "whitehouse|TX": [
+  32.222,
+  -95.2266
+ ]
 }
