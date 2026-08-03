@@ -11890,5 +11890,23 @@
   -122.8073
  ],
  "anthony|CO": null,
- "hilliard|NY": null
+ "hilliard|NY": null,
+ "flint|MI": [
+  42.9659,
+  -83.7808
+ ],
+ "blaine|WA": [
+  48.9636,
+  -122.7323
+ ],
+ "selfridge ang base|MI": null,
+ "nunda|IN": null,
+ "montclair|CA": [
+  34.0733,
+  -117.6987
+ ],
+ "brockport|NY": [
+  43.2128,
+  -77.9368
+ ]
 }
