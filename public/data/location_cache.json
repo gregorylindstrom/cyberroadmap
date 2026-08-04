@@ -11941,5 +11941,18 @@
   35.2842,
   -93.1315
  ],
- "south fulton|GA": null
+ "south fulton|GA": null,
+ "austin; chicago; denver; new york city|NY": null,
+ "east greenwich|RI": [
+  41.6498,
+  -71.474
+ ],
+ "roslyn heights|NY": [
+  40.7845,
+  -73.6403
+ ],
+ "carmichael|CA": [
+  38.6284,
+  -121.3287
+ ]
 }
