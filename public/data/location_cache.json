@@ -11972,5 +11972,11 @@
  "rockmart|FL": null,
  "amory|NY": null,
  "houston|GA": null,
- "roslyn estates|NY": null
+ "roslyn estates|NY": null,
+ "sepulveda|CA": null,
+ "austin; new york city; palo alto; seattle|NY": null,
+ "saint joseph|MO": [
+  39.7688,
+  -94.8385
+ ]
 }
