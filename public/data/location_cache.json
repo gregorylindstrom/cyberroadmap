@@ -12030,5 +12030,36 @@
   -82.2734
  ],
  "river hills|WI": null,
- "lucy|TN": null
+ "lucy|TN": null,
+ "banta|CA": [
+  37.7149,
+  -121.385
+ ],
+ "dacula|GA": [
+  33.9883,
+  -83.8795
+ ],
+ "holly springs|GA": [
+  34.2429,
+  -84.4583
+ ],
+ "sun city west|AZ": [
+  33.6856,
+  -112.3659
+ ],
+ "chicago heights|IL": [
+  41.5087,
+  -87.5904
+ ],
+ "winterville|WA": null,
+ "jupiter inlet colony|FL": null,
+ "foxpark|NY": null,
+ "brunswick|TN": [
+  35.2017,
+  -89.9715
+ ],
+ "melbourne beach|FL": [
+  28.0219,
+  -80.5389
+ ]
 }
