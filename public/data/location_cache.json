@@ -12168,5 +12168,23 @@
  "puy|WA": [
   47.1991,
   -122.3151
- ]
+ ],
+ "urbandale|IA": [
+  41.6295,
+  -93.723
+ ],
+ "abbeville|LA": [
+  29.9466,
+  -92.2416
+ ],
+ "saint marys|GA": [
+  30.7735,
+  -81.5652
+ ],
+ "mammoth lakes|CA": [
+  37.6094,
+  -118.8656
+ ],
+ "prairie|MT": null,
+ "westminster|NY": null
 }
