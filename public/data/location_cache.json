@@ -12190,5 +12190,10 @@
  "district of columbia|NC": null,
  "remote - d.c.|MD": null,
  "north white plains|NY": null,
- "stillwater|WA": null
+ "stillwater|WA": null,
+ "menifee|CA": [
+  33.6647,
+  -117.1743
+ ],
+ "vailsburg|NJ": null
 }
