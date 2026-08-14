@@ -12198,5 +12198,15 @@
  "vailsburg|NJ": null,
  "san francisco; utah|UT": null,
  "minneapolis; minnesota|MN": null,
- "new york|MD": null
+ "new york|MD": null,
+ "ava|CO": null,
+ "oak hill|MO": null,
+ "souderton|PA": [
+  40.2884,
+  -75.341
+ ],
+ "north wales|PA": [
+  40.2166,
+  -75.2565
+ ]
 }
