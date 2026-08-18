@@ -12274,5 +12274,22 @@
  ],
  "penn hills|PA": null,
  "malaga|CA": null,
- "pine bluff|CO": null
+ "pine bluff|CO": null,
+ "lockport|NY": [
+  43.16,
+  -78.6923
+ ],
+ "madras|CO": null,
+ "palatine|IL": [
+  42.098,
+  -88.0141
+ ],
+ "dodge|WI": [
+  42.9698,
+  -90.1404
+ ],
+ "lafayette hill|PA": [
+  40.0896,
+  -75.2601
+ ]
 }
