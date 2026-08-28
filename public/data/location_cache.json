@@ -12571,5 +12571,18 @@
  "new orleans or baton rouge|GA": null,
  "evendale|OH": null,
  "slinger|WA": null,
- "summit point|CO": null
+ "summit point|CO": null,
+ "lindsay|CA": [
+  36.2096,
+  -119.0884
+ ],
+ "wantagh|NY": [
+  40.685,
+  -73.5103
+ ],
+ "new city|NY": [
+  41.1472,
+  -73.9962
+ ],
+ "fort ann|WA": null
 }
