@@ -12584,5 +12584,36 @@
   41.1472,
   -73.9962
  ],
- "fort ann|WA": null
+ "fort ann|WA": null,
+ "chelmsford|MA": [
+  42.5911,
+  -71.3556
+ ],
+ "hoover|AL": null,
+ "warm springs|OR": [
+  44.7468,
+  -121.2909
+ ],
+ "east hartford|CT": [
+  41.7803,
+  -72.618
+ ],
+ "mills|WY": [
+  42.948,
+  -106.4446
+ ],
+ "sea girt|NJ": [
+  40.1345,
+  -74.0436
+ ],
+ "allenwood|NJ": [
+  40.1389,
+  -74.1122
+ ],
+ "ashburn park|IL": null,
+ "gold river|CA": null,
+ "quakertown|PA": [
+  40.4411,
+  -75.3507
+ ]
 }
