@@ -12666,5 +12666,10 @@
  "westtown|NY": [
   41.3214,
   -74.5529
+ ],
+ "arizona; california; washington|AZ": null,
+ "cherokee|NC": [
+  35.5094,
+  -83.3144
  ]
 }
