@@ -12653,5 +12653,14 @@
  ],
  "pacific|OH": null,
  "saunderstown|WA": null,
- "grange|CO": null
+ "grange|CO": null,
+ "jonesboro|GA": [
+  33.5242,
+  -84.359
+ ],
+ "winston|CO": null,
+ "weston|FL": [
+  26.1158,
+  -80.3681
+ ]
 }
