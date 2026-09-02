@@ -12671,5 +12671,102 @@
  "cherokee|NC": [
   35.5094,
   -83.3144
+ ],
+ "lancaster|NY": [
+  42.9017,
+  -78.6631
+ ],
+ "meacham|NY": null,
+ "woodmere|NY": [
+  40.6326,
+  -73.7141
+ ],
+ "bayville|NY": [
+  40.9074,
+  -73.5601
+ ],
+ "sea cliff|NY": [
+  40.846,
+  -73.6436
+ ],
+ "south huntington|MA": null,
+ "franklin square|NY": [
+  40.701,
+  -73.6758
+ ],
+ "locust valley|NY": [
+  40.8817,
+  -73.5927
+ ],
+ "lido beach|NY": null,
+ "cold spring harbor|MA": null,
+ "west hempstead|NY": [
+  40.6929,
+  -73.6539
+ ],
+ "seaford|NY": [
+  40.6795,
+  -73.491
+ ],
+ "malverne|NY": [
+  40.675,
+  -73.6731
+ ],
+ "merrick|NY": [
+  40.6685,
+  -73.5536
+ ],
+ "east rockaway|NY": [
+  40.6404,
+  -73.6674
+ ],
+ "albertson|NY": [
+  40.7703,
+  -73.6514
+ ],
+ "sugar grove|IL": [
+  41.7741,
+  -88.4397
+ ],
+ "atlantic beach|NY": [
+  40.5887,
+  -73.7255
+ ],
+ "arcadia|IN": [
+  40.1776,
+  -86.0409
+ ],
+ "hewlett bay|NY": null,
+ "east norwich|NY": [
+  40.8472,
+  -73.5349
+ ],
+ "carle place|NY": [
+  40.7512,
+  -73.6119
+ ],
+ "old bethpage|NY": [
+  40.765,
+  -73.4575
+ ],
+ "alpine|NJ": [
+  40.9511,
+  -73.9308
+ ],
+ "south valley stream|NY": null,
+ "cedarhurst|NY": [
+  40.6236,
+  -73.7264
+ ],
+ "norwood|NJ": [
+  40.9952,
+  -73.9582
+ ],
+ "scottsville|IN": null,
+ "mud lick|NY": null,
+ "fountain run|NY": null,
+ "van buren|NY": [
+  42.4511,
+  -79.4154
  ]
 }
