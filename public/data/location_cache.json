@@ -12777,5 +12777,18 @@
  "shaker heights|OH": null,
  "laurelville|PA": null,
  "pine lake|WA": null,
- "northeast|NY": null
+ "northeast|NY": null,
+ "winnebago|NE": [
+  42.2339,
+  -96.4685
+ ],
+ "shorewood hills|WI": null,
+ "river edge|NJ": [
+  40.9265,
+  -74.0392
+ ],
+ "sparta|MI": [
+  43.1619,
+  -85.6877
+ ]
 }
