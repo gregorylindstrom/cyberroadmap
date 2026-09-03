@@ -12921,5 +12921,14 @@
  "east bridgewater|MA": [
   42.0315,
   -70.945
- ]
+ ],
+ "new york; san francisco; chicago; seattle|NY": null,
+ "camp ripley|MN": null,
+ "greeley|CO": [
+  40.385,
+  -104.6806
+ ],
+ "camp parks|CA": null,
+ "centereach|MA": null,
+ "west dundee|IL": null
 }
