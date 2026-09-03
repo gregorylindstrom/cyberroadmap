@@ -12794,5 +12794,72 @@
  "lynn|MA": [
   42.4612,
   -70.9467
+ ],
+ "oakbrook terrace|IL": null,
+ "monroe|CO": null,
+ "eleven mile corner|AZ": null,
+ "palo verde|AZ": [
+  33.2765,
+  -112.1872
+ ],
+ "stanfield|AZ": [
+  32.8823,
+  -111.966
+ ],
+ "youngtown|AZ": [
+  33.5908,
+  -112.3013
+ ],
+ "fort mcdowell|AZ": [
+  33.6118,
+  -111.6806
+ ],
+ "rio verde|AZ": [
+  33.682,
+  -111.983
+ ],
+ "valley farms|AZ": [
+  33.0135,
+  -111.4298
+ ],
+ "morristown|AZ": [
+  33.2765,
+  -112.1872
+ ],
+ "new river|AZ": [
+  33.9235,
+  -112.1279
+ ],
+ "black canyon city|AZ": [
+  34.0755,
+  -112.134
+ ],
+ "sacaton|AZ": [
+  33.1234,
+  -111.7384
+ ],
+ "carefree|AZ": [
+  33.824,
+  -111.913
+ ],
+ "cave creek|AZ": [
+  33.2765,
+  -112.1872
+ ],
+ "bapchule|AZ": [
+  33.1405,
+  -111.9128
+ ],
+ "weehawken|NJ": [
+  40.7681,
+  -74.0208
+ ],
+ "matawan|NJ": [
+  40.4109,
+  -74.238
+ ],
+ "el sobrante|CA": [
+  37.9693,
+  -122.2901
  ]
 }
