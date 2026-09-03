@@ -12900,5 +12900,26 @@
  "stuttgart|AR": [
   34.4854,
   -91.5487
+ ],
+ "bisbee|AZ": [
+  31.4086,
+  -109.9117
+ ],
+ "coralville|IA": [
+  41.6937,
+  -91.5906
+ ],
+ "maplewood|NJ": [
+  40.7279,
+  -74.2656
+ ],
+ "valley station|CO": null,
+ "tortilla flat|AZ": [
+  33.2765,
+  -112.1872
+ ],
+ "east bridgewater|MA": [
+  42.0315,
+  -70.945
  ]
 }
