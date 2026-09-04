@@ -12933,5 +12933,19 @@
  "west dundee|IL": null,
  "solvay|NY": null,
  "agua dulce|CA": null,
- "clyde|CA": null
+ "clyde|CA": null,
+ "west alexander|WA": null,
+ "sheridan|CO": [
+  38.4484,
+  -102.2664
+ ],
+ "rimpau|CA": null,
+ "hazard|CA": null,
+ "la tijera|CA": null,
+ "rosewood|CA": null,
+ "westmont|CA": null,
+ "huntington park|CA": [
+  33.9769,
+  -118.2161
+ ]
 }
