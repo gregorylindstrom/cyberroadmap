@@ -12962,5 +12962,15 @@
  ],
  "mountain view|CO": null,
  "mcnair|VA": null,
- "new york; san francisco|NY": null
+ "new york; san francisco|NY": null,
+ "knoxville|IN": null,
+ "carroll|MD": null,
+ "richwood|NJ": [
+  39.7206,
+  -75.1681
+ ],
+ "lake stevens|WA": [
+  48.0171,
+  -122.0672
+ ]
 }
