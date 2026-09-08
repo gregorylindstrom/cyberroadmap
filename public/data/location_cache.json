@@ -13080,5 +13080,31 @@
  "liverpool|TX": [
   29.2667,
   -95.2889
- ]
+ ],
+ "mars hill|IN": null,
+ "louisville|TN": [
+  35.8375,
+  -84.0089
+ ],
+ "calverton|NY": [
+  40.9297,
+  -72.7423
+ ],
+ "south amboy|NJ": [
+  40.4369,
+  -74.2509
+ ],
+ "fairview|NJ": [
+  40.817,
+  -74.0
+ ],
+ "east amherst|NY": [
+  43.0429,
+  -78.6988
+ ],
+ "spanaway|WA": [
+  47.0732,
+  -122.3943
+ ],
+ "atwood|NY": null
 }
