@@ -13038,5 +13038,34 @@
   -74.1109
  ],
  "boone|MO": null,
- "ritzville|CO": null
+ "ritzville|CO": null,
+ "meade|KY": null,
+ "eastside|MO": null,
+ "eagle lake|FL": [
+  27.9787,
+  -81.7564
+ ],
+ "lithia|FL": [
+  27.8293,
+  -82.1357
+ ],
+ "bradley|FL": [
+  27.6993,
+  -81.9494
+ ],
+ "bacliff|TX": [
+  29.5055,
+  -94.9893
+ ],
+ "highlands|TX": [
+  29.8296,
+  -95.0393
+ ],
+ "clear lake shores|TX": null,
+ "sutherlin|CO": null,
+ "friendly valley|CA": null,
+ "city|WA": [
+  47.5682,
+  -121.8896
+ ]
 }
