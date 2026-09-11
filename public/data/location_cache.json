@@ -13145,5 +13145,9 @@
  "sellersburg|WA": null,
  "magnolia|PA": null,
  "south san francisco hq|NY": null,
- "duck|NC": null
+ "duck|NC": null,
+ "sheridan|IN": [
+  40.1104,
+  -86.2367
+ ]
 }
