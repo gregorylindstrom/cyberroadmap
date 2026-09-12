@@ -13176,5 +13176,13 @@
  "west seneca|NY": null,
  "sparks|TX": null,
  "san elizario|CO": null,
- "lincoln|CO": null
+ "lincoln|CO": null,
+ "remote - d.c.|NC": null,
+ "moapa valley|WA": null,
+ "mint canyon|CA": null,
+ "mount joy|PA": [
+  40.1083,
+  -76.5103
+ ],
+ "shadle garland|WA": null
 }
