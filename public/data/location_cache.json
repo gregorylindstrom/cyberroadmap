@@ -13223,5 +13223,12 @@
  "abbottstown|CO": null,
  "new oxford|CO": null,
  "short pump|VA": null,
- "welch|VA": null
+ "welch|VA": null,
+ "new york or san francisco|NY": null,
+ "lake forest|CA": [
+  33.6437,
+  -117.6868
+ ],
+ "denali park|AK": null,
+ "nueces|TX": null
 }
