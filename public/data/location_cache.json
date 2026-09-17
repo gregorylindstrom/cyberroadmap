@@ -13283,5 +13283,15 @@
  ],
  "mercer|NJ": null,
  "eagle rock|CA": null,
- "hill country village|TX": null
+ "hill country village|TX": null,
+ "chico|CA": [
+  39.7458,
+  -121.8444
+ ],
+ "weaverville|CA": [
+  40.7317,
+  -122.9353
+ ],
+ "clayton|PA": null,
+ "elger bay|WA": null
 }
