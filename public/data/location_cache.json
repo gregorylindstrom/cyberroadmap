@@ -13303,5 +13303,20 @@
   41.3222,
   -81.4996
  ],
- "san francisco; new york|NY": null
+ "san francisco; new york|NY": null,
+ "atascosa|TX": [
+  29.2705,
+  -98.7421
+ ],
+ "south san francisco|NY": null,
+ "cecil field|FL": null,
+ "belgrade|MT": [
+  45.7801,
+  -111.1439
+ ],
+ "cedar city|UT": [
+  37.5886,
+  -113.1682
+ ],
+ "kensington|NY": null
 }
