@@ -13318,5 +13318,27 @@
   37.5886,
   -113.1682
  ],
- "kensington|NY": null
+ "kensington|NY": null,
+ "saint hedwig|TX": [
+  29.4353,
+  -98.1952
+ ],
+ "macdona|TX": [
+  29.3256,
+  -98.7322
+ ],
+ "adkins|TX": [
+  29.3805,
+  -98.265
+ ],
+ "georgia; north carolina; washington|DC": null,
+ "fort scott camps|IN": null,
+ "los altos|CA": [
+  37.3814,
+  -122.1258
+ ],
+ "dayton|MN": [
+  45.1982,
+  -93.4668
+ ]
 }
