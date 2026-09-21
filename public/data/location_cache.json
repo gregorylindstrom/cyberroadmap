@@ -13425,5 +13425,32 @@
  "angleton|TX": [
   29.181,
   -95.4467
+ ],
+ "warner robins|GA": [
+  32.5934,
+  -83.6416
+ ],
+ "jena|LA": [
+  31.6748,
+  -92.1137
+ ],
+ "bowling green|VA": [
+  38.0137,
+  -77.1802
+ ],
+ "marshfield|WI": [
+  44.4666,
+  -90.0214
+ ],
+ "smithtown|MA": null,
+ "spinnerstown|PA": [
+  40.3286,
+  -75.1028
+ ],
+ "herricks|NY": null,
+ "montrose|FL": null,
+ "valley forge|PA": [
+  40.0923,
+  -75.4537
  ]
 }
