@@ -13523,5 +13523,10 @@
  "guntown|FL": null,
  "hildale|WA": null,
  "montauk|MA": null,
- "carthage|CO": null
+ "carthage|CO": null,
+ "bristol city|VA": null,
+ "hanover|MA": [
+  42.1214,
+  -70.857
+ ]
 }
