@@ -13556,5 +13556,27 @@
  "clayton|CO": null,
  "diablo grande|CA": null,
  "smiths point|MA": null,
- "lone tree|CO": null
+ "lone tree|CO": null,
+ "london or paris or germany|OR": null,
+ "carlisle|PA": [
+  40.2417,
+  -77.1983
+ ],
+ "trenton|NJ": [
+  40.2805,
+  -74.712
+ ],
+ "waxahachie|TX": [
+  32.3808,
+  -96.8374
+ ],
+ "campbell hall|NY": [
+  41.443,
+  -74.2505
+ ],
+ "shirley|MA": [
+  42.5734,
+  -71.6483
+ ],
+ "middleborough|MA": null
 }
