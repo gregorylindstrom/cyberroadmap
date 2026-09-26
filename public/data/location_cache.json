@@ -13644,5 +13644,16 @@
  ],
  "leipsic|NY": null,
  "woodland park|NJ": null,
- "strathmoor village|CO": null
+ "strathmoor village|CO": null,
+ "lima|DE": null,
+ "moriches|MA": null,
+ "monte rio|CA": [
+  38.4706,
+  -123.0172
+ ],
+ "shelburne falls|OH": null,
+ "desert hot springs|CA": [
+  33.9531,
+  -116.5219
+ ]
 }
