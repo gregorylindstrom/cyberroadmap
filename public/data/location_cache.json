@@ -13675,5 +13675,24 @@
   31.8737,
   -112.7845
  ],
- "tbilisi|GA": null
+ "tbilisi|GA": null,
+ "forest park|IN": null,
+ "moraga|CA": [
+  37.8437,
+  -122.1242
+ ],
+ "hilltop mall|CA": null,
+ "clayton|CA": [
+  37.9154,
+  -121.91
+ ],
+ "balsam lake|FL": null,
+ "middleburg|VA": [
+  39.0296,
+  -77.6938
+ ],
+ "philomont|VA": [
+  39.058,
+  -77.7434
+ ]
 }
