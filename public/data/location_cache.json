@@ -13732,5 +13732,16 @@
  "lakeview|IN": null,
  "lower gwynedd|PA": null,
  "carol city|FL": null,
- "miami shores|FL": null
+ "miami shores|FL": null,
+ "remote - usa; santa clara|CA": null,
+ "walker|MI": [
+  43.7626,
+  -86.083
+ ],
+ "mount pocono|NY": null,
+ "kirtland|IN": null,
+ "hazlet|NJ": [
+  40.4226,
+  -74.1799
+ ]
 }
