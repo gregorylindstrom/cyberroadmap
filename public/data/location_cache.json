@@ -13749,5 +13749,17 @@
   -92.9587
  ],
  "concord corner|NJ": null,
- "camas valley|CO": null
+ "camas valley|CO": null,
+ "millbrae|CA": [
+  37.6004,
+  -122.402
+ ],
+ "columbus|GA": [
+  32.4841,
+  -84.9431
+ ],
+ "copper center|AK": [
+  61.471,
+  -144.991
+ ]
 }
