@@ -13775,5 +13775,43 @@
  "wales|WI": [
   43.0088,
   -88.3787
+ ],
+ "allenwood|PA": [
+  41.1264,
+  -76.9724
+ ],
+ "village of golf|FL": null,
+ "margate|FL": null,
+ "palm springs|FL": null,
+ "patterson|NY": [
+  42.85,
+  -74.1231
+ ],
+ "pear ridge|CO": null,
+ "island park|NY": [
+  40.604,
+  -73.6554
+ ],
+ "larchmont|NY": [
+  40.9351,
+  -73.7572
+ ],
+ "pelham|NY": [
+  40.9045,
+  -73.8073
+ ],
+ "massapequa park|NY": [
+  40.6807,
+  -73.4444
+ ],
+ "mill neck|NY": [
+  40.8857,
+  -73.5526
+ ],
+ "island trees|NY": null,
+ "roslyn harbor|NY": null,
+ "whitman|MA": [
+  42.0816,
+  -70.9381
  ]
 }
