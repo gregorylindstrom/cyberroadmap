@@ -13833,5 +13833,14 @@
  ],
  "prices fork|PA": null,
  "granville|NC": null,
- "hoschton|MO": null
+ "hoschton|MO": null,
+ "bayfield|WI": [
+  46.8354,
+  -90.8217
+ ],
+ "ramrod key|NY": null,
+ "lake alfred|FL": [
+  28.0895,
+  -81.7271
+ ]
 }
