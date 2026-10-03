@@ -13842,5 +13842,19 @@
  "lake alfred|FL": [
   28.0895,
   -81.7271
- ]
+ ],
+ "westmere|NY": null,
+ "lincroft|NJ": [
+  40.3369,
+  -74.1205
+ ],
+ "ardsley|NY": [
+  41.0113,
+  -73.8413
+ ],
+ "university park|IL": [
+  41.4418,
+  -87.7101
+ ],
+ "greenburgh|NY": null
 }
