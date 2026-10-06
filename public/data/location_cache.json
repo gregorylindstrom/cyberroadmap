@@ -13964,5 +13964,34 @@
  "monsey|NY": [
   41.1163,
   -74.0736
+ ],
+ "san francisco; new york city; seattle|NY": null,
+ "colorado; illinois; texas|CO": null,
+ "beckers corners|NY": null,
+ "anderson|SC": [
+  34.5261,
+  -82.6304
+ ],
+ "riverton|WA": null,
+ "south hamilton|NJ": null,
+ "hollywood|MO": null,
+ "kenwood|IN": null,
+ "eatonville|NY": null,
+ "bellevue|MO": null,
+ "smithsburg|WA": null,
+ "sturgis|NJ": null,
+ "warren|NJ": [
+  40.6318,
+  -74.5105
+ ],
+ "west port arthur|CO": null,
+ "broward|FL": null,
+ "brighton|MA": [
+  42.3478,
+  -71.1566
+ ],
+ "suffolk|NY": [
+  40.9223,
+  -72.6371
  ]
 }
