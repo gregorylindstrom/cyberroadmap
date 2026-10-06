@@ -13945,5 +13945,10 @@
  ],
  "southport|IN": null,
  "luck|FL": null,
- "kiowa|IA": null
+ "kiowa|IA": null,
+ "richmond|WA": null,
+ "massapequa|NY": [
+  40.6682,
+  -73.4588
+ ]
 }
