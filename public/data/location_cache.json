@@ -14003,5 +14003,27 @@
   -118.4047
  ],
  "port jefferson|MA": null,
- "sunfish lake|MN": null
+ "sunfish lake|MN": null,
+ "laurel|FL": [
+  30.9524,
+  -86.4003
+ ],
+ "thousand palms|CA": [
+  33.8082,
+  -116.3713
+ ],
+ "haworth|NJ": [
+  40.9608,
+  -73.9874
+ ],
+ "paris|NY": [
+  43.4153,
+  -76.1
+ ],
+ "prince edward|VA": null,
+ "washington|RI": null,
+ "nassau|NY": [
+  42.5352,
+  -73.4984
+ ]
 }
