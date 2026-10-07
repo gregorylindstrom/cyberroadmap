@@ -13993,5 +13993,15 @@
  "suffolk|NY": [
   40.9223,
   -72.6371
- ]
+ ],
+ "sf-hq|NY": null,
+ "colton|TX": null,
+ "kalona|WA": null,
+ "presidio of monterey|CA": null,
+ "kern|CA": [
+  35.755,
+  -118.4047
+ ],
+ "port jefferson|MA": null,
+ "sunfish lake|MN": null
 }
