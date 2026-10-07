@@ -14025,5 +14025,37 @@
  "nassau|NY": [
   42.5352,
   -73.4984
- ]
+ ],
+ "northfield|VT": [
+  44.1809,
+  -72.6789
+ ],
+ "caldwell|ID": [
+  43.6627,
+  -116.7
+ ],
+ "lake|WA": [
+  47.7933,
+  -122.3076
+ ],
+ "heathrow|FL": null,
+ "cutler|CA": [
+  36.5243,
+  -119.287
+ ],
+ "hillburn|NY": [
+  41.124,
+  -74.1702
+ ],
+ "plainfield|NJ": [
+  40.6152,
+  -74.415
+ ],
+ "redington shores|FL": null,
+ "pylesville|MD": [
+  39.6959,
+  -76.4113
+ ],
+ "milltown|FL": null,
+ "burlington|OR": null
 }
