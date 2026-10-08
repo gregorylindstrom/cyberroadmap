@@ -14060,5 +14060,15 @@
  "burlington|OR": null,
  "newbury|NY": null,
  "bridgton|NC": null,
- "ten broeck|CO": null
+ "ten broeck|CO": null,
+ "dardanelle|AR": [
+  35.1955,
+  -93.1873
+ ],
+ "la plata|CO": null,
+ "williamsburg|IA": [
+  41.6393,
+  -92.024
+ ],
+ "princeton by the sea|CA": null
 }
