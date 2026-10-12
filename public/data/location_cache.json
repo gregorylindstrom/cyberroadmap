@@ -14157,5 +14157,27 @@
  "fairfield|CT": [
   41.1664,
   -73.2571
+ ],
+ "syracuse|IN": [
+  41.4065,
+  -85.7184
+ ],
+ "roper|WA": null,
+ "rougemont|NC": [
+  36.2393,
+  -78.9019
+ ],
+ "deerfield|WI": [
+  43.0571,
+  -89.0862
+ ],
+ "josephine|TX": [
+  33.0598,
+  -96.3248
+ ],
+ "auburndale|NJ": null,
+ "lincoln|VA": [
+  39.0985,
+  -77.6883
  ]
 }
