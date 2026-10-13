@@ -14179,5 +14179,23 @@
  "lincoln|VA": [
   39.0985,
   -77.6883
- ]
+ ],
+ "toronto|CA": null,
+ "new smyrna beach|FL": [
+  29.0247,
+  -80.9584
+ ],
+ "tulare|CA": [
+  36.2022,
+  -119.338
+ ],
+ "deland|FL": [
+  29.0266,
+  -81.3349
+ ],
+ "newtown|PA": [
+  40.263,
+  -74.9555
+ ],
+ "canyon|ID": null
 }
