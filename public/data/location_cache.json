@@ -14248,5 +14248,17 @@
  ],
  "englewood beach|FL": null,
  "lauderhill|FL": null,
- "green acres|FL": null
+ "green acres|FL": null,
+ "greenvale|NY": [
+  40.8125,
+  -73.6261
+ ],
+ "mission hills|CA": [
+  34.2619,
+  -118.4587
+ ],
+ "pompton lakes|NJ": [
+  40.9993,
+  -74.2876
+ ]
 }
