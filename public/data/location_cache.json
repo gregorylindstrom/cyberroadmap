@@ -14268,5 +14268,10 @@
  "tavares|IN": null,
  "bellevue|NY": null,
  "dale city|VA": null,
- "berkley|TX": null
+ "berkley|TX": null,
+ "townsend|GA": [
+  31.5673,
+  -81.4182
+ ],
+ "royerton|DE": null
 }
