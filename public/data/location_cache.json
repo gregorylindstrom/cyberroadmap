@@ -14285,5 +14285,13 @@
   -89.3297
  ],
  "morada|CA": null,
- "segno|FL": null
+ "segno|FL": null,
+ "studio|CA": [
+  34.143,
+  -118.3913
+ ],
+ "carnegie|PA": [
+  40.4029,
+  -80.0915
+ ]
 }
