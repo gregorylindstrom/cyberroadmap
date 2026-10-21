@@ -14345,5 +14345,15 @@
   -74.5539
  ],
  "georgia; tennessee|GA": null,
- "montopolis|TX": null
+ "montopolis|TX": null,
+ "ocean springs|MO": null,
+ "bristow|VA": [
+  38.7343,
+  -77.5474
+ ],
+ "petersburg|NY": [
+  42.6859,
+  -73.3906
+ ],
+ "dallas|MO": null
 }
