@@ -14364,5 +14364,16 @@
  "snohomish|WA": [
   47.8954,
   -122.0716
- ]
+ ],
+ "milford|CT": [
+  41.2175,
+  -73.0549
+ ],
+ "west orange|NJ": [
+  40.7859,
+  -74.2568
+ ],
+ "saltillo|FL": null,
+ "edgecombe|NC": null,
+ "lecompton|CO": null
 }
