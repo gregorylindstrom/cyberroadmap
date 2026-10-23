@@ -14389,5 +14389,14 @@
  ],
  "florida; new york|DC": null,
  "camp j t robinson|AR": null,
- "hornsby bend|TX": null
+ "hornsby bend|TX": null,
+ "marlton|NJ": [
+  39.8845,
+  -74.9067
+ ],
+ "speedwell|MO": null,
+ "jackson|OR": [
+  42.1813,
+  -123.0241
+ ]
 }
