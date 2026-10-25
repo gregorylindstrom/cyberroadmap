@@ -14437,5 +14437,10 @@
  "eastport|MA": null,
  "stagecoach|PA": null,
  "prospect park|DE": null,
- "crum lynne|DE": null
+ "crum lynne|DE": null,
+ "rio vista|CA": [
+  38.1637,
+  -121.7016
+ ],
+ "shields|MI": null
 }
