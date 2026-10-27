@@ -14453,5 +14453,27 @@
   27.7984,
   -97.6995
  ],
- "la costa|CA": null
+ "la costa|CA": null,
+ "yorktown|VA": [
+  37.2287,
+  -76.5423
+ ],
+ "cleves|IN": null,
+ "woodlawn|IN": null,
+ "reading|IN": null,
+ "bevis|IN": null,
+ "terrace park|IN": null,
+ "montgomery|MA": null,
+ "fanwood|NJ": [
+  40.6419,
+  -74.3868
+ ],
+ "garwood|NJ": [
+  40.6512,
+  -74.3239
+ ],
+ "rosharon|TX": [
+  29.4203,
+  -95.4537
+ ]
 }
