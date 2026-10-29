@@ -14510,5 +14510,9 @@
  "arlington heights|IN": null,
  "westwood|IN": null,
  "oaks|DE": null,
- "franklinton|GA": null
+ "franklinton|GA": null,
+ "carmel|NY": [
+  41.4432,
+  -73.6815
+ ]
 }
