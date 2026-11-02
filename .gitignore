@@ -1,26 +1,17 @@
+# Secrets — never commit credentials
+.env
+.env.*
+!.env.example
+*.secret
+Cyberroadmap.py
+
 # Python
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
 .venv/
 venv/
-env/
-.Python
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
+# OS / editor noise
 .DS_Store
-
-# Logs
-*.log
-
-# Local env files
-.env
-.env.local
-
-# Local test output
-/test-output/
-/tmp/
+Thumbs.db
+*.swp
