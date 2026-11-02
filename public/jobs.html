@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Search thousands of entry-level cybersecurity, IT, and infrastructure jobs across the US. Federal positions included. Filter by location, radius, keywords, and category.">
-    <title>Jobs — CyberRoadmap</title>
+    <meta name="description" content="Search thousands of entry-level cybersecurity, IT, and infrastructure jobs across the US, refreshed every 6 hours. Federal positions included. Filter by ZIP radius, keywords, and category.">
+    <title>Entry-Level Cybersecurity Jobs, Updated Daily | CyberRoadmap</title>
+    <link rel="canonical" href="https://www.cyberroadmap.org/jobs.html">
+    <meta property="og:title" content="Entry-Level Cybersecurity Jobs, Updated Daily | CyberRoadmap">
+    <meta property="og:description" content="Search thousands of entry-level cybersecurity, IT, and infrastructure jobs across the US, refreshed every 6 hours. Federal positions included. Filter by ZIP radius, keywords, and category.">
+    <meta property="og:url" content="https://www.cyberroadmap.org/jobs.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CyberRoadmap">
+    <meta name="twitter:card" content="summary">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
@@ -680,6 +687,7 @@
             <a href="/jobs.html" class="active">Jobs</a>
             <a href="/certs.html">Certifications</a>
             <a href="/training.html">Training</a>
+            <a href="/scholarships.html">Scholarships</a>
             <a href="/resources.html">Resources</a>
             <a href="/about.html">About</a>
         </div>
@@ -708,7 +716,7 @@
             <div class="filter-group">
                 <label class="filter-label">Location (ZIP or city)</label>
                 <div class="location-row">
-                    <input type="text" class="filter-input" id="f-location" placeholder="77339 or Houston, TX" maxlength="40">
+                    <input type="text" class="filter-input" id="f-location" placeholder="ZIP or city — anywhere in the US" maxlength="40">
                     <button class="location-btn" id="btn-geolocate" title="Detect my location">◉ Me</button>
                 </div>
             </div>
@@ -1083,7 +1091,9 @@ function applyFilters() {
 function renderJobCard(job) {
     const card = document.createElement('a');
     card.className = 'job-card';
-    card.href = job.url;
+    // SECURITY: only allow http(s) URLs from external job sources —
+    // blocks javascript:/data: URI injection via a malicious posting.
+    card.href = /^https?:\/\//i.test(job.url || '') ? job.url : '#';
     card.target = '_blank';
     card.rel = 'noopener noreferrer';
 
@@ -1169,7 +1179,22 @@ function updateMeta(meta) {
                       hours === 1 ? 'updated 1 hour ago' :
                       hours < 24 ? `updated ${hours} hours ago` :
                       `updated ${Math.floor(hours / 24)} days ago`;
-        document.getElementById('stats-updated').textContent = stamp;
+        const stampEl = document.getElementById('stats-updated');
+        stampEl.textContent = stamp;
+
+        // Freshness monitor: the scraper runs every 6 hours, so anything
+        // older than 24h means the pipeline is broken. Say so, visibly.
+        if (hours > 24) {
+            stampEl.style.color = 'var(--yellow, #e6b04f)';
+            const banner = document.createElement('div');
+            banner.id = 'stale-banner';
+            banner.style.cssText = 'position:relative;z-index:5;max-width:1400px;margin:0 auto 1.5rem;padding:0.9rem 1.2rem;border:1px solid #e6b04f;background:rgba(230,176,79,0.08);color:#e6b04f;font-family:\'JetBrains Mono\',monospace;font-size:0.8rem;letter-spacing:0.03em;';
+            banner.innerHTML = '&#9888; This job data was last refreshed <strong>' + stamp.replace('updated ', '') + '</strong>. ' +
+                'The listings below may include closed positions &mdash; the update pipeline has been flagged for repair. ' +
+                'The direct-search links at the bottom of this page always show live results.';
+            const hero = document.querySelector('.hero') || document.body.firstElementChild;
+            hero.parentNode.insertBefore(banner, hero.nextSibling);
+        }
     }
 
     document.getElementById('stats-count').textContent =
@@ -1209,14 +1234,19 @@ async function loadJobs() {
 
         render();
     } catch (e) {
-        document.getElementById('results-body').innerHTML = `
+        // SECURITY: e.message can echo fragments of the fetched response
+        // (e.g. JSON.parse errors quote the input), so never interpolate it
+        // into innerHTML — build the message node safely instead.
+        const body = document.getElementById('results-body');
+        body.innerHTML = `
             <div class="state-msg">
                 <strong>Couldn't load jobs.</strong>
-                ${e.message}
+                <span class="err-detail"></span>
                 <p>Try refreshing the page. If this keeps happening, email
                 <a href="mailto:hello@cyberroadmap.org" style="color: var(--accent);">hello@cyberroadmap.org</a>.</p>
             </div>
         `;
+        body.querySelector('.err-detail').textContent = e.message;
     }
 }
 
