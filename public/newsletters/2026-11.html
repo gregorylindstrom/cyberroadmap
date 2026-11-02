@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Packet Capture · November 2026</title>
+</head>
+<body>
+<style>
+/* Layout: single reading column, masthead styled as a packet header, sections tagged like protocol fields */
+/* LSC brand: navy primary, red accent, tan and light blue secondary, white ground. Deliberately light-only per LSC digital standards. */
+:root {
+  --bg: #F4F5F7;
+  --paper: #FFFFFF;
+  --ink: #1F2A37;
+  --muted: #4A5563;
+  --rule: #DDE1E7;
+  --navy: #002D62;
+  --accent: #9E1B32;
+  --accent-soft: #CBD3EB;
+  --signal: #9E1B32;
+  --signal-soft: #F3ECD9;
+  --tan: #D9C89E;
+  --term-bg: #002D62;
+  --term-fg: #FFFFFF;
+  --good: #2F7D4A;
+  --bad: #9E1B32;
+  --display: Arial, Helvetica, sans-serif;
+  --body: Arial, Helvetica, sans-serif;
+  --mono: "Courier New", Courier, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 56px;
+}
+.sheet { max-width: 760px; margin: 0 auto; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.inner { padding-inline: clamp(20px, 5vw, 48px); }
+
+.mast { background: var(--navy); padding-block: 26px 22px; }
+.mast-strip { background: var(--accent); color: #FFFFFF; font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: .08em; padding-block: 8px; }
+.mast-nav { border-bottom: 1px solid var(--rule); padding-block: 14px; }
+.hdr { font-family: var(--display); font-weight: 700; font-size: 13px; color: var(--tan); display: flex; flex-wrap: wrap; gap: 6px 18px; letter-spacing: .02em; }
+
+.mast h1 { font-family: var(--display); font-weight: 700; color: #FFFFFF; font-size: clamp(32px, 7vw, 44px); line-height: 1; letter-spacing: -.02em; margin: 18px 0 8px; }
+
+.mast .sub { font-family: var(--display); font-size: 15px; color: var(--accent-soft); margin: 0; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+.toc a { font-family: var(--display); font-size: 13px; font-weight: 700; text-decoration: none; color: var(--accent); border: 1px solid var(--rule); padding: 4px 10px; border-radius: 999px; }
+.toc a:hover, .toc a:focus-visible { background: var(--accent-soft); outline: none; border-color: var(--accent); }
+
+section { padding-block: 32px; border-bottom: 1px solid var(--rule); }
+section:last-of-type { border-bottom: 0; }
+.tag { font-family: var(--display); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 0 0 6px; }
+h2 { font-family: var(--display); font-weight: 700; color: var(--navy); font-size: clamp(20px, 4vw, 24px); line-height: 1.2; letter-spacing: -.01em; margin: 0 0 14px; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 700; color: var(--navy); font-size: 18px; margin: 22px 0 6px; }
+p { margin: 0 0 14px; max-width: 65ch; }
+ul, ol { margin: 0 0 14px; padding-left: 1.2em; max-width: 65ch; }
+li { margin-bottom: 6px; }
+a { color: var(--accent); }
+.lead { font-size: 17px; }
+.sig { font-family: var(--display); font-size: 15px; color: var(--muted); margin-top: 18px; }
+.sig strong { color: var(--ink); }
+
+.weeks { margin: 22px 0 18px; overflow-x: auto; }
+.wk { min-width: 460px; font-family: var(--display); font-size: 12.5px; }
+.row { display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: center; margin-bottom: 10px; }
+.row .lbl { color: var(--muted); }
+.bars { display: grid; grid-template-columns: repeat(16, 1fr); gap: 2px; }
+.bar { height: 30px; border-radius: 3px; display: flex; align-items: center; padding-inline: 10px; color: var(--paper); font-weight: 500; white-space: nowrap; overflow: hidden; }
+.b-old1 { grid-column: 1 / 17; background: var(--muted); }
+.b-old2 { grid-column: 1 / 17; background: var(--muted); opacity: .7; }
+.b-w1 { grid-column: 1 / 9; background: var(--navy); }
+.b-w2 { grid-column: 9 / 17; background: var(--signal); }
+.scale { display: grid; grid-template-columns: 92px 1fr; gap: 12px; color: var(--muted); }
+.scale div:last-child { display: flex; justify-content: space-between; }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 18px 0 8px; }
+.fact { background: var(--bg); border-left: 4px solid var(--navy); border-radius: 6px; padding: 14px 16px; }
+.fact .k { font-family: var(--display); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--accent); margin-bottom: 4px; }
+.fact .v { font-family: var(--display); font-size: 15px; line-height: 1.45; }
+
+.profile { display: grid; grid-template-columns: 76px 1fr; gap: 18px; align-items: start; }
+.mono-badge { width: 76px; height: 76px; border-radius: 50%; background: var(--navy); color: var(--paper); font-family: var(--display); font-weight: 700; font-size: 26px; display: grid; place-items: center; }
+.profile > div { min-width: 0; }
+.creds { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
+.creds span { font-family: var(--display); font-size: 12px; border: 1px solid var(--rule); border-radius: 4px; padding: 2px 8px; color: var(--muted); }
+
+.events { display: grid; gap: 12px; margin-top: 8px; }
+.ev { display: grid; grid-template-columns: 104px 1fr; gap: 16px; padding: 14px 0; border-top: 1px dashed var(--rule); }
+.ev:first-child { border-top: 0; padding-top: 4px; }
+.ev .when { font-family: var(--display); font-size: 13.5px; color: var(--signal); font-weight: 600; line-height: 1.4; }
+.ev > div { min-width: 0; }
+.ev h3 { margin: 0 0 4px; font-size: 17px; }
+.ev p { margin: 0; font-size: 16px; }
+.free { display: inline-block; font-family: var(--display); font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--good); border: 1px solid currentColor; border-radius: 3px; padding: 0 6px; margin-left: 6px; vertical-align: 2px; }
+
+.callout { background: var(--signal-soft); border-radius: 6px; padding: 16px 18px; margin-top: 16px; font-family: var(--display); font-size: 15.5px; line-height: 1.5; }
+.callout strong { color: var(--signal); }
+
+.timeline { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 0; }
+.timeline li { display: grid; grid-template-columns: 116px 1fr; gap: 14px; padding: 10px 0; border-top: 1px solid var(--rule); margin: 0; }
+.timeline li:first-child { border-top: 0; }
+.timeline .t { font-family: var(--display); font-size: 13.5px; color: var(--navy); font-weight: 600; padding-top: 2px; }
+.timeline li > div { min-width: 0; font-size: 16px; }
+
+.watch { display: flex; gap: 14px; align-items: center; border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; margin-top: 18px; text-decoration: none; color: var(--ink); }
+.watch:hover, .watch:focus-visible { border-color: var(--accent); outline: none; }
+.play { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); display: grid; place-items: center; }
+.play::after { content: ""; border-left: 12px solid var(--paper); border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
+.watch div { min-width: 0; font-family: var(--display); font-size: 15px; line-height: 1.4; }
+.watch strong { display: block; }
+.watch span { color: var(--muted); }
+
+.role { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 16px 0 6px; }
+.role div { border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; min-width: 0; }
+.role .k { font-family: var(--display); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--accent); margin-bottom: 6px; }
+.role p, .role ul { font-family: var(--display); font-size: 15px; line-height: 1.5; margin: 0; }
+.role ul { padding-left: 1.1em; }
+.role li { margin-bottom: 3px; }
+
+.puzzle { border: 1px solid var(--rule); border-radius: 6px; margin-top: 18px; overflow: hidden; }
+.puzzle-h { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; align-items: baseline; padding: 12px 16px; border-bottom: 1px solid var(--rule); }
+.puzzle-h h3 { margin: 0; font-size: 17px; }
+.lvl { font-family: var(--display); font-weight: 700; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; }
+.lvl.easy { color: var(--good); }
+.lvl.hard { color: var(--signal); }
+.puzzle-b { padding: 14px 16px 16px; }
+.puzzle-b p { font-size: 16px; }
+.term { background: var(--term-bg); color: var(--term-fg); font-family: var(--mono); font-size: 14px; line-height: 1.55; padding: 14px 16px; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin: 0 0 12px; }
+.term .pr { color: var(--tan); user-select: none; }
+details { margin: 0 0 12px; font-family: var(--display); font-size: 15px; }
+summary { cursor: pointer; color: var(--accent); }
+details p { margin: 8px 0 0; }
+.check { display: flex; flex-wrap: wrap; gap: 8px; }
+.check input { flex: 1 1 220px; min-width: 0; font-family: var(--mono); font-size: 14px; padding: 9px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); }
+.check input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.check button { font-family: var(--display); font-weight: 700; font-size: 15px; padding: 9px 16px; border: 0; border-radius: 4px; background: var(--accent); color: var(--paper); cursor: pointer; }
+.check button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.result { font-family: var(--display); font-weight: 700; font-size: 14px; margin: 10px 0 0; min-height: 1.4em; }
+.result.ok { color: var(--good); }
+.result.no { color: var(--bad); }
+
+.checklist { background: var(--signal-soft); }
+.cl { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; max-width: none; }
+.cl li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; margin: 0; }
+.cl .n { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #FFFFFF; font-weight: 700; display: grid; place-items: center; }
+.cl li > div { min-width: 0; padding-top: 4px; }
+.alert-task { margin-top: 18px; }
+.alert-task .term { word-break: normal; overflow-wrap: anywhere; }
+footer { background: var(--navy); padding-block: 22px; font-family: var(--display); font-size: 14px; color: var(--accent-soft); }
+footer p { max-width: none; margin: 0 0 6px; }
+footer strong { color: #FFFFFF; }
+.btn { display: inline-block; background: var(--accent); color: #FFFFFF; font-family: var(--display); font-weight: 700; font-size: 15px; text-decoration: none; padding: 11px 20px; border-radius: 4px; }
+.btn.navy { background: var(--navy); }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+@media (max-width: 480px) {
+  body { font-size: 16.5px; padding-block: 16px 32px; }
+  .profile { grid-template-columns: 1fr; }
+  .ev, .timeline li { grid-template-columns: 1fr; gap: 4px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="sheet">
+  <header>
+    <div class="mast inner">
+      <div class="hdr"><span>LONE STAR COLLEGE · BAT CYBERSECURITY</span></div>
+      <h1>Packet Capture</h1>
+      <p class="sub">The monthly newsletter for Bachelor of Applied Technology in Cybersecurity students</p>
+    </div>
+    <div class="mast-strip inner">VOLUME 1 · ISSUE 1 · NOVEMBER 2026</div>
+    <div class="mast-nav inner">
+    <nav class="toc" aria-label="In this issue">
+      <a href="#checklist">Checklist</a>
+      <a href="#welcome">Welcome</a>
+      <a href="#spring">Spring 2027 changes</a>
+      <a href="#faculty">Meet the faculty</a>
+      <a href="#certs">Security+</a>
+      <a href="#jobsearch">Job search</a>
+      <a href="#role">Role of the month</a>
+      <a href="#roadmap">CyberRoadmap</a>
+      <a href="#events">Events</a>
+      <a href="#club">Cyber Club</a>
+      <a href="#puzzle">Puzzles</a>
+      <a href="#spotlight">Student spotlight</a>
+    </nav>
+    </div>
+  </header>
+
+  <section id="checklist" class="inner checklist">
+    <p class="tag">Start here</p>
+    <h2>Your November checklist</h2>
+    <ol class="cl"><li><span class="n">1</span><div><strong>Look at your Spring schedule when it posts.</strong> Note which course is in 8W1 and which is in 8W2. <a href="#spring">Details</a></div></li><li><span class="n">2</span><div><strong>Check out the featured internship.</strong> Oceaneering is hiring a CyberSecurity SOC Intern through the Texas Intern Network. <a href="#jobsearch">Details</a></div></li><li><span class="n">3</span><div><strong>Pick one event to attend.</strong> The Cyber Club meets today at 2:30 PM, the API Cybersecurity Conference on Nov 10–11 is free for students, and the Cybersecurity Circle meets every Friday. <a href="#events">Details</a></div></li></ol>
+  </section>
+
+  <section id="welcome" class="inner">
+    <p class="tag">Hello, world</p>
+    <h2>Welcome to the first issue</h2>
+    <p class="lead">Our program has grown a lot in six years, and there is more going on than any one class announcement can cover. This newsletter is how we will keep you in the loop.</p>
+    <p>Once a month you will get program news, introductions to the people who teach you, career advice, local events worth your time, and a couple of puzzles to crack. Keep it short, read it in a few minutes, and tell us what you want to see next.</p>
+    <p class="sig"><strong>Dr. Greg Lindstrom</strong><br>Professor and Chair, BAT Cybersecurity</p>
+  </section>
+
+  <section id="spring" class="inner">
+    <p class="tag">Program news</p>
+    <h2>Spring 2027: our courses move to 8-week sessions</h2>
+    <p>Texas has changed how it defines a hybrid course. To meet the new rule, BAT Cybersecurity courses will run in two back-to-back 8-week sessions starting in Spring 2027, instead of two courses running side by side for 16 weeks.</p>
+
+    <div class="weeks" role="img" aria-label="Before: two courses run at the same time across 16 weeks. After: one course in weeks 1 to 8, then the next course in weeks 9 to 16.">
+      <div class="wk">
+        <div class="row"><div class="lbl">Until now</div><div class="bars"><div class="bar b-old1">Course A · 16 weeks</div></div></div>
+        <div class="row"><div class="lbl"></div><div class="bars"><div class="bar b-old2">Course B · 16 weeks</div></div></div>
+        <div class="row"><div class="lbl">Spring 2027</div><div class="bars"><div class="bar b-w1">8W1 · Course A</div><div class="bar b-w2">8W2 · Course B</div></div></div>
+        <div class="scale"><div></div><div><span>Week 1</span><span>Week 8</span><span>Week 16</span></div></div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><div class="k">Same total</div><div class="v">You still complete two courses per semester. You just take them one at a time.</div></div>
+      <div class="fact"><div class="k">In class</div><div class="v">About 2.5 hours a week together for labs and group work. The rest is online.</div></div>
+      <div class="fact"><div class="k">Bring</div><div class="v">A laptop to every in-class session. A Raspberry Pi is encouraged but no longer required.</div></div>
+      <div class="fact"><div class="k">Sequence</div><div class="v">The course order does not change. If you are on the hybrid path now, you stay on it.</div></div>
+    </div>
+
+    <p>An 8-week course moves twice as fast, so the first week matters. Log in to D2L on day one, keep up with the online work, and use the in-class lab time well. The labs feed straight into your homework.</p>
+    <p><strong>No textbook costs:</strong> all BAT Cybersecurity books and labs are provided online at no extra charge.</p>
+    <p><strong>Veterans and international students:</strong> the 8-week hybrid format does not create any issues for students using VA education benefits or for international students.</p>
+    <div class="callout"><strong>What to do now:</strong> Your advisor registers you for your courses, so there is nothing to sign up for. Look at your Spring schedule once it posts so you know which course falls in 8W1 and which in 8W2. Questions about your plan? Talk to your advisor or send Dr. Lindstrom a message in D2L.</div>
+
+    <h3>Also on the way</h3>
+    <ul>
+      <li><strong>Curriculum review.</strong> This year we are reviewing the whole BAT program. You may be asked for feedback on your courses, and we want honest answers.</li>
+      <li><strong>Mentorship.</strong> We are working on a mentorship program that pairs students with local security professionals. More details in an upcoming issue.</li>
+    </ul>
+  </section>
+
+  <section id="faculty" class="inner">
+    <p class="tag">Meet the faculty</p>
+    <h2>Dr. Greg Lindstrom</h2>
+    <div class="profile">
+      <div class="mono-badge" aria-hidden="true">GL</div>
+      <div>
+        <div class="creds"><span>D.Eng.</span><span>MBA</span><span>CISSP</span><span>CISM</span><span>PMP</span></div>
+        <p>For the first issue, we start with the program chair. Dr. Lindstrom has spent more than 35 years in cybersecurity. He began in U.S. Army signals intelligence, went on to work at NASA, GE, and MCI, and later led security for the Americas region of SABIC, a Fortune Global 500 company with operations in 50 countries.</p>
+        <p>He holds a Doctor of Engineering in Cybersecurity Analytics from George Washington University, where he also teaches and advises doctoral students. He also serves as Director of Education for the ISACA Greater Houston Chapter. At LSC, he has taught every course in the BAT cybersecurity sequence, but you will most often find him teaching first-year courses, where he can give new students extra guidance and a solid introduction to the program.</p>
+        <p>Outside of work, he is married to Vicki, a professor at the University of Houston. Together they have seven children living across three continents, plus Shelby, a Catahoula Leopard Dog mix they rescued, quite literally, from the streets of East Texas. He was a member of the 2014 Fjällräven Polar team representing the USA, won a silver medal at the Jiu-Jitsu World Championship, ran the New York City Marathon, and climbed Aconcagua (6,961 m) by the Polish Glacier route.</p>
+        <p>His advice to students: get involved outside of class. The people you meet at a chapter meeting or a CTF often open more doors than a resume does.</p>
+      </div>
+    </div>
+    <p class="sig">Next month: another member of our faculty.</p>
+  </section>
+
+  <section id="certs" class="inner">
+    <p class="tag">Certifications</p>
+    <h2>Why Security+ is a smart first certification</h2>
+    <p class="lead">Your degree shows you can learn. A certification shows an employer you have met an industry standard. For entry-level security jobs, the one employers ask for most often is CompTIA Security+.</p>
+    <h3>It gets your resume past the filter</h3>
+    <p>Many entry-level postings for SOC analyst, security administrator, and IT security specialist roles list Security+ as required or preferred. Some applicant tracking systems screen for it before a person ever reads your resume. Without it, you may never get a chance to explain everything else you know.</p>
+    <h3>It opens government and defense work</h3>
+    <p>The Department of Defense requires approved certifications for many cyber workforce roles, and Security+ is one of the most widely accepted baseline certifications. Houston has plenty of defense contractors, energy companies, and NASA suppliers that follow the same rules. For those jobs, Security+ can be the difference between getting an interview and being screened out.</p>
+    <h3>It lines up with what you are already learning</h3>
+    <p>Security+ covers threats, network security, identity and access, risk, and incident response. You see most of that material in your BAT courses. Studying while the content is fresh is far easier than coming back to it after graduation.</p>
+    <div class="callout"><strong>Timing note:</strong> CompTIA is releasing a new version of the exam, Security+ V8 (SY0-801), expected around November 17, 2026. If you are already studying for the current SY0-701 exam, check <a href="https://www.comptia.org/en/certifications/security/v8/" target="_blank" rel="noopener">CompTIA's site</a> for its retirement date and finish on the version you prepared for. If you are just starting, plan around SY0-801.</div>
+    <p style="margin-top:14px">Our advice: aim to pass Security+ before you graduate, or within your first months of job searching. Ask your instructors about study resources and student exam discounts.</p>
+  </section>
+
+  <section id="jobsearch" class="inner">
+    <p class="tag">Career advice</p>
+    <h2>Start your job search before you graduate</h2>
+    <p class="lead">The most common mistake we see is waiting until after graduation to start looking. In cybersecurity, hiring often takes months, and the students who land jobs first started early.</p>
+    <p>Applications, interviews, background checks, and security clearances all take time. Many employers also fill entry-level and internship roles months in advance. If you start the day after graduation, you are already behind classmates who began a year earlier.</p>
+    <ol class="timeline">
+      <li><div class="t">12+ months out</div><div>Build a LinkedIn profile, go to your first ISACA or ISSA meeting, and start working toward Security+.</div></li>
+      <li><div class="t">9 months out</div><div>Update your resume with projects and labs from your BAT courses. Apply for internships, even part-time ones.</div></li>
+      <li><div class="t">6 months out</div><div>Start applying for full-time roles. Ask people you have met at events for informational conversations.</div></li>
+      <li><div class="t">3 months out</div><div>Interview, follow up, and keep applying. Do not stop because one offer looks promising.</div></li>
+    </ol>
+    <p>Networking matters more than most students expect. Many jobs are filled through someone who already knows you. That is why the events section of this newsletter is there.</p>
+    <h3>Find an internship: the Texas Intern Network</h3>
+    <p>The Texas Intern Network is a free state program from the Texas Workforce Commission, the Texas Education Agency, and the Texas Higher Education Coordinating Board. It connects Texas students with paid and for-credit internships at local employers.</p>
+    <p>Search internships by industry and location, then use the free Big Interview, Big Resume, and Cover Letter Maker tools to prepare. The program also runs career events and a LinkedIn group for students and employers.</p>
+    <div class="callout" style="border-left:4px solid var(--accent)"><span style="display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px">Featured internship</span><span style="display:block;font-size:20px;font-weight:700;color:var(--navy);line-height:1.25">CyberSecurity SOC Intern</span><span style="display:block;font-size:16px;font-weight:700;color:var(--ink);margin:2px 0 8px">Oceaneering International, Inc.</span>A hands-on look at the SOC analyst work described in this month's Role of the Month. Read the details on the Texas Intern Network and apply before it closes.</div>
+    <p style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px"><a class="btn" href="https://www.texasinternnetwork.com/vosnet/jobbanks/jobdetails.aspx?enc=9B8/uT7EfbEIDLIMZ8rhowzqyZjsNU1dBVrIZPNl61aLdeYEgg50x36hjNUp+PGjTizcB+hIyvzJ/uH8Os6+FOD/Gf8McBNKcVd4jv04INJhEcMXeC7m0pUbFzs8g6E/EMTTxyBk07HwG6XSS6MwvVCujnmfbntunDclYFobH3mvGNpQk4waxPvFkFZ4ymBJ4kOvcSwfpjj1X9lqsgysYTJKbiOvk8j8NkHtpvsJVGMqw/pPBeILHfTDx5roq/V8/7m1WbS5irk1+OvURWmTQTS2GcHwfwP8iW6iGM/6IraGTljlM9kPIpqJQynA5BizBbJtd1mLCBsiuqvAFdioCdVnzkBayejMMImu102UiFOPfc/6Ddb/s4RiPtbvfcAySvbVxiHQHEOH6ax09d6QJjco/ZYpV0wGWQpRQ9p5xe+gQsFwPWKKH1DveznSsGACrzTgC6/9yVHGG3EXzhCCaJTret0Gy9izp22LlDXt4stDGwqVKzoy/VPev4X7E99krldCFTYVo5erSabKoixnqjBBVcrX+ZuAfQ/uj5bEURnBo4eWSgcCpt6kTXHdYHAa+htSMT6PcRG8GEdljSQEC+FqQDmoMUdg0VlkzmxSmj/96WnDf2Va4QQ9T8IyCZK/" target="_blank" rel="noopener">View the featured internship</a><a class="btn navy" href="https://www.texasinternnetwork.com/vosnet/default.aspx" target="_blank" rel="noopener">Search all internships</a></p>
+    <p><a href="https://www.twc.texas.gov/initiatives/texas-intern-network" target="_blank" rel="noopener">Learn more about the program at TWC</a></p>
+    <a class="watch" href="https://www.youtube.com/watch?v=5xWnmUEi1Qw" target="_blank" rel="noopener">
+      <span class="play" aria-hidden="true"></span>
+      <div><strong>Recommended watch: "the hacker's roadmap (how to get started in IT in 2025)"</strong><span>NetworkChuck on YouTube · a practical look at how to break into the field</span></div>
+    </a>
+  </section>
+
+  <section id="role" class="inner">
+    <p class="tag">Role of the month</p>
+    <h2>SOC Analyst</h2>
+    <p>Each month we will look at one job in cybersecurity: what it involves day to day and how to get there. We start with the most common entry point into the field.</p>
+    <p>A Security Operations Center (SOC) analyst watches an organization's networks and systems for signs of an attack. When an alert fires, the analyst investigates, decides whether it is real, and either resolves it or escalates it to senior responders. Tier 1 analysts handle the first look. With experience, analysts move into incident response, threat hunting, or engineering.</p>
+    <div class="role">
+      <div><div class="k">A typical day</div><ul><li>Review alerts in a SIEM</li><li>Investigate suspicious logins and traffic</li><li>Document findings in tickets</li><li>Hand off confirmed incidents</li></ul></div>
+      <div><div class="k">Skills to build</div><ul><li>Networking and TCP/IP</li><li>Reading logs and packet captures</li><li>Windows and Linux basics</li><li>Clear written notes</li></ul></div>
+      <div><div class="k">Where you learn it here</div><p>Your networking, security, and data courses, plus Cyber Club CTFs. Security+ is a common first certification for this role.</p></div>
+    </div>
+  <div class="alert-task">
+      <h3>Try it: your first alert</h3>
+      <p>Try a real analyst task. Read the alert below, then write three sentences: what happened, how serious you think it is, and what you would do next.</p>
+      <pre class="term"><span class="pr">$ siem --show alert 4471</span>
+ALERT: Multiple failed logins followed by success
+user: jsmith   host: VPN-GW-01
+src_ip: 203.0.113.45 (outside the US)
+failed logins: 27 in 4 minutes
+successful login: 02:14 CST</pre>
+      <p>Save your summary. Short, clear incident write-ups like this make strong portfolio pieces and give you something concrete to talk about in interviews.</p>
+    </div>
+  </section>
+
+  <section id="roadmap" class="inner">
+    <p class="tag">Free resource</p>
+    <h2>What's new on CyberRoadmap.org</h2>
+    <p>CyberRoadmap.org is a free career site that Dr. Lindstrom built for students entering cybersecurity, IT, and infrastructure. Here is what you will find there now.</p>
+    <ul>
+      <li><strong>Jobs.</strong> A daily-updated feed of entry-level and internship postings pulled from sources such as USAJOBS and CareerOneStop, plus quick links to Texas job boards.</li>
+      <li><strong>Scholarships.</strong> More than two dozen verified funding paths, with a month-by-month application calendar and filters for community college students, veterans, women in cyber, and Texas and Houston programs. It also lists tuition-free training academies and paid apprenticeships.</li>
+      <li><strong>Lab Readiness Check.</strong> A two-minute check that tells you whether your laptop can run virtual machines, Kali Linux, and containers, including whether virtualization is turned on. With 8-week courses starting in Spring, run it before your first lab night.</li>
+      <li><strong>Certifications and training.</strong> A filterable certification guide, now with AI and data certifications, and a Python, Data &amp; AI training section.</li>
+    </ul>
+    <p>Past issues of this newsletter will also live on CyberRoadmap.org.</p>
+    <p><a class="btn" href="https://cyberroadmap.org" target="_blank" rel="noopener">Visit CyberRoadmap.org</a></p>
+  </section>
+
+  <section id="events" class="inner">
+    <p class="tag">Events</p>
+    <h2>Where to show up</h2>
+    <p>Professional events are the best networking you can do as a student. Most are free or have student rates, and nobody expects you to know everyone.</p>
+    <div class="events">
+      <div class="ev">
+        <div class="when">Today, Nov 2<br>2:30 PM</div>
+        <div>
+          <h3>LSC Cyber Club General Meeting <span class="free">FREE</span></h3>
+          <p>Cyber Club general meeting in the Falcon Room, CASE 200A. Open to every BAT student, and new members are welcome. <a href="#club">Club details</a>.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="when">Fridays<br>9:30 AM</div>
+        <div>
+          <h3>Cybersecurity Circle <span class="free">FREE</span></h3>
+          <p>A weekly meetup of Houston security professionals at the Ion, 4201 Main Street. An easy, low-pressure way to meet people working in the field. Follow them on <a href="https://www.linkedin.com/company/%E2%AD%95%EF%B8%8Fcybersecurity-circle%E2%AD%95%EF%B8%8F/posts/?feedView=all" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="when">Nov 7</div>
+        <div>
+          <h3>BSides Dallas/Fort Worth</h3>
+          <p>A community-run security conference. A road trip, but a good first conference if you are up for it. <a href="https://infosec-conferences.com/event/20261107-bsides-dallasfort-worth-2026/" target="_blank" rel="noopener">Event listing</a>.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="when">Nov 10–11</div>
+        <div>
+          <h3>API Cybersecurity Conference <span class="free">FREE FOR STUDENTS</span></h3>
+          <p>The 21st annual American Petroleum Institute conference on security for the oil and natural gas industry, at the Woodlands Waterway Marriott. Register with your .edu email address. A great look at OT and energy-sector security, which is a big employer in our area. <a href="https://events.api.org/21st-annual-api-cybersecurity-conference-for-the-oil-and-natural-gas-industry/" target="_blank" rel="noopener">Conference page</a>.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="when">Monthly</div>
+        <div>
+          <h3>ISACA Greater Houston Chapter</h3>
+          <p>One of the largest ISACA chapters, with more than 2,400 members. Meetings, webinars, and an annual conference. Check the <a href="https://engage.isaca.org/greaterhoustonchapter/events" target="_blank" rel="noopener">chapter events page</a> for upcoming dates.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="when">Monthly</div>
+        <div>
+          <h3>ISSA South Texas Chapter</h3>
+          <p>Lunch meetings with a speaker, usually in the Galleria area. See the <a href="https://southtexasissa.starchapter.com/" target="_blank" rel="noopener">chapter site</a> for this month's meeting.</p>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="when">Next fall</div>
+        <div>
+          <h3>BSides Houston and CYBR.SEC.CON</h3>
+          <p>Houston's two big local conferences both took place in September this year. Put them on your radar for 2027 and watch for student volunteer and ticket offers.</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:16px">Student memberships in ISACA and ISSA are reduced, and they get you event discounts and a line on your resume.</p>
+  </section>
+
+  <section id="club" class="inner">
+    <p class="tag">Cyber Club</p>
+    <h2>Practice, compete, meet people</h2>
+    <p>The Cyber Club is open to every BAT student, whatever your skill level. Members work through capture-the-flag challenges, practice for competitions, and hear from people working in the field. It is also the easiest way to get to know students in other cohorts.</p>
+    <div class="callout"><strong>General meeting today:</strong> Monday, November 2 · 2:30–4:00 PM · Falcon Room, CASE 200A. New members are welcome, no experience needed.</div>
+    <p style="margin-top:14px">Follow the club on Instagram for meeting dates and photos. Officers are welcome to send club news for the December issue.</p>
+    <p><a class="btn navy" href="https://www.instagram.com/lsccyberclub/" target="_blank" rel="noopener">@lsccyberclub on Instagram</a></p>
+  </section>
+
+  <section id="puzzle" class="inner">
+    <p class="tag">Puzzles</p>
+    <h2>Crack the packet</h2>
+    <p>Two challenges each month: one for anyone, one for those who want a fight. Type your answer to check it right here. Answers are verified with a SHA-256 hash, so viewing the page source will not give them away.</p>
+
+    <div class="puzzle">
+      <div class="puzzle-h"><h3>Level 1 · The Roman shift</h3><span class="lvl easy">Intro · about 5 min</span></div>
+      <div class="puzzle-b">
+        <p>We intercepted this message. Every letter has been shifted the same number of places through the alphabet. Find the secret word.</p>
+        <pre class="term"><span class="pr">$ cat intercept.txt</span>
+gur frperg jbeq vf sverjnyy</pre>
+        <details><summary>Hint</summary><p>Julius Caesar shifted his letters by 3. This one shifts by 13, exactly halfway around the alphabet, so doing it twice gets you back where you started.</p></details>
+        <form class="check" data-hash="a3863c5d7ce546d24186581bcba0b0a157db9d318d9174d46d0db3f3f38cc1a6" data-ok="Correct. That was ROT13. You just broke a 2,000-year-old idea.">
+          <label class="sr" for="ans1" style="position:absolute;left:-9999px">Your answer for level 1</label>
+          <input id="ans1" type="text" placeholder="secret word" autocomplete="off" spellcheck="false">
+          <button type="submit">Check</button>
+        </form>
+        <p class="result" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="puzzle">
+      <div class="puzzle-h"><h3>Level 2 · Layers</h3><span class="lvl hard">Advanced · about 20 min</span></div>
+      <div class="puzzle-b">
+        <p>This one is wrapped in three layers of encoding. Peel them off in the right order to recover the flag. The answer looks like <code>flag{...}</code>.</p>
+        <pre class="term"><span class="pr">$ xxd -p capture.bin</span>
+63336c756448746d5a32356c5a31396e64584a66645768685a313976636e4e695a584a6664475675635768755a335a695958303d</pre>
+        <details><summary>Hint 1</summary><p>The outer layer is what you see in the bytes pane of Wireshark. Every pair of characters is one byte.</p></details>
+        <details><summary>Hint 2</summary><p>The middle layer ends with an equals sign once you decode the outer one. The inner layer is the same trick as Level 1. Tools like CyberChef can chain all three.</p></details>
+        <form class="check" data-hash="2167477b49ca65670660581b3583b67abb6a920794242a3136b48edc0e053a97" data-ok="Flag captured. Hex, then Base64, then ROT13. Nicely done.">
+          <label for="ans2" style="position:absolute;left:-9999px">Your answer for level 2</label>
+          <input id="ans2" type="text" placeholder="flag{...}" autocomplete="off" spellcheck="false">
+          <button type="submit">Check</button>
+        </form>
+        <p class="result" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="callout"><strong>Solutions next month.</strong> Full answers and step-by-step walkthroughs appear in the December issue. Until then, keep trying.</div>
+  </section>
+
+  <section id="spotlight" class="inner">
+    <p class="tag">Student spotlight</p>
+    <h2>Starting in December: nominate a classmate</h2>
+    <p>Each month we will feature one BAT student. Earned a certification? Placed in a CTF? Landed an internship or a new job? Doing quiet work that helps everyone else in class? Those are the stories we want.</p>
+    <p>Nominate yourself or a classmate by sending Dr. Lindstrom a message in D2L. We always ask the student before featuring them.</p>
+  </section>
+
+  <footer class="inner">
+    <p><strong>Packet Capture · Lone Star College BAT Cybersecurity</strong></p>
+    <p>News, event, or job lead to share? Send it to Dr. Lindstrom in D2L by the 25th for the next issue.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function norm(s) { return s.trim().toLowerCase().replace(/\s+/g, " "); }
+  async function sha256(text) {
+    var data = new TextEncoder().encode(text);
+    var buf = await crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+  }
+  document.querySelectorAll("form.check").forEach(function (form) {
+    var out = form.parentElement.querySelector(".result");
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      var val = norm(form.querySelector("input").value);
+      if (!val) { out.className = "result no"; out.textContent = "Type an answer first."; return; }
+      try {
+        var h = await sha256(val);
+        if (h === form.dataset.hash) { out.className = "result ok"; out.textContent = form.dataset.ok; }
+        else { out.className = "result no"; out.textContent = "Not quite. Check each layer and try again."; }
+      } catch (err) {
+        out.className = "result no"; out.textContent = "This browser could not check the answer. Send it to Dr. Lindstrom in D2L instead.";
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
