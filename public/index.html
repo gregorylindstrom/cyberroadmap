@@ -10,6 +10,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cyberroadmap.org">
     <title>CyberRoadmap — Your Path Into Cybersecurity</title>
+    <link rel="canonical" href="https://www.cyberroadmap.org/">
+    <meta name="twitter:card" content="summary">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
@@ -609,6 +611,37 @@
             border-bottom-color: var(--accent);
         }
     </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.cyberroadmap.org/#website",
+      "url": "https://www.cyberroadmap.org/",
+      "name": "CyberRoadmap",
+      "description": "A free roadmap for entry-level cybersecurity, IT, and infrastructure careers: jobs, hands-on labs, certification guidance, and scholarships.",
+      "publisher": {
+        "@id": "https://www.cyberroadmap.org/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.cyberroadmap.org/#org",
+      "name": "CyberRoadmap",
+      "url": "https://www.cyberroadmap.org/",
+      "email": "hello@cyberroadmap.org",
+      "founder": {
+        "@type": "Person",
+        "name": "Gregory A. Lindstrom",
+        "honorificSuffix": "D.Eng.",
+        "jobTitle": "Professor and Department Chair, Cybersecurity",
+        "url": "https://www.cyberroadmap.org/about.html"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
 
@@ -620,6 +653,7 @@
             <a href="/jobs.html">Jobs</a>
             <a href="/certs.html">Certifications</a>
             <a href="/training.html">Training</a>
+            <a href="/scholarships.html">Scholarships</a>
             <a href="/resources.html">Resources</a>
             <a href="/about.html">About</a>
         </div>
@@ -660,7 +694,7 @@
 
     <section class="pillars" id="pillars">
         <div class="section-header">
-            <div class="section-label">// Four pillars</div>
+            <div class="section-label">// Five pillars</div>
             <h2 class="section-title">Built around what actually <em>gets you hired</em>.</h2>
         </div>
 
@@ -671,10 +705,10 @@
                 <p class="pillar-desc">
                     Thousands of real entry-level jobs pulled every six hours from USAJobs,
                     Adzuna, Greenhouse company career pages, and more. Filter by keyword,
-                    ZIP code radius, category, or federal-only. Houston-friendly geocoding.
+                    any US ZIP code radius, category, or federal-only. Nationwide coverage.
                 </p>
                 <div class="pillar-meta">
-                    <span class="status-chip">Live</span>~3,100 jobs indexed
+                    <span class="status-chip" id="jobs-chip">Live</span><span id="jobs-stat">~3,100 jobs indexed</span>
                 </div>
             </a>
 
@@ -683,7 +717,7 @@
                 <h3>Certification paths, <em>demystified</em>.</h3>
                 <p class="pillar-desc">
                     Which certs matter for which roles, what they actually cost, the
-                    realistic study time, and which ones employers in Houston and
+                    realistic study time, and which ones employers nationwide and
                     remote-first shops actually filter résumés by. Filter by career stage.
                 </p>
                 <div class="pillar-meta">
@@ -714,6 +748,19 @@
                 </p>
                 <div class="pillar-meta">
                     <span class="status-chip">Live</span>9 topic areas
+                </div>
+            </a>
+
+            <a href="/scholarships.html" class="pillar" style="text-decoration: none; color: inherit;">
+                <span class="pillar-num">05 / SCHOLARSHIPS</span>
+                <h3>Money for school, <em>mapped out</em>.</h3>
+                <p class="pillar-desc">
+                    Federal full-ride programs, association awards, and paid apprenticeships
+                    that fund your degree — or skip the degree entirely. Filtered by who
+                    qualifies, what it pays, and whether service is owed after.
+                </p>
+                <div class="pillar-meta">
+                    <span class="status-chip">Live</span>25+ funding paths tracked
                 </div>
             </a>
         </div>
@@ -756,6 +803,34 @@
     </footer>
 
     <script>
+        // Live job count + freshness from the same jobs.json the jobs page uses.
+        // If the data is stale (>24h), the chip says so instead of claiming "Live".
+        (async () => {
+            try {
+                const r = await fetch('/data/jobs.json?t=' + Date.now(), { cache: 'no-cache' });
+                if (!r.ok) return;
+                const d = await r.json();
+                const meta = d.meta || {};
+                const statEl = document.getElementById('jobs-stat');
+                const chipEl = document.getElementById('jobs-chip');
+                if (meta.total_jobs && statEl) {
+                    let txt = meta.total_jobs.toLocaleString() + ' jobs indexed';
+                    if (meta.generated_at) {
+                        const hours = Math.floor((Date.now() - new Date(meta.generated_at).getTime()) / 36e5);
+                        if (hours <= 24) {
+                            txt += hours < 1 ? ' · just refreshed' : ' · refreshed ' + hours + 'h ago';
+                        } else if (chipEl) {
+                            chipEl.textContent = 'Stale';
+                            chipEl.style.color = '#e6b04f';
+                            chipEl.style.borderColor = '#e6b04f';
+                            txt += ' · last refresh ' + Math.floor(hours / 24) + 'd ago';
+                        }
+                    }
+                    statEl.textContent = txt;
+                }
+            } catch (e) { /* keep static fallback text */ }
+        })();
+
         // Subtle parallax on grid
         document.addEventListener('mousemove', function(e) {
             const x = (e.clientX / window.innerWidth - 0.5) * 10;
