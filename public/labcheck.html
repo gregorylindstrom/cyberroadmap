@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free cybersecurity lab readiness checker: find out in two minutes whether your laptop can run Kali Linux, virtual machines, and Docker-based security labs. No downloads, nothing leaves your machine.">
+    <title>Can My Laptop Run Cybersecurity Labs? Free Checker | CyberRoadmap</title>
+    <link rel="canonical" href="https://www.cyberroadmap.org/labcheck.html">
+    <meta property="og:title" content="Can My Laptop Run Cybersecurity Labs? Free Checker | CyberRoadmap">
+    <meta property="og:description" content="Two-minute laptop readiness check for cybersecurity lab work — VMs, Kali Linux, Docker containers. Private by design: nothing leaves your machine.">
+    <meta property="og:url" content="https://www.cyberroadmap.org/labcheck.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CyberRoadmap">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --green: #5fb24f;
+            --yellow: #e6b04f;
+            --red: #d14343;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
+        }
+
+        nav {
+            position: relative; z-index: 10;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid var(--line);
+            display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(10px); flex-wrap: wrap; gap: 1rem;
+        }
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem; font-weight: 700; letter-spacing: 0.05em;
+            text-transform: uppercase; text-decoration: none; color: var(--paper);
+        }
+        .logo .bracket { color: var(--accent); }
+        .nav-links {
+            display: flex; gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--muted); text-decoration: none;
+            border-bottom: 1px solid transparent; padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .nav-links a:hover { color: var(--paper); }
+
+        .wrap {
+            position: relative; z-index: 5;
+            max-width: 1100px; margin: 0 auto; padding: 0 3rem;
+        }
+
+        .hero { padding: 5rem 0 2.5rem; }
+        .page-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; color: var(--accent);
+            letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        h1 {
+            font-weight: 300;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1; letter-spacing: -0.03em; margin-bottom: 2rem;
+        }
+        h1 em { font-style: italic; color: var(--accent); }
+        .lede {
+            font-size: 1.15rem; color: rgba(244, 241, 234, 0.75);
+            max-width: 700px; line-height: 1.5; font-weight: 300;
+        }
+        .privacy-note {
+            margin-top: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem; color: var(--green); letter-spacing: 0.05em;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; color: var(--accent);
+            letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem;
+        }
+        .section { padding: 2rem 0; }
+        h2.sec-title {
+            font-weight: 300;
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            letter-spacing: -0.02em; margin-bottom: 0.8rem;
+        }
+        h2.sec-title em { font-style: italic; color: var(--accent); }
+        .sec-sub { color: rgba(244,241,234,0.7); font-weight: 300; max-width: 700px; margin-bottom: 1.5rem; }
+
+        /* Spec table */
+        table.spec {
+            width: 100%; border-collapse: collapse;
+            border: 1px solid var(--line-strong);
+            font-size: 0.92rem;
+        }
+        table.spec th, table.spec td {
+            padding: 0.7rem 1rem; text-align: left;
+            border-bottom: 1px solid var(--line);
+        }
+        table.spec th {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--muted); border-bottom: 1px solid var(--line-strong);
+        }
+        table.spec td:first-child {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+            color: rgba(244,241,234,0.85); white-space: nowrap;
+        }
+        table.spec td { color: rgba(244,241,234,0.85); }
+
+        /* Check rows */
+        .check-panel {
+            border: 1px solid var(--line-strong);
+            background: var(--card);
+            padding: 1.5rem;
+        }
+        .check-row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            gap: 1rem; padding: 0.65rem 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 0.95rem;
+        }
+        .check-row:last-child { border-bottom: none; }
+        .check-name { color: rgba(244,241,234,0.85); }
+        .check-detail {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; color: var(--muted); display: block; margin-top: 0.15rem;
+        }
+        .chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 0.25rem 0.6rem; border: 1px solid; white-space: nowrap; flex-shrink: 0;
+        }
+        .chip-pass { color: var(--green); border-color: var(--green); }
+        .chip-warn { color: var(--yellow); border-color: var(--yellow); }
+        .chip-fail { color: var(--red); border-color: var(--red); }
+        .chip-unknown { color: var(--muted); border-color: var(--line-strong); }
+
+        .verdict {
+            margin-top: 1.2rem; padding: 1rem 1.2rem;
+            border: 1px solid; font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem; letter-spacing: 0.03em; line-height: 1.7;
+        }
+        .verdict-pass { border-color: var(--green); color: var(--green); background: rgba(95,178,79,0.06); }
+        .verdict-warn { border-color: var(--yellow); color: var(--yellow); background: rgba(230,176,79,0.06); }
+        .verdict-fail { border-color: var(--red); color: var(--red); background: rgba(209,67,67,0.06); }
+
+        /* OS tabs + command blocks */
+        .os-tabs { display: flex; gap: 0.6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+        .os-tab {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 0.55rem 1.1rem; background: transparent;
+            color: var(--muted); border: 1px solid var(--line-strong);
+            cursor: pointer; transition: all 0.2s;
+        }
+        .os-tab:hover { color: var(--paper); border-color: var(--paper); }
+        .os-tab.active { color: var(--ink); background: var(--accent); border-color: var(--accent); }
+
+        .os-panel { display: none; }
+        .os-panel.active { display: block; }
+
+        .cmd-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem; color: rgba(244,241,234,0.7);
+            letter-spacing: 0.05em; margin: 0.8rem 0 0.5rem;
+        }
+        .cmd-box { position: relative; margin-bottom: 0.8rem; }
+        .cmd-box pre {
+            background: rgba(0,0,0,0.45);
+            border: 1px solid var(--line-strong);
+            padding: 1rem 1.2rem; padding-right: 5.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem; line-height: 1.6;
+            color: #c8e6b8;
+            overflow-x: auto; white-space: pre-wrap; word-break: break-all;
+        }
+        .copy-btn {
+            position: absolute; top: 0.6rem; right: 0.6rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 0.35rem 0.7rem; background: var(--ink);
+            color: var(--accent); border: 1px solid var(--accent);
+            cursor: pointer; transition: all 0.2s;
+        }
+        .copy-btn:hover { background: var(--accent); color: var(--ink); }
+
+        details.explain {
+            border: 1px solid var(--line);
+            margin-bottom: 1rem;
+        }
+        details.explain summary {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--muted); padding: 0.7rem 1rem; cursor: pointer;
+            list-style: none;
+        }
+        details.explain summary::before { content: '+ '; color: var(--accent); }
+        details[open].explain summary::before { content: '− '; }
+        details.explain summary:hover { color: var(--paper); }
+        .explain-body {
+            padding: 0 1.2rem 1rem;
+            font-size: 0.88rem; color: rgba(244,241,234,0.75); font-weight: 300;
+        }
+        .explain-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem; color: #c8e6b8;
+            background: rgba(0,0,0,0.4); padding: 0.1rem 0.35rem;
+        }
+        .explain-body p { margin-bottom: 0.5rem; }
+
+        textarea#paste-box {
+            width: 100%; min-height: 88px;
+            background: rgba(0,0,0,0.45);
+            border: 1px solid var(--line-strong);
+            color: var(--paper);
+            font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+            padding: 0.9rem 1rem; resize: vertical;
+        }
+        textarea#paste-box:focus { outline: none; border-color: var(--accent); }
+        .analyze-btn {
+            margin-top: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 0.8rem 1.8rem; background: var(--accent);
+            color: var(--ink); border: 1px solid var(--accent);
+            cursor: pointer; font-weight: 700; transition: all 0.2s;
+        }
+        .analyze-btn:hover { background: transparent; color: var(--accent); }
+
+        .fix-box {
+            margin-top: 1rem; padding: 1rem 1.2rem;
+            border: 1px solid var(--line-strong); border-left: 3px solid var(--yellow);
+            background: var(--card);
+            font-size: 0.9rem; color: rgba(244,241,234,0.8); font-weight: 300;
+        }
+        .fix-box strong { color: var(--yellow); font-weight: 600; }
+        .fix-box code {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+            color: #c8e6b8; background: rgba(0,0,0,0.4); padding: 0.1rem 0.35rem;
+        }
+
+        footer {
+            position: relative; z-index: 5;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem; padding: 2rem 3rem;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em;
+        }
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--paper); }
+
+        @media (max-width: 768px) {
+            nav, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .wrap { padding: 0 1.5rem; }
+        }
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo"><span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span></a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/jobs.html">Jobs</a>
+            <a href="/certs.html">Certifications</a>
+            <a href="/training.html">Training</a>
+            <a href="/scholarships.html">Scholarships</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/about.html">About</a>
+        </div>
+    </nav>
+
+    <div class="wrap">
+
+        <section class="hero">
+            <div class="page-label">// Lab readiness check</div>
+            <h1>Can your laptop<br>run the <em>labs</em>?</h1>
+            <p class="lede">
+                Hands-on cybersecurity work means virtual machines, Kali Linux, and Docker
+                containers — and not every laptop is up to it. This two-stage check tells you
+                in about two minutes, before you're stuck mid-course on a machine that can't keep up.
+            </p>
+            <p class="privacy-note">
+                ✓ PRIVATE BY DESIGN — everything runs locally. No downloads, no uploads, nothing leaves your machine.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-label">// The standard</div>
+            <h2 class="sec-title">What lab work <em>actually</em> requires.</h2>
+            <p class="sec-sub">
+                These specs support Kali Linux plus at least two containers or VMs running
+                simultaneously — the baseline for real security lab topologies.
+            </p>
+            <table class="spec">
+                <thead>
+                    <tr><th>Component</th><th>Minimum</th><th>Preferred</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CPU</td><td>Dual-core 64-bit with VT-x / AMD-V <strong>enabled</strong></td><td>Quad-core Intel i5 / AMD Ryzen 5 or better</td></tr>
+                    <tr><td>RAM</td><td>8 GB</td><td>16 GB</td></tr>
+                    <tr><td>Storage</td><td>256 GB SSD with 80 GB free</td><td>512 GB NVMe SSD</td></tr>
+                    <tr><td>OS</td><td>Windows 10/11, macOS 12+, or modern Linux</td><td>Windows 11 Pro, macOS 13+</td></tr>
+                    <tr><td>Network</td><td>Reliable broadband; Ethernet or stable Wi-Fi</td><td>Ethernet available for packet-capture labs</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <div class="section-label">// Stage 1 · Instant browser check</div>
+            <h2 class="sec-title">What your browser can see.</h2>
+            <p class="sec-sub">
+                This runs automatically, right here. Browsers deliberately limit what a web page
+                can learn about your hardware (a good thing!), so this stage catches the obvious
+                dealbreakers — Stage 2 covers what browsers can't see.
+            </p>
+            <div class="check-panel">
+                <div id="stage1-rows"></div>
+                <div class="verdict" id="stage1-verdict" style="display:none;"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">// Stage 2 · Full check</div>
+            <h2 class="sec-title">The checks that <em>matter most</em>.</h2>
+            <p class="sec-sub">
+                Virtualization support, exact RAM, and free disk space aren't visible to browsers.
+                Copy the one-line command for your operating system, run it, and paste the result
+                back here. The command only <strong>reads</strong> system information — it changes
+                nothing, installs nothing, and sends nothing anywhere. Don't take my word for it:
+                expand the breakdown below each command and read exactly what it does. Never run
+                commands you don't understand — that habit will serve you well in this field.
+            </p>
+
+            <div class="os-tabs" id="os-tabs">
+                <button class="os-tab" data-os="win">Windows</button>
+                <button class="os-tab" data-os="mac">macOS</button>
+                <button class="os-tab" data-os="linux">Linux</button>
+            </div>
+
+            <div class="os-panel" id="panel-win">
+                <div class="cmd-label">1 · Open PowerShell (Start menu → type "powershell" → Enter — no administrator needed), paste this single line, press Enter:</div>
+                <div class="cmd-box">
+                    <pre id="cmd-win">$c=Get-CimInstance Win32_ComputerSystem;$p=Get-CimInstance Win32_Processor|Select-Object -First 1;$o=Get-CimInstance Win32_OperatingSystem;"CRC1|OS:WIN|RAM:$([math]::Round($c.TotalPhysicalMemory/1GB))|CORES:$($p.NumberOfLogicalProcessors)|CPU:$($p.Name -replace '\|',' ')|VTFW:$($p.VirtualizationFirmwareEnabled)|HV:$($c.HypervisorPresent)|DISKFREE:$([math]::Round((Get-PSDrive C).Free/1GB))|ARCH:$($env:PROCESSOR_ARCHITECTURE)|OSV:$($o.Caption -replace '\|',' ')"</pre>
+                    <button class="copy-btn" data-copy="cmd-win">Copy</button>
+                </div>
+                <details class="explain">
+                    <summary>What does this command do? (read before running)</summary>
+                    <div class="explain-body">
+                        <p><code>Get-CimInstance Win32_ComputerSystem / Win32_Processor / Win32_OperatingSystem</code> — asks Windows for its standard hardware/OS inventory. Read-only, the same data Task Manager shows.</p>
+                        <p><code>TotalPhysicalMemory/1GB</code> — your installed RAM, converted to gigabytes.</p>
+                        <p><code>VirtualizationFirmwareEnabled</code> — whether VT-x/AMD-V is switched on in your BIOS/UEFI. <code>HypervisorPresent</code> — whether Hyper-V is running (also fine for labs).</p>
+                        <p><code>(Get-PSDrive C).Free/1GB</code> — free space on your C: drive.</p>
+                        <p>The final line prints one text string starting with <code>CRC1</code>. Nothing is written, changed, or transmitted — the string appears only in your terminal until you choose to paste it here.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="os-panel" id="panel-mac">
+                <div class="cmd-label">1 · Open Terminal (Cmd+Space → type "terminal" → Enter), paste this single line, press Enter:</div>
+                <div class="cmd-box">
+                    <pre id="cmd-mac">echo "CRC1|OS:MAC|RAM:$(($(sysctl -n hw.memsize)/1073741824))|CORES:$(sysctl -n hw.logicalcpu)|CPU:$(sysctl -n machdep.cpu.brand_string | tr '|' ' ')|ARCH:$(uname -m)|VTX:$(sysctl -n kern.hv_support 2>/dev/null || echo 0)|DISKFREE:$(df -g / | awk 'NR==2{print $4}')|OSV:$(sw_vers -productVersion)"</pre>
+                    <button class="copy-btn" data-copy="cmd-mac">Copy</button>
+                </div>
+                <details class="explain">
+                    <summary>What does this command do? (read before running)</summary>
+                    <div class="explain-body">
+                        <p><code>sysctl -n hw.memsize / hw.logicalcpu / machdep.cpu.brand_string</code> — reads installed RAM, CPU core count, and CPU model from the kernel's public info. Read-only.</p>
+                        <p><code>uname -m</code> — your architecture: <code>arm64</code> means Apple Silicon (M-series), <code>x86_64</code> means Intel.</p>
+                        <p><code>kern.hv_support</code> — whether the Mac supports the Hypervisor framework needed for VMs.</p>
+                        <p><code>df -g /</code> — free space on your startup disk. <code>sw_vers</code> — your macOS version.</p>
+                        <p>It all feeds one <code>echo</code> that prints a single <code>CRC1</code> string to your terminal. Nothing is modified or sent anywhere.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="os-panel" id="panel-linux">
+                <div class="cmd-label">1 · Open a terminal, paste this single line, press Enter:</div>
+                <div class="cmd-box">
+                    <pre id="cmd-linux">echo "CRC1|OS:LINUX|RAM:$(free -m | awk '/^Mem:/{printf "%.0f", $2/1024}')|CORES:$(nproc)|CPU:$(lscpu | sed -n 's/^Model name:[ ]*//p' | tr '|' ' ' | head -1)|VTX:$(grep -cE 'vmx|svm' /proc/cpuinfo)|DISKFREE:$(df -BG --output=avail / | awk 'NR==2{gsub(/G| /,""); print}')|ARCH:$(uname -m)"</pre>
+                    <button class="copy-btn" data-copy="cmd-linux">Copy</button>
+                </div>
+                <details class="explain">
+                    <summary>What does this command do? (read before running)</summary>
+                    <div class="explain-body">
+                        <p><code>free -m</code> — installed RAM. <code>nproc</code> — logical CPU count. <code>lscpu</code> — CPU model name.</p>
+                        <p><code>grep -cE 'vmx|svm' /proc/cpuinfo</code> — counts CPU virtualization flags: <code>vmx</code> is Intel VT-x, <code>svm</code> is AMD-V. Zero means disabled or unsupported.</p>
+                        <p><code>df -BG /</code> — free space on your root filesystem. <code>uname -m</code> — architecture.</p>
+                        <p>One <code>echo</code>, one printed string, read-only throughout. Nothing leaves your machine.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="cmd-label">2 · Paste the entire output line (starts with <span style="color:#c8e6b8;">CRC1</span>) below:</div>
+            <textarea id="paste-box" placeholder="CRC1|OS:..." spellcheck="false"></textarea>
+            <button class="analyze-btn" id="analyze">Analyze my machine</button>
+
+            <div class="check-panel" id="stage2-panel" style="display:none; margin-top:1.5rem;">
+                <div id="stage2-rows"></div>
+                <div class="verdict" id="stage2-verdict"></div>
+                <div id="fix-boxes"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">// If you came up short</div>
+            <h2 class="sec-title">A failing check isn't the <em>end</em>.</h2>
+            <p class="sec-sub" style="margin-bottom:0.8rem;">
+                Virtualization disabled is usually a two-minute BIOS fix, not a hardware problem —
+                the results above will walk you through it. Genuinely underpowered machine? RAM is
+                often upgradeable for under $50 on older laptops, refurbished business laptops
+                (ThinkPad T-series, Dell Latitude) meeting the preferred spec run $250–400, and
+                browser-based platforms like TryHackMe cover early coursework while you save up.
+                If money is the barrier, the <a href="/scholarships.html" style="color:var(--accent);">scholarships page</a>
+                lists emergency technology grants that exist for exactly this situation.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        <div>© 2026 CyberRoadmap <span style="color:var(--line-strong);">/</span> Houston, TX</div>
+        <div><a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a></div>
+    </footer>
+
+    <script>
+    // =========================================================
+    // STAGE 1 — browser-visible checks (triage only)
+    // =========================================================
+    const MIN = { ram: 8, ramPref: 16, cores: 4, coresMin: 2, diskFree: 80 };
+
+    function chip(status) {
+        const map = { pass: ['chip-pass','PASS'], warn: ['chip-warn','CHECK'], fail: ['chip-fail','FAIL'], unknown: ['chip-unknown','UNKNOWN'] };
+        const [cls, label] = map[status];
+        return `<span class="chip ${cls}">${label}</span>`;
+    }
+
+    function row(name, detail, status) {
+        return `<div class="check-row"><div><span class="check-name">${name}</span><span class="check-detail">${detail}</span></div>${chip(status)}</div>`;
+    }
+
+    (function stage1() {
+        const rows = [];
+        let fails = 0, warns = 0;
+
+        // CPU threads
+        const cores = navigator.hardwareConcurrency || 0;
+        if (cores >= MIN.cores) rows.push(row('CPU threads', `${cores} logical processors detected`, 'pass'));
+        else if (cores >= MIN.coresMin) { rows.push(row('CPU threads', `${cores} logical processors — labs will run, slowly`, 'warn')); warns++; }
+        else if (cores > 0) { rows.push(row('CPU threads', `${cores} logical processor — below minimum`, 'fail')); fails++; }
+        else rows.push(row('CPU threads', 'not reported by this browser', 'unknown'));
+
+        // RAM (deviceMemory caps at 8 and is Chrome/Edge-only)
+        const dm = navigator.deviceMemory;
+        if (dm === undefined) rows.push(row('Memory (RAM)', 'this browser doesn\u2019t report RAM \u2014 Stage 2 will measure it exactly', 'unknown'));
+        else if (dm >= 8) rows.push(row('Memory (RAM)', `${dm} GB or more (browsers cap this reading at 8 \u2014 Stage 2 gets the real number)`, 'pass'));
+        else { rows.push(row('Memory (RAM)', `approximately ${dm} GB \u2014 below the 8 GB minimum`, 'fail')); fails++; }
+
+        // OS + architecture
+        const ua = navigator.userAgent;
+        let osName = 'Unknown OS', osStatus = 'unknown', osDetail = '';
+        if (/Windows/.test(ua)) { osName = 'Windows'; osStatus = 'pass'; osDetail = 'supported host OS'; }
+        else if (/Mac OS X|Macintosh/.test(ua)) {
+            osName = 'macOS'; osStatus = 'pass'; osDetail = 'supported host OS';
+            // Apple Silicon hint via WebGL renderer
+            try {
+                const gl = document.createElement('canvas').getContext('webgl');
+                const dbg = gl && gl.getExtension('WEBGL_debug_renderer_info');
+                const renderer = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : '';
+                if (/Apple (GPU|M\d)/i.test(renderer)) {
+                    osDetail = 'likely Apple Silicon (M-series) \u2014 you\u2019ll use ARM-based images (UTM) instead of VirtualBox; Stage 2 confirms';
+                    osStatus = 'warn'; warns++;
+                }
+            } catch (e) { /* ignore */ }
+        }
+        else if (/CrOS/.test(ua)) { osName = 'ChromeOS'; osStatus = 'fail'; osDetail = 'cannot run the required VMs \u2014 you\u2019ll need a Windows, macOS, or Linux machine'; fails++; }
+        else if (/Linux/.test(ua) && !/Android/.test(ua)) { osName = 'Linux'; osStatus = 'pass'; osDetail = 'supported host OS'; }
+        else if (/Android|iPhone|iPad/.test(ua)) { osName = 'Phone / tablet'; osStatus = 'fail'; osDetail = 'run this check from the laptop you plan to use for labs'; fails++; }
+        rows.push(row('Operating system', `${osName} \u2014 ${osDetail || 'not recognized'}`, osStatus));
+
+        // Storage quota (weak signal)
+        if (navigator.storage && navigator.storage.estimate) {
+            navigator.storage.estimate().then(est => {
+                const gb = Math.round((est.quota || 0) / 1e9);
+                const s = gb >= 60 ? 'pass' : 'unknown';
+                document.getElementById('stage1-rows').insertAdjacentHTML('beforeend',
+                    row('Storage (rough signal)', gb ? `browser quota ~${gb} GB \u2014 real free-space check happens in Stage 2` : 'not reported', s));
+            }).catch(()=>{});
+        }
+
+        document.getElementById('stage1-rows').innerHTML = rows.join('');
+        const v = document.getElementById('stage1-verdict');
+        v.style.display = 'block';
+        if (fails > 0) {
+            v.className = 'verdict verdict-fail';
+            v.textContent = 'TRIAGE: at least one hard blocker detected above. Address it (or plan for different hardware) before investing in Stage 2.';
+        } else if (warns > 0) {
+            v.className = 'verdict verdict-warn';
+            v.textContent = 'TRIAGE: no dealbreakers visible, with notes above. Run Stage 2 below for the checks that actually decide it.';
+        } else {
+            v.className = 'verdict verdict-pass';
+            v.textContent = 'TRIAGE: nothing disqualifying visible from the browser. Now run Stage 2 \u2014 virtualization is the check that matters most, and only Stage 2 can see it.';
+        }
+
+        // Preselect OS tab
+        const pre = /Windows/.test(ua) ? 'win' : (/Mac/.test(ua) ? 'mac' : 'linux');
+        selectTab(pre);
+    })();
+
+    // =========================================================
+    // OS tabs + copy buttons
+    // =========================================================
+    function selectTab(os) {
+        document.querySelectorAll('.os-tab').forEach(b => b.classList.toggle('active', b.dataset.os === os));
+        document.querySelectorAll('.os-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + os));
+    }
+    document.getElementById('os-tabs').addEventListener('click', e => {
+        const btn = e.target.closest('.os-tab');
+        if (btn) selectTab(btn.dataset.os);
+    });
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const text = document.getElementById(btn.dataset.copy).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied ✓';
+                setTimeout(() => btn.textContent = 'Copy', 1600);
+            });
+        });
+    });
+
+    // =========================================================
+    // STAGE 2 — parse the pasted CRC1 result string
+    // =========================================================
+    function parseCRC(raw) {
+        const line = (raw || '').split('\n').map(s => s.trim()).find(s => s.startsWith('CRC1'));
+        if (!line) return null;
+        const out = {};
+        line.split('|').slice(1).forEach(part => {
+            const i = part.indexOf(':');
+            if (i > 0) out[part.slice(0, i).toUpperCase()] = part.slice(i + 1).trim();
+        });
+        return out;
+    }
+
+    document.getElementById('analyze').addEventListener('click', () => {
+        const d = parseCRC(document.getElementById('paste-box').value);
+        const panel = document.getElementById('stage2-panel');
+        const rowsEl = document.getElementById('stage2-rows');
+        const verdictEl = document.getElementById('stage2-verdict');
+        const fixEl = document.getElementById('fix-boxes');
+        panel.style.display = 'block';
+        fixEl.innerHTML = '';
+
+        if (!d) {
+            rowsEl.innerHTML = '';
+            verdictEl.className = 'verdict verdict-warn';
+            verdictEl.textContent = 'Couldn\u2019t find a line starting with CRC1 in what you pasted. Copy the entire output line from your terminal and try again.';
+            return;
+        }
+
+        const rows = [];
+        const fixes = [];
+        let fails = 0, warns = 0;
+        const os = (d.OS || '').toUpperCase();
+        const num = v => { const n = parseFloat(v); return isNaN(n) ? null : n; };
+
+        // RAM
+        const ram = num(d.RAM);
+        if (ram === null) rows.push(row('Memory (RAM)', 'not found in result', 'unknown'));
+        else if (ram >= MIN.ramPref) rows.push(row('Memory (RAM)', `${ram} GB \u2014 meets the preferred spec`, 'pass'));
+        else if (ram >= MIN.ram - 1) rows.push(row('Memory (RAM)', `${ram} GB \u2014 meets the minimum; labs run, multitasking will be tight`, ram >= MIN.ram ? 'pass' : 'warn'));
+        else { rows.push(row('Memory (RAM)', `${ram} GB \u2014 below the 8 GB minimum`, 'fail')); fails++;
+            fixes.push('<strong>RAM below minimum.</strong> Check whether your model has an upgradeable RAM slot (search your laptop model + "RAM upgrade") \u2014 8\u201316 GB kits are often under $50. If soldered, a refurbished business laptop is the economical path.'); }
+
+        // Cores
+        const cores = num(d.CORES);
+        if (cores === null) rows.push(row('CPU threads', 'not found in result', 'unknown'));
+        else if (cores >= 8) rows.push(row('CPU threads', `${cores} logical \u2014 comfortable for multi-VM topologies`, 'pass'));
+        else if (cores >= MIN.cores) rows.push(row('CPU threads', `${cores} logical \u2014 meets spec`, 'pass'));
+        else if (cores >= MIN.coresMin) { rows.push(row('CPU threads', `${cores} logical \u2014 minimum; expect slow lab startup`, 'warn')); warns++; }
+        else { rows.push(row('CPU threads', `${cores} logical \u2014 below minimum`, 'fail')); fails++; }
+
+        // CPU model (informational)
+        if (d.CPU) rows.push(row('CPU model', d.CPU, 'pass'));
+
+        // Virtualization — the check that matters most
+        let vtStatus = 'unknown', vtDetail = '';
+        if (os === 'WIN') {
+            const fw = /^true$/i.test(d.VTFW || ''), hv = /^true$/i.test(d.HV || '');
+            if (fw || hv) {
+                vtStatus = 'pass';
+                vtDetail = fw ? 'VT-x/AMD-V enabled in firmware' : 'Hyper-V hypervisor active \u2014 virtualization available';
+                if (hv) { fixes.push('<strong>Note: Hyper-V is active.</strong> VirtualBox can conflict with it. Either use Hyper-V/VMware-based lab images, or disable with <code>bcdedit /set hypervisorlaunchtype off</code> (run as admin, then reboot) when a course requires VirtualBox.'); }
+            } else {
+                vtStatus = 'fail'; fails++;
+                vtDetail = 'VT-x/AMD-V is OFF in your BIOS/UEFI';
+                fixes.push('<strong>Virtualization is disabled \u2014 usually a 2-minute fix, not a hardware problem.</strong> Reboot, tap the BIOS key during startup (commonly F2, F10, F12, or Del), find <em>Intel VT-x / Intel Virtualization Technology</em> or <em>AMD-V / SVM Mode</em> (usually under Advanced or CPU Configuration), set it to Enabled, save and exit. Re-run this check afterward.');
+            }
+        } else if (os === 'MAC') {
+            if ((d.VTX || '') === '1') { vtStatus = 'pass'; vtDetail = 'Hypervisor framework supported'; }
+            else { vtStatus = 'warn'; warns++; vtDetail = 'hypervisor support not confirmed \u2014 very unusual on Macs running macOS 12+; ask your instructor'; }
+            if (/arm64/i.test(d.ARCH || '')) {
+                rows.push(row('Apple Silicon', `${d.ARCH} \u2014 M-series Mac: use ARM images via UTM (or VMware Fusion), not VirtualBox`, 'warn')); warns++;
+                fixes.push('<strong>Apple Silicon path:</strong> your Mac runs labs well, but through ARM-native tooling \u2014 UTM with qcow2/ARM images instead of VirtualBox x86 images. Course platforms that provide ARM builds (most now do) work great.');
+            }
+        } else if (os === 'LINUX') {
+            const flags = num(d.VTX);
+            if (flags && flags > 0) { vtStatus = 'pass'; vtDetail = 'vmx/svm CPU flags present \u2014 virtualization enabled'; }
+            else { vtStatus = 'fail'; fails++; vtDetail = 'no vmx/svm flags \u2014 disabled in BIOS or unsupported CPU';
+                fixes.push('<strong>Virtualization flags absent.</strong> Reboot into BIOS/UEFI and enable Intel VT-x or AMD-V/SVM. If the option doesn\u2019t exist, the CPU may not support it \u2014 check the model\u2019s spec sheet.'); }
+        }
+        rows.push(row('Virtualization (VT-x / AMD-V)', vtDetail || 'not determinable from result', vtStatus));
+
+        // Disk free
+        const disk = num(d.DISKFREE);
+        if (disk === null) rows.push(row('Free disk space', 'not found in result', 'unknown'));
+        else if (disk >= MIN.diskFree) rows.push(row('Free disk space', `${disk} GB free \u2014 meets the 80 GB requirement`, 'pass'));
+        else if (disk >= 40) { rows.push(row('Free disk space', `${disk} GB free \u2014 enough to start, you\u2019ll hit the wall mid-course`, 'warn')); warns++;
+            fixes.push('<strong>Disk space is tight.</strong> Free up toward 80 GB: uninstall unused applications, empty Downloads, run Storage Sense (Windows) / Storage Management (macOS), or move media to an external drive. Lab VMs and container images are large.'); }
+        else { rows.push(row('Free disk space', `${disk} GB free \u2014 well below the 80 GB needed`, 'fail')); fails++;
+            fixes.push('<strong>Not enough free disk.</strong> Lab environments need ~80 GB free. Clear space aggressively or add storage \u2014 many laptops accept a second NVMe/SATA drive for under $40.'); }
+
+        // Windows edition note (informational)
+        if (os === 'WIN' && d.OSV && /Home/i.test(d.OSV)) {
+            rows.push(row('Windows edition', `${d.OSV} \u2014 fine for VirtualBox/VMware labs (Pro only needed for native Hyper-V features)`, 'pass'));
+        } else if (d.OSV) {
+            rows.push(row('Operating system', d.OSV, 'pass'));
+        }
+
+        rowsEl.innerHTML = rows.join('');
+        if (fails > 0) {
+            verdictEl.className = 'verdict verdict-fail';
+            verdictEl.textContent = `VERDICT: NOT READY YET \u2014 ${fails} blocking issue${fails>1?'s':''}. See the fix guidance below; most blockers on this page are fixable without new hardware.`;
+        } else if (warns > 0) {
+            verdictEl.className = 'verdict verdict-warn';
+            verdictEl.textContent = 'VERDICT: READY WITH NOTES \u2014 your machine can run the labs. Read the notes below so the caveats don\u2019t surprise you mid-course.';
+        } else {
+            verdictEl.className = 'verdict verdict-pass';
+            verdictEl.textContent = 'VERDICT: READY \u2014 your machine meets the standard for hands-on lab work. Go build things.';
+        }
+        fixEl.innerHTML = fixes.map(f => `<div class="fix-box">${f}</div>`).join('');
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    </script>
+
+</body>
+</html>
