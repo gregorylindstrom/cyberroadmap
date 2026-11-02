@@ -115,12 +115,22 @@ jobs:
           else
             git commit -m "chore: update jobs.json + location cache [automated]"
 
-            # Retry push with rebase to handle concurrent commits
+            # Retry push with rebase — and FAIL THE RUN if it never lands.
+            # (The old loop swallowed push failures, so a run could go green
+            # while its data was never published.)
+            pushed=0
             for i in 1 2 3; do
               echo "Push attempt $i..."
-              git pull --rebase origin main && git push origin main && break
+              if git pull --rebase origin main && git push origin main; then
+                pushed=1
+                break
+              fi
               echo "Push attempt $i failed, retrying..."
               sleep 5
             done
+            if [ "$pushed" -ne 1 ]; then
+              echo "::error::Scrape succeeded but ALL push attempts failed — jobs.json was NOT published. Most common cause: the GH_PAT secret is missing or its token has Contents: Read only (needs Read and write)."
+              exit 1
+            fi
             echo "Push complete"
           fi
