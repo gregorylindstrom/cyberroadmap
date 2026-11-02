@@ -499,6 +499,41 @@ def clean_description(text: str, max_len: int = 300) -> str:
     return text
 
 
+# --- Ingestion-side sanitization (defense in depth) -------------------------
+# The frontend renders these fields via textContent (safe), but data should
+# be clean at rest too: jobs.json is a public artifact other tools may consume.
+
+_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def clean_text(s, limit: int = 300) -> str:
+    """Strip HTML tags and non-printable chars, cap length. For any text field."""
+    if not isinstance(s, str):
+        return ""
+    s = _TAG_RE.sub(" ", s)
+    s = "".join(ch for ch in s if ch.isprintable())
+    return re.sub(r"\s+", " ", s)[:limit].strip()
+
+
+def clean_url(u) -> str:
+    """Allow only http(s) URLs — blocks javascript:/data: URI injection."""
+    return u if isinstance(u, str) and u.lower().startswith(("http://", "https://")) else ""
+
+
+def sanitize_job(job: dict) -> dict:
+    """Applied once to every job after merge/dedupe, regardless of source."""
+    job["title"] = clean_text(job.get("title", ""), 200)
+    job["company"] = clean_text(job.get("company", ""), 150)
+    job["source"] = clean_text(job.get("source", ""), 50)
+    job["description"] = clean_text(job.get("description", ""), 400)
+    job["url"] = clean_url(job.get("url", ""))
+    loc = job.get("location") or {}
+    if isinstance(loc.get("display"), str):
+        loc["display"] = clean_text(loc["display"], 120)
+    job["categories"] = [clean_text(c, 40) for c in job.get("categories", []) if isinstance(c, str)]
+    return job
+
+
 def geocode_location(city: str, state: str) -> Optional[tuple]:
     """
     Returns (lat, lng) for a given city/state, or None if not found.
@@ -1523,6 +1558,9 @@ def merge_and_dedupe(jobs_lists: list[list[dict]]) -> list[dict]:
 
     deduped = list(seen.values())
     log(f"Post-dedup total: {len(deduped)}")
+
+    # Sanitize every job once, post-dedup (cheapest point, covers all sources)
+    deduped = [sanitize_job(j) for j in deduped]
 
     def sort_key(j):
         return j.get("posted") or ""
