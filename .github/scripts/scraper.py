@@ -47,7 +47,7 @@ CATEGORIES = {
         r"\bcompliance\s+(analyst|specialist).*(cyber|security|information)",
     ],
     "IT": [
-        r"\bIT\s+(support|analyst|specialist|technician|admin|helpdesk|associate|intern)",
+        r"\bIT\s+(support|analyst|specialist|technician|admin|helpdesk|associate|intern|operations?)",
         r"\bhelp\s*desk\b", r"\bservice\s*desk\b", r"\bdesktop\s+support\b",
         r"\btechnical\s+support\s+(specialist|analyst|engineer|technician)",
         r"\bsystems?\s+(admin|administrator|engineer|analyst)\b",
@@ -105,26 +105,58 @@ CATEGORIES = {
 }
 
 ENTRY_LEVEL_POSITIVE = [
+    # Checked against the TITLE (see is_entry_level for precedence rules)
     r"\bentry\s*level\b", r"\bjunior\b", r"\bassociate\b",
     r"\bintern(ship)?\b", r"\btrainee\b", r"\bgraduate\b",
     r"\bnew\s+grad", r"\bearly\s+career\b", r"\bapprentice\b",
-    r"\bjr\.?\b", r"\btier\s+1\b", r"\blevel\s+[1I]\b",
+    r"\bjr\.?\b", r"\btier\s+[1I]\b", r"\blevel\s+[1I]\b",
+    r"\b(analyst|engineer|technician|specialist|administrator|admin|developer|representative)\s+(I|1)\b",
     r"\b0[-\s]?[123]\s+years\b", r"\b1[-\s]?2\s+years\b",
     r"\bno\s+experience\s+required\b",
 ]
 
+# Description text is full of misleading matches ("associate's degree",
+# "tuition for graduate programs"), so only these stronger phrases count
+# when they appear in a description rather than the title:
+ENTRY_DESC_POSITIVE = [
+    r"\bentry\s*level\b", r"\bno\s+experience\s+(required|necessary)\b",
+    r"\bnew\s+grad", r"\bearly\s+career\b", r"\brecent\s+graduates?\b",
+    r"\b0[-\s]?[123]\s+years\b", r"\b1[-\s]?2\s+years\b",
+]
+
 SENIOR_NEGATIVE = [
+    # Checked against the TITLE first — a senior title is disqualifying
+    # regardless of what the description says.
     r"\bsenior\b", r"\bsr\.?\b", r"\blead\b", r"\bprincipal\b",
-    r"\bstaff\s+(engineer|developer|analyst)\b",
-    r"\barchitect\b", r"\bmanager\b", r"\bdirector\b",
+    r"\bstaff\b(?!ing)",
+    r"\barchitect\b", r"\bmanager\b", r"\bdirector\b", r"\bsupervisory\b",
+    r"\b(analyst|engineer|technician|specialist|administrator|admin|developer|scientist)\s+(II|III|IV|2|3|4)\b",
+    r"\b(II|III|IV)\b",
     r"\b(5|6|7|8|9|10|12|15|20)\+?\s+years\b",
+    r"\b[3-9]\+\s*years\b",
     r"\bexpert\b", r"\bhead\s+of\b", r"\bVP\b", r"\bchief\b",
     r"\bfellow\b", r"\bdistinguished\b",
-    r"\btech\s+lead\b", r"\bteam\s+lead\b",
-    r"\b(minimum|at\s+least)\s+(4|5|6|7|8|10)\s+years\b",
+    r"\btech\s+lead\b", r"\bteam\s+lead\b", r"\bleadership\b",
+    r"\b(minimum|at\s+least)\s+(3|4|5|6|7|8|10)\s+years\b",
+]
+
+# Interns, co-ops and new-grad programs are entry by definition — this
+# overrides everything, because intern titles often list class years
+# ("Sophomore, Junior, Senior") that would otherwise trip the senior check.
+INTERN_OVERRIDE = [
+    r"\bintern(ship)?\b", r"\bco-?op\b", r"\bnew\s+grad(uate)?\b",
+    r"\bapprentice(ship)?\b", r"\btrainee\b",
+    r"\bleadership\s+development\s+program\b", r"\brotational\s+program\b",
+    r"\b(I|1)\s*(or|/|-|–)\s*(II|2)\b",
 ]
 
 TITLE_BLOCKLIST = [
+    # Go-to-market / non-technical roles (match security vendors' descriptions
+    # but aren't the technical jobs this site exists for)
+    r"\baccount\s+(executive|manager|director)\b",
+    r"\bsales\b", r"\bmarketing\b", r"\brecruit(er|ing)\b",
+    r"\bcustomer\s+success\b", r"\bbusiness\s+development\b",
+    r"\btalent\s+acquisition\b", r"\bcopywriter\b",
     r"\blifeguard\b", r"\bnurse\b", r"\bCNA\b",
     r"\bmedical\s+(assistant|technician|receptionist)\b",
     r"\bdental\s+(assistant|hygienist)\b",
@@ -468,13 +500,30 @@ def is_blocklisted(title: str) -> bool:
 
 
 def is_entry_level(title: str, description: str = "") -> bool:
-    combined = f"{title} {description[:1500]}".lower()
-    for pattern in ENTRY_LEVEL_POSITIVE:
-        if re.search(pattern, combined, re.IGNORECASE):
+    """Title-first precedence. The old version checked positives before
+    negatives on title+description combined, so 'Senior Associate' passed on
+    'associate' and any posting whose benefits blurb said 'graduate' slipped
+    through. Order now: intern override > senior title > entry title >
+    senior experience requirement in description > strong entry phrase in
+    description > default keep (plain titles like 'SOC Analyst' stay in)."""
+    t = title or ""
+    d = (description or "")[:1500]
+
+    for pattern in INTERN_OVERRIDE:
+        if re.search(pattern, t, re.IGNORECASE):
             return True
     for pattern in SENIOR_NEGATIVE:
-        if re.search(pattern, combined, re.IGNORECASE):
+        if re.search(pattern, t, re.IGNORECASE):
             return False
+    for pattern in ENTRY_LEVEL_POSITIVE:
+        if re.search(pattern, t, re.IGNORECASE):
+            return True
+    for pattern in SENIOR_NEGATIVE:
+        if re.search(pattern, d, re.IGNORECASE):
+            return False
+    for pattern in ENTRY_DESC_POSITIVE:
+        if re.search(pattern, d, re.IGNORECASE):
+            return True
     return True
 
 
@@ -916,12 +965,17 @@ def passes_tech_filter(job: dict, is_federal: bool) -> bool:
     if not is_entry_level(title, desc):
         return False
 
+    # Relevance gate for EVERYONE, federal included. The old version let
+    # is_federal bypass this, which put Civil Engineers and Border Patrol
+    # Agents on a cybersecurity job board.
+    cats = job.get("categories", [])
+    if not cats:
+        return False
+
+    # Salary ceiling stays non-federal only (GS bands are fine as posted)
     if not is_federal:
         sal_min = job.get("salary_min")
         if sal_min and sal_min > 130000:
-            return False
-        cats = job.get("categories", [])
-        if not cats:
             return False
 
     return True
