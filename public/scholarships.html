@@ -1,1 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="25+ verified cybersecurity scholarships, full-ride federal programs, tuition-free academies, and paid apprenticeships — with amounts, deadlines, and service commitments explained. Updated 2026.">
+    <title>Cybersecurity Scholarships & Free Training Funding 2026 | CyberRoadmap</title>
+    <link rel="canonical" href="https://www.cyberroadmap.org/scholarships.html">
+    <meta property="og:title" content="Cybersecurity Scholarships & Free Training Funding 2026 | CyberRoadmap">
+    <meta property="og:description" content="25+ verified cybersecurity scholarships, full-ride federal programs, tuition-free academies, and paid apprenticeships — with amounts, deadlines, and service commitments explained. Updated 2026.">
+    <meta property="og:url" content="https://www.cyberroadmap.org/scholarships.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CyberRoadmap">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0a0e14;
+            --paper: #f4f1ea;
+            --accent: #ff4a1c;
+            --accent-dim: #c33a15;
+            --green: #5fb24f;
+            --yellow: #e6b04f;
+            --red: #d14343;
+            --muted: #6b7280;
+            --line: rgba(244, 241, 234, 0.12);
+            --line-strong: rgba(244, 241, 234, 0.28);
+            --card: rgba(244, 241, 234, 0.03);
+            --card-hover: rgba(255, 74, 28, 0.06);
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--paper);
+        }
+
+        .logo .bracket { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--paper); }
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .hero {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 3rem 3rem;
+        }
+
+        .page-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+        }
+
+        h1 em { font-style: italic; color: var(--accent); }
+
+        .lede {
+            font-size: 1.2rem;
+            color: rgba(244, 241, 234, 0.75);
+            max-width: 720px;
+            line-height: 1.5;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .verify-note {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+        .verify-note strong { color: var(--yellow); font-weight: 500; }
+
+        /* ===== Funding calendar (signature element) ===== */
+        .calendar-section {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 3rem 2.5rem;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .calendar {
+            border: 1px solid var(--line-strong);
+            background: var(--card);
+            overflow-x: auto;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: 220px repeat(12, minmax(52px, 1fr));
+            min-width: 900px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+        }
+
+        .cal-head {
+            padding: 0.6rem 0.5rem;
+            border-bottom: 1px solid var(--line-strong);
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .cal-head.name-col { text-align: left; padding-left: 1rem; }
+        .cal-head.current { color: var(--accent); }
+
+        .cal-name {
+            padding: 0.55rem 0.5rem 0.55rem 1rem;
+            border-bottom: 1px solid var(--line);
+            color: rgba(244, 241, 234, 0.85);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cal-cell {
+            border-bottom: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+            position: relative;
+            min-height: 34px;
+        }
+        .cal-cell.now { background: rgba(255, 74, 28, 0.05); }
+        .cal-cell .bar {
+            position: absolute;
+            inset: 10px 2px;
+            background: rgba(95, 178, 79, 0.55);
+            border-radius: 1px;
+        }
+        .cal-cell .bar.varies { background: rgba(230, 176, 79, 0.5); }
+        .cal-cell .bar.rolling { background: rgba(107, 114, 128, 0.5); }
+
+        .cal-legend {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+        .cal-legend .swatch {
+            display: inline-block;
+            width: 14px;
+            height: 8px;
+            margin-right: 0.4rem;
+            vertical-align: baseline;
+        }
+
+        /* ===== Filters ===== */
+        .filters {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem 2rem;
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.5rem 0.9rem;
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--line-strong);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { color: var(--paper); border-color: var(--paper); }
+        .filter-btn.active {
+            color: var(--ink);
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* ===== Cards ===== */
+        .cards-section {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem 4rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sch-card {
+            border: 1px solid var(--line-strong);
+            background: var(--card);
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .sch-card:hover {
+            background: var(--card-hover);
+            border-color: var(--accent-dim);
+        }
+
+        .sch-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .sch-org {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .sch-name {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.35rem;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        .status-chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.55rem;
+            border: 1px solid;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .status-open { color: var(--green); border-color: var(--green); }
+        .status-soon { color: var(--yellow); border-color: var(--yellow); }
+        .status-cycle { color: var(--muted); border-color: var(--line-strong); }
+
+        .sch-facts {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 0.8rem 0;
+        }
+        .sch-facts dt {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding-top: 0.2rem;
+        }
+        .sch-facts dd { color: rgba(244, 241, 234, 0.9); }
+        .sch-facts dd.commit-service { color: var(--yellow); }
+        .sch-facts dd.commit-none { color: var(--green); }
+        .sch-facts dd.commit-paid { color: var(--green); }
+
+        .sch-blurb {
+            font-size: 0.95rem;
+            color: rgba(244, 241, 234, 0.75);
+            font-weight: 300;
+        }
+
+        .sch-take {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: rgba(244, 241, 234, 0.65);
+            border-left: 2px solid var(--accent);
+            padding-left: 0.9rem;
+        }
+        .sch-take .take-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-style: normal;
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .sch-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 2px;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        .sch-link:hover { color: var(--paper); border-color: var(--paper); }
+
+        .empty-msg {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--muted);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        /* ===== Advisor note ===== */
+        .advisor {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem 4rem;
+        }
+        .advisor-box {
+            border: 1px solid var(--line-strong);
+            border-left: 3px solid var(--accent);
+            background: var(--card);
+            padding: 2rem;
+            max-width: 900px;
+        }
+        .advisor-box h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .advisor-box h2 em { font-style: italic; color: var(--accent); }
+        .advisor-box p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(244, 241, 234, 0.8);
+            margin-bottom: 0.9rem;
+        }
+        .advisor-box p:last-child { margin-bottom: 0; }
+
+        /* ===== Section headers ===== */
+        .section-header {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 3rem 2rem;
+        }
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            letter-spacing: -0.02em;
+        }
+        .section-title em { font-style: italic; color: var(--accent); }
+        .section-sub {
+            margin-top: 0.8rem;
+            max-width: 720px;
+            color: rgba(244, 241, 234, 0.7);
+            font-weight: 300;
+        }
+
+        footer {
+            position: relative;
+            z-index: 5;
+            border-top: 1px solid var(--line);
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--paper); }
+        footer .separator { margin: 0 0.5rem; color: var(--line-strong); }
+
+        @media (max-width: 768px) {
+            nav, .hero, .calendar-section, .filters, .cards-section, .advisor, .section-header, footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; }
+        }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Cybersecurity Scholarships, Funding, and Paid Training Programs",
+  "description": "Verified cybersecurity scholarships, full-ride federal programs, tuition-free training academies, and paid apprenticeships for students entering the field.",
+  "numberOfItems": 27,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "CyberCorps: Scholarship for Service (SFS)",
+      "url": "https://sfs.opm.gov/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "DoD Cyber Service Academy (formerly CySP)",
+      "url": "https://dodcio.defense.gov/Cyber-Workforce/CSA/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "NSA Stokes Educational Scholarship",
+      "url": "https://www.intelligencecareers.gov/nsa/students-and-internships"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "DoD SMART Scholarship",
+      "url": "https://www.smartscholarship.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Undergraduate & Graduate Scholarships",
+      "url": "https://www.iamcybersafe.org/s/scholarships"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "ISACA Foundation Scholarship Program",
+      "url": "https://www.isaca.org/about-us/isaca-foundation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "ISACA Chapter Scholarships & Student Programs",
+      "url": "https://www.isaca.org/membership/local-chapters"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "ISSA Education Foundation Scholarships",
+      "url": "https://www.issaef.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "Your State's Workforce & Veteran Benefits",
+      "url": "https://www.careeronestop.org/LocalHelp/local-help.aspx"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "AFCEA Educational Foundation Scholarships",
+      "url": "https://www.afcea.org/education-fund"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "name": "Texas Hazlewood Act",
+      "url": "https://tvc.texas.gov/education/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "name": "MyCAA \u2014 Military Spouse Career Advancement",
+      "url": "https://mycaa.militaryonesource.mil/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "name": "WiCyS Security Training Scholarship",
+      "url": "https://www.wicys.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "name": "WiCyS + FS-ISAC Women in Cyber Scholarship",
+      "url": "https://www.fsisac.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "name": "SWSIS \u2014 Scholarships for Women Studying Information Security",
+      "url": "https://www.swsis.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "name": "ESET Women in Cybersecurity Scholarship",
+      "url": "https://www.eset.com/us/about/womenincyber/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "name": "Last Mile Education Fund",
+      "url": "https://www.lastmile-ed.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "name": "National Cyber Scholarship Foundation",
+      "url": "https://www.nationalcyberscholarship.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "name": "Lone Star College Foundation Scholarships",
+      "url": "https://www.lonestar.edu/scholarships.htm"
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "name": "Texas Workforce & State Funding",
+      "url": "https://www.twc.texas.gov/jobseekers"
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
+      "name": "SANS Cyber Academy",
+      "url": "https://www.sans.org/cyber-academy"
+    },
+    {
+      "@type": "ListItem",
+      "position": 22,
+      "name": "Per Scholas Houston",
+      "url": "https://perscholas.org/locations/houston/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
+      "name": "NPower Texas",
+      "url": "https://www.npower.org/locations/texas/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "name": "DoD SkillBridge",
+      "url": "https://skillbridge.osd.mil/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 25,
+      "name": "DoD Cyber Registered Apprenticeship (Cyber RAP)",
+      "url": "https://www.usajobs.gov/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "name": "Registered Apprenticeship Finder",
+      "url": "https://www.apprenticeship.gov/apprenticeship-job-finder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "name": "NICCS Internships & Apprenticeships Portal",
+      "url": "https://niccs.cisa.gov/resources/internships-apprenticeships"
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">
+            <span class="bracket">&lt;</span>CYBERROADMAP<span class="bracket">/&gt;</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/jobs.html">Jobs</a>
+            <a href="/certs.html">Certifications</a>
+            <a href="/training.html">Training</a>
+            <a href="/scholarships.html" class="active">Scholarships</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/about.html">About</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="page-label">// Scholarships &amp; funding</div>
+        <h1>Get <em>paid</em> to learn<br>this field.</h1>
+        <p class="lede">
+            Cybersecurity is one of the few fields where the government and industry will
+            cover your tuition, pay you a stipend, or hire you with zero experience and
+            train you on the clock. The catch is almost always the same: narrow application
+            windows and, for the big money, a service commitment. Both are mapped below.
+        </p>
+        <p class="verify-note">
+            Amounts and windows verified <strong>July 2026</strong>. Programs change —
+            always confirm on the official site before planning around a deadline.
+        </p>
+    </section>
+
+    <section class="calendar-section">
+        <div class="section-label">// The funding year</div>
+        <div class="calendar">
+            <div class="cal-grid" id="cal-grid"></div>
+        </div>
+        <div class="cal-legend">
+            <span><span class="swatch" style="background: rgba(95,178,79,0.55);"></span>Typical application window</span>
+            <span><span class="swatch" style="background: rgba(230,176,79,0.5);"></span>Varies by school — check yours</span>
+            <span><span class="swatch" style="background: rgba(107,114,128,0.5);"></span>Rolling / year-round</span>
+        </div>
+    </section>
+
+    <section class="section-header">
+        <div class="section-label">// Scholarship database</div>
+        <h2 class="section-title">Filter by what <em>you</em> qualify for.</h2>
+        <p class="section-sub">
+            Every entry lists the real amount, the window, and — most importantly —
+            whether you owe service afterward. That last line is the difference between
+            a scholarship and a career contract. Neither is wrong; know which one you're signing.
+        </p>
+    </section>
+
+    <div class="filters" id="filters"></div>
+
+    <section class="cards-section">
+        <div class="card-grid" id="card-grid"></div>
+        <div class="empty-msg" id="empty-msg" style="display:none;">No programs match that filter — try another.</div>
+    </section>
+
+    <section class="section-header">
+        <div class="section-label">// Fully funded training</div>
+        <h2 class="section-title">Academies where tuition is <em>$0</em>.</h2>
+        <p class="section-sub">
+            Not scholarships in the traditional sense — these are complete training programs
+            where someone else pays the entire bill, including certification exams that cost
+            thousands on the open market. Competitive admission, real commitment, zero tuition.
+        </p>
+    </section>
+
+    <section class="cards-section">
+        <div class="card-grid" id="academy-grid"></div>
+    </section>
+
+    <section class="section-header">
+        <div class="section-label">// Earn while you learn</div>
+        <h2 class="section-title">No degree? <em>No problem.</em></h2>
+        <p class="section-sub">
+            Registered apprenticeships flip the model: instead of funding school, an employer
+            pays you a salary while training you into the role. In 2025, more than 58,000
+            registered apprentices were served across tech and cybersecurity programs.
+            For career changers and community college students, this is often the fastest path in.
+        </p>
+    </section>
+
+    <section class="cards-section">
+        <div class="card-grid" id="apprentice-grid"></div>
+    </section>
+
+    <section class="advisor">
+        <div class="advisor-box">
+            <h2>A word on service commitments, <em>from the professor</em>.</h2>
+            <p>
+                Students ask me whether the federal full-ride programs are "worth it."
+                Here's how I frame it after 35 years in this field, much of it in and
+                around government work: the service commitment isn't a cost — it's a
+                guaranteed first job with a security clearance attached. A clearance is
+                worth tens of thousands of dollars in salary premium and takes a year or
+                more to get any other way. Graduating debt-free <em>with</em> a clearance
+                <em>and</em> two years of federal experience is one of the strongest
+                starting positions in this industry.
+            </p>
+            <p>
+                The honest trade-off: you give up flexibility. If you already know you
+                want a startup or a specific company, the no-strings association
+                scholarships and apprenticeships keep your options open. If you're
+                unsure where you're headed — and most students are — the service
+                programs are the best deal in American higher education right now.
+            </p>
+            <p>
+                One practical tip: the big federal programs require attending a designated
+                <a href="https://www.caecommunity.org/" style="color: var(--accent);">NCAE-C school</a>.
+                Check whether your school qualifies <em>before</em> you fall in love with a program.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            © 2026 CyberRoadmap
+            <span class="separator">/</span>
+            Houston, TX
+        </div>
+        <div>
+            <a href="mailto:hello@cyberroadmap.org">hello@cyberroadmap.org</a>
+        </div>
+    </footer>
+
+    <script>
+    // ============================================================
+    // SCHOLARSHIP DATA — edit this array to add/update programs.
+    // status: 'open' | 'soon' | 'cycle'  (cycle = closed until next round)
+    // commitment: 'service' | 'none' | 'paid'
+    // tags: 'federal','no-service','women','cc-ok','no-degree','texas','full-ride','hs'
+    // months: [start,end] 1-12 for the calendar (null = rolling)
+    // ============================================================
+    const SCHOLARSHIPS = [
+        {
+            name: "CyberCorps®: Scholarship for Service (SFS)",
+            org: "NSF / OPM / CISA",
+            amount: "Full tuition + fees, $27K/yr stipend (undergrad) or $37K/yr (grad), plus allowances",
+            window: "Apply through your participating university — most run Dec–Feb for the following fall",
+            windowMonths: [12, 2], windowType: "varies",
+            status: "cycle", statusText: "Via your school",
+            commitment: "service",
+            commitmentText: "1 year of government cyber work per year funded",
+            tags: ["federal", "full-ride"],
+            blurb: "The flagship federal program. Funds up to 3 years of undergrad or graduate study at participating universities, with paid federal internships built in and a guaranteed government placement pipeline after graduation.",
+            take: "If your school participates, this should be the first application you write. The internship placements alone open doors that take others years.",
+            url: "https://sfs.opm.gov/"
+        },
+        {
+            name: "DoD Cyber Service Academy (formerly CySP)",
+            org: "Department of Defense",
+            amount: "Full tuition, fees, books + stipend of roughly $27–34K/yr depending on level",
+            window: "Typically opens late fall, closes February — the 2026–27 window closed in February",
+            windowMonths: [11, 2], windowType: "varies",
+            status: "cycle", statusText: "Reopens ~late fall",
+            commitment: "service",
+            commitmentText: "DoD civilian service, year-for-year",
+            tags: ["federal", "full-ride"],
+            blurb: "Full ride for students at NSA/DHS-designated Centers of Academic Excellence in Cybersecurity (NCAE-C), including a paid DoD summer internship and post-graduation civilian placement inside the Department.",
+            take: "Roughly 14–20% national acceptance in recent years — competitive but very winnable with a solid application and faculty sponsor.",
+            url: "https://dodcio.defense.gov/Cyber-Workforce/CSA/"
+        },
+        {
+            name: "NSA Stokes Educational Scholarship",
+            org: "National Security Agency",
+            amount: "Up to ~$30K/yr toward tuition + a salary and paid NSA summer work",
+            window: "Applications open in September — high school seniors entering CS/cyber programs",
+            windowMonths: [9, 10], windowType: "window",
+            status: "soon", statusText: "Opens Sept",
+            commitment: "service",
+            commitmentText: "Work at NSA after graduation (1.5x the study period)",
+            tags: ["federal", "full-ride", "hs"],
+            blurb: "One of the few programs that recruits before college starts. Stokes scholars are salaried NSA employees while in school, work at the agency in summers, and walk into a cleared role on day one after graduation.",
+            take: "If you teach or mentor high school students, put this in front of them early — the September window closes before most families start thinking about financial aid.",
+            url: "https://www.intelligencecareers.gov/nsa/students-and-internships"
+        },
+        {
+            name: "DoD SMART Scholarship",
+            org: "Department of Defense",
+            amount: "Full tuition + annual stipend (roughly $30K+, scales with degree level)",
+            window: "Typically opens August 1, closes early December",
+            windowMonths: [8, 12], windowType: "window",
+            status: "soon", statusText: "Opens ~Aug 1",
+            commitment: "service",
+            commitmentText: "DoD civilian service with a sponsoring facility, year-for-year",
+            tags: ["federal", "full-ride"],
+            blurb: "STEM-wide (cybersecurity qualifies) with a twist: you're matched with a specific DoD sponsoring facility for paid internships that becomes your employer after graduation.",
+            take: "Broader than the cyber-specific programs and opens soonest on this page — a strong parallel application to SFS.",
+            url: "https://www.smartscholarship.org/"
+        },
+        {
+            name: "Undergraduate &amp; Graduate Scholarships",
+            org: "Center for Cyber Safety and Education (ISC2)",
+            amount: "Awards up to ~$5,000 — associates, undergrad, and graduate tracks",
+            window: "2026 cycle closed March 15 — typically reopens each January",
+            windowMonths: [1, 3], windowType: "window",
+            status: "cycle", statusText: "Reopens ~Jan",
+            commitment: "none",
+            commitmentText: "None — no strings attached",
+            tags: ["no-service", "cc-ok"],
+            blurb: "The philanthropic arm of ISC2 (the CISSP organization). Open to students at all levels including community college — one of the few major awards that explicitly welcomes associate-degree students.",
+            take: "Application effort-to-award ratio is excellent. My LSC students qualify for this one; most never apply.",
+            url: "https://www.iamcybersafe.org/s/scholarships"
+        },
+        {
+            name: "ISACA Foundation Scholarship Program",
+            org: "ISACA Foundation (formerly One In Tech)",
+            amount: "Awards of $500–$5,000 + Career Building Bundle incl. free ISACA student membership",
+            window: "Two cycles yearly — spring (opened late March 2026) and fall; 180+ scholarships across both",
+            windowMonths: [3, 10], windowType: "varies",
+            status: "open", statusText: "Cycles open",
+            commitment: "none",
+            commitmentText: "None — free to apply, multiple applications allowed",
+            tags: ["no-service", "cc-ok"],
+            blurb: "ISACA's philanthropic foundation has awarded $1.4M+ to 800+ students since 2022 and is offering more than 180 scholarships across its 2026 cycles. Named awards include the Digital Trust Scholarship, the Cybersecurity Month Scholarship, and a National Cyber League Games Scholarship for NCL competitors. Every recipient also gets certification prep resources and mentorship access.",
+            take: "You can apply to multiple awards with one profile, and it's free — there is no reason for an eligible student to skip this. Separately: ISACA student membership is $25/year and pays for itself in exam and course discounts almost immediately.",
+            url: "https://www.isaca.org/about-us/isaca-foundation"
+        },
+        {
+            name: "ISACA Chapter Scholarships &amp; Student Programs",
+            org: "ISACA local chapters (250+ worldwide)",
+            amount: "Varies by chapter — cash awards, free event access, exam vouchers, mentorship",
+            window: "Each chapter sets its own dates — find yours and ask",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Chapter-by-chapter",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "texas", "cc-ok"],
+            blurb: "Beyond the national foundation, local ISACA chapters run their own scholarships, student outreach, and education programs — with far smaller applicant pools than any national award. Houston-area students: the ISACA Greater Houston Chapter has active student and education programming. Everywhere else: search your nearest chapter and email their education director. They want to hear from you.",
+            take: "I serve as Deputy Director for Students and Education with ISACA Greater Houston, so I'll say it plainly: chapter boards actively look for students to support, and some years the applicants barely outnumber the awards. Show up to one meeting and introduce yourself.",
+            url: "https://www.isaca.org/membership/local-chapters"
+        },
+        {
+            name: "ISSA Education Foundation Scholarships",
+            org: "Information Systems Security Association",
+            amount: "Multiple named awards — amounts vary by scholarship",
+            window: "Annual cycle, typically closing in spring",
+            windowMonths: [2, 4], windowType: "window",
+            status: "cycle", statusText: "Next cycle ~spring",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "cc-ok"],
+            blurb: "The professional association for security practitioners funds several named scholarships for students pursuing infosec degrees. Just as valuable: ISSA offers discounted student membership, and local chapters nationwide (South Texas included) run mentorship programs, free monthly meetings with working practitioners, and their own student awards.",
+            take: "An ISSA chapter meeting is the cheapest networking in this industry — most chapters let students attend free or nearly free, and the people in that room are the ones who forward résumés.",
+            url: "https://www.issaef.org/"
+        },
+        {
+            name: "Your State's Workforce &amp; Veteran Benefits",
+            org: "All 50 states — WIOA + state programs",
+            amount: "Varies — WIOA training funds are federal and exist in every state; many states add veteran tuition benefits",
+            window: "Rolling — eligibility-based through your local American Job Center",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Open now",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "cc-ok", "no-degree", "military"],
+            blurb: "The WIOA training funds described in the Texas card aren't a Texas program — they're federal, and every state runs them through local American Job Centers. Many states also have their own version of Texas's Hazlewood Act (state veteran tuition exemptions or waivers). Two searches to run: your state + 'WIOA training' and your state + 'veteran tuition benefit'.",
+            take: "Wherever you live, there is a funded office whose entire job is paying for your training. Most people never walk in the door.",
+            url: "https://www.careeronestop.org/LocalHelp/local-help.aspx"
+        },
+        {
+            name: "AFCEA Educational Foundation Scholarships",
+            org: "AFCEA International",
+            amount: "Typically $2,500–$5,000 per award, multiple awards including veteran-focused",
+            window: "Varies by award — several cycles through the year",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Multiple cycles",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "military"],
+            blurb: "Strong fit for students with military affiliation: AFCEA runs dedicated scholarships for war veterans, ROTC cadets, and military family members pursuing STEM and cyber degrees — alongside general awards.",
+            take: "For my veteran students: stack this with your GI Bill. They're independent benefits.",
+            url: "https://www.afcea.org/education-fund"
+        },
+        {
+            name: "Texas Hazlewood Act",
+            org: "State of Texas",
+            amount: "Up to 150 credit hours of tuition exemption at Texas public colleges &amp; universities",
+            window: "Rolling — apply through your school's veterans office each semester",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Open now",
+            commitment: "none",
+            commitmentText: "None — earned through prior service",
+            tags: ["no-service", "texas", "cc-ok", "military"],
+            blurb: "Texas veterans who entered service from Texas can have up to 150 credit hours of tuition and most fees exempted at any Texas public institution — including Lone Star College. Unused hours can transfer to a child under the Legacy provision, and spouses and dependents of certain disabled or deceased veterans qualify directly.",
+            take: "The most underused benefit I see at LSC. Sequencing matters — Hazlewood interacts with Chapter 33/31 GI Bill benefits, so talk to your school's VA certifying official before deciding which to use when.",
+            url: "https://tvc.texas.gov/education/"
+        },
+        {
+            name: "MyCAA — Military Spouse Career Advancement",
+            org: "Department of Defense",
+            amount: "Up to $4,000 toward certifications, licenses, and associate degrees",
+            window: "Rolling — eligible spouses of service members in qualifying pay grades",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Open now",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "cc-ok", "no-degree", "military"],
+            blurb: "Covers portable career credentials for eligible military spouses — Security+, Network+, and other CompTIA certifications common to cyber career starts are approved uses, as are associate degree programs.",
+            url: "https://mycaa.militaryonesource.mil/"
+        },
+        {
+            name: "WiCyS Security Training Scholarship",
+            org: "Women in CyberSecurity + SANS",
+            amount: "Fully funded multi-stage SANS training + certifications (not cash)",
+            window: "Applications typically open in summer",
+            windowMonths: [6, 8], windowType: "window",
+            status: "open", statusText: "Check now",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "women", "cc-ok", "no-degree"],
+            blurb: "A training pathway rather than tuition money: selected WiCyS members progress through SANS coursework and GIAC certifications at no cost, with mentorship and a cohort community. No degree required to apply.",
+            take: "GIAC certs run $8K+ each on the open market. For career changers, this can be worth more than a tuition scholarship.",
+            url: "https://www.wicys.org/"
+        },
+        {
+            name: "WiCyS + FS-ISAC Women in Cyber Scholarship",
+            org: "FS-ISAC / WiCyS",
+            amount: "$10,000 + industry mentorship + funded summit attendance",
+            window: "Annual cycle — check WiCyS and FS-ISAC for current dates",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Check dates",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "women"],
+            blurb: "For women pursuing cybersecurity careers, with a financial-services flavor: winners receive $10,000, direct mentorship from an industry expert, and fully funded attendance at an FS-ISAC summit.",
+            url: "https://www.fsisac.com/"
+        },
+        {
+            name: "SWSIS — Scholarships for Women Studying Information Security",
+            org: "ACSA / CRA-WP",
+            amount: "$5,000–$10,000 per award",
+            window: "Typically opens in fall, closes ~February 1",
+            windowMonths: [10, 2], windowType: "window",
+            status: "cycle", statusText: "Opens ~fall",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "women"],
+            blurb: "Long-running program from the Applied Computer Security Associates for women in their junior/senior undergraduate years or master's programs in information security fields.",
+            url: "https://www.swsis.org/"
+        },
+        {
+            name: "ESET Women in Cybersecurity Scholarship",
+            org: "ESET North America",
+            amount: "$10,000",
+            window: "Annual — typically closes in March",
+            windowMonths: [1, 3], windowType: "window",
+            status: "cycle", statusText: "Reopens ~winter",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "women"],
+            blurb: "A single substantial award from the antivirus maker for women enrolled in undergraduate or graduate STEM programs with a cybersecurity focus.",
+            url: "https://www.eset.com/us/about/womenincyber/"
+        },
+        {
+            name: "Last Mile Education Fund",
+            org: "Last Mile Education Fund",
+            amount: "Rapid-response grants (emergency + completion funding, typically $500–$1,500+)",
+            window: "Rolling — apply any time",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Open now",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "cc-ok"],
+            blurb: "Not a traditional scholarship — a fund for students within a few semesters of finishing a computing degree who hit a financial wall: a broken laptop, a rent gap, an exam fee. Fast decisions, minimal paperwork.",
+            take: "I've seen more students derailed by a $600 emergency than by tuition. Bookmark this one even if you don't need it today.",
+            url: "https://www.lastmile-ed.org/"
+        },
+        {
+            name: "National Cyber Scholarship Foundation",
+            org: "NCSF + SANS",
+            amount: "$2,500–$3,000 scholarships + ~$3K in SANS training, earned via competition",
+            window: "Tied to CyberStart/competition cycles during the school year",
+            windowMonths: [10, 4], windowType: "varies",
+            status: "cycle", statusText: "Competition-based",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "hs", "cc-ok"],
+            blurb: "Earn it by playing: students who perform well in the foundation's cyber challenge competitions win scholarships and SANS training packages. Open to high school and college students — no GPA essays, just skills.",
+            take: "For students who freeze on essay applications, this flips the script: prove it in a CTF instead.",
+            url: "https://www.nationalcyberscholarship.org/"
+        },
+        {
+            name: "Lone Star College Foundation Scholarships",
+            org: "LSC Foundation",
+            amount: "Varies — hundreds of awards across programs, one application covers all",
+            window: "Priority windows each spring and fall semester",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Per semester",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "texas", "cc-ok"],
+            blurb: "LSC students: one online application puts you in the pool for every foundation scholarship you qualify for, including program-specific awards. If you're in the Cybersecurity BAT program, you're leaving money on the table if you skip this.",
+            take: "Yes, this is my program. No, that's not why it's listed — a single application for hundreds of awards is simply the best ROI on this page for LSC students.",
+            url: "https://www.lonestar.edu/scholarships.htm"
+        },
+        {
+            name: "Texas Workforce &amp; State Funding",
+            org: "Texas Workforce Commission / TX programs",
+            amount: "Varies — training grants, tuition assistance, and workforce funds",
+            window: "Rolling — eligibility-based",
+            windowMonths: null, windowType: "rolling",
+            status: "open", statusText: "Open now",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "texas", "cc-ok", "no-degree"],
+            blurb: "Texans may qualify for WIOA training funds (typically up to ~$3,000 per trainee) covering certifications and short courses through their local Workforce Solutions office — Gulf Coast for the Houston area. Harris County has also funded a multi-million-dollar free IT training initiative with NPower. Best fit: career changers and displaced workers.",
+            take: "WIOA only funds training on TWC's Eligible Training Provider List — check that your target program is on it before applying, not after.",
+            url: "https://www.twc.texas.gov/jobseekers"
+        }
+    ];
+
+    const TRAINING_ACADEMIES = [
+        {
+            name: "SANS Cyber Academy",
+            org: "SANS Institute",
+            amount: "Fully sponsored — up to three SANS courses + GIAC certification exams (a ~$25K+ retail value)",
+            window: "Four application cycles per year, ~125 seats per cohort, merit-based",
+            status: "open", statusText: "Quarterly cycles",
+            commitment: "none",
+            commitmentText: "None — but expect ~150 study hours per course",
+            tags: ["no-service", "no-degree", "military"],
+            blurb: "SANS unified its Veterans, Women's, and Diversity academies into one national program in late 2025: free, intensive, self-paced training for career changers with no cyber experience required, ending in GIAC certifications employers instantly recognize. U.S. citizens and permanent residents; selection via a timed aptitude assessment, not credentials.",
+            take: "GIAC certs are among the most expensive in the industry — this is the only realistic way most students will ever hold one. The aptitude-based admission means your CTF players and tinkerers can win seats over polished résumés.",
+            url: "https://www.sans.org/cyber-academy"
+        },
+        {
+            name: "Per Scholas Houston",
+            org: "Per Scholas (Ion District, Houston)",
+            amount: "Tuition-free 15-week cybersecurity course incl. Security+/CySA+ prep — no payment or income share, ever",
+            window: "Cohort-based — check current Houston start dates",
+            status: "open", statusText: "Cohort-based",
+            commitment: "none",
+            commitmentText: "None — grant-funded, no income-share agreement",
+            tags: ["no-service", "no-degree", "cc-ok", "texas"],
+            blurb: "National nonprofit with a Houston campus in the Ion District: hands-on security training, career coaching, and an employer network of 850+ partners locally. In-person learners must reside in Harris County. Graduates typically triple their pre-training income.",
+            take: "The 'no income share, no payment ever' model matters — several for-profit bootcamps in this market look free until you read the ISA. This one actually is.",
+            url: "https://perscholas.org/locations/houston/"
+        },
+        {
+            name: "NPower Texas",
+            org: "NPower (Houston / DFW / San Antonio)",
+            amount: "Tuition-free tech &amp; cybersecurity training with industry certifications",
+            window: "Cohort-based — serves young adults 18–26 plus veterans and military spouses",
+            status: "open", statusText: "Cohort-based",
+            commitment: "none",
+            commitmentText: "None",
+            tags: ["no-service", "no-degree", "cc-ok", "texas", "military"],
+            blurb: "Virtual-led, tuition-free training serving Harris County/Houston, DFW, and San Antonio. The Path2TECH model takes students from first course through advanced credentials, with Harris County backing a dedicated multi-million-dollar training initiative.",
+            url: "https://www.npower.org/locations/texas/"
+        }
+    ];
+
+    const APPRENTICESHIPS = [
+        {
+            name: "DoD SkillBridge",
+            org: "Department of Defense",
+            amount: "Full military pay &amp; benefits continue while you train with a civilian employer",
+            window: "Final 180 days of active-duty service — command approval required",
+            status: "open", statusText: "Open now",
+            commitment: "paid",
+            commitmentText: "You keep your active-duty pay — no GI Bill months consumed",
+            tags: ["federal", "no-degree", "military"],
+            blurb: "Transitioning service members can spend their last months of service in a civilian cybersecurity internship or training program at no cost to the employer — and without touching a single month of GI Bill entitlement. Hundreds of approved cyber and IT programs participate.",
+            take: "Important correction you'll want to know: VA's VET TEC program closed to new applicants April 1, 2026, though many websites still list it. For transitioning members, SkillBridge plus GI Bill-approved programs are now the paths that actually exist.",
+            url: "https://skillbridge.osd.mil/"
+        },
+        {
+            name: "DoD Cyber Registered Apprenticeship (Cyber RAP)",
+            org: "Department of Defense CIO",
+            amount: "Fully paid 12-month apprenticeship (~$22.6K listed salary) + sponsored security clearance",
+            window: "2026 pilot window closed July 17 after 70,000+ inquiries — watch for the next cohort",
+            status: "cycle", statusText: "Watch for next cohort",
+            commitment: "paid",
+            commitmentText: "It's a job — you're paid from day one",
+            tags: ["federal", "no-degree"],
+            blurb: "The Pentagon's new pilot trains complete beginners into entry-level cyber roles — no degree, no experience required — through online training, immersive labs, and on-the-job mentorship, while sponsoring the clearance that usually locks people out of this career path. In-person in the DC area.",
+            take: "The clearance sponsorship is the headline. This program breaks the 'no clearance without a job, no job without a clearance' catch-22 that stops so many qualified people.",
+            url: "https://www.usajobs.gov/"
+        },
+        {
+            name: "Registered Apprenticeship Finder",
+            org: "U.S. Department of Labor",
+            amount: "Paid positions — salary varies by employer and region",
+            window: "Rolling — programs recruit year-round",
+            status: "open", statusText: "Open now",
+            commitment: "paid",
+            commitmentText: "Employer-paid, earn while you learn",
+            tags: ["no-degree", "cc-ok"],
+            blurb: "The official national directory of registered apprenticeships. Cybersecurity is one of DOL's established priority sectors, and the new Tech Registered Apprenticeship Innovation Network (launched April 2026) is expanding AI and cyber programs fast. Search by occupation and ZIP code.",
+            url: "https://www.apprenticeship.gov/apprenticeship-job-finder"
+        },
+        {
+            name: "NICCS Internships &amp; Apprenticeships Portal",
+            org: "CISA",
+            amount: "Paid federal and industry internship/apprenticeship listings",
+            window: "Rolling — individual programs set their own windows",
+            status: "open", statusText: "Open now",
+            commitment: "paid",
+            commitmentText: "Paid positions",
+            tags: ["federal", "cc-ok", "no-degree"],
+            blurb: "CISA's curated directory of cybersecurity internships and apprenticeships across the federal government and industry — a good single starting point for students who want structured, paid experience before graduation.",
+            url: "https://niccs.cisa.gov/resources/internships-apprenticeships"
+        }
+    ];
+
+    // ============================================================
+    // Rendering
+    // ============================================================
+    const FILTERS = [
+        { id: 'all',        label: 'All programs' },
+        { id: 'full-ride',  label: 'Full ride + stipend' },
+        { id: 'no-service', label: 'No strings attached' },
+        { id: 'women',      label: 'Women-focused' },
+        { id: 'cc-ok',      label: 'Community college friendly' },
+        { id: 'no-degree',  label: 'No degree required' },
+        { id: 'military',   label: 'Military &amp; veterans' },
+        { id: 'texas',      label: 'Texas &amp; Houston' },
+        { id: 'federal',    label: 'Federal programs' }
+    ];
+
+    const STATUS_CLASS = { open: 'status-open', soon: 'status-soon', cycle: 'status-cycle' };
+    const COMMIT_CLASS = { service: 'commit-service', none: 'commit-none', paid: 'commit-paid' };
+    const COMMIT_LABEL = { service: 'Service owed', none: 'Service owed', paid: 'Model' };
+
+    function cardHTML(s) {
+        return `
+        <article class="sch-card" data-tags="${s.tags.join(' ')}">
+            <div class="sch-top">
+                <div>
+                    <div class="sch-org">${s.org}</div>
+                    <h3 class="sch-name">${s.name}</h3>
+                </div>
+                <span class="status-chip ${STATUS_CLASS[s.status]}">${s.statusText}</span>
+            </div>
+            <dl class="sch-facts">
+                <dt>Amount</dt><dd>${s.amount}</dd>
+                <dt>Window</dt><dd>${s.window}</dd>
+                <dt>${COMMIT_LABEL[s.commitment]}</dt>
+                <dd class="${COMMIT_CLASS[s.commitment]}">${s.commitmentText}</dd>
+            </dl>
+            <p class="sch-blurb">${s.blurb}</p>
+            ${s.take ? `<p class="sch-take"><span class="take-label">Professor's take</span>${s.take}</p>` : ''}
+            <a class="sch-link" href="${s.url}" target="_blank" rel="noopener">Official site →</a>
+        </article>`;
+    }
+
+    function render(filter) {
+        const grid = document.getElementById('card-grid');
+        const list = filter === 'all' ? SCHOLARSHIPS : SCHOLARSHIPS.filter(s => s.tags.includes(filter));
+        grid.innerHTML = list.map(cardHTML).join('');
+        document.getElementById('empty-msg').style.display = list.length ? 'none' : 'block';
+    }
+
+    // Filter buttons
+    const filterWrap = document.getElementById('filters');
+    filterWrap.innerHTML = FILTERS.map(f =>
+        `<button class="filter-btn${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}">${f.label}</button>`
+    ).join('');
+    filterWrap.addEventListener('click', e => {
+        const btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        filterWrap.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        render(btn.dataset.filter);
+    });
+
+    // Academies + apprenticeships (static — no filters)
+    document.getElementById('academy-grid').innerHTML = TRAINING_ACADEMIES.map(cardHTML).join('');
+    document.getElementById('apprentice-grid').innerHTML = APPRENTICESHIPS.map(cardHTML).join('');
+
+    // Funding-year calendar
+    (function buildCalendar() {
+        const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const nowMonth = new Date().getMonth() + 1;
+        const rows = SCHOLARSHIPS.filter(s => s.windowMonths || s.windowType === 'rolling')
+            .map(s => ({ name: s.name.replace(/&amp;/g, '&').split('—')[0].split('(')[0].trim(), m: s.windowMonths, type: s.windowType }));
+
+        let html = '<div class="cal-head name-col">Program</div>' +
+            MONTHS.map((m, i) => `<div class="cal-head${i + 1 === nowMonth ? ' current' : ''}">${m}</div>`).join('');
+
+        rows.forEach(r => {
+            html += `<div class="cal-name" title="${r.name}">${r.name}</div>`;
+            for (let m = 1; m <= 12; m++) {
+                let inWindow = false;
+                if (r.type === 'rolling') inWindow = true;
+                else if (r.m) {
+                    const [a, b] = r.m;
+                    inWindow = a <= b ? (m >= a && m <= b) : (m >= a || m <= b); // handles Dec–Feb wrap
+                }
+                const barClass = r.type === 'rolling' ? 'bar rolling' : (r.type === 'varies' ? 'bar varies' : 'bar');
+                html += `<div class="cal-cell${m === nowMonth ? ' now' : ''}">${inWindow ? `<div class="${barClass}"></div>` : ''}</div>`;
+            }
+        });
+
+        document.getElementById('cal-grid').innerHTML = html;
+    })();
+
+    render('all');
+    </script>
+
+</body>
+</html>
