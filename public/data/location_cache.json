@@ -14619,5 +14619,13 @@
  "chewsville|WA": null,
  "clear spring|WA": null,
  "clear brook|MD": null,
- "miromar lakes|FL": null
+ "miromar lakes|FL": null,
+ "lake city|FL": [
+  30.1055,
+  -82.6878
+ ],
+ "wyoming|MI": [
+  42.8977,
+  -85.7186
+ ]
 }
