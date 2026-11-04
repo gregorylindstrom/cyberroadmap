@@ -14627,5 +14627,48 @@
  "wyoming|MI": [
   42.8977,
   -85.7186
+ ],
+ "corcoran|MN": null,
+ "le mars|MA": null,
+ "marple|DE": null,
+ "the highlands|WA": null,
+ "hastings on hudson|NY": [
+  40.9878,
+  -73.863
+ ],
+ "roselle park|NJ": [
+  40.6651,
+  -74.267
+ ],
+ "waldwick|NJ": [
+  41.013,
+  -74.1243
+ ],
+ "upper montclair|NJ": null,
+ "wood ridge|NJ": [
+  40.8493,
+  -74.0878
+ ],
+ "east newark|NJ": null,
+ "scotch plains|NJ": [
+  40.6379,
+  -74.3682
+ ],
+ "guttenberg|NJ": null,
+ "colonia|NJ": [
+  40.5937,
+  -74.3164
+ ],
+ "hillside|NJ": [
+  40.6968,
+  -74.2281
+ ],
+ "tenafly|NJ": [
+  40.9216,
+  -73.9659
+ ],
+ "irvington|NJ": [
+  40.7261,
+  -74.2313
  ]
 }
