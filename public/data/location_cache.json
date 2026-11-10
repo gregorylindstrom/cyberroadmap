@@ -14716,5 +14716,26 @@
  "south portland|ME": [
   43.6318,
   -70.2709
+ ],
+ "blackstone|VA": [
+  37.0916,
+  -77.9851
+ ],
+ "emporia|VA": [
+  36.6857,
+  -77.563
+ ],
+ "white city|MO": null,
+ "enumclaw|WA": [
+  47.2665,
+  -122.0314
+ ],
+ "oakland|NY": [
+  40.7428,
+  -73.7588
+ ],
+ "garrison|NY": [
+  41.3621,
+  -73.92
  ]
 }
