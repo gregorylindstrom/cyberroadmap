@@ -14787,5 +14787,23 @@
  "echo|GA": null,
  "clarke|VA": null,
  "braden river|FL": null,
- "malone|OH": null
+ "malone|OH": null,
+ "cypress|CA": [
+  33.8181,
+  -118.0357
+ ],
+ "washington dc-metro|DC": null,
+ "belcourt|ND": [
+  48.8379,
+  -99.7688
+ ],
+ "louisiana; new york|LA": null,
+ "edinburgh|IN": [
+  39.3626,
+  -85.9707
+ ],
+ "edison|CA": [
+  35.357,
+  -118.8101
+ ]
 }
