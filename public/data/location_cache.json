@@ -14889,5 +14889,28 @@
  ],
  "mc donald|WA": null,
  "washington height|WA": null,
- "blue springs|NJ": null
+ "blue springs|NJ": null,
+ "san francisco; new york city|NY": null,
+ "los angeles; oregon; phoenix; san diego; seattle|OR": null,
+ "moorestown|NJ": [
+  39.9683,
+  -74.9533
+ ],
+ "harris|TX": null,
+ "alsip|IL": [
+  41.6721,
+  -87.7357
+ ],
+ "riverside|IL": [
+  41.8379,
+  -87.8213
+ ],
+ "pleasant ridge|MI": [
+  42.471,
+  -83.1438
+ ],
+ "willow springs|IL": [
+  41.7364,
+  -87.8786
+ ]
 }
