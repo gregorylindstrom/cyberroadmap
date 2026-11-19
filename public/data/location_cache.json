@@ -14924,5 +14924,18 @@
   -87.7089
  ],
  "washington d.c.; washington|WA": null,
- "texas remote|TX": null
+ "texas remote|TX": null,
+ "northvale|NJ": [
+  41.0086,
+  -73.9389
+ ],
+ "port huron|MI": [
+  42.9958,
+  -82.4599
+ ],
+ "massachusetts remote; new york|MA": null,
+ "von ormy|TX": [
+  29.275,
+  -98.6677
+ ]
 }
