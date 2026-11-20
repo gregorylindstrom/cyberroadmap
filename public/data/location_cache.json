@@ -14950,5 +14950,13 @@
  "south thomaston|TN": null,
  "chatham|NC": null,
  "carlisle barracks|NC": null,
- "coropolis|PA": null
+ "coropolis|PA": null,
+ "sturgeon bay|WI": [
+  44.8438,
+  -87.3753
+ ],
+ "gettysburg|PA": [
+  39.832,
+  -77.2223
+ ]
 }
