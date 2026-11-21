@@ -14967,5 +14967,13 @@
  ],
  "california; los angeles; san diego; san francisco|CA": null,
  "massachusetts remote|MA": null,
- "mc clure|GA": null
+ "mc clure|GA": null,
+ "pebble beach|CA": [
+  36.5907,
+  -121.942
+ ],
+ "wyckoff|NJ": [
+  40.9978,
+  -74.166
+ ]
 }
